@@ -774,7 +774,6 @@ classes:
       - part_org_carb
       - part_org_nitro
       - particle_class
-      - pcr_primers
       - permeability
       - perturbation
       - pesticide_regm
