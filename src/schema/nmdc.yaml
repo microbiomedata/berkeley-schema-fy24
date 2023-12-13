@@ -865,7 +865,6 @@ classes:
       - samp_transport_cond
       - samp_tvdss
       - samp_type
-      - samp_vol_we_dna_ext
       - samp_weather
       - samp_well_name
       - saturates_pc
