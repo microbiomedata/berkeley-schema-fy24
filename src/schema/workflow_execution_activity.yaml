@@ -27,12 +27,8 @@ classes:
     aliases:
       - analysis
     comments:
-<<<<<<< HEAD
       - Each instance of this (and all other) activities is  a distinct run with start and stop times, potentially with different inputs and outputs
     is_a: PlannedProcess
-=======
-      - Each instance of this (and all other) subclasses of WorkflowExecution is a distinct run with start and stop times, potentially with different inputs and outputs
->>>>>>> main
     in_subset:
       - workflow subset
     description: >-
