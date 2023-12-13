@@ -1,5 +1,14 @@
 {
     "$defs": {
+        "AcquisitionCategoryEnum": {
+            "description": "",
+            "enum": [
+                "full_scan",
+                "tandem_mass_spectrum"
+            ],
+            "title": "AcquisitionCategoryEnum",
+            "type": "string"
+        },
         "Activity": {
             "additionalProperties": false,
             "description": "Something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
@@ -46,6 +55,19 @@
             "title": "AnalysisTypeEnum",
             "type": "string"
         },
+        "AnalyteCategoryEnum": {
+            "description": "",
+            "enum": [
+                "metagenome",
+                "metatranscriptome",
+                "metaproteome",
+                "metabolome",
+                "lipidome",
+                "nom"
+            ],
+            "title": "AnalyteCategoryEnum",
+            "type": "string"
+        },
         "AnalyticalSample": {
             "additionalProperties": false,
             "description": "",
@@ -76,24 +98,6 @@
                 "id"
             ],
             "title": "AnalyticalSample",
-            "type": "object"
-        },
-        "AnonymousInstrument": {
-            "additionalProperties": false,
-            "description": "a tool, device or supplies-like thing that is used in a research setting but does not have a meaningful identifier",
-            "properties": {
-                "model": {
-                    "$ref": "#/$defs/InstrumentModelEnum"
-                },
-                "name": {
-                    "$ref": "#/$defs/DeviceEnum",
-                    "description": "A human readable label for an entity"
-                },
-                "vendor": {
-                    "$ref": "#/$defs/InstrumentVendorEnum"
-                }
-            },
-            "title": "AnonymousInstrument",
             "type": "object"
         },
         "ArchStrucEnum": {
@@ -2335,7 +2339,7 @@
                 },
                 "slope_aspect": {
                     "$ref": "#/$defs/QuantityValue",
-                    "description": "The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees). - This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration."
+                    "description": "The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees). This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration."
                 },
                 "slope_gradient": {
                     "$ref": "#/$defs/QuantityValue",
@@ -2851,69 +2855,6 @@
             "title": "BiosampleCategoryEnum",
             "type": "string"
         },
-        "BiosampleProcessing": {
-            "additionalProperties": false,
-            "description": "A process that takes one or more biosamples as inputs and generates one or more biosamples as outputs. An example of an output includes samples cultivated from another sample.",
-            "properties": {
-                "alternative_identifiers": {
-                    "description": "A list of alternative identifiers for the entity.",
-                    "items": {
-                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "description": {
-                    "description": "a human-readable description of a thing",
-                    "type": "string"
-                },
-                "designated_class": {
-                    "enum": [
-                        "nmdc:BiosampleProcessing"
-                    ],
-                    "type": "string"
-                },
-                "end_date": {
-                    "description": "The date on which any process or activity was ended",
-                    "type": "string"
-                },
-                "has_input": {
-                    "description": "An input to a process.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "has_output": {
-                    "description": "An output biosample to a processing step",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):bsmprc-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human readable label for an entity",
-                    "type": "string"
-                },
-                "protocol_link": {
-                    "$ref": "#/$defs/Protocol"
-                },
-                "start_date": {
-                    "description": "The date on which any process or activity was started",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "BiosampleProcessing",
-            "type": "object"
-        },
         "BioticRelationshipEnum": {
             "description": "",
             "enum": [
@@ -3107,6 +3048,100 @@
             "title": "ChemicalEntity",
             "type": "object"
         },
+        "ChromatographicSeparationProcess": {
+            "additionalProperties": false,
+            "description": "The process of using a selective partitioning of the analyte or interferent between two immiscible phases.",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:ChromatographicSeparationProcess"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):cspro-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "ordered_mobile_phases": {
+                    "description": "The solution(s) that moves through a chromatography column.",
+                    "items": {
+                        "$ref": "#/$defs/Solution"
+                    },
+                    "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
+                "stationary_phase": {
+                    "$ref": "#/$defs/StationaryPhaseEnum",
+                    "description": "The material the stationary phase is comprised of used in chromatography."
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ChromatographicSeparationProcess",
+            "type": "object"
+        },
         "CollectingBiosamplesFromSite": {
             "additionalProperties": false,
             "description": "",
@@ -3152,9 +3187,17 @@
                     "pattern": "^(nmdc):clsite-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
                 },
                 "protocol_link": {
                     "$ref": "#/$defs/Protocol"
@@ -3172,10 +3215,24 @@
             "title": "CollectingBiosamplesFromSite",
             "type": "object"
         },
+        "CompoundEnum": {
+            "description": "",
+            "enum": [
+                "ammonium bicarbonate",
+                "deionized water",
+                "methanol",
+                "trypsin",
+                "chloridic acid",
+                "water"
+            ],
+            "title": "CompoundEnum",
+            "type": "string"
+        },
         "ContainerCategoryEnum": {
             "description": "The permitted types of containers used in processing metabolomic samples.",
             "enum": [
-                "V-bottom conical tube"
+                "V-bottom conical tube",
+                "falcon tube"
             ],
             "title": "ContainerCategoryEnum",
             "type": "string"
@@ -3223,7 +3280,7 @@
         },
         "CreditAssociation": {
             "additionalProperties": false,
-            "description": "This class supports binding associated researchers to studies. There will be at least a slot for a CRediT Contributor Role (https://casrai.org/credit/) and for a person value Specifically see the associated researchers tab on the NMDC_SampleMetadata-V4_CommentsForUpdates at https://docs.google.com/spreadsheets/d/1INlBo5eoqn2efn4H2P2i8rwRBtnbDVTqXrochJEAPko/edit#gid=0",
+            "description": "This class supports binding associated researchers to studies.  There will be at least a slot for a CRediT Contributor Role and for a person value. Specifically see the associated researchers tab on the NMDC_SampleMetadata-V4_CommentsForUpdates  at https://docs.google.com/spreadsheets/d/1INlBo5eoqn2efn4H2P2i8rwRBtnbDVTqXrochJEAPko/edit#gid=0",
             "properties": {
                 "applied_roles": {
                     "items": {
@@ -3311,10 +3368,14 @@
             "title": "CurLandUseEnum",
             "type": "string"
         },
-        "DataGeneratingInstrument": {
+        "DataGeneration": {
             "additionalProperties": false,
-            "description": "An identified thing that is capable of generating scientific data",
+            "description": "The methods and processes used to generate omics data from a biosample or organism.",
             "properties": {
+                "add_date": {
+                    "description": "The date on which the information was added to the database.",
+                    "type": "string"
+                },
                 "alternative_identifiers": {
                     "description": "A list of alternative identifiers for the entity.",
                     "items": {
@@ -3323,30 +3384,157 @@
                     },
                     "type": "array"
                 },
+                "analyte_category": {
+                    "$ref": "#/$defs/AnalyteCategoryEnum",
+                    "description": "The type of analyte(s) that were measured in the data generation process\n"
+                },
+                "chimera_check": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Tool(s) used for chimera checking, including version number and parameters, to discover and remove chimeric sequences. A chimeric sequence is comprised of two or more phylogenetically distinct parent sequences."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
                 },
-                "id": {
-                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):inst-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                "designated_class": {
+                    "enum": [
+                        "nmdc:DataGeneration"
+                    ],
                     "type": "string"
                 },
-                "model": {
-                    "$ref": "#/$defs/InstrumentModelEnum"
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "gold_sequencing_project_identifiers": {
+                    "description": "identifiers for corresponding sequencing project in GOLD",
+                    "items": {
+                        "pattern": "^gold:Gp[0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "pattern": "^nmdc:(bsm|procsm)-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "pattern": "^nmdc:dobj-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):datgen-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "insdc_bioproject_identifiers": {
+                    "description": "identifiers for corresponding project in INSDC Bioproject",
+                    "items": {
+                        "pattern": "^bioproject:PRJ[DEN][A-Z][0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "insdc_experiment_identifiers": {
+                    "items": {
+                        "pattern": "^insdc.sra:(E|D|S)RX[0-9]{6,}$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
+                "mod_date": {
+                    "description": "The last date on which the database information was modified.",
+                    "type": "string"
                 },
                 "name": {
-                    "$ref": "#/$defs/DeviceEnum",
-                    "description": "A human readable label for an entity"
+                    "description": "A human readable label for an entity",
+                    "type": "string"
                 },
-                "vendor": {
-                    "$ref": "#/$defs/InstrumentVendorEnum"
+                "ncbi_project_name": {
+                    "type": "string"
+                },
+                "nucl_acid_amp": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids"
+                },
+                "nucl_acid_ext": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the material separation to recover the nucleic acid fraction from a sample"
+                },
+                "part_of": {
+                    "description": "Links a resource to another resource that either logically or physically includes it.",
+                    "items": {
+                        "pattern": "^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pcr_cond": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Description of reaction conditions and components of PCR in the form of 'initial denaturation:94degC_1.5min; annealing=...'"
+                },
+                "pcr_primers": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "PCR primers that were used to amplify the sequence of the targeted gene, locus or subfragment. This field should contain all the primers used for a single PCR reaction if multiple forward or reverse primers are present in a single PCR reaction. The primer sequence should be reported in uppercase letters"
+                },
+                "principal_investigator": {
+                    "$ref": "#/$defs/PersonValue",
+                    "description": "Principal Investigator who led the study and/or generated the dataset."
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "samp_vol_we_dna_ext": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "Volume (ml) or mass (g) of total collected sample processed for DNA extraction. Note: total sample collected should be entered under the term Sample Size (MIXS:0000001)."
+                },
+                "seq_meth": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Sequencing machine used. Where possible the term should be taken from the OBI list of DNA sequencers (http://purl.obolibrary.org/obo/OBI_0400103)."
+                },
+                "seq_quality_check": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA,ENA or DRA"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
+                "target_gene": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Targeted gene or locus name for marker gene studies"
+                },
+                "target_subfragment": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
+                },
+                "type": {
+                    "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
+                    "type": "string"
                 }
             },
             "required": [
+                "analyte_category",
+                "has_input",
                 "id"
             ],
-            "title": "DataGeneratingInstrument",
+            "title": "DataGeneration",
             "type": "object"
         },
         "DataObject": {
@@ -3416,7 +3604,47 @@
                 "activity_set": {
                     "description": "This property links a database object to the set of workflow activities.",
                     "items": {
-                        "$ref": "#/$defs/WorkflowExecutionActivity"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/WorkflowExecutionActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetagenomeAssembly"
+                            },
+                            {
+                                "$ref": "#/$defs/MetatranscriptomeAssembly"
+                            },
+                            {
+                                "$ref": "#/$defs/MetagenomeAnnotationActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetatranscriptomeAnnotationActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetatranscriptomeActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MagsAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetagenomeSequencingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ReadQcAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ReadBasedTaxonomyAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetabolomicsAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetaproteomicsAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/NomAnalysisActivity"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
@@ -3433,16 +3661,27 @@
                     },
                     "type": "array"
                 },
+                "data_generation_set": {
+                    "description": "This property links a database object to the set of omics processings within it.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/DataGeneration"
+                            },
+                            {
+                                "$ref": "#/$defs/NucleotideSequencing"
+                            },
+                            {
+                                "$ref": "#/$defs/MassSpectrometry"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
                 "data_object_set": {
                     "description": "This property links a database object to the set of data objects within it.",
                     "items": {
                         "$ref": "#/$defs/DataObject"
-                    },
-                    "type": "array"
-                },
-                "dissolving_activity_set": {
-                    "items": {
-                        "$ref": "#/$defs/DissolvingActivity"
                     },
                     "type": "array"
                 },
@@ -3490,18 +3729,6 @@
                     "description": "This property links a database object to the set of MAGs analysis activities.",
                     "items": {
                         "$ref": "#/$defs/MagsAnalysisActivity"
-                    },
-                    "type": "array"
-                },
-                "material_sample_set": {
-                    "items": {
-                        "$ref": "#/$defs/MaterialSample"
-                    },
-                    "type": "array"
-                },
-                "material_sampling_activity_set": {
-                    "items": {
-                        "$ref": "#/$defs/MaterialSamplingActivity"
                     },
                     "type": "array"
                 },
@@ -3554,13 +3781,6 @@
                     },
                     "type": "array"
                 },
-                "omics_processing_set": {
-                    "description": "This property links a database object to the set of omics processings within it.",
-                    "items": {
-                        "$ref": "#/$defs/OmicsProcessing"
-                    },
-                    "type": "array"
-                },
                 "planned_process_set": {
                     "description": "This property links a database object to the set of planned processes within it.",
                     "items": {
@@ -3569,7 +3789,64 @@
                                 "$ref": "#/$defs/CollectingBiosamplesFromSite"
                             },
                             {
-                                "$ref": "#/$defs/BiosampleProcessing"
+                                "$ref": "#/$defs/MaterialProcessing"
+                            },
+                            {
+                                "$ref": "#/$defs/DataGeneration"
+                            },
+                            {
+                                "$ref": "#/$defs/WorkflowExecutionActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetagenomeAssembly"
+                            },
+                            {
+                                "$ref": "#/$defs/MetatranscriptomeAssembly"
+                            },
+                            {
+                                "$ref": "#/$defs/MetagenomeAnnotationActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetatranscriptomeAnnotationActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetatranscriptomeActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MagsAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetagenomeSequencingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ReadQcAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ReadBasedTaxonomyAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetabolomicsAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MetaproteomicsAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/NomAnalysisActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/NucleotideSequencing"
+                            },
+                            {
+                                "$ref": "#/$defs/MassSpectrometry"
+                            },
+                            {
+                                "$ref": "#/$defs/Pooling"
+                            },
+                            {
+                                "$ref": "#/$defs/Extraction"
+                            },
+                            {
+                                "$ref": "#/$defs/LibraryPreparation"
                             },
                             {
                                 "$ref": "#/$defs/SubSamplingProcess"
@@ -3581,16 +3858,7 @@
                                 "$ref": "#/$defs/FiltrationProcess"
                             },
                             {
-                                "$ref": "#/$defs/OmicsProcessing"
-                            },
-                            {
-                                "$ref": "#/$defs/Pooling"
-                            },
-                            {
-                                "$ref": "#/$defs/Extraction"
-                            },
-                            {
-                                "$ref": "#/$defs/LibraryPreparation"
+                                "$ref": "#/$defs/ChromatographicSeparationProcess"
                             }
                         ]
                     },
@@ -3606,12 +3874,6 @@
                     "description": "This property links a database object to the set of processed samples within it.",
                     "items": {
                         "$ref": "#/$defs/ProcessedSample"
-                    },
-                    "type": "array"
-                },
-                "reaction_activity_set": {
-                    "items": {
-                        "$ref": "#/$defs/ReactionActivity"
                     },
                     "type": "array"
                 },
@@ -3675,38 +3937,6 @@
             ],
             "title": "DeviceEnum",
             "type": "string"
-        },
-        "DeviceTypeEnum": {
-            "description": "",
-            "enum": [
-                "orbital_shaker",
-                "thermomixer"
-            ],
-            "title": "DeviceTypeEnum",
-            "type": "string"
-        },
-        "DissolvingActivity": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "dissolution_reagent": {
-                    "$ref": "#/$defs/SolventEnum"
-                },
-                "dissolution_volume": {
-                    "$ref": "#/$defs/QuantityValue"
-                },
-                "dissolved_in": {
-                    "$ref": "#/$defs/MaterialContainer"
-                },
-                "material_input": {
-                    "type": "string"
-                },
-                "material_output": {
-                    "type": "string"
-                }
-            },
-            "title": "DissolvingActivity",
-            "type": "object"
         },
         "DnaSampleFormatEnum": {
             "description": "",
@@ -4033,8 +4263,12 @@
                     "description": "The date on which any process or activity was ended",
                     "type": "string"
                 },
+                "extractant": {
+                    "$ref": "#/$defs/Solution",
+                    "description": "The active component(s) primarily responsible for transfer of a solute from one phase to the other."
+                },
                 "extraction_method": {
-                    "type": "string"
+                    "$ref": "#/$defs/ExtractionTargetEnum"
                 },
                 "extraction_target": {
                     "$ref": "#/$defs/ExtractionTargetEnum"
@@ -4042,6 +4276,14 @@
                 "has_input": {
                     "description": "An input to a process.",
                     "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
                         "type": "string"
                     },
                     "type": "array"
@@ -4061,6 +4303,10 @@
                 "input_mass": {
                     "$ref": "#/$defs/QuantityValue",
                     "description": "Total mass of sample used in activity."
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human readable label for an entity",
@@ -4082,7 +4328,6 @@
                 }
             },
             "required": [
-                "has_input",
                 "has_output",
                 "id"
             ],
@@ -4095,7 +4340,8 @@
                 "DNA",
                 "RNA",
                 "metabolite",
-                "protein"
+                "protein",
+                "phenol/chloroform extraction"
             ],
             "title": "ExtractionTargetEnum",
             "type": "string"
@@ -4269,7 +4515,8 @@
                 "SMART Annotation GFF",
                 "Pfam Annotation GFF",
                 "Annotation Statistics",
-                "Direct Infusion FT ICR-MS Raw Data"
+                "Direct Infusion FT ICR-MS Raw Data",
+                "LC-DDA-MS/MS Raw Data"
             ],
             "title": "FileTypeEnum",
             "type": "string"
@@ -4339,6 +4586,14 @@
                 "has_input": {
                     "description": "An input to a process.",
                     "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
                         "type": "string"
                     },
                     "type": "array"
@@ -4352,15 +4607,12 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                    "pattern": "^(nmdc):filtpr-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
-                "instrument_used": {
-                    "description": "The device or tool that performed or aided in performing a process.",
-                    "items": {
-                        "$ref": "#/$defs/AnonymousInstrument"
-                    },
-                    "type": "array"
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
                 },
                 "is_pressurized": {
                     "description": "Whether or not pressure was applied to a thing or process.",
@@ -4369,6 +4621,10 @@
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
                 },
                 "protocol_link": {
                     "$ref": "#/$defs/Protocol"
@@ -4758,7 +5014,7 @@
                 },
                 "display_order": {
                     "description": "When rendering information, this attribute to specify the order in which the information should be rendered.",
-                    "type": "string"
+                    "type": "integer"
                 },
                 "has_raw_value": {
                     "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
@@ -4895,6 +5151,14 @@
                 "has_input": {
                     "description": "An input to a process.",
                     "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
                         "type": "string"
                     },
                     "type": "array"
@@ -4909,6 +5173,10 @@
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
                     "pattern": "^(nmdc):libprp-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
                     "type": "string"
                 },
                 "library_preparation_kit": {
@@ -4937,7 +5205,6 @@
                 }
             },
             "required": [
-                "has_input",
                 "has_output",
                 "id"
             ],
@@ -5044,7 +5311,7 @@
                     "type": "integer"
                 },
                 "total_bases": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "type": {
                     "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
@@ -5058,8 +5325,30 @@
             "additionalProperties": false,
             "description": "A workflow execution activity that uses computational binning tools to group assembled contigs into genomes",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "binned_contig_num": {
                     "type": "integer"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MagsAnalysisActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
                 },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5093,6 +5382,10 @@
                 "input_contig_num": {
                     "type": "integer"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "low_depth_contig_num": {
                     "type": "integer"
                 },
@@ -5112,6 +5405,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5139,36 +5443,197 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "MagsAnalysisActivity",
             "type": "object"
         },
-        "MaterialContainer": {
+        "MassSpectrometry": {
             "additionalProperties": false,
-            "description": "",
+            "description": "Spectrometry where the sample is converted into gaseous ions which are characterised by their mass-to-charge ratio and relative abundance.",
             "properties": {
-                "contained_in": {
-                    "$ref": "#/$defs/ContainerCategoryEnum",
-                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                "acquisition_category": {
+                    "$ref": "#/$defs/AcquisitionCategoryEnum",
+                    "description": "Captures which type of acquisition category was on a mass spectrometry run."
                 },
-                "container_size": {
+                "add_date": {
+                    "description": "The date on which the information was added to the database.",
+                    "type": "string"
+                },
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "analyte_category": {
+                    "$ref": "#/$defs/AnalyteCategoryEnum",
+                    "description": "The type of analyte(s) that were measured in the data generation process\n"
+                },
+                "chimera_check": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Tool(s) used for chimera checking, including version number and parameters, to discover and remove chimeric sequences. A chimeric sequence is comprised of two or more phylogenetically distinct parent sequences."
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MassSpectrometry"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "gold_sequencing_project_identifiers": {
+                    "description": "identifiers for corresponding sequencing project in GOLD",
+                    "items": {
+                        "pattern": "^gold:Gp[0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "pattern": "^nmdc:(bsm|procsm)-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "pattern": "^nmdc:dobj-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):dgms-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "insdc_bioproject_identifiers": {
+                    "description": "identifiers for corresponding project in INSDC Bioproject",
+                    "items": {
+                        "pattern": "^bioproject:PRJ[DEN][A-Z][0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "insdc_experiment_identifiers": {
+                    "items": {
+                        "pattern": "^insdc.sra:(E|D|S)RX[0-9]{6,}$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
+                "mod_date": {
+                    "description": "The last date on which the database information was modified.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "ncbi_project_name": {
+                    "type": "string"
+                },
+                "nucl_acid_amp": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids"
+                },
+                "nucl_acid_ext": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the material separation to recover the nucleic acid fraction from a sample"
+                },
+                "part_of": {
+                    "description": "Links a resource to another resource that either logically or physically includes it.",
+                    "items": {
+                        "pattern": "^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pcr_cond": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Description of reaction conditions and components of PCR in the form of 'initial denaturation:94degC_1.5min; annealing=...'"
+                },
+                "pcr_primers": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "PCR primers that were used to amplify the sequence of the targeted gene, locus or subfragment. This field should contain all the primers used for a single PCR reaction if multiple forward or reverse primers are present in a single PCR reaction. The primer sequence should be reported in uppercase letters"
+                },
+                "principal_investigator": {
+                    "$ref": "#/$defs/PersonValue",
+                    "description": "Principal Investigator who led the study and/or generated the dataset."
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "resolution_category": {
+                    "$ref": "#/$defs/ResolutionCategoryEnum",
+                    "description": "Captures the resolution of the  mass spectrometry run."
+                },
+                "samp_vol_we_dna_ext": {
                     "$ref": "#/$defs/QuantityValue",
-                    "description": "The volume of the container an analyte is stored in or an activity takes place in"
+                    "description": "Volume (ml) or mass (g) of total collected sample processed for DNA extraction. Note: total sample collected should be entered under the term Sample Size (MIXS:0000001)."
+                },
+                "seq_meth": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Sequencing machine used. Where possible the term should be taken from the OBI list of DNA sequencers (http://purl.obolibrary.org/obo/OBI_0400103)."
+                },
+                "seq_quality_check": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA,ENA or DRA"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
+                "target_gene": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Targeted gene or locus name for marker gene studies"
+                },
+                "target_subfragment": {
+                    "$ref": "#/$defs/TextValue",
+                    "description": "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
+                },
+                "type": {
+                    "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
+                    "type": "string"
                 }
             },
-            "title": "MaterialContainer",
+            "required": [
+                "analyte_category",
+                "has_input",
+                "id"
+            ],
+            "title": "MassSpectrometry",
             "type": "object"
         },
-        "MaterialSample": {
+        "MaterialProcessing": {
             "additionalProperties": false,
-            "description": "",
+            "description": "A process that takes one or more samples as inputs and generates one or more samples as outputs.",
             "properties": {
                 "alternative_identifiers": {
                     "description": "A list of alternative identifiers for the entity.",
@@ -5182,40 +5647,67 @@
                     "description": "a human-readable description of a thing",
                     "type": "string"
                 },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MaterialProcessing"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):matsm-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "pattern": "^(nmdc):matprc-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
                     "type": "string"
                 },
                 "name": {
                     "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
                     "type": "string"
                 }
             },
             "required": [
                 "id"
             ],
-            "title": "MaterialSample",
-            "type": "object"
-        },
-        "MaterialSamplingActivity": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "amount_collected": {
-                    "$ref": "#/$defs/QuantityValue"
-                },
-                "collected_into": {
-                    "$ref": "#/$defs/MaterialContainer"
-                },
-                "material_output": {
-                    "type": "string"
-                },
-                "sampling_method": {
-                    "$ref": "#/$defs/SamplingMethodEnum"
-                }
-            },
-            "title": "MaterialSamplingActivity",
+            "title": "MaterialProcessing",
             "type": "object"
         },
         "MechStrucEnum": {
@@ -5261,6 +5753,28 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetabolomicsAnalysisActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5300,6 +5814,10 @@
                     "pattern": "^(nmdc):wfmb-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5310,6 +5828,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5330,14 +5859,14 @@
                 }
             },
             "required": [
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
                 "has_output",
-                "type",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "type"
             ],
             "title": "MetabolomicsAnalysisActivity",
             "type": "object"
@@ -5346,6 +5875,28 @@
             "additionalProperties": false,
             "description": "A workflow execution activity that provides functional and structural annotation of assembled metagenome contigs",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetagenomeAnnotationActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5383,6 +5934,10 @@
                     "pattern": "^(nmdc):wfmgan-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5393,6 +5948,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5414,13 +5980,13 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "MetagenomeAnnotationActivity",
             "type": "object"
@@ -5429,6 +5995,14 @@
             "additionalProperties": false,
             "description": "A workflow execution activity that converts sequencing reads into an assembled metagenome.",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "asm_score": {
                     "description": "A score for comparing metagenomic assembly quality from same sample.",
                     "type": "number"
@@ -5468,6 +6042,20 @@
                 "ctg_powsum": {
                     "description": "Powersum of all contigs is the same as logsum except that it uses the sum of (length*(length^P)) for some power P (default P=0.25).",
                     "type": "number"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetagenomeAssembly"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
                 },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5514,6 +6102,10 @@
                     "pattern": "^insdc.sra:[A-Z]+[0-9]+(\\.[0-9]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5532,6 +6124,13 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
                 },
                 "scaf_bp": {
                     "description": "Total size in bp of all scaffolds.",
@@ -5581,6 +6180,10 @@
                     "description": "Total sequence count of all scaffolds.",
                     "type": "number"
                 },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5601,13 +6204,13 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "MetagenomeAssembly",
             "type": "object"
@@ -5616,6 +6219,28 @@
             "additionalProperties": false,
             "description": "Initial sequencing activity that precedes any analysis.  This activity has output(s) that are the raw sequencing data.",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetagenomeSequencingActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5645,6 +6270,10 @@
                     "pattern": "^(nmdc):wfmsa-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5655,6 +6284,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5675,14 +6315,14 @@
                 }
             },
             "required": [
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
                 "has_output",
-                "type",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "type"
             ],
             "title": "MetagenomeSequencingActivity",
             "type": "object"
@@ -5691,6 +6331,28 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetaproteomicsAnalysisActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5726,6 +6388,10 @@
                     "pattern": "^(nmdc):wfmp-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5736,6 +6402,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5757,14 +6434,14 @@
                 }
             },
             "required": [
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
                 "has_output",
-                "type",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "type"
             ],
             "title": "MetaproteomicsAnalysisActivity",
             "type": "object"
@@ -5773,6 +6450,28 @@
             "additionalProperties": false,
             "description": "A metatranscriptome activity that e.g. pools assembly and annotation activity.",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetatranscriptomeActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5802,6 +6501,10 @@
                     "pattern": "^(nmdc):wfmt-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5812,6 +6515,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5833,13 +6547,13 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "MetatranscriptomeActivity",
             "type": "object"
@@ -5848,6 +6562,28 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetatranscriptomeAnnotationActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -5885,6 +6621,10 @@
                     "pattern": "^(nmdc):wfmtan-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -5895,6 +6635,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -5916,13 +6667,13 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "MetatranscriptomeAnnotationActivity",
             "type": "object"
@@ -5931,6 +6682,14 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "asm_score": {
                     "description": "A score for comparing metagenomic assembly quality from same sample.",
                     "type": "number"
@@ -5970,6 +6729,20 @@
                 "ctg_powsum": {
                     "description": "Powersum of all contigs is the same as logsum except that it uses the sum of (length*(length^P)) for some power P (default P=0.25).",
                     "type": "number"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:MetatranscriptomeAssembly"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
                 },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -6016,6 +6789,10 @@
                     "pattern": "^insdc.sra:[A-Z]+[0-9]+(\\.[0-9]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -6034,6 +6811,13 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
                 },
                 "scaf_bp": {
                     "description": "Total size in bp of all scaffolds.",
@@ -6083,6 +6867,10 @@
                     "description": "Total sequence count of all scaffolds.",
                     "type": "number"
                 },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -6102,14 +6890,14 @@
                 }
             },
             "required": [
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
                 "has_output",
-                "type",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "type"
             ],
             "title": "MetatranscriptomeAssembly",
             "type": "object"
@@ -6168,19 +6956,20 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                    "pattern": "^(nmdc):mixpro-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
-                "instrument_used": {
-                    "description": "The device or tool that performed or aided in performing a process.",
-                    "items": {
-                        "$ref": "#/$defs/AnonymousInstrument"
-                    },
-                    "type": "array"
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
                 },
                 "protocol_link": {
                     "$ref": "#/$defs/Protocol"
@@ -6200,6 +6989,28 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:NomAnalysisActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -6233,6 +7044,10 @@
                     "pattern": "^(nmdc):wfnom-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -6243,6 +7058,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -6264,32 +7090,21 @@
                 }
             },
             "required": [
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
                 "has_output",
-                "type",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "type"
             ],
             "title": "NomAnalysisActivity",
             "type": "object"
         },
-        "OccupDocumentEnum": {
-            "description": "",
-            "enum": [
-                "automated count",
-                "estimate",
-                "manual count",
-                "videos"
-            ],
-            "title": "OccupDocumentEnum",
-            "type": "string"
-        },
-        "OmicsProcessing": {
+        "NucleotideSequencing": {
             "additionalProperties": false,
-            "description": "The methods and processes used to generate omics data from a biosample or organism.",
+            "description": "A DataGeneration in which the sequence of DNA or RNA molecules is generated.",
             "properties": {
                 "add_date": {
                     "description": "The date on which the information was added to the database.",
@@ -6303,6 +7118,10 @@
                     },
                     "type": "array"
                 },
+                "analyte_category": {
+                    "$ref": "#/$defs/AnalyteCategoryEnum",
+                    "description": "The type of analyte(s) that were measured in the data generation process\n"
+                },
                 "chimera_check": {
                     "$ref": "#/$defs/TextValue",
                     "description": "Tool(s) used for chimera checking, including version number and parameters, to discover and remove chimeric sequences. A chimeric sequence is comprised of two or more phylogenetically distinct parent sequences."
@@ -6313,7 +7132,7 @@
                 },
                 "designated_class": {
                     "enum": [
-                        "nmdc:OmicsProcessing"
+                        "nmdc:NucleotideSequencing"
                     ],
                     "type": "string"
                 },
@@ -6347,7 +7166,7 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):omprc-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "pattern": "^(nmdc):dgns-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
                 "insdc_bioproject_identifiers": {
@@ -6387,10 +7206,6 @@
                 "nucl_acid_ext": {
                     "$ref": "#/$defs/TextValue",
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the material separation to recover the nucleic acid fraction from a sample"
-                },
-                "omics_type": {
-                    "$ref": "#/$defs/ControlledTermValue",
-                    "description": "The type of omics data"
                 },
                 "part_of": {
                     "description": "Links a resource to another resource that either logically or physically includes it.",
@@ -6449,11 +7264,23 @@
                 }
             },
             "required": [
+                "analyte_category",
                 "has_input",
                 "id"
             ],
-            "title": "OmicsProcessing",
+            "title": "NucleotideSequencing",
             "type": "object"
+        },
+        "OccupDocumentEnum": {
+            "description": "",
+            "enum": [
+                "automated count",
+                "estimate",
+                "manual count",
+                "videos"
+            ],
+            "title": "OccupDocumentEnum",
+            "type": "string"
         },
         "OntologyClass": {
             "additionalProperties": false,
@@ -6752,9 +7579,17 @@
                     "pattern": "^(nmdc):poolp-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
                 },
                 "protocol_link": {
                     "$ref": "#/$defs/Protocol"
@@ -7017,26 +7852,6 @@
             "title": "Reaction",
             "type": "object"
         },
-        "ReactionActivity": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "material_input": {
-                    "type": "string"
-                },
-                "material_output": {
-                    "type": "string"
-                },
-                "reaction_temperature": {
-                    "type": "string"
-                },
-                "reaction_time": {
-                    "$ref": "#/$defs/QuantityValue"
-                }
-            },
-            "title": "ReactionActivity",
-            "type": "object"
-        },
         "ReactionParticipant": {
             "additionalProperties": false,
             "description": "Instances of this link a reaction to a chemical entity participant",
@@ -7057,6 +7872,28 @@
             "additionalProperties": false,
             "description": "A workflow execution activity that performs taxonomy classification using sequencing reads",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:ReadBasedTaxonomyAnalysisActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -7086,6 +7923,10 @@
                     "pattern": "^(nmdc):wfrbt-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -7096,6 +7937,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -7117,13 +7969,13 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "ReadBasedTaxonomyAnalysisActivity",
             "type": "object"
@@ -7132,6 +7984,28 @@
             "additionalProperties": false,
             "description": "A workflow execution activity that performs quality control on raw Illumina reads including quality trimming, artifact removal, linker trimming, adapter trimming, spike-in removal, and human/cat/dog/mouse/microbe contaminant removal",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:ReadQcAnalysisActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -7173,6 +8047,10 @@
                     "description": "The sequence count number of input reads for QC analysis.",
                     "type": "number"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -7196,6 +8074,17 @@
                     },
                     "type": "array"
                 },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -7216,13 +8105,13 @@
             },
             "required": [
                 "type",
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
-                "has_output",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "has_output"
             ],
             "title": "ReadQcAnalysisActivity",
             "type": "object"
@@ -7235,6 +8124,15 @@
                 "under a seat"
             ],
             "title": "RelSampLocEnum",
+            "type": "string"
+        },
+        "ResolutionCategoryEnum": {
+            "description": "",
+            "enum": [
+                "high",
+                "low"
+            ],
+            "title": "ResolutionCategoryEnum",
             "type": "string"
         },
         "RnaSampleFormatEnum": {
@@ -7444,14 +8342,6 @@
             "title": "SampleTypeEnum",
             "type": "string"
         },
-        "SamplingMethodEnum": {
-            "description": "",
-            "enum": [
-                "weighing"
-            ],
-            "title": "SamplingMethodEnum",
-            "type": "string"
-        },
         "SeasonUseEnum": {
             "description": "",
             "enum": [
@@ -7528,15 +8418,47 @@
             "title": "SoilHorizonEnum",
             "type": "string"
         },
-        "SolventEnum": {
-            "description": "",
-            "enum": [
-                "deionized_water",
-                "methanol",
-                "chloroform"
+        "Solution": {
+            "additionalProperties": false,
+            "description": "A mixture that is homogeneous, made up of two or more scattered molecular aggregates, one playing the role of solute and the other playing the role of solvent.",
+            "properties": {
+                "has_solution_components": {
+                    "description": "Relationship from a Solution to one or more constituent solution components",
+                    "items": {
+                        "$ref": "#/$defs/SolutionComponent"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "volume": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The volume of a substance."
+                }
+            },
+            "required": [
+                "has_solution_components"
             ],
-            "title": "SolventEnum",
-            "type": "string"
+            "title": "Solution",
+            "type": "object"
+        },
+        "SolutionComponent": {
+            "additionalProperties": false,
+            "description": "One constituent of a solution",
+            "properties": {
+                "compound": {
+                    "$ref": "#/$defs/CompoundEnum",
+                    "description": "A substance that consists of more than one atom or ion. Includes solvents and solutes. Can be combined into solutions."
+                },
+                "concentration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The concentration of a substance used in a process"
+                }
+            },
+            "required": [
+                "compound"
+            ],
+            "title": "SolutionComponent",
+            "type": "object"
         },
         "SpecificEnum": {
             "description": "",
@@ -7610,6 +8532,35 @@
                 "other"
             ],
             "title": "SrLithologyEnum",
+            "type": "string"
+        },
+        "StationaryPhaseEnum": {
+            "description": "The type of stationary phase used in a solid phase extraction process.",
+            "enum": [
+                "C18",
+                "C8",
+                "C4",
+                "C2",
+                "C1",
+                "C30",
+                "C60",
+                "CNT",
+                "CN",
+                "Diol",
+                "HILIC",
+                "NH2",
+                "Phenyl",
+                "PS-DVB",
+                "SAX",
+                "SCX",
+                "Silica",
+                "WCX",
+                "WAX",
+                "ZIC-HILIC",
+                "ZIC-pHILIC",
+                "ZIC-cHILIC"
+            ],
+            "title": "StationaryPhaseEnum",
             "type": "string"
         },
         "StatusEnum": {
@@ -7894,7 +8845,11 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                    "pattern": "^(nmdc):subspr-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
                     "type": "string"
                 },
                 "mass": {
@@ -7904,6 +8859,10 @@
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
                 },
                 "protocol_link": {
                     "$ref": "#/$defs/Protocol"
@@ -8279,6 +9238,28 @@
             "additionalProperties": false,
             "description": "Represents an instance of an execution of a particular workflow",
             "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:WorkflowExecutionActivity"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
                 "ended_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
                     "type": "string"
@@ -8308,6 +9289,10 @@
                     "pattern": "^(nmdc):wf-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
+                "instrument_name": {
+                    "description": "The name of the instrument that was used for processing the sample.",
+                    "type": "string"
+                },
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
@@ -8318,6 +9303,17 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
                 },
                 "started_at_time": {
                     "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
@@ -8338,14 +9334,14 @@
                 }
             },
             "required": [
+                "id",
+                "started_at_time",
+                "ended_at_time",
                 "execution_resource",
                 "git_url",
                 "has_input",
                 "has_output",
-                "type",
-                "id",
-                "started_at_time",
-                "ended_at_time"
+                "type"
             ],
             "title": "WorkflowExecutionActivity",
             "type": "object"
@@ -8369,7 +9365,47 @@
         "activity_set": {
             "description": "This property links a database object to the set of workflow activities.",
             "items": {
-                "$ref": "#/$defs/WorkflowExecutionActivity"
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/WorkflowExecutionActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetagenomeAssembly"
+                    },
+                    {
+                        "$ref": "#/$defs/MetatranscriptomeAssembly"
+                    },
+                    {
+                        "$ref": "#/$defs/MetagenomeAnnotationActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetatranscriptomeAnnotationActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetatranscriptomeActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MagsAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetagenomeSequencingActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/ReadQcAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/ReadBasedTaxonomyAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetabolomicsAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetaproteomicsAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/NomAnalysisActivity"
+                    }
+                ]
             },
             "type": "array"
         },
@@ -8386,16 +9422,27 @@
             },
             "type": "array"
         },
+        "data_generation_set": {
+            "description": "This property links a database object to the set of omics processings within it.",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/DataGeneration"
+                    },
+                    {
+                        "$ref": "#/$defs/NucleotideSequencing"
+                    },
+                    {
+                        "$ref": "#/$defs/MassSpectrometry"
+                    }
+                ]
+            },
+            "type": "array"
+        },
         "data_object_set": {
             "description": "This property links a database object to the set of data objects within it.",
             "items": {
                 "$ref": "#/$defs/DataObject"
-            },
-            "type": "array"
-        },
-        "dissolving_activity_set": {
-            "items": {
-                "$ref": "#/$defs/DissolvingActivity"
             },
             "type": "array"
         },
@@ -8443,18 +9490,6 @@
             "description": "This property links a database object to the set of MAGs analysis activities.",
             "items": {
                 "$ref": "#/$defs/MagsAnalysisActivity"
-            },
-            "type": "array"
-        },
-        "material_sample_set": {
-            "items": {
-                "$ref": "#/$defs/MaterialSample"
-            },
-            "type": "array"
-        },
-        "material_sampling_activity_set": {
-            "items": {
-                "$ref": "#/$defs/MaterialSamplingActivity"
             },
             "type": "array"
         },
@@ -8507,13 +9542,6 @@
             },
             "type": "array"
         },
-        "omics_processing_set": {
-            "description": "This property links a database object to the set of omics processings within it.",
-            "items": {
-                "$ref": "#/$defs/OmicsProcessing"
-            },
-            "type": "array"
-        },
         "planned_process_set": {
             "description": "This property links a database object to the set of planned processes within it.",
             "items": {
@@ -8522,7 +9550,64 @@
                         "$ref": "#/$defs/CollectingBiosamplesFromSite"
                     },
                     {
-                        "$ref": "#/$defs/BiosampleProcessing"
+                        "$ref": "#/$defs/MaterialProcessing"
+                    },
+                    {
+                        "$ref": "#/$defs/DataGeneration"
+                    },
+                    {
+                        "$ref": "#/$defs/WorkflowExecutionActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetagenomeAssembly"
+                    },
+                    {
+                        "$ref": "#/$defs/MetatranscriptomeAssembly"
+                    },
+                    {
+                        "$ref": "#/$defs/MetagenomeAnnotationActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetatranscriptomeAnnotationActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetatranscriptomeActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MagsAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetagenomeSequencingActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/ReadQcAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/ReadBasedTaxonomyAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetabolomicsAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/MetaproteomicsAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/NomAnalysisActivity"
+                    },
+                    {
+                        "$ref": "#/$defs/NucleotideSequencing"
+                    },
+                    {
+                        "$ref": "#/$defs/MassSpectrometry"
+                    },
+                    {
+                        "$ref": "#/$defs/Pooling"
+                    },
+                    {
+                        "$ref": "#/$defs/Extraction"
+                    },
+                    {
+                        "$ref": "#/$defs/LibraryPreparation"
                     },
                     {
                         "$ref": "#/$defs/SubSamplingProcess"
@@ -8534,16 +9619,7 @@
                         "$ref": "#/$defs/FiltrationProcess"
                     },
                     {
-                        "$ref": "#/$defs/OmicsProcessing"
-                    },
-                    {
-                        "$ref": "#/$defs/Pooling"
-                    },
-                    {
-                        "$ref": "#/$defs/Extraction"
-                    },
-                    {
-                        "$ref": "#/$defs/LibraryPreparation"
+                        "$ref": "#/$defs/ChromatographicSeparationProcess"
                     }
                 ]
             },
@@ -8559,12 +9635,6 @@
             "description": "This property links a database object to the set of processed samples within it.",
             "items": {
                 "$ref": "#/$defs/ProcessedSample"
-            },
-            "type": "array"
-        },
-        "reaction_activity_set": {
-            "items": {
-                "$ref": "#/$defs/ReactionActivity"
             },
             "type": "array"
         },
