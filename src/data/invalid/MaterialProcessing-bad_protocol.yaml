@@ -1,0 +1,21 @@
+MaterialProcessing:
+    is_a: PlannedProcess
+    description:
+      A process that takes one or more samples as inputs and generates
+      one or more samples as outputs. 
+    slots:
+      - has_input
+    notes: 
+      - This class is a replacement for BiosampleProcessing.
+    slot_usage:
+      id:
+        required: true
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:matprc-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          interpolated: true
+      has_input:
+        any_of:
+          - range: Biosample
+          - range: ProcessedSample
+      has_output:
+        range: ProcessedSample
