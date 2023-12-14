@@ -1794,7 +1794,7 @@
       },
       "mech_struc": {
          "@context": {
-            "@vocab": "@null",
+       metabolomics_analysis_set
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"

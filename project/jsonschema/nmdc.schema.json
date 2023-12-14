@@ -3651,8 +3651,7 @@
                 "Transitional - Tidal",
                 "Transitional - Lagoonal",
                 "Transitional - Beach",
-                "Transitional - Lake",
-                "Marine - Shallow",
+                "metabolomics_analysis_set"Marine - Shallow",
                 "Marine - Deep",
                 "Marine - Reef",
                 "Other - Evaporite",
@@ -8589,4 +8588,4 @@
 "title": "NMDC",
 "type": "object",
 "version": "v9.2.0"
-}MagsAnalysisMagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptomeMetatranscriptomemags_set
+}MagsAnalysisMagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptomeMetatranscriptomemags_setmetabolomics_analysis_set

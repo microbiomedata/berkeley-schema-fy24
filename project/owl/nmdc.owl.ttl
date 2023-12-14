@@ -13030,9 +13030,9 @@ nmdc:unit a owl:Class,
 <https://w3id.org/mixs/weekday> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "weekday" ;
-    dcterms:title "weekday" ;
+    dmetabolomics_analysis_set
     rdfs:range nmdc:WeekdayEnum ;
-    rdfs:subPropertyOf <https://w3id.org/mixs/core_field> ;
+    rdfs:subPropmetabolomics_analysis_set_field> ;
     skos:altLabel "weekday" ;
     skos:definition "The day of the week when sampling occurred" ;
     skos:inScheme <https://raw.githubusercontent.com/microbiomedata/nmdc-schema/main/src/schema/mixs.yaml> ;
@@ -24450,7 +24450,7 @@ nmdc:BuildDocsEnum a owl:Class,
         <https://w3id.org/nmdc/BuildDocsEnum#janitorial+schedules+or+logs>,
         <https://w3id.org/nmdc/BuildDocsEnum#maintenance+plans>,
         <https://w3id.org/nmdc/BuildDocsEnum#schedule>,
-        <https://w3id.org/nmdc/BuildDocsEnum#sections>,
+        <https://w3id.org/nmdc/Bmetabolomics_analysis_set
         <https://w3id.org/nmdc/BuildDocsEnum#shop+drawings>,
         <https://w3id.org/nmdc/BuildDocsEnum#submittals>,
         <https://w3id.org/nmdc/BuildDocsEnum#ventilation+system>,
@@ -24486,7 +24486,7 @@ nmdc:CeilTextureEnum a owl:Class,
         <https://w3id.org/nmdc/CeilTextureEnum#popcorn>,
         <https://w3id.org/nmdc/CeilTextureEnum#rosebud+stomp>,
         <https://w3id.org/nmdc/CeilTextureEnum#skip+trowel>,
-        <https://w3id.org/nmdc/CeilTextureEnum#smooth>,
+        <https://w3id.org/nmdc/Cmetabolomics_analysis_set
         <https://w3id.org/nmdc/CeilTextureEnum#stomp+knockdown>,
         <https://w3id.org/nmdc/CeilTextureEnum#swirl> .
 
@@ -24570,7 +24570,7 @@ nmdc:DeposEnvEnum a owl:Class,
     linkml:permissible_values <https://w3id.org/nmdc/DeposEnvEnum#Continental+-+Aeolian>,
         <https://w3id.org/nmdc/DeposEnvEnum#Continental+-+Alluvial>,
         <https://w3id.org/nmdc/DeposEnvEnum#Continental+-+Fluvial>,
-        <https://w3id.org/nmdc/DeposEnvEnum#Continental+-+Lacustrine>,
+        <https://w3id.org/nmdc/Dmetabolomics_analysis_setne>,
         <https://w3id.org/nmdc/DeposEnvEnum#Marine+-+Deep>,
         <https://w3id.org/nmdc/DeposEnvEnum#Marine+-+Reef>,
         <https://w3id.org/nmdc/DeposEnvEnum#Marine+-+Shallow>,

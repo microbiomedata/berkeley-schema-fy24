@@ -545,7 +545,7 @@ class Database(YAMLRoot):
     metagenome_assembly_set: Optional[Union[Dict[Union[str, MetagenomeAssemblyId], Union[dict, "MetagenomeAssembly"]], List[Union[dict, "MetagenomeAssembly"]]]] = empty_dict()
     metagenome_sequencing_activity_set: Optional[Union[Dict[Union[str, MetagenomeSequencingActivityId], Union[dict, "MetagenomeSequencing"]], List[Union[dict, "MetagenomeSequencing"]]]] = empty_dict()
     mags_setalysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalyMagsAnalysisn[dict, "MetaproteomicsMagsAnalysis List[Union[dict, "MetaproteomicsAnalysis"]]]] = empty_dict()
-    metatranscriptome_activity_set: Optional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]] = empty_dict()
+    metabolomics_analysis_settional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]] = empty_dict()
     nom_analysis_activity_set: Optional[Union[Dict[Union[str, NomAnalysisActivityId], Union[dict, "NomAnalysis"]], List[Union[dict, "NomAnalysis"]]]] = empty_dict()
     omics_processing_set: Optional[Union[Dict[Union[str, OmicsProcessingId], Union[dict, "OmicsProcessing"]], List[Union[dict, "OmicsProcessing"]]]] = empty_dict()
     pooling_set: Optional[Union[Dict[Union[str, PoolingId], Union[dict, "Pooling"]], List[Union[dict, "Pooling"]]]] = empty_dict()
@@ -589,7 +589,7 @@ class Database(YAMLRoot):
         self._normalize_inlined_as_list(slot_name="library_preparation_set", slot_type=LibraryPreparation, key_name="id", keyed=True)
 MagsAnalysismags_set
         self._normalize_inlined_as_list(slot_name="mags_activity_set", slot_type=MagsAnalysisActivity, key_name="id", keyed=True)
-
+metabolomics_analysis_set
         self._normalize_inlined_as_list(slot_name="material_sample_set", slot_type=MaterialSample, key_name="id", keyed=True)
 
         if not isinstance(self.material_sampling_activity_set, list):
@@ -9083,8 +9083,8 @@ slots.doi_provider = Slot(uri=NMDC.doi_provider, name="doi_provider", curie=NMDC
       mags_setl_uri=NMDC.doi_prmags_seti, rangemags_settr, "DoiProviderEnum"mags_set
 MagsAnalysisMagsAnalysismags_set
 slots.doi_category = Slot(uri=NMDC.doi_category, name="doi_category", curie=NMDC.curie('doi_category'),
-                   model_uri=NMDC.doi_category, domain=Doi, range=Union[str, "DoiCategoryEnum"])
-
+      metabolomics_analysis_settegory, domain=Dometabolomics_analysis_setum"])metabolomics_analysis_setmetabolomics_analysis_set
+metabolomics_analysis_set
 slots.add_date = Slot(uri=NMDC.add_date, name="add_date", curie=NMDC.curie('add_date'),
                    model_uri=NMDC.add_date, domain=None, range=Optional[str])
 

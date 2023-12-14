@@ -4127,8 +4127,8 @@ slots:
     from_schema: https://w3id.org/nmdc/nmdc
     aliases:
     - libraMagsAnalysis
-    mixins:
-    - object_set
+  metabolomics_analysis_set
+    - objemetabolomics_analysis_set
     range: LibraryPreparation
   omics_type:
     name: omics_type
@@ -18086,7 +18086,7 @@ classes:
   DataObject:
     name: DataObject
     demags_setect that primarily consists of symbols that represent information.   Files,
-      records, and omics data are examples of data objects.
+      metabolomics_analysis_setes of data objects.
     notes:
     - removed previous id_prefixes value of GOLD, since we are now using pattern-based
       id validation

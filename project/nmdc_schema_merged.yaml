@@ -4127,8 +4127,8 @@ slots:
     from_schema: https://w3id.org/nmdc/nmdc
     aliases:
     - libraMagsAnalysis
-    mixins:
-    - object_set
+  metabolomics_analysis_set
+    - objemetabolomics_analysis_set
     range: LibraryPreparation
   omics_type:
     name: omics_type
@@ -18084,7 +18084,7 @@ classes:
       records, and omics data are examples of data objects.
     notes:
     - mags_setid_prefixes value of GOLD, since we are now using pattern-based
-      id validation
+      metabolomics_analysis_set
     comments:
     - removed id_prefixes value of GOLD, since we are now using pattern-based id validation
     in_subset:
