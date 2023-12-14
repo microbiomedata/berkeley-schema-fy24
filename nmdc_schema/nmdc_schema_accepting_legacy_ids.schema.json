@@ -3533,7 +3533,7 @@
                     },
                     "type": "array"
                 },
-                "metaproteomics_analysis_activity_set": {
+                "metaproteomics_analysis_set": {
                     "description": "This property links a database object to the set of metaproteomics analysis activities.",
                     "items": {
                         "$ref": "#/$defs/MetaproteomicsAnalysis"
@@ -3651,8 +3651,7 @@
                 "Transitional - Tidal",
                 "Transitional - Lagoonal",
                 "Transitional - Beach",
-                "metabolomics_analysis_set"Marine - Shallow","Marine - Deep","Marine - Reef",
-                "Other - Evaporite",
+                "metabolomics_analysis_set"Marine - Shallow","Marine - Deep","Marine - Reef","Other - Evaporite",
                 "Other - Glacial",
                 "Other - Volcanic",
                 "other"
@@ -8479,7 +8478,7 @@
         },
         "type": "array"
     },
-    "metaproteomics_analysis_activity_set": {
+    "metaproteomics_analysis_set": {
         "description": "This property links a database object to the set of metaproteomics analysis activities.",
         "items": {
             "$ref": "#/$defs/MetaproteomicsAnalysis"
