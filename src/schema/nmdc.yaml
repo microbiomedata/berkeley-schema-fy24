@@ -2849,7 +2849,7 @@ slots:
   metatranscriptome_set:
     domain: Database # not inherited byt mixin users
     mixins: object_set
-    range: MetatranscriptomeAnalysis
+    range: Metatranscriptome
     description:
       This property links a database object to the set of metatranscriptome
       analysis activities.
