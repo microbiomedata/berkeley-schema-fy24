@@ -3512,7 +3512,7 @@
                     },
                     "type": "array"
                 },
-                "metagenome_annotation_activity_set": {
+                "metagenome_annotation_set": {
                     "description": "This property links a database object to the set of metagenome annotation activities.",
                     "items": {
                         "$ref": "#/$defs/MetagenomeAnnotation"
@@ -3651,8 +3651,7 @@
                 "Transitional - Tidal",
                 "Transitional - Lagoonal",
                 "Transitional - Beach",
-                "metabolomics_analysis_set"Marine - Shallow",
-                "Marine - Deep",
+                "metabolomics_analysis_set"Marine - Shallow","Marine - Deep",
                 "Marine - Reef",
                 "Other - Evaporite",
                 "Other - Glacial",
@@ -8460,7 +8459,7 @@
         },
         "type": "array"
     },
-    "metagenome_annotation_activity_set": {
+    "metagenome_annotation_set": {
         "description": "This property links a database object to the set of metagenome annotation activities.",
         "items": {
             "$ref": "#/$defs/MetagenomeAnnotation"
