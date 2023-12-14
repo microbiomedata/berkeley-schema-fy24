@@ -163,7 +163,7 @@
       "type": "nmdc:OmicsProcessing"
     }
   ],
-  "read_qc_analysis_activity_set": [
+  "read_qc_analysis_set": [
     {
       "id": "nmdc:wfrqc-12-63da5n74",
       "name": "TEST Read QC Activity for nmdc:wfrqc-12-63da5n74 ",
