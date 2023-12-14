@@ -606,7 +606,7 @@ Metatranscriptome
 
         self._normalize_inlined_as_list(slot_name="metaproteomics_analysis_set", slot_type=MetaproteomicsAnalysis, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="metatranscriptome_activity_set", slot_type=MetatranscriptomeActivity, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="metatranscriptome_set", slot_type=MetatranscriptomeActivity, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="nom_analysis_activity_set", slot_type=NomAnalysis, key_name="id", keyed=True)
 
@@ -9015,8 +9015,8 @@ slots.metagenome_assembly_set = Slot(uri=NMDC.metagenome_assembly_set, name="met
 slots.metagenome_sequencing_set = Slot(uri=NMDC.metagenome_sequencing_set, name="metagenome_sequencing_set", curie=NMDC.curie('metagenome_sequencing_set'),
                    model_uri=NMDC.metagenome_sequencing_set, domain=Database, range=Optional[Union[Dict[Union[str, MetagenomeSequencingActivityId], Union[dict, "MetagenomeSequencing"]], List[Union[dict, "MetagenomeSequencing"]]]])
 
-slots.metatranscriptome_activity_set = Slot(uri=NMDC.metatranscriptome_activity_set, name="metatranscriptome_activity_set", curie=NMDC.curie('metatranscriptome_activity_set'),
-                   model_uri=NMDC.metatranscriptome_activity_set, domain=Database, range=Optional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]])
+slots.metatranscriptome_set = Slot(uri=NMDC.metatranscriptome_set, name="metatranscriptome_set", curie=NMDC.curie('metatranscriptome_set'),
+                   model_uri=NMDC.metatranscriptome_set, domain=Database, range=Optional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]])
 
 slots.read_qc_analysis_activity_set = Slot(uri=NMDC.read_qc_analysis_activity_set, name="read_qc_analysis_activity_set", curie=NMDC.curie('read_qc_analysis_activity_set'),
                    model_uri=NMDC.read_qc_analysis_activity_set, domain=Database, range=Optional[Union[Dict[Union[str, ReadQcAnalysisActivityId], Union[dict, "ReadQcAnalysis"]], List[Union[dict, "ReadQcAnalysis"]]]])
