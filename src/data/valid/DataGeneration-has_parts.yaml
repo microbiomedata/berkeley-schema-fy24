@@ -16,4 +16,4 @@ part_of:
   - nmdc:sty-00-555xxx
 processing_institution: JGI
 type: nmdc:OmicsProcessing
-has_data_generation_parts: [nmdc:datgen-89-zUCd5N, nmdc:datgen-99-zUasdf5N]
+has_data_generation_parts: [this_is_a_string, this_is_another_string]
