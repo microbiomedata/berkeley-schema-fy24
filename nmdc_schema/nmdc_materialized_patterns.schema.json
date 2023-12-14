@@ -3547,7 +3547,7 @@
                     },
                     "type": "array"
                 },
-                "nom_analysis_activity_set": {
+                "nom_analysis_set": {
                     "description": "This property links a database object to the set of natural organic matter (NOM) analysis activities.",
                     "items": {
                         "$ref": "#/$defs/NomAnalysis"
@@ -3651,8 +3651,7 @@
                 "Transitional - Tidal",
                 "Transitional - Lagoonal",
                 "Transitional - Beach",
-                "metabolomics_analysis_set"Marine - Shallow","Marine - Deep","Marine - Reef","Other - Evaporite","Other - Glacial",
-                "Other - Volcanic",
+                "metabolomics_analysis_set"Marine - Shallow","Marine - Deep","Marine - Reef","Other - Evaporite","Other - Glacial","Other - Volcanic",
                 "other"
             ],
             "title": "DeposEnvEnum",
@@ -8491,7 +8490,7 @@
         },
         "type": "array"
     },
-    "nom_analysis_activity_set": {
+    "nom_analysis_set": {
         "description": "This property links a database object to the set of natural organic matter (NOM) analysis activities.",
         "items": {
             "$ref": "#/$defs/NomAnalysis"
