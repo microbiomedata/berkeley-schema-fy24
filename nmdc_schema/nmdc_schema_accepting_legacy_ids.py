@@ -544,7 +544,7 @@ class Database(YAMLRoot):
     metagenome_annotation_activity_set: Optional[Union[Dict[Union[str, MetagenomeAnnotationActivityId], Union[dict, "MetagenomeAnnotationActivity"]], List[Union[dict, "MetagenomeAnnotationActivity"]]]] = empty_dict()
     metagenome_assembly_set: Optional[Union[Dict[Union[str, MetagenomeAssemblyId], Union[dict, "MetagenomeAssembly"]], List[Union[dict, "MetagenomeAssembly"]]]] = empty_dict()
     metagenome_sequencing_activity_set: Optional[Union[Dict[Union[str, MetagenomeSequencingActivityId], Union[dict, "MetagenomeSequencingActivity"]], List[Union[dict, "MetagenomeSequencingActivity"]]]] = empty_dict()
-    metaproteomics_analysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalysisActivityId], Union[dict, "MetaproteomicsAnalysisActivity"]], List[Union[dict, "MetaproteomicsAnalysisActivity"]]]] = empty_dict()
+    metaproteomics_analysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalyMagsAnalysisn[dict, "MetaproteomicsMagsAnalysis List[Union[dict, "MetaproteomicsAnalysisActivity"]]]] = empty_dict()
     metatranscriptome_activity_set: Optional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]] = empty_dict()
     nom_analysis_activity_set: Optional[Union[Dict[Union[str, NomAnalysisActivityId], Union[dict, "NomAnalysisActivity"]], List[Union[dict, "NomAnalysisActivity"]]]] = empty_dict()
     omics_processing_set: Optional[Union[Dict[Union[str, OmicsProcessingId], Union[dict, "OmicsProcessing"]], List[Union[dict, "OmicsProcessing"]]]] = empty_dict()
@@ -587,7 +587,7 @@ class Database(YAMLRoot):
         self.genome_feature_set = [v if isinstance(v, GenomeFeature) else GenomeFeature(**as_dict(v)) for v in self.genome_feature_set]
 
         self._normalize_inlined_as_list(slot_name="library_preparation_set", slot_type=LibraryPreparation, key_name="id", keyed=True)
-
+MagsAnalysis
         self._normalize_inlined_as_list(slot_name="mags_activity_set", slot_type=MagsAnalysisActivity, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="material_sample_set", slot_type=MaterialSample, key_name="id", keyed=True)
@@ -5030,16 +5030,16 @@ class Activity(YAMLRoot):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
-            self.MissingRequiredField("id")
+      MagsAnalysisquiredField("id")
         if not isinstance(self.id, ActivityId):
             self.id = ActivityId(self.id)
 
         if self.name is not None and not isinstance(self.name, str):
             self.name = str(self.name)
-
-        if self.started_at_time is not None and not isinstance(self.started_at_time, str):
-            self.started_at_time = str(self.started_at_time)
-
+MagsAnalysis
+        if self.started_at_time is not None aMagsAnalysislf.started_at_time, str):
+            self.started_at_time MagsAnalysist_time)
+MagsAnalysis
         if self.ended_at_time is not None and not isinstance(self.ended_at_time, str):
             self.ended_at_time = str(self.ended_at_time)
 
@@ -9081,7 +9081,7 @@ slots.doi_value = Slot(uri=NMDC.doi_value, name="doi_value", curie=NMDC.curie('d
 
 slots.doi_provider = Slot(uri=NMDC.doi_provider, name="doi_provider", curie=NMDC.curie('doi_provider'),
                    model_uri=NMDC.doi_provider, domain=Doi, range=Optional[Union[str, "DoiProviderEnum"]])
-
+MagsAnalysisMagsAnalysis
 slots.doi_category = Slot(uri=NMDC.doi_category, name="doi_category", curie=NMDC.curie('doi_category'),
                    model_uri=NMDC.doi_category, domain=Doi, range=Union[str, "DoiCategoryEnum"])
 
@@ -9376,7 +9376,7 @@ slots.language = Slot(uri=NMDC.language, name="language", curie=NMDC.curie('lang
 slots.attribute = Slot(uri=NMDC.attribute, name="attribute", curie=NMDC.curie('attribute'),
                    model_uri=NMDC.attribute, domain=None, range=Optional[str])
 
-slots.has_raw_value = Slot(uri=NMDC.has_raw_value, name="has_raw_value", curie=NMDC.curie('has_raw_value'),
+slots.has_raw_value = Slot(uri=NMDC.has_raw_value, nMagsAnalysis curie=NMDC.curie('has_raw_value'),
                    model_uri=NMDC.has_raw_value, domain=AttributeValue, range=Optional[str])
 
 slots.has_unit = Slot(uri=NMDC.has_unit, name="has_unit", curie=NMDC.curie('has_unit'),
@@ -11895,7 +11895,7 @@ slots.GeolocationValue_has_raw_value = Slot(uri=NMDC.has_raw_value, name="Geoloc
 
 slots.GeolocationValue_latitude = Slot(uri=WGS84.lat, name="GeolocationValue_latitude", curie=WGS84.curie('lat'),
                    model_uri=NMDC.GeolocationValue_latitude, domain=GeolocationValue, range=float, mappings = [SCHEMA["latitude"]])
-
+MagsAnalysis
 slots.GeolocationValue_longitude = Slot(uri=WGS84.long, name="GeolocationValue_longitude", curie=WGS84.curie('long'),
                    model_uri=NMDC.GeolocationValue_longitude, domain=GeolocationValue, range=float, mappings = [SCHEMA["longitude"]])
 

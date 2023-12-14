@@ -391,7 +391,7 @@ class Database(YAMLRoot):
     metagenome_annotation_activity_set: Optional[Union[Dict[Union[str, MetagenomeAnnotationActivityId], Union[dict, "MetagenomeAnnotationActivity"]], List[Union[dict, "MetagenomeAnnotationActivity"]]]] = empty_dict()
     metagenome_assembly_set: Optional[Union[Dict[Union[str, MetagenomeAssemblyId], Union[dict, "MetagenomeAssembly"]], List[Union[dict, "MetagenomeAssembly"]]]] = empty_dict()
     metagenome_sequencing_activity_set: Optional[Union[Dict[Union[str, MetagenomeSequencingActivityId], Union[dict, "MetagenomeSequencingActivity"]], List[Union[dict, "MetagenomeSequencingActivity"]]]] = empty_dict()
-    metaproteomics_analysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalysisActivityId], Union[dict, "MetaproteomicsAnalysisActivity"]], List[Union[dict, "MetaproteomicsAnalysisActivity"]]]] = empty_dict()
+    metaproteomics_analysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalyMagsAnalysisn[dict, "MetaproteomicsMagsAnalysis List[Union[dict, "MetaproteomicsAnalysisActivity"]]]] = empty_dict()
     metatranscriptome_activity_set: Optional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]] = empty_dict()
     nom_analysis_activity_set: Optional[Union[Dict[Union[str, NomAnalysisActivityId], Union[dict, "NomAnalysisActivity"]], List[Union[dict, "NomAnalysisActivity"]]]] = empty_dict()
     omics_processing_set: Optional[Union[Dict[Union[str, OmicsProcessingId], Union[dict, "OmicsProcessing"]], List[Union[dict, "OmicsProcessing"]]]] = empty_dict()
@@ -434,7 +434,7 @@ class Database(YAMLRoot):
         self.genome_feature_set = [v if isinstance(v, GenomeFeature) else GenomeFeature(**as_dict(v)) for v in self.genome_feature_set]
 
         self._normalize_inlined_as_list(slot_name="library_preparation_set", slot_type=LibraryPreparation, key_name="id", keyed=True)
-
+MagsAnalysis
         self._normalize_inlined_as_list(slot_name="mags_activity_set", slot_type=MagsAnalysisActivity, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="material_sample_set", slot_type=MaterialSample, key_name="id", keyed=True)
@@ -5733,16 +5733,16 @@ class MetatranscriptomeActivity(WorkflowExecution):
     has_output: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
     started_at_time: str = None
     ended_at_time: str = None
-    type: Optional[str] = None
+    tyMagsAnalysisNone
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
         if not isinstance(self.id, MetatranscriptomeActivityId):
-            self.id = MetatranscriptomeActivityId(self.id)
-
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
+            self.id = MetatranscriptomeActivitMagsAnalysis
+MagsAnalysis
+        if self.type is not None MagsAnalysiself.type, str):
+            self.type = str(self.type)MagsAnalysis
 
         super().__post_init__(**kwargs)
 
@@ -8928,7 +8928,7 @@ slots.doi_value = Slot(uri=NMDC.doi_value, name="doi_value", curie=NMDC.curie('d
 
 slots.doi_provider = Slot(uri=NMDC.doi_provider, name="doi_provider", curie=NMDC.curie('doi_provider'),
                    model_uri=NMDC.doi_provider, domain=Doi, range=Optional[Union[str, "DoiProviderEnum"]])
-
+MagsAnalysisMagsAnalysis
 slots.doi_category = Slot(uri=NMDC.doi_category, name="doi_category", curie=NMDC.curie('doi_category'),
                    model_uri=NMDC.doi_category, domain=Doi, range=Union[str, "DoiCategoryEnum"])
 
@@ -11145,7 +11145,7 @@ slots.metagenome_assembly_parameter = Slot(uri=NMDC.metagenome_assembly_paramete
                    model_uri=NMDC.metagenome_assembly_parameter, domain=None, range=Optional[str])
 
 slots.has_peptide_quantifications = Slot(uri=NMDC.has_peptide_quantifications, name="has_peptide_quantifications", curie=NMDC.curie('has_peptide_quantifications'),
-                   model_uri=NMDC.has_peptide_quantifications, domain=None, range=Optional[Union[Union[dict, PeptideQuantification], List[Union[dict, PeptideQuantification]]]])
+                   model_uri=NMDC.has_peptide_quantiMagsAnalysisne, range=Optional[Union[Union[dict, PeptideQuantification], List[Union[dict, PeptideQuantification]]]])
 
 slots.asm_score = Slot(uri=NMDC.asm_score, name="asm_score", curie=NMDC.curie('asm_score'),
                    model_uri=NMDC.asm_score, domain=None, range=Optional[float])
@@ -11795,4 +11795,4 @@ slots.NomAnalysisActivity_id = Slot(uri=NMDC.id, name="NomAnalysisActivity_id", 
 
 slots.Activity_id = Slot(uri=NMDC.id, name="Activity_id", curie=NMDC.curie('id'),
                    model_uri=NMDC.Activity_id, domain=Activity, range=Union[str, ActivityId],
-                   pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
+                   pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))MagsAnalysis

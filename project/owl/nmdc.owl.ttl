@@ -7041,7 +7041,7 @@ nmdc:ReadQcAnalysisActivity a owl:Class,
     rdfs:label "snow" ;
     rdfs:subClassOf nmdc:SampWeatherEnum .
 
-<https://w3id.org/nmdc/SampWeatherEnum#sunny> a owl:Class,
+<https://w3id.org/nmdMagsAnalysisnny> a owl:Class,
         nmdc:SampWeatherEnum ;
     rdfs:label "sunny" ;
     rdfs:subClassOf nmdc:SampWeatherEnum .
@@ -12994,7 +12994,7 @@ nmdc:unit a owl:Class,
     rdfs:label "water_feat_size" ;
     dcterms:title "water feature size" ;
     rdfs:range nmdc:QuantityValue ;
-    rdfs:subPropertyOf <https://w3id.org/mixs/core_field> ;
+    rdfs:subPropertyMagsAnalysis/mixs/core_field> ;
     skos:altLabel "water feature size" ;
     skos:definition "The size of the water feature" ;
     skos:inScheme <https://raw.githubusercontent.com/microbiomedata/nmdc-schema/main/src/schema/mixs.yaml> ;
@@ -15225,9 +15225,9 @@ nmdc:unbinned_contig_num a owl:ObjectProperty,
     rdfs:label "unbinned_contig_num" ;
     rdfs:range linkml:Integer ;
     skos:inScheme nmdc:workflow_execution_activity .
-
+MagsAnalysis
 nmdc:vendor a owl:ObjectProperty,
-        linkml:SlotDefinition ;
+        linkml:SMagsAnalysis
     rdfs:label "vendor" ;
     rdfs:range nmdc:InstrumentVendorEnum ;
     skos:inScheme nmdc:nmdc .
@@ -24533,7 +24533,7 @@ nmdc:SurfMaterialEnum a owl:Class,
         <https://w3id.org/nmdc/SurfMaterialEnum#cinder+blocks>,
         <https://w3id.org/nmdc/SurfMaterialEnum#concrete>,
         <https://w3id.org/nmdc/SurfMaterialEnum#glass>,
-        <https://w3id.org/nmdc/SurfMaterialEnum#hay+bales>,
+        <https://w3id.org/nmdc/SurfMagsAnalysises>,
         <https://w3id.org/nmdc/SurfMaterialEnum#metal>,
         <https://w3id.org/nmdc/SurfMaterialEnum#paint>,
         <https://w3id.org/nmdc/SurfMaterialEnum#plastic>,
@@ -25059,3 +25059,4 @@ nmdc:QuantityValue a owl:Class,
     owl:onProperty nmdc:designated_class ;
     owl:someValuesFrom nmdc:SubSamplingProcess .
 
+MagsAnalysisMagsAnalysis

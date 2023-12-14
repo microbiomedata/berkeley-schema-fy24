@@ -4126,7 +4126,7 @@ slots:
       within it.
     from_schema: https://w3id.org/nmdc/nmdc
     aliases:
-    - library_construction_set
+    - libraMagsAnalysis
     mixins:
     - object_set
     range: LibraryPreparation
@@ -4886,7 +4886,7 @@ slots:
     range: float
   has_minimum_numeric_value:
     name: has_minimum_numeric_value
-    description: The minimum value part, expressed as number, of the quantity value
+    descriptMagsAnalysisue part, expressed as number, of the quantity value
       when the value covers a range.
     from_schema: https://w3id.org/nmdc/nmdc
     is_a: has_numeric_value
@@ -20052,8 +20052,8 @@ classes:
     abstract: true
     slot_usage:
       id:
-        name: id
-        required: true
+  MagsAnalysis
+        reMagsAnalysis
         pattern: ^(nmdc):site-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
         structured_pattern:
           syntax: '{id_nmdc_prefix}:site-{id_shoulder}-{id_blade}{id_version}{id_locus}'
