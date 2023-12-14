@@ -368,17 +368,10 @@ nmdc_schema/nmdc_schema_accepting_legacy_ids.yaml: src/schema/nmdc.yaml
 	yq -i '(.classes[] | select(.name == "MetagenomeSequencing") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
 	yq -i '(.classes[] | select(.name == "MetaproteomicsAnalysis") | .slot_usage.id.pattern) = ".*"' $@
 	yq -i '(.classes[] | select(.name == "MetaproteomicsAnalysis") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
-<<<<<<< HEAD
-	yq -i '(.classes[] | select(.name == "MetatranscriptomeAnalysis") | .slot_usage.id.pattern) = ".*"' $@
-	yq -i '(.classes[] | select(.name == "MetatranscriptomeAnalysis") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
+	yq -i '(.classes[] | select(.name == "Metatranscriptome") | .slot_usage.id.pattern) = ".*"' $@
+	yq -i '(.classes[] | select(.name == "Metatranscriptome") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
 	yq -i '(.classes[] | select(.name == "MetatranscriptomeAnnotation") | .slot_usage.id.pattern) = ".*"' $@
 	yq -i '(.classes[] | select(.name == "MetatranscriptomeAnnotation") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
-=======
-	yq -i '(.classes[] | select(.name == "MetatranscriptomeActivity") | .slot_usage.id.pattern) = ".*"' $@
-	yq -i '(.classes[] | select(.name == "MetatranscriptomeActivity") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
-	yq -i '(.classes[] | select(.name == "MetatranscriptomeAnnotationActivity") | .slot_usage.id.pattern) = ".*"' $@
-	yq -i '(.classes[] | select(.name == "MetatranscriptomeAnnotationActivity") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
->>>>>>> parent of 583d76a9 (change MetatranscriptomeActivity to MetatranscriptomeAnalysis)
 	yq -i '(.classes[] | select(.name == "MetatranscriptomeAssembly") | .slot_usage.id.pattern) = ".*"' $@
 	yq -i '(.classes[] | select(.name == "MetatranscriptomeAssembly") | .slot_usage.id.structured_pattern.syntax) = ".*"' $@
 	yq -i '(.classes[] | select(.name == "NomAnalysis") | .slot_usage.id.pattern) = ".*"' $@
