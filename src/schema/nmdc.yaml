@@ -1721,7 +1721,7 @@ classes:
       - mod_date
       - ncbi_project_name
       #- nucl_acid_ext
-      #- nucl_acid_amp
+      #- nucl_acid_amp #this slot
       #      - omics_type
       - part_of
       - pcr_cond
