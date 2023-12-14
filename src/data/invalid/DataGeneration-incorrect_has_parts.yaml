@@ -16,4 +16,6 @@ part_of:
   - nmdc:sty-00-555xxx
 processing_institution: JGI
 type: nmdc:OmicsProcessing
-has_data_generation_parts: [nmdc:extrp-71-r2pk, nmdc:extrp-72-rdffdf]
+has_data_generation_parts: 
+  - this is a string
+  - this is another string
