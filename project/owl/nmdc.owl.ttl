@@ -12990,9 +12990,9 @@ nmdc:unit a owl:Class,
     nmdc:preferred_unit "percent" .
 
 <https://w3id.org/mixs/water_feat_size> a owl:ObjectProperty,
-        linkml:SlotDefinition ;
+     mags_setinition ;
     rdfs:label "water_feat_size" ;
-    dcterms:title "water feature size" ;
+    dcterms:titlmags_setsize" ;
     rdfs:range nmdc:QuantityValue ;
     rdfs:subPropertyMagsAnalysis/mixs/core_field> ;
     skos:altLabel "water feature size" ;
@@ -24435,7 +24435,7 @@ nmdc:ShadingDeviceTypeEnum a owl:Class,
         <https://w3id.org/nmdc/ShadingDeviceTypeEnum#venetian+awning> .
 
 nmdc:metagenome_assembly_parameter a owl:ObjectProperty,
-        linkml:SlotDefinition ;
+        linkml:SlotDefinition ;mags_set
     rdfs:label "metagenome_assembly_parameter" ;
     skos:inScheme nmdc:workflow_execution_activity .
 
@@ -24507,7 +24507,7 @@ nmdc:LithologyEnum a owl:Class,
         <https://w3id.org/nmdc/LithologyEnum#Volcanic>,
         <https://w3id.org/nmdc/LithologyEnum#other> .
 
-nmdc:WallTextureEnum a owl:Class,
+nmdc:WallTextureEnum a owl:Classmags_set
         linkml:EnumDefinition ;
     owl:unionOf ( <https://w3id.org/nmdc/WallTextureEnum#crows+feet> <https://w3id.org/nmdc/WallTextureEnum#crows-foot+stomp> <https://w3id.org/nmdc/WallTextureEnum#> <https://w3id.org/nmdc/WallTextureEnum#double+skip> <https://w3id.org/nmdc/WallTextureEnum#hawk+and+trowel> <https://w3id.org/nmdc/WallTextureEnum#knockdown> <https://w3id.org/nmdc/WallTextureEnum#popcorn> <https://w3id.org/nmdc/WallTextureEnum#orange+peel> <https://w3id.org/nmdc/WallTextureEnum#rosebud+stomp> <https://w3id.org/nmdc/WallTextureEnum#Santa-Fe+texture> <https://w3id.org/nmdc/WallTextureEnum#skip+trowel> <https://w3id.org/nmdc/WallTextureEnum#smooth> <https://w3id.org/nmdc/WallTextureEnum#stomp+knockdown> <https://w3id.org/nmdc/WallTextureEnum#swirl> ) ;
     linkml:permissible_values <https://w3id.org/nmdc/WallTextureEnum#>,
@@ -24576,7 +24576,7 @@ nmdc:DeposEnvEnum a owl:Class,
         <https://w3id.org/nmdc/DeposEnvEnum#Marine+-+Shallow>,
         <https://w3id.org/nmdc/DeposEnvEnum#Other+-+Evaporite>,
         <https://w3id.org/nmdc/DeposEnvEnum#Other+-+Glacial>,
-        <https://w3id.org/nmdc/DeposEnvEnum#Other+-+Volcanic>,
+        <https://w3id.org/nmdc/Dmags_set+-+Volcanic>,
         <https://w3id.org/nmdc/DeposEnvEnum#Transitional+-+Beach>,
         <https://w3id.org/nmdc/DeposEnvEnum#Transitional+-+Deltaic>,
         <https://w3id.org/nmdc/DeposEnvEnum#Transitional+-+Lagoonal>,

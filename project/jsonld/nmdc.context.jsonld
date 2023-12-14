@@ -1754,7 +1754,7 @@
       },
       "magnesium": {
          "@type": "@id",
-         "@id": "MIXS:0000431"
+       mags_set00431"
       },
       "mags_activity_set": {
          "@type": "@id"

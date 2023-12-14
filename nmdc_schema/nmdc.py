@@ -391,7 +391,7 @@ class Database(YAMLRoot):
     metagenome_annotation_activity_set: Optional[Union[Dict[Union[str, MetagenomeAnnotationActivityId], Union[dict, "MetagenomeAnnotation"]], List[Union[dict, "MetagenomeAnnotation"]]]] = empty_dict()
     metagenome_assembly_set: Optional[Union[Dict[Union[str, MetagenomeAssemblyId], Union[dict, "MetagenomeAssembly"]], List[Union[dict, "MetagenomeAssembly"]]]] = empty_dict()
     metagenome_sequencing_activity_set: Optional[Union[Dict[Union[str, MetagenomeSequencingActivityId], Union[dict, "MetagenomeSequencing"]], List[Union[dict, "MetagenomeSequencing"]]]] = empty_dict()
-    metaproteomics_analysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalyMagsAnalysisn[dict, "MetaproteomicsMagsAnalysis List[Union[dict, "MetaproteomicsAnalysis"]]]] = empty_dict()
+    mags_setalysis_activity_set: Optional[Union[Dict[Union[str, MetaproteomicsAnalyMagsAnalysisn[dict, "MetaproteomicsMagsAnalysis List[Union[dict, "MetaproteomicsAnalysis"]]]] = empty_dict()
     metatranscriptome_activity_set: Optional[Union[Dict[Union[str, MetatranscriptomeActivityId], Union[dict, "MetatranscriptomeActivity"]], List[Union[dict, "MetatranscriptomeActivity"]]]] = empty_dict()
     nom_analysis_activity_set: Optional[Union[Dict[Union[str, NomAnalysisActivityId], Union[dict, "NomAnalysis"]], List[Union[dict, "NomAnalysis"]]]] = empty_dict()
     omics_processing_set: Optional[Union[Dict[Union[str, OmicsProcessingId], Union[dict, "OmicsProcessing"]], List[Union[dict, "OmicsProcessing"]]]] = empty_dict()
@@ -434,7 +434,7 @@ class Database(YAMLRoot):
         self.genome_feature_set = [v if isinstance(v, GenomeFeature) else GenomeFeature(**as_dict(v)) for v in self.genome_feature_set]
 
         self._normalize_inlined_as_list(slot_name="library_preparation_set", slot_type=LibraryPreparation, key_name="id", keyed=True)
-MagsAnalysis
+MagsAnalysismags_set
         self._normalize_inlined_as_list(slot_name="mags_activity_set", slot_type=MagsAnalysisActivity, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="material_sample_set", slot_type=MaterialSample, key_name="id", keyed=True)
@@ -8927,8 +8927,8 @@ slots.doi_value = Slot(uri=NMDC.doi_value, name="doi_value", curie=NMDC.curie('d
                    pattern=re.compile(r'^doi:10.\d{2,9}/.*$'))
 
 slots.doi_provider = Slot(uri=NMDC.doi_provider, name="doi_provider", curie=NMDC.curie('doi_provider'),
-                   model_uri=NMDC.doi_provider, domain=Doi, range=Optional[Union[str, "DoiProviderEnum"]])
-MagsAnalysisMagsAnalysis
+      mags_setl_uri=NMDC.doi_prmags_seti, rangemags_settr, "DoiProviderEnum"mags_set
+MagsAnalysisMagsAnalysismags_set
 slots.doi_category = Slot(uri=NMDC.doi_category, name="doi_category", curie=NMDC.curie('doi_category'),
                    model_uri=NMDC.doi_category, domain=Doi, range=Union[str, "DoiCategoryEnum"])
 

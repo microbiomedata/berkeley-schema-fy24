@@ -4118,8 +4118,8 @@ slots:
       it.
     from_schema: https://w3id.org/nmdc/nmdc
     mixins:
-    - object_set
-    range: Extraction
+  mags_set
+    range:mags_set
   library_preparation_set:
     name: library_preparation_set
     description: This property links a database object to the set of DNA extractions
@@ -18085,7 +18085,7 @@ classes:
           interpolated: true
   DataObject:
     name: DataObject
-    description: An object that primarily consists of symbols that represent information.   Files,
+    demags_setect that primarily consists of symbols that represent information.   Files,
       records, and omics data are examples of data objects.
     notes:
     - removed previous id_prefixes value of GOLD, since we are now using pattern-based

@@ -3644,7 +3644,7 @@
             "description": "",
             "enum": [
                 "Continental - Alluvial",
-                "Continental - Aeolian",
+                "mags_setlian",
                 "Continental - Fluvial",
                 "Continental - Lacustrine",
                 "Transitional - Deltaic",MagsAnalysis
@@ -8589,4 +8589,4 @@
 "title": "NMDC",
 "type": "object",
 "version": "v9.2.0"
-}MagsAnalysisMagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptomeMetatranscriptome
+}MagsAnalysisMagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptomeMetatranscriptomemags_set
