@@ -13086,7 +13086,7 @@ nmdc:unit a owl:Class,
     skos:definition "The physical condition of the window at the time of sampling" ;
     skos:inScheme <https://raw.githubusercontent.com/microbiomedata/nmdc-schema/main/src/schema/mixs.yaml> ;
     nmdc:expected_value "enumeration" ;
-    nmdc:occurrence "1" .
+    nmdc:occurrence Metatranscriptome
 
 <https://w3id.org/mixs/window_cover> a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -14850,9 +14850,9 @@ nmdc:reaction_time a owl:ObjectProperty,
     rdfs:label "reaction_time" ;
     rdfs:range nmdc:QuantityValue ;
     skos:inScheme nmdc:sample_prep .
-
+Metatranscriptome
 nmdc:read_based_taxonomy_analysis_activity_set a owl:ObjectProperty,
-        linkml:SlotDefinition ;
+        linkml:SMetatranscriptome
     rdfs:label "read_based_taxonomy_analysis_activity_set" ;
     rdfs:range nmdc:ReadBasedTaxonomyAnalysisActivity ;
     rdfs:subPropertyOf nmdc:object_set ;
@@ -24413,7 +24413,7 @@ nmdc:RnaSampleFormatEnum a owl:Class,
         <https://w3id.org/nmdc/RnaSampleFormatEnum#Low+EDTA+TE>,
         <https://w3id.org/nmdc/RnaSampleFormatEnum#MDA+reaction+buffer>,
         <https://w3id.org/nmdc/RnaSampleFormatEnum#PBS>,
-        <https://w3id.org/nmdc/RnaSampleFormatEnum#Pellet>,
+        <https://w3id.org/nmdc/RnaSMetatranscriptome
         <https://w3id.org/nmdc/RnaSampleFormatEnum#RNAStable>,
         <https://w3id.org/nmdc/RnaSampleFormatEnum#TE>,
         <https://w3id.org/nmdc/RnaSampleFormatEnum#Water> .
@@ -25059,4 +25059,4 @@ nmdc:QuantityValue a owl:Class,
     owl:onProperty nmdc:designated_class ;
     owl:someValuesFrom nmdc:SubSamplingProcess .
 
-MagsAnalysisMagsAnalysis
+MagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptome

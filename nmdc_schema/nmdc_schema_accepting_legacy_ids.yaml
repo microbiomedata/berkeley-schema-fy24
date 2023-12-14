@@ -4180,7 +4180,7 @@ slots:
       like bioreactors respectively.
     from_schema: https://w3id.org/nmdc/nmdc
     see_also:
-    - https://gold.jgi.doe.gov/help
+    - httpsMetatranscriptome
     is_a: gold_path_field
   ecosystem_category:
     name: ecosystem_category
@@ -20034,8 +20034,8 @@ classes:
     title: Analytical Sample
     from_schema: https://w3id.org/nmdc/nmdc
     is_a: MaterialEntity
-    slot_usage:
-      id:
+  Metatranscriptome
+      id:Metatranscriptome
         name: id
         required: true
         pattern: ^(nmdc):ansm-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
