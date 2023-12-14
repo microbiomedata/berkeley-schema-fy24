@@ -397,9 +397,15 @@ class Database(YAMLRoot):
     omics_processing_set: Optional[Union[Dict[Union[str, OmicsProcessingId], Union[dict, "OmicsProcessing"]], List[Union[dict, "OmicsProcessing"]]]] = empty_dict()
     pooling_set: Optional[Union[Dict[Union[str, PoolingId], Union[dict, "Pooling"]], List[Union[dict, "Pooling"]]]] = empty_dict()
     processed_sample_set: Optional[Union[Dict[Union[str, ProcessedSampleId], Union[dict, "ProcessedSample"]], List[Union[dict, "ProcessedSample"]]]] = empty_dict()
+<<<<<<< HEAD
     reaction_activity_set: Optional[Union[Union[dict, "ReactionActivity"], List[Union[dict, "ReactionActivity"MetatranscriptomeMetatranscriptome
     read_based_taxonomy_analysis_set: Optional[Union[Dict[Union[str, ReadBasedTaxonomyAnalysisActivityId], Union[dict, "ReadBasedTaxonomyAnalysis"]], List[Union[dict, "ReadBasedTaxonomyAnalysis"]]]] = empty_dict()
     read_qc_analysis_set: Optional[Union[Dict[Union[str, ReadQcAnalysisActivityId], Union[dict, "ReadQcAnalysis"]], List[Union[dict, "ReadQcAnalysis"]]]] = empty_dict()
+=======
+    reaction_activity_set: Optional[Union[Union[dict, "ReactionActivity"], List[Union[dict, "ReactionActivity"]]]] = empty_list()
+    read_based_taxonomy_analysis_activity_set: Optional[Union[Dict[Union[str, ReadBasedTaxonomyAnalysisActivityId], Union[dict, "ReadBasedTaxonomyAnalysisActivity"]], List[Union[dict, "ReadBasedTaxonomyAnalysisActivity"]]]] = empty_dict()
+    read_qc_analysis_activity_set: Optional[Union[Dict[Union[str, ReadQcAnalysisActivityId], Union[dict, "ReadQcAnalysisActivity"]], List[Union[dict, "ReadQcAnalysisActivity"]]]] = empty_dict()
+>>>>>>> parent of 583d76a9 (change MetatranscriptomeActivity to MetatranscriptomeAnalysis)
     study_set: Optional[Union[Dict[Union[str, StudyId], Union[dict, "Study"]], List[Union[dict, "Study"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -445,8 +451,13 @@ metabolomics_analysis_set
 
         self._normalize_inlined_as_list(slot_name="metabolomics_analysis_activity_set", slot_type=MetabolomicsAnalysis, key_name="id", keyed=True)
 
+<<<<<<< HEAD
         self._normalize_inlined_as_list(slot_name="metagenome_annotation_set", slot_type=MetagenomeAnnotation, key_name="id", keyed=True)
-Metatranscriptome
+MetatranscriptomeAnalysis
+=======
+        self._normalize_inlined_as_list(slot_name="metagenome_annotation_activity_set", slot_type=MetagenomeAnnotation, key_name="id", keyed=True)
+
+>>>>>>> parent of 583d76a9 (change MetatranscriptomeActivity to MetatranscriptomeAnalysis)
         self._normalize_inlined_as_list(slot_name="metagenome_assembly_set", slot_type=MetagenomeAssembly, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="metagenome_sequencing_set", slot_type=MetagenomeSequencing, key_name="id", keyed=True)
@@ -5698,16 +5709,16 @@ class MetatranscriptomeAnnotation(WorkflowExecution):
     type: Optional[str] = None
     gold_analysis_project_identifiers: Optional[Union[Union[str, ExternalIdentifier], List[Union[str, ExternalIdentifier]]]] = empty_list()
 
-    deMetatranscriptome List[str], **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
         if not isinstance(self.id, MetatranscriptomeAnnotationActivityId):
             self.id = MetatranscriptomeAnnotationActivityId(self.id)
 
-        if self.type is not None and not isinsMetatranscriptome
-            self.type = str(self.type)Metatranscriptome
-Metatranscriptome
-        if not isinstance(self.gold_analysis_Metatranscriptome):
+        if self.type is not None and not isinstance(self.type, str):
+            self.type = str(self.type)
+
+        if not isinstance(self.gold_analysis_project_identifiers, list):
             self.gold_analysis_project_identifiers = [self.gold_analysis_project_identifiers] if self.gold_analysis_project_identifiers is not None else []
         self.gold_analysis_project_identifiers = [v if isinstance(v, ExternalIdentifier) else ExternalIdentifier(v) for v in self.gold_analysis_project_identifiers]
 
@@ -8946,7 +8957,7 @@ slots.sample_collection_hour = Slot(uri=NMDC.sample_collection_hour, name="sampl
 
 slots.sample_collection_minute = Slot(uri=NMDC.sample_collection_minute, name="sample_collection_minute", curie=NMDC.curie('sample_collection_minute'),
                    model_uri=NMDC.sample_collection_minute, domain=None, range=Optional[int])
-MetatranscriptomeMetatranscriptome
+
 slots.salinity_category = Slot(uri=NMDC.salinity_category, name="salinity_category", curie=NMDC.curie('salinity_category'),
                    model_uri=NMDC.salinity_category, domain=None, range=Optional[str])
 
@@ -11795,4 +11806,4 @@ slots.NomAnalysisActivity_id = Slot(uri=NMDC.id, name="NomAnalysisActivity_id", 
 
 slots.Activity_id = Slot(uri=NMDC.id, name="Activity_id", curie=NMDC.curie('id'),
                    model_uri=NMDC.Activity_id, domain=Activity, range=Union[str, ActivityId],
-                   pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))MagsAnalysisMetatranscriptome
+                   pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))MagsAnalysis

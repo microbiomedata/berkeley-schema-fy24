@@ -550,9 +550,15 @@ class Database(YAMLRoot):
     omics_processing_set: Optional[Union[Dict[Union[str, OmicsProcessingId], Union[dict, "OmicsProcessing"]], List[Union[dict, "OmicsProcessing"]]]] = empty_dict()
     pooling_set: Optional[Union[Dict[Union[str, PoolingId], Union[dict, "Pooling"]], List[Union[dict, "Pooling"]]]] = empty_dict()
     processed_sample_set: Optional[Union[Dict[Union[str, ProcessedSampleId], Union[dict, "ProcessedSample"]], List[Union[dict, "ProcessedSample"]]]] = empty_dict()
+<<<<<<< HEAD
     reaction_activity_set: Optional[Union[Union[dict, "ReactionActivity"], List[Union[dict, "ReactionActivity"MetatranscriptomeMetatranscriptome
     read_based_taxonomy_analysis_set: Optional[Union[Dict[Union[str, ReadBasedTaxonomyAnalysisActivityId], Union[dict, "ReadBasedTaxonomyAnalysis"]], List[Union[dict, "ReadBasedTaxonomyAnalysis"]]]] = empty_dict()
     read_qc_analysis_set: Optional[Union[Dict[Union[str, ReadQcAnalysisActivityId], Union[dict, "ReadQcAnalysis"]], List[Union[dict, "ReadQcAnalysis"]]]] = empty_dict()
+=======
+    reaction_activity_set: Optional[Union[Union[dict, "ReactionActivity"], List[Union[dict, "ReactionActivity"]]]] = empty_list()
+    read_based_taxonomy_analysis_activity_set: Optional[Union[Dict[Union[str, ReadBasedTaxonomyAnalysisActivityId], Union[dict, "ReadBasedTaxonomyAnalysisActivity"]], List[Union[dict, "ReadBasedTaxonomyAnalysisActivity"]]]] = empty_dict()
+    read_qc_analysis_activity_set: Optional[Union[Dict[Union[str, ReadQcAnalysisActivityId], Union[dict, "ReadQcAnalysisActivity"]], List[Union[dict, "ReadQcAnalysisActivity"]]]] = empty_dict()
+>>>>>>> parent of 583d76a9 (change MetatranscriptomeActivity to MetatranscriptomeAnalysis)
     study_set: Optional[Union[Dict[Union[str, StudyId], Union[dict, "Study"]], List[Union[dict, "Study"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -598,8 +604,13 @@ metabolomics_analysis_set
 
         self._normalize_inlined_as_list(slot_name="metabolomics_analysis_activity_set", slot_type=MetabolomicsAnalysis, key_name="id", keyed=True)
 
+<<<<<<< HEAD
         self._normalize_inlined_as_list(slot_name="metagenome_annotation_set", slot_type=MetagenomeAnnotation, key_name="id", keyed=True)
-Metatranscriptome
+MetatranscriptomeAnalysis
+=======
+        self._normalize_inlined_as_list(slot_name="metagenome_annotation_activity_set", slot_type=MetagenomeAnnotation, key_name="id", keyed=True)
+
+>>>>>>> parent of 583d76a9 (change MetatranscriptomeActivity to MetatranscriptomeAnalysis)
         self._normalize_inlined_as_list(slot_name="metagenome_assembly_set", slot_type=MetagenomeAssembly, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="metagenome_sequencing_set", slot_type=MetagenomeSequencing, key_name="id", keyed=True)
@@ -4995,16 +5006,16 @@ class GeolocationValue(AttributeValue):
         if self._is_empty(self.latitude):
             self.MissingRequiredField("latitude")
         if not isinstance(self.latitude, float):
-      Metatranscriptomeat(self.latitude)
+            self.latitude = float(self.latitude)
 
         if self._is_empty(self.longitude):
             self.MissingRequiredField("longitude")
         if not isinstance(self.longitude, float):
             self.longitude = float(self.longitude)
-Metatranscriptome
-        if self.has_raw_value is not None andMetatranscriptomeraw_value, str):
-            self.has_raw_value = Metatranscriptome
-Metatranscriptome
+
+        if self.has_raw_value is not None and not isinstance(self.has_raw_value, str):
+            self.has_raw_value = str(self.has_raw_value)
+
         super().__post_init__(**kwargs)
 
 
@@ -9099,7 +9110,7 @@ slots.sample_collection_hour = Slot(uri=NMDC.sample_collection_hour, name="sampl
 
 slots.sample_collection_minute = Slot(uri=NMDC.sample_collection_minute, name="sample_collection_minute", curie=NMDC.curie('sample_collection_minute'),
                    model_uri=NMDC.sample_collection_minute, domain=None, range=Optional[int])
-MetatranscriptomeMetatranscriptome
+
 slots.salinity_category = Slot(uri=NMDC.salinity_category, name="salinity_category", curie=NMDC.curie('salinity_category'),
                    model_uri=NMDC.salinity_category, domain=None, range=Optional[str])
 
@@ -11891,7 +11902,7 @@ slots.ControlledIdentifiedTermValue_term = Slot(uri=NMDC.term, name="ControlledI
                    model_uri=NMDC.ControlledIdentifiedTermValue_term, domain=ControlledIdentifiedTermValue, range=Union[dict, OntologyClass])
 
 slots.GeolocationValue_has_raw_value = Slot(uri=NMDC.has_raw_value, name="GeolocationValue_has_raw_value", curie=NMDC.curie('has_raw_value'),
-                   model_uri=NMDC.GeolocationValue_has_raw_value, domaiMetatranscriptome=Optional[str])
+                   model_uri=NMDC.GeolocationValue_has_raw_value, domain=GeolocationValue, range=Optional[str])
 
 slots.GeolocationValue_latitude = Slot(uri=WGS84.lat, name="GeolocationValue_latitude", curie=WGS84.curie('lat'),
                    model_uri=NMDC.GeolocationValue_latitude, domain=GeolocationValue, range=float, mappings = [SCHEMA["latitude"]])
