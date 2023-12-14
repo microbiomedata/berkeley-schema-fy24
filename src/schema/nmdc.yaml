@@ -1594,6 +1594,7 @@ classes:
     slots:
       - has_process_parts
       - protocol_execution_category
+      - protocol_link
     slot_usage:
       id:
         required: true
