@@ -1,3 +1,21 @@
-id: nmdc:subspr-12-12616fd
-has_input:
-  - nmdc:bsm-99-1283f
+id: nmdc:subspr-99-oW43DzG0 
+has_input: 
+  - nmdc:bsm-99-oW43DzG1
+container_size:
+  has_numeric_value: 50
+  has_unit: mL
+contained_in: v-bottom_conical_tube
+volume:
+  has_numeric_value: 20
+  has_unit: mL
+temperature:
+  has_numeric_value: 25
+  has_unit: C
+mass:
+  has_numeric_value: 30
+  has_unit: g
+protocol_link: #this will fail
+  name: sub sampling protocol
+  url: www.subsamplingprotocol.com
+has_output:
+  - nmdc:procsm-11-05g48p90
