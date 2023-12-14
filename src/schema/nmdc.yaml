@@ -300,7 +300,7 @@ classes:
       - library_preparation_kit
       - library_type
       - pcr_cycles
-      - nucl_acid_amp
+      #- nucl_acid_amp
       - pcr_cond
       - pcr_primers
     close_mappings:
