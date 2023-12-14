@@ -124,7 +124,7 @@ read_qc_analysis_activity_set:
     has_output:
       - nmdc:dobj-12-71q7wv80
       - nmdc:dobj-12-y236qp68
-    type: nmdc:ReadQCAnalysisActivity
+    type: nmdc:ReadQcAnalysis
     version: b1.0.7
 pooling_set:
   - id: nmdc:poolp-99-abcdef
