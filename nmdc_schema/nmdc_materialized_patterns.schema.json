@@ -3689,7 +3689,7 @@
                     "$ref": "#/$defs/QuantityValue"
                 },
                 "dissolved_in": {
-                    "$ref": "#/$defs/MaterialContainer"
+                    "$ref": "#/$defs/MateMetatranscriptomeAnalysis
                 },
                 "material_input": {
                     "type": "string"
@@ -3735,7 +3735,7 @@
                             }
                         ]
                     }
-                },
+                },MetatranscriptomeAnalysis
                 "required": [
                     "doi_category"
                 ]
@@ -3850,7 +3850,7 @@
                 "fiberboard",
                 "fiberglass",
                 "metal",
-                "thermoplastic alloy",
+                "thermoplastic alloy",MetatranscriptomeAnalysis
                 "vinyl",
                 "wood",
                 "wood/plastic composite"
@@ -6423,2164 +6423,2163 @@
                 "seq_quality_check": {
                     "$ref": "#/$defs/TextValue",
                     "description": "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA,ENA or DRA"
+         MetatranscriptomeAnalysis
+                "start_date": {
+                        "description": "The date on which any process or activity was started",
+                        "type": "string"
+                    },
+                    "target_gene": {
+                        "$ref": "#/$defs/TextValue",
+                        "description": "Targeted gene or locus name for marker gene studies"
+                    },
+                    "target_subfragment": {
+                        "$ref": "#/$defs/TextValue",
+                        "descrMetatranscriptomement of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
+                    },
+                    "type": {
+                        "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
+                        "type": "string"
+                    }
+                },
+                "required": [MetatranscriptomeAnalysis
+                "has_input",
+                    "id"
+                ],
+                "title": "OmicsProcessing",
+                "type": "object"
+            },
+            "OntologyClass": {
+                "additionalProperties": false,
+                "description": "",
+                "properties": {
+                    "alternative_identifiers": {
+                        "description": "A list of alternative identifiers for the entity.",
+                        "items": {
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "description": {
+                        "description": "a human-readable description of a thing",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "A human readable label for an entity",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "title": "OntologyClass",
+                "type": "object"
+            },
+            "OrganismCountEnum": {
+                "description": "",
+                "enum": [
+                    "ATP",
+                    "MPN",
+                    "other"
+                ],
+                "title": "OrganismCountEnum",
+                "type": "string"
+            },
+            "OrthologyGroup": {
+                "additionalProperties": false,
+                "description": "A set of genes or gene products in which all members are orthologous",
+                "properties": {
+                    "alternative_identifiers": {
+                        "description": "A list of alternative identifiers for the entity.",
+                        "items": {
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "description": {
+                        "description": "a human-readable description of a thing",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "A human readable label for an entity",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "title": "OrthologyGroup",
+                "type": "object"
+            },
+            "OxyStatSampEnum": {
+                "descrMetatranscriptome"enum": ["aerobic","anaerobic","other"
+            ],
+            "title": "OxyStatSampEnum",
+            "type": "string"
+        },
+        "Pathway": {
+            "additionalProperties": false,
+            "description":MetatranscriptomeAnalysissequence of steps/reactions carried out by an organism or community of organisms","properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "has_part": {
+                    "description": "A pathway can be broken down to a series of reaction step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "has_part",
+                "id"
+            ],
+            "title": "Pathway",
+            "type": "object"
+        },
+        "PeptideQuantification": {
+            "additionalProperties": false,
+            "description": "This is used to link a metaproteomics analysis workflow to a specific peptide sequence and related information",
+            "properties": {
+                "all_proteins": {
+                    "description": "the list of protein identifiers that are associated with the peptide sequence",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "best_protein": {
+                    "description": "the specific protein identifier most correctly associated with the peptide sequence",
+                    "type": "string"
+                },
+                "min_q_value": {
+                    "description": "smallest Q-Value associated with the peptide sequence as provided by MSGFPlus tool",
+                    "type": "number"
+                },
+                "peptide_sequence": {
+                    "type": "string"
+                },
+                "peptide_spectral_count": {
+                    "description": "sum of filter passing MS2 spectra associated with the peptide sequence within a given LC-MS/MS data file",
+                    "type": "integer"
+                },
+                "peptide_sum_masic_abundance": {
+                    "description": "combined MS1 extracted ion chromatograms derived from MS2 spectra associated with the peptide sequence from a given LC-MS/MS data file using the MASIC tool",
+                    "type": "integer"
+                }
+            },
+            "title": "PeptideQuantification",
+            "type": "object"
+        },
+        "PersonValue": {
+            "additionalProperties": false,
+            "description": "An attribute value representing a person",
+            "properties": {
+                "email": {
+                    "description": "An email address for an entity such as a person. This should be the primary email address used.",
+                    "type": "string"
+                },
+                "has_raw_value": {
+                    "description": "The full name of the Investigator in format FIRST LAST.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The full name of the Investigator. It should follow the format FIRST [MIDDLE NAME| MIDDLE INITIAL] LAST, where MIDDLE NAME| MIDDLE INITIAL is optional.",
+                    "type": "string"
+                },
+                "orcid": {
+                    "description": "The ORCID of a person.",
+                    "type": "string"
+                },
+                "profile_image_url": {
+                    "description": "A url that points to an image of a person.",
+                    "type": "string"
+                },
+                "was_generated_by": {
+                    "type": "string"
+                },
+                "websites": {
+                    "description": "A list of websites that are associated with the entity.",
+                    "items": {
+                        "pattern": "^[Hh][Tt][Tt][Pp][Ss]?:\\/\\/(?!.*[Dd][Oo][Ii]\\.[Oo][Rr][Gg]).*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "PersonValue",
+            "type": "object"
+        },
+        "PlantGrowthMedEnum": {
+            "description": "",
+            "enum": [
+                "other artificial liquid medium",
+                "other artificial solid medium",
+                "peat moss",
+                "perlite",
+                "pumice",
+                "sand",
+                "soil",
+                "vermiculite",
+                "water"
+            ],
+            "title": "PlantGrowthMedEnum",
+            "type": "string"
+        },
+        "PlantSexEnum": {
+            "description": "",
+            "enum": [
+                "Androdioecious",
+                "Androecious",
+                "Androgynous",
+                "Androgynomonoecious",
+                "Andromonoecious",
+                "Bisexual",
+                "Dichogamous",
+                "Diclinous",
+                "Dioecious",
+                "Gynodioecious",
+                "Gynoecious",
+                "Gynomonoecious",
+                "Hermaphroditic",
+                "Imperfect",
+                "Monoclinous",
+                "Monoecious",
+                "Perfect",
+                "Polygamodioecious",
+                "Polygamomonoecious",
+                "Polygamous",
+                "Protandrous",
+                "Protogynous",
+                "Subandroecious",
+                "Subdioecious",
+                "Subgynoecious",
+                "Synoecious",
+                "Trimonoecious",
+                "Trioecious",
+                "Unisexual"
+            ],
+            "title": "PlantSexEnum",
+            "type": "string"
+        },
+        "Pooling": {
+            "additionalProperties": false,
+            "description": "physical combination of several instances of like material.",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:Pooling"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 2,
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):poolp-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Pooling",
+            "type": "object"
+        },
+        "ProcessedSample": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "biomaterial_purity": {
+                    "$ref": "#/$defs/QuantityValue"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "dna_absorb1": {
+                    "description": "260/280 measurement of DNA sample purity",
+                    "type": "number"
+                },
+                "dna_concentration": {
+                    "maximum": 2000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "external_database_identifiers": {
+                    "description": "Link to corresponding identifier in external database",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):procsm-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ProcessedSample",
+            "type": "object"
+        },
+        "ProcessingInstitutionEnum": {
+            "description": "",
+            "enum": [
+                "UCSD",
+                "JGI",
+                "EMSL",
+                "Battelle",
+                "ANL",
+                "UCD_Genome_Center"
+            ],
+            "title": "ProcessingInstitutionEnum",
+            "type": "string"
+        },
+        "ProfilePositionEnum": {
+            "description": "",
+            "enum": [
+                "summit",
+                "shoulder",
+                "backslope",
+                "footslope",
+                "toeslope"
+            ],
+            "title": "ProfilePositionEnum",
+            "type": "string"
+        },
+        "ProteinQuantification": {
+            "additionalProperties": false,
+            "description": "This is used to link a metaproteomics analysis workflow to a specific protein",
+            "properties": {
+                "all_proteins": {
+                    "description": "the grouped list of protein identifiers associated with the peptide sequences that were grouped to a best protein",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "best_protein": {
+                    "description": "the specific protein identifier most correctly grouped to its associated peptide sequences",
+                    "type": "string"
+                },
+                "peptide_sequence_count": {
+                    "description": "count of peptide sequences grouped to the best_protein",
+                    "type": "integer"
+                },
+                "protein_spectral_count": {
+                    "description": "sum of filter passing MS2 spectra associated with the best protein within a given LC-MS/MS data file",
+                    "type": "integer"
+                },
+                "protein_sum_masic_abundance": {
+                    "description": "combined MS1 extracted ion chromatograms derived from MS2 spectra associated with the best protein from a given LC-MS/MS data file using the MASIC tool",
+                    "type": "integer"
+                }
+            },
+            "title": "ProteinQuantification",
+            "type": "object"
+        },
+        "Protocol": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "title": "Protocol",
+            "type": "object"
+        },
+        "QuadPosEnum": {
+            "description": "",
+            "enum": [
+                "North side",
+                "West side",
+                "South side",
+                "East side"
+            ],
+            "title": "QuadPosEnum",
+            "type": "string"
+        },
+        "QualityControlReport": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusEnum"
+                }
+            },
+            "title": "QualityControlReport",
+            "type": "object"
+        },
+        "QuantityValue": {
+            "additionalProperties": false,
+            "description": "A simple quantity, e.g. 2cm",
+            "properties": {
+                "has_maximum_numeric_value": {
+                    "description": "The maximum value part, expressed as number, of the quantity value when the value covers a range.",
+                    "type": "number"
+                },
+                "has_minimum_numeric_value": {
+                    "description": "The minimum value part, expressed as number, of the quantity value when the value covers a range.",
+                    "type": "number"
+                },
+                "has_numeric_value": {
+                    "description": "The number part of the quantity",
+                    "type": "number"
+                },
+                "has_raw_value": {
+                    "description": "Unnormalized atomic string representation, should in syntax {number} {unit}",
+                    "type": "string"
+                },
+                "has_unit": {
+                    "description": "The unit of the quantity",
+                    "type": "string"
+                },
+                "was_generated_by": {
+                    "type": "string"
+                }
+            },
+            "title": "QuantityValue",
+            "type": "object"
+        },
+        "Reaction": {
+            "additionalProperties": false,
+            "description": "An individual biochemical transformation carried out by a functional unit of an organism, in which a collection of substrates are transformed into a collection of products. Can also represent transporters",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "direction": {
+                    "description": "One of l->r, r->l, bidirectional, neutral",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                    "type": "string"
+                },
+                "is_balanced": {
+                    "type": "boolean"
+                },
+                "is_diastereoselective": {
+                    "type": "boolean"
+                },
+                "is_fully_characterized": {
+                    "description": "False if includes R-groups",
+                    "type": "boolean"
+                },
+                "is_stereo": {
+                    "type": "boolean"
+                },
+                "is_transport": {
+                    "type": "boolean"
+                },
+                "left_participants": {
+                    "items": {
+                        "$ref": "#/$defs/ReactionParticipant"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "right_participants": {
+                    "items": {
+                        "$ref": "#/$defs/ReactionParticipant"
+                    },
+                    "type": "array"
+                },
+                "smarts_string": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Reaction",
+            "type": "object"
+        },
+        "ReactionActivity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "material_input": {
+                    "type": "string"
+                },
+                "material_output": {
+                    "type": "string"
+                },
+                "reaction_temperature": {
+                    "type": "string"
+                },
+                "reaction_time": {
+                    "$ref": "#/$defs/QuantityValue"
+                }
+            },
+            "title": "ReactionActivity",
+            "type": "object"
+        },
+        "ReactionParticipant": {
+            "additionalProperties": false,
+            "description": "Instances of this link a reaction to a chemical entity participant",
+            "properties": {
+                "chemical": {
+                    "description": "from reaction participant class",
+                    "type": "string"
+                },
+                "stoichiometry": {
+                    "description": "from reaction participant class",
+                    "type": "integer"
+                }
+            },
+            "title": "ReactionParticipant",
+            "type": "object"
+        },
+        "ReadBasedTaxonomyAnalysis": {
+            "additionalProperties": false,
+            "description": "A workflow execution activity that performs taxonomy classification using sequencing reads",
+            "properties": {
+                "ended_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "execution_resource": {
+                    "type": "string"
+                },
+                "git_url": {
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):wfrbt-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "part_of": {
+                    "description": "Links a resource to another resource that either logically or physically includes it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "started_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
+                    "type": "string"
+                },
+                "used": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "was_informed_by": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "execution_resource",
+                "git_url",
+                "has_input",
+                "has_output",
+                "id",
+                "started_at_time",
+                "ended_at_time"
+            ],
+            "title": "ReadBasedTaxonomyAnalysis",
+            "type": "object"
+        },
+        "ReadQcAnalysis": {
+            "additionalProperties": false,
+            "description": "A workflow execution activity that performs quality control on raw Illumina reads including quality trimming, artifact removal, linker trimming, adapter trimming, spike-in removal, and human/cat/dog/mouse/microbe contaminant removal",
+            "properties": {
+                "ended_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "execution_resource": {
+                    "type": "string"
+                },
+                "git_url": {
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):wfrqc-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "input_base_count": {
+                    "description": "The nucleotide base count number of input reads for QC analysis.",
+                    "type": "number"
+                },
+                "input_read_bases": {
+                    "description": "TODO      ",
+                    "type": "number"
+                },
+                "input_read_count": {
+                    "description": "The sequence count number of input reads for QC analysis.",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "output_base_count": {
+                    "description": "After QC analysis nucleotide base count number.",
+                    "type": "number"
+                },
+                "output_read_bases": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "output_read_count": {
+                    "description": "After QC analysis sequence count number.",
+                    "type": "number"
+                },
+                "part_of": {
+                    "description": "Links a resource to another resource that either logically or physically includes it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "started_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
+                    "type": "string"
+                },
+                "used": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "was_informed_by": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "execution_resource",
+                "git_url",
+                "has_input",
+                "has_output",
+                "id",
+                "started_at_time",
+                "ended_at_time"
+            ],
+            "title": "ReadQcAnalysis",
+            "type": "object"
+        },
+        "RelSampLocEnum": {
+            "description": "",
+            "enum": [
+                "edge of car",
+                "center of car",
+                "under a seat"
+            ],
+            "title": "RelSampLocEnum",
+            "type": "string"
+        },
+        "RnaSampleFormatEnum": {
+            "description": "",
+            "enum": [
+                "10 mM Tris-HCl",
+                "DNAStable",
+                "Ethanol",
+                "Low EDTA TE",
+                "MDA reaction buffer",
+                "PBS",
+                "Pellet",
+                "RNAStable",
+                "TE",
+                "Water",
+                "Gentegra-DNA",
+                "Gentegra-RNA"
+            ],
+            "title": "RnaSampleFormatEnum",
+            "type": "string"
+        },
+        "RoomCondtEnum": {
+            "description": "",
+            "enum": [
+                "new",
+                "visible wear",
+                "needs repair",
+                "damaged",
+                "rupture",
+                "visible signs of mold/mildew"
+            ],
+            "title": "RoomCondtEnum",
+            "type": "string"
+        },
+        "RoomConnectedEnum": {
+            "description": "",
+            "enum": [
+                "attic",
+                "bathroom",
+                "closet",
+                "conference room",
+                "elevator",
+                "examining room",
+                "hallway",
+                "kitchen",
+                "mail room",
+                "office",
+                "stairwell"
+            ],
+            "title": "RoomConnectedEnum",
+            "type": "string"
+        },
+        "RoomLocEnum": {
+            "description": "",
+            "enum": [
+                "corner room",
+                "interior room",
+                "exterior wall"
+            ],
+            "title": "RoomLocEnum",
+            "type": "string"
+        },
+        "RoomSampPosEnum": {
+            "description": "",
+            "enum": [
+                "north corner",
+                "south corner",
+                "west corner",
+                "east corner",
+                "northeast corner",
+                "northwest corner",
+                "southeast corner",
+                "southwest corner",
+                "center"
+            ],
+            "title": "RoomSampPosEnum",
+            "type": "string"
+        },
+        "RoomTypeEnum": {
+            "description": "",
+            "enum": [
+                "attic",
+                "bathroom",
+                "closet",
+                "conference room",
+                "elevator",
+                "examining room",
+                "hallway",
+                "kitchen",
+                "mail room",
+                "private office",
+                "open office",
+                "stairwell",
+                ",restroom",
+                "lobby",
+                "vestibule",
+                "mechanical or electrical room",
+                "data center",
+                "laboratory_wet",
+                "laboratory_dry",
+                "gymnasium",
+                "natatorium",
+                "auditorium",
+                "lockers",
+                "cafe",
+                "warehouse"
+            ],
+            "title": "RoomTypeEnum",
+            "type": "string"
+        },
+        "SampCaptStatusEnum": {
+            "description": "",
+            "enum": [
+                "active surveillance in response to an outbreak",
+                "active surveillance not initiated by an outbreak",
+                "farm sample",
+                "market sample",
+                "other"
+            ],
+            "title": "SampCaptStatusEnum",
+            "type": "string"
+        },
+        "SampCollectPointEnum": {
+            "description": "",
+            "enum": [
+                "well",
+                "test well",
+                "drilling rig",
+                "wellhead",
+                "separator",
+                "storage tank",
+                "other"
+            ],
+            "title": "SampCollectPointEnum",
+            "type": "string"
+        },
+        "SampDisStageEnum": {
+            "description": "",
+            "enum": [
+                "dissemination",
+                "growth and reproduction",
+                "infection",
+                "inoculation",
+                "penetration",
+                "other"
+            ],
+            "title": "SampDisStageEnum",
+            "type": "string"
+        },
+        "SampFloorEnum": {
+            "description": "",
+            "enum": [
+                "1st floor",
+                "2nd floor",
+                "basement",
+                "lobby"
+            ],
+            "title": "SampFloorEnum",
+            "type": "string"
+        },
+        "SampMdEnum": {
+            "description": "",
+            "enum": [
+                "DF",
+                "RT",
+                "KB",
+                "MSL",
+                "other"
+            ],
+            "title": "SampMdEnum",
+            "type": "string"
+        },
+        "SampSubtypeEnum": {
+            "description": "",
+            "enum": [
+                "oil phase",
+                "water phase",
+                "biofilm",
+                "not applicable",
+                "other"
+            ],
+            "title": "SampSubtypeEnum",
+            "type": "string"
+        },
+        "SampWeatherEnum": {
+            "description": "",
+            "enum": [
+                "clear sky",
+                "cloudy",
+                "foggy",
+                "hail",
+                "rain",
+                "snow",
+                "sleet",
+                "sunny",
+                "windy"
+            ],
+            "title": "SampWeatherEnum",
+            "type": "string"
+        },
+        "SampleTypeEnum": {
+            "description": "",
+            "enum": [
+                "soil",
+                "water_extract_soil"
+            ],
+            "title": "SampleTypeEnum",
+            "type": "string"
+        },
+        "SamplingMethodEnum": {
+            "description": "",
+            "enum": [
+                "weighing"
+            ],
+            "title": "SamplingMethodEnum",
+            "type": "string"
+        },
+        "SeasonUseEnum": {
+            "description": "",
+            "enum": [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
+            "title": "SeasonUseEnum",
+            "type": "string"
+        },
+        "SedimentTypeEnum": {
+            "description": "",
+            "enum": [
+                "biogenous",
+                "cosmogenous",
+                "hydrogenous",
+                "lithogenous"
+            ],
+            "title": "SedimentTypeEnum",
+            "type": "string"
+        },
+        "SeparationMethodEnum": {
+            "description": "The tool/substance used to separate or filter a solution or mixture.",
+            "enum": [
+                "PTFE 96-well filter plate"
+            ],
+            "title": "SeparationMethodEnum",
+            "type": "string"
+        },
+        "ShadingDeviceCondEnum": {
+            "description": "",
+            "enum": [
+                "damaged",
+                "needs repair",
+                "new",
+                "rupture",
+                "visible wear"
+            ],
+            "title": "ShadingDeviceCondEnum",
+            "type": "string"
+        },
+        "ShadingDeviceTypeEnum": {
+            "description": "",
+            "enum": [
+                "bahama shutters",
+                "exterior roll blind",
+                "gambrel awning",
+                "hood awning",
+                "porchroller awning",
+                "sarasota shutters",
+                "slatted aluminum",
+                "solid aluminum awning",
+                "sun screen",
+                "tree",
+                "trellis",
+                "venetian awning"
+            ],
+            "title": "ShadingDeviceTypeEnum",
+            "type": "string"
+        },
+        "SoilHorizonEnum": {
+            "description": "",
+            "enum": [
+                "O horizon",
+                "A horizon",
+                "E horizon",
+                "B horizon",
+                "C horizon",
+                "R layer",
+                "Permafrost",
+                "M horizon"
+            ],
+            "title": "SoilHorizonEnum",
+            "type": "string"
+        },
+        "SolventEnum": {
+            "description": "",
+            "enum": [
+                "deionized_water",
+                "methanol",
+                "chloroform"
+            ],
+            "title": "SolventEnum",
+            "type": "string"
+        },
+        "SpecificEnum": {
+            "description": "",
+            "enum": [
+                "operation",
+                "as built",
+                "construction",
+                "bid",
+                "design",
+                "photos"
+            ],
+            "title": "SpecificEnum",
+            "type": "string"
+        },
+        "SrDepEnvEnum": {
+            "description": "",
+            "enum": [
+                "Lacustine",
+                "Fluvioldeltaic",
+                "Fluviomarine",
+                "Marine",
+                "other"
+            ],
+            "title": "SrDepEnvEnum",
+            "type": "string"
+        },
+        "SrGeolAgeEnum": {
+            "description": "",
+            "enum": [
+                "Archean",
+                "Cambrian",
+                "Carboniferous",
+                "Cenozoic",
+                "Cretaceous",
+                "Devonian",
+                "Jurassic",
+                "Mesozoic",
+                "Neogene",
+                "Ordovician",
+                "Paleogene",
+                "Paleozoic",
+                "Permian",
+                "Precambrian",
+                "Proterozoic",
+                "Silurian",
+                "Triassic",
+                "other"
+            ],
+            "title": "SrGeolAgeEnum",
+            "type": "string"
+        },
+        "SrKerogTypeEnum": {
+            "description": "",
+            "enum": [
+                "Type I",
+                "Type II",
+                "Type III",
+                "Type IV",
+                "other"
+            ],
+            "title": "SrKerogTypeEnum",
+            "type": "string"
+        },
+        "SrLithologyEnum": {
+            "description": "",
+            "enum": [
+                "Clastic",
+                "Carbonate",
+                "Coal",
+                "Biosilicieous",
+                "other"
+            ],
+            "title": "SrLithologyEnum",
+            "type": "string"
+        },
+        "StatusEnum": {
+            "description": "",
+            "enum": [
+                "pass",
+                "fail"
+            ],
+            "title": "StatusEnum",
+            "type": "string"
+        },
+        "Study": {
+            "additionalProperties": false,
+            "description": "A study summarizes the overall goal of a research initiative and outlines the key objective of its underlying projects.",
+            "properties": {
+                "alternative_descriptions": {
+                    "description": "A list of alternative descriptions for the entity. The distinction between description and alternative descriptions is application-specific.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "alternative_identifiers": {
+                    "description": "Unique identifier for a study submitted to additional resources. Matches that which has been submitted to NMDC",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "alternative_names": {
+                    "description": "A list of alternative names used to refer to the entity. The distinction between name and alternative names is application-specific.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "alternative_titles": {
+                    "description": "A list of alternative titles for the entity. The distinction between title and alternative titles is application-specific.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "associated_dois": {
+                    "description": "A list of DOIs associated with a resource, such as a list of DOIS associated with a Study.",
+                    "items": {
+                        "$ref": "#/$defs/Doi"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A brief, link-free summary of a Study",
+                    "type": "string"
+                },
+                "ecosystem": {
+                    "description": "An ecosystem is a combination of a physical environment (abiotic factors) and all the organisms (biotic factors) that interact with this environment. Ecosystem is in position 1/5 in a GOLD path.",
+                    "type": "string"
+                },
+                "ecosystem_category": {
+                    "description": "Ecosystem categories represent divisions within the ecosystem based on specific characteristics of the environment from where an organism or sample is isolated. Ecosystem category is in position 2/5 in a GOLD path.",
+                    "type": "string"
+                },
+                "ecosystem_subtype": {
+                    "description": "Ecosystem subtypes represent further subdivision of Ecosystem types into more distinct subtypes. Ecosystem subtype is in position 4/5 in a GOLD path.",
+                    "type": "string"
+                },
+                "ecosystem_type": {
+                    "description": "Ecosystem types represent things having common characteristics within the Ecosystem Category. These common characteristics based grouping is still broad but specific to the characteristics of a given environment. Ecosystem type is in position 3/5 in a GOLD path.",
+                    "type": "string"
+                },
+                "emsl_project_identifiers": {
+                    "description": "an identifier that links to an EMSL user facility project",
+                    "items": {
+                        "pattern": "^emsl\\.project:[0-9]{5}$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "funding_sources": {
+                    "description": "A list of organizations, along with the award numbers, that underwrite financial support for projects of  a particular type. Typically, they process applications and award funds to the chosen qualified  applicants.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gnps_task_identifiers": {
+                    "description": "identifiers that link a NMDC study to a web-based report about metabolomics analysis progress and results",
+                    "items": {
+                        "pattern": "^gnps\\.task:[a-f0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gold_study_identifiers": {
+                    "description": "identifiers for corresponding project(s) in GOLD",
+                    "items": {
+                        "pattern": "^gold:Gs[0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_credit_associations": {
+                    "description": "This slot links a study to a credit association.  The credit association will be linked to a person value and to a CRediT Contributor Roles term. Overall semantics: person should get credit X for their participation in the study",
+                    "items": {
+                        "$ref": "#/$defs/CreditAssociation"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):sty-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "insdc_bioproject_identifiers": {
+                    "description": "Unique identifier for a bioproject submitted to INSDC that relates to the NMDC submitted study.",
+                    "items": {
+                        "pattern": "^bioproject:PRJ[DEN][A-Z][0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "jgi_portal_study_identifiers": {
+                    "description": "Identifiers that link a NMDC study to a website hosting raw and analyzed data for a JGI proposal.  The suffix of the curie can used to query the GOLD API and is interoperable with an award DOI from OSTI and a GOLD study identifier.",
+                    "items": {
+                        "pattern": "^jgi.proposal:\\d+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mgnify_project_identifiers": {
+                    "description": "identifiers for corresponding project in MGnify",
+                    "items": {
+                        "pattern": "^mgnify.proj:[A-Z]+[0-9]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "neon_study_identifiers": {
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "notes": {
+                    "description": "from study class",
+                    "type": "string"
+                },
+                "objective": {
+                    "description": "The scientific objectives associated with the entity. It SHOULD correspond to scientific norms for objectives field in a structured abstract.",
+                    "type": "string"
+                },
+                "part_of": {
+                    "description": "Links a study or consortium to a parent (or umbrella) study or consortium.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "principal_investigator": {
+                    "$ref": "#/$defs/PersonValue",
+                    "description": "Principal Investigator who led the study and/or generated the dataset."
+                },
+                "related_identifiers": {
+                    "description": "Unique identifier for a study submitted to additional resources. Similar, but not necessarily identical to that which has been submitted to NMDC",
+                    "type": "string"
+                },
+                "relevant_protocols": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "specific_ecosystem": {
+                    "description": "Specific ecosystems represent specific features of the environment like aphotic zone in an ocean or gastric mucosa within a host digestive system. Specific ecosystem is in position 5/5 in a GOLD path.",
+                    "type": "string"
+                },
+                "study_category": {
+                    "$ref": "#/$defs/StudyCategoryEnum",
+                    "description": "The type of research initiative"
+                },
+                "study_image": {
+                    "description": "Links a study to one or more images.",
+                    "items": {
+                        "$ref": "#/$defs/ImageValue"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "A name given to the entity that differs from the name/label programmatically assigned to it. For example, when extracting study information for GOLD, the GOLD system has assigned a name/label. However, for display purposes, we may also wish the capture the title of the proposal that was used to fund the study.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
+                    "type": "string"
+                },
+                "websites": {
+                    "description": "A list of websites that are associated with the entity.",
+                    "items": {
+                        "pattern": "^[Hh][Tt][Tt][Pp][Ss]?:\\/\\/(?!.*[Dd][Oo][Ii]\\.[Oo][Rr][Gg]).*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "study_category"
+            ],
+            "title": "Study",
+            "type": "object"
+        },
+        "StudyCategoryEnum": {
+            "description": "",
+            "enum": [
+                "research_study",
+                "consortium"
+            ],
+            "title": "StudyCategoryEnum",
+            "type": "string"
+        },
+        "SubSamplingProcess": {
+            "additionalProperties": false,
+            "description": "Separating a sample aliquot from the starting material for downstream activity.",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
+                "container_size": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The volume of the container an analyte is stored in or an activity takes place in"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "designated_class": {
+                    "enum": [
+                        "nmdc:SubSamplingProcess"
+                    ],
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "The subsample.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                    "type": "string"
+                },
+                "mass": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The output mass of the SubSampling Process."
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
                 },
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
                 },
-                "target_gene": {
-                    "$ref": "#/$defs/TextValue",
-                    "description": "Targeted gene or locus name for marker gene studies"
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
                 },
-                "target_subfragment": {
-                    "$ref": "#/$defs/TextValue",
-                    "descrMetatranscriptomement of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
+                "volume": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The output volume of the SubSampling Process."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SubSamplingProcess",
+            "type": "object"
+        },
+        "SubstructureTypeEnum": {
+            "description": "",
+            "enum": [
+                "crawlspace",
+                "slab on grade",
+                "basement"
+            ],
+            "title": "SubstructureTypeEnum",
+            "type": "string"
+        },
+        "SurfAirContEnum": {
+            "description": "",
+            "enum": [
+                "dust",
+                "organic matter",
+                "particulate matter",
+                "volatile organic compounds",
+                "biological contaminants",
+                "radon",
+                "nutrients",
+                "biocides"
+            ],
+            "title": "SurfAirContEnum",
+            "type": "string"
+        },
+        "SurfMaterialEnum": {
+            "description": "",
+            "enum": [
+                "adobe",
+                "carpet",
+                "cinder blocks",
+                "concrete",
+                "hay bales",
+                "glass",
+                "metal",
+                "paint",
+                "plastic",
+                "stainless steel",
+                "stone",
+                "stucco",
+                "tile",
+                "vinyl",
+                "wood"
+            ],
+            "title": "SurfMaterialEnum",
+            "type": "string"
+        },
+        "TextValue": {
+            "additionalProperties": false,
+            "description": "A basic string value",
+            "properties": {
+                "has_raw_value": {
+                    "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "Should use ISO 639-1 code e.g. \"en\", \"fr\"",
+                    "type": "string"
+                },
+                "was_generated_by": {
+                    "type": "string"
+                }
+            },
+            "title": "TextValue",
+            "type": "object"
+        },
+        "TidalStageEnum": {
+            "description": "",
+            "enum": [
+                "low tide",
+                "ebb tide",
+                "flood tide",
+                "high tide"
+            ],
+            "title": "TidalStageEnum",
+            "type": "string"
+        },
+        "TillageEnum": {
+            "description": "",
+            "enum": [
+                "drill",
+                "cutting disc",
+                "ridge till",
+                "strip tillage",
+                "zonal tillage",
+                "chisel",
+                "tined",
+                "mouldboard",
+                "disc plough"
+            ],
+            "title": "TillageEnum",
+            "type": "string"
+        },
+        "TimestampValue": {
+            "additionalProperties": false,
+            "description": "A value that is a timestamp. The range should be ISO-8601",
+            "properties": {
+                "has_raw_value": {
+                    "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
+                    "type": "string"
+                },
+                "was_generated_by": {
+                    "type": "string"
+                }
+            },
+            "title": "TimestampValue",
+            "type": "object"
+        },
+        "TrainLineEnum": {
+            "description": "",
+            "enum": [
+                "red",
+                "green",
+                "orange"
+            ],
+            "title": "TrainLineEnum",
+            "type": "string"
+        },
+        "TrainStatLocEnum": {
+            "description": "",
+            "enum": [
+                "south station above ground",
+                "south station underground",
+                "south station amtrak",
+                "forest hills",
+                "riverside"
+            ],
+            "title": "TrainStatLocEnum",
+            "type": "string"
+        },
+        "TrainStopLocEnum": {
+            "description": "",
+            "enum": [
+                "end",
+                "mid",
+                "downtown"
+            ],
+            "title": "TrainStopLocEnum",
+            "type": "string"
+        },
+        "UrlValue": {
+            "additionalProperties": false,
+            "description": "A value that is a string that conforms to URL syntax",
+            "properties": {
+                "has_raw_value": {
+                    "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
+                    "type": "string"
+                },
+                "was_generated_by": {
+                    "type": "string"
+                }
+            },
+            "title": "UrlValue",
+            "type": "object"
+        },
+        "VisMediaEnum": {
+            "description": "",
+            "enum": [
+                "photos",
+                "videos",
+                "commonly of the building",
+                "site context (adjacent buildings, vegetation, terrain, streets)",
+                "interiors",
+                "equipment",
+                "3D scans"
+            ],
+            "title": "VisMediaEnum",
+            "type": "string"
+        },
+        "WallConstTypeEnum": {
+            "description": "",
+            "enum": [
+                "frame construction",
+                "joisted masonry",
+                "light noncombustible",
+                "masonry noncombustible",
+                "modified fire resistive",
+                "fire resistive"
+            ],
+            "title": "WallConstTypeEnum",
+            "type": "string"
+        },
+        "WallFinishMatEnum": {
+            "description": "",
+            "enum": [
+                "plaster",
+                "gypsum plaster",
+                "veneer plaster",
+                "gypsum board",
+                "tile",
+                "terrazzo",
+                "stone facing",
+                "acoustical treatment",
+                "wood",
+                "metal",
+                "masonry"
+            ],
+            "title": "WallFinishMatEnum",
+            "type": "string"
+        },
+        "WallLocEnum": {
+            "description": "",
+            "enum": [
+                "north",
+                "south",
+                "east",
+                "west"
+            ],
+            "title": "WallLocEnum",
+            "type": "string"
+        },
+        "WallSurfTreatmentEnum": {
+            "description": "",
+            "enum": [
+                "painted",
+                "wall paper",
+                "no treatment",
+                "paneling",
+                "stucco",
+                "fabric"
+            ],
+            "title": "WallSurfTreatmentEnum",
+            "type": "string"
+        },
+        "WallTextureEnum": {
+            "description": "",
+            "enum": [
+                "crows feet",
+                "crows-foot stomp",
+                "",
+                "double skip",
+                "hawk and trowel",
+                "knockdown",
+                "popcorn",
+                "orange peel",
+                "rosebud stomp",
+                "Santa-Fe texture",
+                "skip trowel",
+                "smooth",
+                "stomp knockdown",
+                "swirl"
+            ],
+            "title": "WallTextureEnum",
+            "type": "string"
+        },
+        "WaterFeatTypeEnum": {
+            "description": "",
+            "enum": [
+                "fountain",
+                "pool",
+                "standing feature",
+                "stream",
+                "waterfall"
+            ],
+            "title": "WaterFeatTypeEnum",
+            "type": "string"
+        },
+        "WeekdayEnum": {
+            "description": "",
+            "enum": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "title": "WeekdayEnum",
+            "type": "string"
+        },
+        "WindowCondEnum": {
+            "description": "",
+            "enum": [
+                "damaged",
+                "needs repair",
+                "new",
+                "rupture",
+                "visible wear"
+            ],
+            "title": "WindowCondEnum",
+            "type": "string"
+        },
+        "WindowCoverEnum": {
+            "description": "",
+            "enum": [
+                "blinds",
+                "curtains",
+                "none"
+            ],
+            "title": "WindowCoverEnum",
+            "type": "string"
+        },
+        "WindowHorizPosEnum": {
+            "description": "",
+            "enum": [
+                "left",
+                "middle",
+                "right"
+            ],
+            "title": "WindowHorizPosEnum",
+            "type": "string"
+        },
+        "WindowLocEnum": {
+            "description": "",
+            "enum": [
+                "north",
+                "south",
+                "east",
+                "west"
+            ],
+            "title": "WindowLocEnum",
+            "type": "string"
+        },
+        "WindowMatEnum": {
+            "description": "",
+            "enum": [
+                "clad",
+                "fiberglass",
+                "metal",
+                "vinyl",
+                "wood"
+            ],
+            "title": "WindowMatEnum",
+            "type": "string"
+        },
+        "WindowTypeEnum": {
+            "description": "",
+            "enum": [
+                "single-hung sash window",
+                "horizontal sash window",
+                "fixed window"
+            ],
+            "title": "WindowTypeEnum",
+            "type": "string"
+        },
+        "WindowVertPosEnum": {
+            "description": "",
+            "enum": [
+                "bottom",
+                "middle",
+                "top",
+                "low",
+                "high"
+            ],
+            "title": "WindowVertPosEnum",
+            "type": "string"
+        },
+        "WorkflowExecution": {
+            "additionalProperties": false,
+            "description": "Represents an instance of an execution of a particular workflow",
+            "properties": {
+                "ended_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "execution_resource": {
+                    "type": "string"
+                },
+                "git_url": {
+                    "type": "string"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output biosample to a processing step",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):wf-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "part_of": {
+                    "description": "Links a resource to another resource that either logically or physically includes it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "started_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
                 },
                 "type": {
                     "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
                     "type": "string"
+                },
+                "used": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "was_informed_by": {
+                    "type": "string"
                 }
             },
             "required": [
+                "execution_resource",
+                "git_url",
                 "has_input",
-                "id"
+                "has_output",
+                "type",
+                "id",
+                "started_at_time",
+                "ended_at_time"
             ],
-            "title": "OmicsProcessing",
+            "title": "WorkflowExecution",
             "type": "object"
         },
-        "OntologyClass": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "alternative_identifiers": {
-                    "description": "A list of alternative identifiers for the entity.",
-                    "items": {
-                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "description": {
-                    "description": "a human-readable description of a thing",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human readable label for an entity",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "OntologyClass",
-            "type": "object"
-        },
-        "OrganismCountEnum": {
-            "description": "",
+        "YesNoEnum": {
+            "description": "replaces DnaDnaseEnum and DnaseRnaEnum",
             "enum": [
-                "ATP",
-                "MPN",
-                "other"
+                "no",
+                "yes"
             ],
-            "title": "OrganismCountEnum",
+            "title": "YesNoEnum",
             "type": "string"
+        }
+    },
+    "$id": "https://w3id.org/nmdc/nmdc",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "description": "An abstract holder for any set of metadata and data. It does not need to correspond to an actual managed database top level holder class. When translated to JSON-Schema this is the 'root' object. It should contain pointers to other objects of interest. For MongoDB, the lists of objects that Database slots point to correspond to **collections**.",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "activity_set": {
+            "description": "This property links a database object to the set of workflow activities.",
+            "items": {
+                "$ref": "#/$defs/WorkflowExecution"
+            },
+            "type": "array"
         },
-        "OrthologyGroup": {
-            "additionalProperties": false,
-            "description": "A set of genes or gene products in which all members are orthologous",
-            "properties": {
-                "alternative_identifiers": {
-                    "description": "A list of alternative identifiers for the entity.",
-                    "items": {
-                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                        "type": "string"
+        "biosample_set": {
+            "description": "This property links a database object to the set of samples within it.",
+            "items": {
+                "$ref": "#/$defs/Biosample"
+            },
+            "type": "array"
+        },
+        "collecting_biosamples_from_site_set": {
+            "items": {
+                "$ref": "#/$defs/CollectingBiosamplesFromSite"
+            },
+            "type": "array"
+        },
+        "data_object_set": {
+            "description": "This property links a database object to the set of data objects within it.",
+            "items": {
+                "$ref": "#/$defs/DataObject"
+            },
+            "type": "array"
+        },
+        "dissolving_activity_set": {
+            "items": {
+                "$ref": "#/$defs/DissolvingActivity"
+            },
+            "type": "array"
+        },
+        "extraction_set": {
+            "description": "This property links a database object to the set of extractions within it.",
+            "items": {
+                "$ref": "#/$defs/Extraction"
+            },
+            "type": "array"
+        },
+        "field_research_site_set": {
+            "items": {
+                "$ref": "#/$defs/FieldResearchSite"
+            },
+            "type": "array"
+        },
+        "functional_annotation_agg": {
+            "items": {
+                "$ref": "#/$defs/FunctionalAnnotationAggMember"
+            },
+            "type": "array"
+        },
+        "functional_annotation_set": {
+            "description": "This property links a database object to the set of all functional annotations",
+            "items": {
+                "$ref": "#/$defs/FunctionalAnnotation"
+            },
+            "type": "array"
+        },
+        "genome_feature_set": {
+            "description": "This property links a database object to the set of all features",
+            "items": {
+                "$ref": "#/$defs/GenomeFeature"
+            },
+            "type": "array"
+        },
+        "library_preparation_set": {
+            "description": "This property links a database object to the set of DNA extractions within it.",
+            "items": {
+                "$ref": "#/$defs/LibraryPreparation"
+            },
+            "type": "array"
+        },
+        "mags_activity_set": {
+            "description": "This property links a database object to the set of MAGs analysis activities.",
+            "items": {
+                "$ref": "#/$defs/MagsAnalysisActivity"
+            },
+            "type": "array"
+        },
+        "material_sample_set": {
+            "items": {
+                "$ref": "#/$defs/MaterialSample"
+            },
+            "type": "array"
+        },
+        "material_sampling_activity_set": {
+            "items": {
+                "$ref": "#/$defs/MaterialSamplingActivity"
+            },
+            "type": "array"
+        },
+        "metabolomics_analysis_activity_set": {
+            "description": "This property links a database object to the set of metabolomics analysis activities.",
+            "items": {
+                "$ref": "#/$defs/MetabolomicsAnalysis"
+            },
+            "type": "array"
+        },
+        "metagenome_annotation_set": {
+            "description": "This property links a database object to the set of metagenome annotation activities.",
+            "items": {
+                "$ref": "#/$defs/MetagenomeAnnotation"
+            },
+            "type": "array"
+        },
+        "metagenome_assembly_set": {
+            "description": "This property links a database object to the set of metagenome assembly activities.",
+            "items": {
+                "$ref": "#/$defs/MetagenomeAssembly"
+            },
+            "type": "array"
+        },
+        "metagenome_sequencing_set": {
+            "description": "This property links a database object to the set of metagenome sequencing activities.",
+            "items": {
+                "$ref": "#/$defs/MetagenomeSequencing"
+            },
+            "type": "array"
+        },
+        "metaproteomics_analysis_set": {
+            "description": "This property links a database object to the set of metaproteomics analysis activities.",
+            "items": {
+                "$ref": "#/$defs/MetaproteomicsAnalysis"
+            },
+            "type": "array"
+        },
+        "metatranscriptome_set": {
+            "description": "This property links a database object to the set of metatranscriptome analysis activities.",
+            "items": {
+                "$ref": "#/$defs/MetatranscriptomeActivity"
+            },
+            "type": "array"
+        },
+        "nom_analysis_set": {
+            "description": "This property links a database object to the set of natural organic matter (NOM) analysis activities.",
+            "items": {
+                "$ref": "#/$defs/NomAnalysis"
+            },
+            "type": "array"
+        },
+        "omics_processing_set": {
+            "description": "This property links a database object to the set of omics processings within it.",
+            "items": {
+                "$ref": "#/$defs/OmicsProcessing"
+            },
+            "type": "array"
+        },
+        "planned_process_set": {
+            "description": "This property links a database object to the set of planned processes within it.",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/CollectingBiosamplesFromSite"
                     },
-                    "type": "array"
-                },
-                "description": {
-                    "description": "a human-readable description of a thing",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human readable label for an entity",
-                    "type": "string"
-                }
+                    {
+                        "$ref": "#/$defs/BiosampleProcessing"
+                    },
+                    {
+                        "$ref": "#/$defs/SubSamplingProcess"
+                    },
+                    {
+                        "$ref": "#/$defs/MixingProcess"
+                    },
+                    {
+                        "$ref": "#/$defs/FiltrationProcess"
+                    },
+                    {
+                        "$ref": "#/$defs/OmicsProcessing"
+                    },
+                    {
+                        "$ref": "#/$defs/Pooling"
+                    },
+                    {
+                        "$ref": "#/$defs/Extraction"
+                    },
+                    {
+                        "$ref": "#/$defs/LibraryPreparation"
+                    }
+                ]
             },
-            "required": [
-                "id"
-            ],
-            "title": "OrthologyGroup",
-            "type": "object"
+            "type": "array"
         },
-        "OxyStatSampEnum": {
-            "descrMetatranscriptome"enum": ["aerobic","anaerobic","other"
-        ],
-        "title": "OxyStatSampEnum",
-        "type": "string"
-    },
-    "Pathway": {
-        "additionalProperties": false,
-        "description": "A pathway is a sequence of steps/reactions carried out by an organism or community of organisms",
-        "properties": {
-            "alternative_identifiers": {
-                "description": "A list of alternative identifiers for the entity.",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
+        "pooling_set": {
+            "items": {
+                "$ref": "#/$defs/Pooling"
             },
-            "description": {
-                "description": "a human-readable description of a thing",
-                "type": "string"
-            },
-            "has_part": {
-                "description": "A pathway can be broken down to a series of reaction step",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                "type": "string"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            }
+            "type": "array"
         },
-        "required": [
-            "has_part",
-            "id"
-        ],
-        "title": "Pathway",
-        "type": "object"
-    },
-    "PeptideQuantification": {
-        "additionalProperties": false,
-        "description": "This is used to link a metaproteomics analysis workflow to a specific peptide sequence and related information",
-        "properties": {
-            "all_proteins": {
-                "description": "the list of protein identifiers that are associated with the peptide sequence",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
+        "processed_sample_set": {
+            "description": "This property links a database object to the set of processed samples within it.",
+            "items": {
+                "$ref": "#/$defs/ProcessedSample"
             },
-            "best_protein": {
-                "description": "the specific protein identifier most correctly associated with the peptide sequence",
-                "type": "string"
-            },
-            "min_q_value": {
-                "description": "smallest Q-Value associated with the peptide sequence as provided by MSGFPlus tool",
-                "type": "number"
-            },
-            "peptide_sequence": {
-                "type": "string"
-            },
-            "peptide_spectral_count": {
-                "description": "sum of filter passing MS2 spectra associated with the peptide sequence within a given LC-MS/MS data file",
-                "type": "integer"
-            },
-            "peptide_sum_masic_abundance": {
-                "description": "combined MS1 extracted ion chromatograms derived from MS2 spectra associated with the peptide sequence from a given LC-MS/MS data file using the MASIC tool",
-                "type": "integer"
-            }
+            "type": "array"
         },
-        "title": "PeptideQuantification",
-        "type": "object"
-    },
-    "PersonValue": {
-        "additionalProperties": false,
-        "description": "An attribute value representing a person",
-        "properties": {
-            "email": {
-                "description": "An email address for an entity such as a person. This should be the primary email address used.",
-                "type": "string"
+        "reaction_activity_set": {
+            "items": {
+                "$ref": "#/$defs/ReactionActivity"
             },
-            "has_raw_value": {
-                "description": "The full name of the Investigator in format FIRST LAST.",
-                "type": "string"
-            },
-            "name": {
-                "description": "The full name of the Investigator. It should follow the format FIRST [MIDDLE NAME| MIDDLE INITIAL] LAST, where MIDDLE NAME| MIDDLE INITIAL is optional.",
-                "type": "string"
-            },
-            "orcid": {
-                "description": "The ORCID of a person.",
-                "type": "string"
-            },
-            "profile_image_url": {
-                "description": "A url that points to an image of a person.",
-                "type": "string"
-            },
-            "was_generated_by": {
-                "type": "string"
-            },
-            "websites": {
-                "description": "A list of websites that are associated with the entity.",
-                "items": {
-                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?:\\/\\/(?!.*[Dd][Oo][Ii]\\.[Oo][Rr][Gg]).*$",
-                    "type": "string"
-                },
-                "type": "array"
-            }
+            "type": "array"
         },
-        "title": "PersonValue",
-        "type": "object"
-    },
-    "PlantGrowthMedEnum": {
-        "description": "",
-        "enum": [
-            "other artificial liquid medium",
-            "other artificial solid medium",
-            "peat moss",
-            "perlite",
-            "pumice",
-            "sand",
-            "soil",
-            "vermiculite",
-            "water"
-        ],
-        "title": "PlantGrowthMedEnum",
-        "type": "string"
-    },
-    "PlantSexEnum": {
-        "description": "",
-        "enum": [
-            "Androdioecious",
-            "Androecious",
-            "Androgynous",
-            "Androgynomonoecious",
-            "Andromonoecious",
-            "Bisexual",
-            "Dichogamous",
-            "Diclinous",
-            "Dioecious",
-            "Gynodioecious",
-            "Gynoecious",
-            "Gynomonoecious",
-            "Hermaphroditic",
-            "Imperfect",
-            "Monoclinous",
-            "Monoecious",
-            "Perfect",
-            "Polygamodioecious",
-            "Polygamomonoecious",
-            "Polygamous",
-            "Protandrous",
-            "Protogynous",
-            "Subandroecious",
-            "Subdioecious",
-            "Subgynoecious",
-            "Synoecious",
-            "Trimonoecious",
-            "Trioecious",
-            "Unisexual"
-        ],
-        "title": "PlantSexEnum",
-        "type": "string"
-    },
-    "Pooling": {
-        "additionalProperties": false,
-        "description": "physical combination of several instances of like material.",
-        "properties": {
-            "alternative_identifiers": {
-                "description": "A list of alternative identifiers for the entity.",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
+        "read_based_taxonomy_analysis_set": {
+            "description": "This property links a database object to the set of read based analysis activities.",
+            "items": {
+                "$ref": "#/$defs/ReadBasedTaxonomyAnalysis"
             },
-            "description": {
-                "description": "a human-readable description of a thing",
-                "type": "string"
-            },
-            "designated_class": {
-                "enum": [
-                    "nmdc:Pooling"
-                ],
-                "type": "string"
-            },
-            "end_date": {
-                "description": "The date on which any process or activity was ended",
-                "type": "string"
-            },
-            "has_input": {
-                "description": "An input to a process.",
-                "items": {
-                    "type": "string"
-                },
-                "minItems": 2,
-                "type": "array"
-            },
-            "has_output": {
-                "description": "An output biosample to a processing step",
-                "items": {
-                    "type": "string"
-                },
-                "maxItems": 1,
-                "minItems": 1,
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^(nmdc):poolp-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                "type": "string"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "protocol_link": {
-                "$ref": "#/$defs/Protocol"
-            },
-            "start_date": {
-                "description": "The date on which any process or activity was started",
-                "type": "string"
-            }
+            "type": "array"
         },
-        "required": [
-            "id"
-        ],
-        "title": "Pooling",
-        "type": "object"
-    },
-    "ProcessedSample": {
-        "additionalProperties": false,
-        "description": "",
-        "properties": {
-            "alternative_identifiers": {
-                "description": "A list of alternative identifiers for the entity.",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
+        "read_qc_analysis_set": {
+            "description": "This property links a database object to the set of read QC analysis activities.",
+            "items": {
+                "$ref": "#/$defs/ReadQcAnalysis"
             },
-            "biomaterial_purity": {
-                "$ref": "#/$defs/QuantityValue"
-            },
-            "description": {
-                "description": "a human-readable description of a thing",
-                "type": "string"
-            },
-            "dna_absorb1": {
-                "description": "260/280 measurement of DNA sample purity",
-                "type": "number"
-            },
-            "dna_concentration": {
-                "maximum": 2000,
-                "minimum": 0,
-                "type": "number"
-            },
-            "external_database_identifiers": {
-                "description": "Link to corresponding identifier in external database",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^(nmdc):procsm-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                "type": "string"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            }
+            "type": "array"
         },
-        "required": [
-            "id"
-        ],
-        "title": "ProcessedSample",
-        "type": "object"
-    },
-    "ProcessingInstitutionEnum": {
-        "description": "",
-        "enum": [
-            "UCSD",
-            "JGI",
-            "EMSL",
-            "Battelle",
-            "ANL",
-            "UCD_Genome_Center"
-        ],
-        "title": "ProcessingInstitutionEnum",
-        "type": "string"
-    },
-    "ProfilePositionEnum": {
-        "description": "",
-        "enum": [
-            "summit",
-            "shoulder",
-            "backslope",
-            "footslope",
-            "toeslope"
-        ],
-        "title": "ProfilePositionEnum",
-        "type": "string"
-    },
-    "ProteinQuantification": {
-        "additionalProperties": false,
-        "description": "This is used to link a metaproteomics analysis workflow to a specific protein",
-        "properties": {
-            "all_proteins": {
-                "description": "the grouped list of protein identifiers associated with the peptide sequences that were grouped to a best protein",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "best_protein": {
-                "description": "the specific protein identifier most correctly grouped to its associated peptide sequences",
-                "type": "string"
-            },
-            "peptide_sequence_count": {
-                "description": "count of peptide sequences grouped to the best_protein",
-                "type": "integer"
-            },
-            "protein_spectral_count": {
-                "description": "sum of filter passing MS2 spectra associated with the best protein within a given LC-MS/MS data file",
-                "type": "integer"
-            },
-            "protein_sum_masic_abundance": {
-                "description": "combined MS1 extracted ion chromatograms derived from MS2 spectra associated with the best protein from a given LC-MS/MS data file using the MASIC tool",
-                "type": "integer"
-            }
-        },
-        "title": "ProteinQuantification",
-        "type": "object"
-    },
-    "Protocol": {
-        "additionalProperties": false,
-        "description": "",
-        "properties": {
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "url": {
-                "type": "string"
-            }
-        },
-        "title": "Protocol",
-        "type": "object"
-    },
-    "QuadPosEnum": {
-        "description": "",
-        "enum": [
-            "North side",
-            "West side",
-            "South side",
-            "East side"
-        ],
-        "title": "QuadPosEnum",
-        "type": "string"
-    },
-    "QualityControlReport": {
-        "additionalProperties": false,
-        "description": "",
-        "properties": {
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "status": {
-                "$ref": "#/$defs/StatusEnum"
-            }
-        },
-        "title": "QualityControlReport",
-        "type": "object"
-    },
-    "QuantityValue": {
-        "additionalProperties": false,
-        "description": "A simple quantity, e.g. 2cm",
-        "properties": {
-            "has_maximum_numeric_value": {
-                "description": "The maximum value part, expressed as number, of the quantity value when the value covers a range.",
-                "type": "number"
-            },
-            "has_minimum_numeric_value": {
-                "description": "The minimum value part, expressed as number, of the quantity value when the value covers a range.",
-                "type": "number"
-            },
-            "has_numeric_value": {
-                "description": "The number part of the quantity",
-                "type": "number"
-            },
-            "has_raw_value": {
-                "description": "Unnormalized atomic string representation, should in syntax {number} {unit}",
-                "type": "string"
-            },
-            "has_unit": {
-                "description": "The unit of the quantity",
-                "type": "string"
-            },
-            "was_generated_by": {
-                "type": "string"
-            }
-        },
-        "title": "QuantityValue",
-        "type": "object"
-    },
-    "Reaction": {
-        "additionalProperties": false,
-        "description": "An individual biochemical transformation carried out by a functional unit of an organism, in which a collection of substrates are transformed into a collection of products. Can also represent transporters",
-        "properties": {
-            "alternative_identifiers": {
-                "description": "A list of alternative identifiers for the entity.",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "description": {
-                "description": "a human-readable description of a thing",
-                "type": "string"
-            },
-            "direction": {
-                "description": "One of l->r, r->l, bidirectional, neutral",
-                "type": "string"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                "type": "string"
-            },
-            "is_balanced": {
-                "type": "boolean"
-            },
-            "is_diastereoselective": {
-                "type": "boolean"
-            },
-            "is_fully_characterized": {
-                "description": "False if includes R-groups",
-                "type": "boolean"
-            },
-            "is_stereo": {
-                "type": "boolean"
-            },
-            "is_transport": {
-                "type": "boolean"
-            },
-            "left_participants": {
-                "items": {
-                    "$ref": "#/$defs/ReactionParticipant"
-                },
-                "type": "array"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "right_participants": {
-                "items": {
-                    "$ref": "#/$defs/ReactionParticipant"
-                },
-                "type": "array"
-            },
-            "smarts_string": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "id"
-        ],
-        "title": "Reaction",
-        "type": "object"
-    },
-    "ReactionActivity": {
-        "additionalProperties": false,
-        "description": "",
-        "properties": {
-            "material_input": {
-                "type": "string"
-            },
-            "material_output": {
-                "type": "string"
-            },
-            "reaction_temperature": {
-                "type": "string"
-            },
-            "reaction_time": {
-                "$ref": "#/$defs/QuantityValue"
-            }
-        },
-        "title": "ReactionActivity",
-        "type": "object"
-    },
-    "ReactionParticipant": {
-        "additionalProperties": false,
-        "description": "Instances of this link a reaction to a chemical entity participant",
-        "properties": {
-            "chemical": {
-                "description": "from reaction participant class",
-                "type": "string"
-            },
-            "stoichiometry": {
-                "description": "from reaction participant class",
-                "type": "integer"
-            }
-        },
-        "title": "ReactionParticipant",
-        "type": "object"
-    },
-    "ReadBasedTaxonomyAnalysis": {
-        "additionalProperties": false,
-        "description": "A workflow execution activity that performs taxonomy classification using sequencing reads",
-        "properties": {
-            "ended_at_time": {
-                "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                "type": "string"
-            },
-            "execution_resource": {
-                "type": "string"
-            },
-            "git_url": {
-                "type": "string"
-            },
-            "has_input": {
-                "description": "An input to a process.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "has_output": {
-                "description": "An output biosample to a processing step",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^(nmdc):wfrbt-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                "type": "string"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "part_of": {
-                "description": "Links a resource to another resource that either logically or physically includes it.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "started_at_time": {
-                "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                "type": "string"
-            },
-            "type": {
-                "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
-                "type": "string"
-            },
-            "used": {
-                "type": "string"
-            },
-            "version": {
-                "type": "string"
-            },
-            "was_informed_by": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "type",
-            "execution_resource",
-            "git_url",
-            "has_input",
-            "has_output",
-            "id",
-            "started_at_time",
-            "ended_at_time"
-        ],
-        "title": "ReadBasedTaxonomyAnalysis",
-        "type": "object"
-    },
-    "ReadQcAnalysis": {
-        "additionalProperties": false,
-        "description": "A workflow execution activity that performs quality control on raw Illumina reads including quality trimming, artifact removal, linker trimming, adapter trimming, spike-in removal, and human/cat/dog/mouse/microbe contaminant removal",
-        "properties": {
-            "ended_at_time": {
-                "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                "type": "string"
-            },
-            "execution_resource": {
-                "type": "string"
-            },
-            "git_url": {
-                "type": "string"
-            },
-            "has_input": {
-                "description": "An input to a process.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "has_output": {
-                "description": "An output biosample to a processing step",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^(nmdc):wfrqc-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                "type": "string"
-            },
-            "input_base_count": {
-                "description": "The nucleotide base count number of input reads for QC analysis.",
-                "type": "number"
-            },
-            "input_read_bases": {
-                "description": "TODO      ",
-                "type": "number"
-            },
-            "input_read_count": {
-                "description": "The sequence count number of input reads for QC analysis.",
-                "type": "number"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "output_base_count": {
-                "description": "After QC analysis nucleotide base count number.",
-                "type": "number"
-            },
-            "output_read_bases": {
-                "description": "TODO",
-                "type": "number"
-            },
-            "output_read_count": {
-                "description": "After QC analysis sequence count number.",
-                "type": "number"
-            },
-            "part_of": {
-                "description": "Links a resource to another resource that either logically or physically includes it.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "started_at_time": {
-                "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                "type": "string"
-            },
-            "type": {
-                "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
-                "type": "string"
-            },
-            "used": {
-                "type": "string"
-            },
-            "version": {
-                "type": "string"
-            },
-            "was_informed_by": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "type",
-            "execution_resource",
-            "git_url",
-            "has_input",
-            "has_output",
-            "id",
-            "started_at_time",
-            "ended_at_time"
-        ],
-        "title": "ReadQcAnalysis",
-        "type": "object"
-    },
-    "RelSampLocEnum": {
-        "description": "",
-        "enum": [
-            "edge of car",
-            "center of car",
-            "under a seat"
-        ],
-        "title": "RelSampLocEnum",
-        "type": "string"
-    },
-    "RnaSampleFormatEnum": {
-        "description": "",
-        "enum": [
-            "10 mM Tris-HCl",
-            "DNAStable",
-            "Ethanol",
-            "Low EDTA TE",
-            "MDA reaction buffer",
-            "PBS",
-            "Pellet",
-            "RNAStable",
-            "TE",
-            "Water",
-            "Gentegra-DNA",
-            "Gentegra-RNA"
-        ],
-        "title": "RnaSampleFormatEnum",
-        "type": "string"
-    },
-    "RoomCondtEnum": {
-        "description": "",
-        "enum": [
-            "new",
-            "visible wear",
-            "needs repair",
-            "damaged",
-            "rupture",
-            "visible signs of mold/mildew"
-        ],
-        "title": "RoomCondtEnum",
-        "type": "string"
-    },
-    "RoomConnectedEnum": {
-        "description": "",
-        "enum": [
-            "attic",
-            "bathroom",
-            "closet",
-            "conference room",
-            "elevator",
-            "examining room",
-            "hallway",
-            "kitchen",
-            "mail room",
-            "office",
-            "stairwell"
-        ],
-        "title": "RoomConnectedEnum",
-        "type": "string"
-    },
-    "RoomLocEnum": {
-        "description": "",
-        "enum": [
-            "corner room",
-            "interior room",
-            "exterior wall"
-        ],
-        "title": "RoomLocEnum",
-        "type": "string"
-    },
-    "RoomSampPosEnum": {
-        "description": "",
-        "enum": [
-            "north corner",
-            "south corner",
-            "west corner",
-            "east corner",
-            "northeast corner",
-            "northwest corner",
-            "southeast corner",
-            "southwest corner",
-            "center"
-        ],
-        "title": "RoomSampPosEnum",
-        "type": "string"
-    },
-    "RoomTypeEnum": {
-        "description": "",
-        "enum": [
-            "attic",
-            "bathroom",
-            "closet",
-            "conference room",
-            "elevator",
-            "examining room",
-            "hallway",
-            "kitchen",
-            "mail room",
-            "private office",
-            "open office",
-            "stairwell",
-            ",restroom",
-            "lobby",
-            "vestibule",
-            "mechanical or electrical room",
-            "data center",
-            "laboratory_wet",
-            "laboratory_dry",
-            "gymnasium",
-            "natatorium",
-            "auditorium",
-            "lockers",
-            "cafe",
-            "warehouse"
-        ],
-        "title": "RoomTypeEnum",
-        "type": "string"
-    },
-    "SampCaptStatusEnum": {
-        "description": "",
-        "enum": [
-            "active surveillance in response to an outbreak",
-            "active surveillance not initiated by an outbreak",
-            "farm sample",
-            "market sample",
-            "other"
-        ],
-        "title": "SampCaptStatusEnum",
-        "type": "string"
-    },
-    "SampCollectPointEnum": {
-        "description": "",
-        "enum": [
-            "well",
-            "test well",
-            "drilling rig",
-            "wellhead",
-            "separator",
-            "storage tank",
-            "other"
-        ],
-        "title": "SampCollectPointEnum",
-        "type": "string"
-    },
-    "SampDisStageEnum": {
-        "description": "",
-        "enum": [
-            "dissemination",
-            "growth and reproduction",
-            "infection",
-            "inoculation",
-            "penetration",
-            "other"
-        ],
-        "title": "SampDisStageEnum",
-        "type": "string"
-    },
-    "SampFloorEnum": {
-        "description": "",
-        "enum": [
-            "1st floor",
-            "2nd floor",
-            "basement",
-            "lobby"
-        ],
-        "title": "SampFloorEnum",
-        "type": "string"
-    },
-    "SampMdEnum": {
-        "description": "",
-        "enum": [
-            "DF",
-            "RT",
-            "KB",
-            "MSL",
-            "other"
-        ],
-        "title": "SampMdEnum",
-        "type": "string"
-    },
-    "SampSubtypeEnum": {
-        "description": "",
-        "enum": [
-            "oil phase",
-            "water phase",
-            "biofilm",
-            "not applicable",
-            "other"
-        ],
-        "title": "SampSubtypeEnum",
-        "type": "string"
-    },
-    "SampWeatherEnum": {
-        "description": "",
-        "enum": [
-            "clear sky",
-            "cloudy",
-            "foggy",
-            "hail",
-            "rain",
-            "snow",
-            "sleet",
-            "sunny",
-            "windy"
-        ],
-        "title": "SampWeatherEnum",
-        "type": "string"
-    },
-    "SampleTypeEnum": {
-        "description": "",
-        "enum": [
-            "soil",
-            "water_extract_soil"
-        ],
-        "title": "SampleTypeEnum",
-        "type": "string"
-    },
-    "SamplingMethodEnum": {
-        "description": "",
-        "enum": [
-            "weighing"
-        ],
-        "title": "SamplingMethodEnum",
-        "type": "string"
-    },
-    "SeasonUseEnum": {
-        "description": "",
-        "enum": [
-            "Spring",
-            "Summer",
-            "Fall",
-            "Winter"
-        ],
-        "title": "SeasonUseEnum",
-        "type": "string"
-    },
-    "SedimentTypeEnum": {
-        "description": "",
-        "enum": [
-            "biogenous",
-            "cosmogenous",
-            "hydrogenous",
-            "lithogenous"
-        ],
-        "title": "SedimentTypeEnum",
-        "type": "string"
-    },
-    "SeparationMethodEnum": {
-        "description": "The tool/substance used to separate or filter a solution or mixture.",
-        "enum": [
-            "PTFE 96-well filter plate"
-        ],
-        "title": "SeparationMethodEnum",
-        "type": "string"
-    },
-    "ShadingDeviceCondEnum": {
-        "description": "",
-        "enum": [
-            "damaged",
-            "needs repair",
-            "new",
-            "rupture",
-            "visible wear"
-        ],
-        "title": "ShadingDeviceCondEnum",
-        "type": "string"
-    },
-    "ShadingDeviceTypeEnum": {
-        "description": "",
-        "enum": [
-            "bahama shutters",
-            "exterior roll blind",
-            "gambrel awning",
-            "hood awning",
-            "porchroller awning",
-            "sarasota shutters",
-            "slatted aluminum",
-            "solid aluminum awning",
-            "sun screen",
-            "tree",
-            "trellis",
-            "venetian awning"
-        ],
-        "title": "ShadingDeviceTypeEnum",
-        "type": "string"
-    },
-    "SoilHorizonEnum": {
-        "description": "",
-        "enum": [
-            "O horizon",
-            "A horizon",
-            "E horizon",
-            "B horizon",
-            "C horizon",
-            "R layer",
-            "Permafrost",
-            "M horizon"
-        ],
-        "title": "SoilHorizonEnum",
-        "type": "string"
-    },
-    "SolventEnum": {
-        "description": "",
-        "enum": [
-            "deionized_water",
-            "methanol",
-            "chloroform"
-        ],
-        "title": "SolventEnum",
-        "type": "string"
-    },
-    "SpecificEnum": {
-        "description": "",
-        "enum": [
-            "operation",
-            "as built",
-            "construction",
-            "bid",
-            "design",
-            "photos"
-        ],
-        "title": "SpecificEnum",
-        "type": "string"
-    },
-    "SrDepEnvEnum": {
-        "description": "",
-        "enum": [
-            "Lacustine",
-            "Fluvioldeltaic",
-            "Fluviomarine",
-            "Marine",
-            "other"
-        ],
-        "title": "SrDepEnvEnum",
-        "type": "string"
-    },
-    "SrGeolAgeEnum": {
-        "description": "",
-        "enum": [
-            "Archean",
-            "Cambrian",
-            "Carboniferous",
-            "Cenozoic",
-            "Cretaceous",
-            "Devonian",
-            "Jurassic",
-            "Mesozoic",
-            "Neogene",
-            "Ordovician",
-            "Paleogene",
-            "Paleozoic",
-            "Permian",
-            "Precambrian",
-            "Proterozoic",
-            "Silurian",
-            "Triassic",
-            "other"
-        ],
-        "title": "SrGeolAgeEnum",
-        "type": "string"
-    },
-    "SrKerogTypeEnum": {
-        "description": "",
-        "enum": [
-            "Type I",
-            "Type II",
-            "Type III",
-            "Type IV",
-            "other"
-        ],
-        "title": "SrKerogTypeEnum",
-        "type": "string"
-    },
-    "SrLithologyEnum": {
-        "description": "",
-        "enum": [
-            "Clastic",
-            "Carbonate",
-            "Coal",
-            "Biosilicieous",
-            "other"
-        ],
-        "title": "SrLithologyEnum",
-        "type": "string"
-    },
-    "StatusEnum": {
-        "description": "",
-        "enum": [
-            "pass",
-            "fail"
-        ],
-        "title": "StatusEnum",
-        "type": "string"
-    },
-    "Study": {
-        "additionalProperties": false,
-        "description": "A study summarizes the overall goal of a research initiative and outlines the key objective of its underlying projects.",
-        "properties": {
-            "alternative_descriptions": {
-                "description": "A list of alternative descriptions for the entity. The distinction between description and alternative descriptions is application-specific.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "alternative_identifiers": {
-                "description": "Unique identifier for a study submitted to additional resources. Matches that which has been submitted to NMDC",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "alternative_names": {
-                "description": "A list of alternative names used to refer to the entity. The distinction between name and alternative names is application-specific.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "alternative_titles": {
-                "description": "A list of alternative titles for the entity. The distinction between title and alternative titles is application-specific.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "associated_dois": {
-                "description": "A list of DOIs associated with a resource, such as a list of DOIS associated with a Study.",
-                "items": {
-                    "$ref": "#/$defs/Doi"
-                },
-                "type": "array"
-            },
-            "description": {
-                "description": "A brief, link-free summary of a Study",
-                "type": "string"
-            },
-            "ecosystem": {
-                "description": "An ecosystem is a combination of a physical environment (abiotic factors) and all the organisms (biotic factors) that interact with this environment. Ecosystem is in position 1/5 in a GOLD path.",
-                "type": "string"
-            },
-            "ecosystem_category": {
-                "description": "Ecosystem categories represent divisions within the ecosystem based on specific characteristics of the environment from where an organism or sample is isolated. Ecosystem category is in position 2/5 in a GOLD path.",
-                "type": "string"
-            },
-            "ecosystem_subtype": {
-                "description": "Ecosystem subtypes represent further subdivision of Ecosystem types into more distinct subtypes. Ecosystem subtype is in position 4/5 in a GOLD path.",
-                "type": "string"
-            },
-            "ecosystem_type": {
-                "description": "Ecosystem types represent things having common characteristics within the Ecosystem Category. These common characteristics based grouping is still broad but specific to the characteristics of a given environment. Ecosystem type is in position 3/5 in a GOLD path.",
-                "type": "string"
-            },
-            "emsl_project_identifiers": {
-                "description": "an identifier that links to an EMSL user facility project",
-                "items": {
-                    "pattern": "^emsl\\.project:[0-9]{5}$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "funding_sources": {
-                "description": "A list of organizations, along with the award numbers, that underwrite financial support for projects of  a particular type. Typically, they process applications and award funds to the chosen qualified  applicants.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "gnps_task_identifiers": {
-                "description": "identifiers that link a NMDC study to a web-based report about metabolomics analysis progress and results",
-                "items": {
-                    "pattern": "^gnps\\.task:[a-f0-9]+$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "gold_study_identifiers": {
-                "description": "identifiers for corresponding project(s) in GOLD",
-                "items": {
-                    "pattern": "^gold:Gs[0-9]+$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "has_credit_associations": {
-                "description": "This slot links a study to a credit association.  The credit association will be linked to a person value and to a CRediT Contributor Roles term. Overall semantics: person should get credit X for their participation in the study",
-                "items": {
-                    "$ref": "#/$defs/CreditAssociation"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^(nmdc):sty-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                "type": "string"
-            },
-            "insdc_bioproject_identifiers": {
-                "description": "Unique identifier for a bioproject submitted to INSDC that relates to the NMDC submitted study.",
-                "items": {
-                    "pattern": "^bioproject:PRJ[DEN][A-Z][0-9]+$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "jgi_portal_study_identifiers": {
-                "description": "Identifiers that link a NMDC study to a website hosting raw and analyzed data for a JGI proposal.  The suffix of the curie can used to query the GOLD API and is interoperable with an award DOI from OSTI and a GOLD study identifier.",
-                "items": {
-                    "pattern": "^jgi.proposal:\\d+$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "mgnify_project_identifiers": {
-                "description": "identifiers for corresponding project in MGnify",
-                "items": {
-                    "pattern": "^mgnify.proj:[A-Z]+[0-9]+$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "neon_study_identifiers": {
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "notes": {
-                "description": "from study class",
-                "type": "string"
-            },
-            "objective": {
-                "description": "The scientific objectives associated with the entity. It SHOULD correspond to scientific norms for objectives field in a structured abstract.",
-                "type": "string"
-            },
-            "part_of": {
-                "description": "Links a study or consortium to a parent (or umbrella) study or consortium.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "principal_investigator": {
-                "$ref": "#/$defs/PersonValue",
-                "description": "Principal Investigator who led the study and/or generated the dataset."
-            },
-            "related_identifiers": {
-                "description": "Unique identifier for a study submitted to additional resources. Similar, but not necessarily identical to that which has been submitted to NMDC",
-                "type": "string"
-            },
-            "relevant_protocols": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "specific_ecosystem": {
-                "description": "Specific ecosystems represent specific features of the environment like aphotic zone in an ocean or gastric mucosa within a host digestive system. Specific ecosystem is in position 5/5 in a GOLD path.",
-                "type": "string"
-            },
-            "study_category": {
-                "$ref": "#/$defs/StudyCategoryEnum",
-                "description": "The type of research initiative"
-            },
-            "study_image": {
-                "description": "Links a study to one or more images.",
-                "items": {
-                    "$ref": "#/$defs/ImageValue"
-                },
-                "type": "array"
-            },
-            "title": {
-                "description": "A name given to the entity that differs from the name/label programmatically assigned to it. For example, when extracting study information for GOLD, the GOLD system has assigned a name/label. However, for display purposes, we may also wish the capture the title of the proposal that was used to fund the study.",
-                "type": "string"
-            },
-            "type": {
-                "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
-                "type": "string"
-            },
-            "websites": {
-                "description": "A list of websites that are associated with the entity.",
-                "items": {
-                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?:\\/\\/(?!.*[Dd][Oo][Ii]\\.[Oo][Rr][Gg]).*$",
-                    "type": "string"
-                },
-                "type": "array"
-            }
-        },
-        "required": [
-            "id",
-            "study_category"
-        ],
-        "title": "Study",
-        "type": "object"
-    },
-    "StudyCategoryEnum": {
-        "description": "",
-        "enum": [
-            "research_study",
-            "consortium"
-        ],
-        "title": "StudyCategoryEnum",
-        "type": "string"
-    },
-    "SubSamplingProcess": {
-        "additionalProperties": false,
-        "description": "Separating a sample aliquot from the starting material for downstream activity.",
-        "properties": {
-            "alternative_identifiers": {
-                "description": "A list of alternative identifiers for the entity.",
-                "items": {
-                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "contained_in": {
-                "$ref": "#/$defs/ContainerCategoryEnum",
-                "description": "A type of container. i.e. test tube, falcon tube, etc."
-            },
-            "container_size": {
-                "$ref": "#/$defs/QuantityValue",
-                "description": "The volume of the container an analyte is stored in or an activity takes place in"
-            },
-            "description": {
-                "description": "a human-readable description of a thing",
-                "type": "string"
-            },
-            "designated_class": {
-                "enum": [
-                    "nmdc:SubSamplingProcess"
-                ],
-                "type": "string"
-            },
-            "end_date": {
-                "description": "The date on which any process or activity was ended",
-                "type": "string"
-            },
-            "has_input": {
-                "description": "An input to a process.",
-                "items": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "has_output": {
-                "description": "The subsample.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                "type": "string"
-            },
-            "mass": {
-                "$ref": "#/$defs/QuantityValue",
-                "description": "The output mass of the SubSampling Process."
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "protocol_link": {
-                "$ref": "#/$defs/Protocol"
-            },
-            "start_date": {
-                "description": "The date on which any process or activity was started",
-                "type": "string"
-            },
-            "temperature": {
-                "$ref": "#/$defs/QuantityValue",
-                "description": "The value of a temperature measurement or temperature used in a process."
-            },
-            "volume": {
-                "$ref": "#/$defs/QuantityValue",
-                "description": "The output volume of the SubSampling Process."
-            }
-        },
-        "required": [
-            "id"
-        ],
-        "title": "SubSamplingProcess",
-        "type": "object"
-    },
-    "SubstructureTypeEnum": {
-        "description": "",
-        "enum": [
-            "crawlspace",
-            "slab on grade",
-            "basement"
-        ],
-        "title": "SubstructureTypeEnum",
-        "type": "string"
-    },
-    "SurfAirContEnum": {
-        "description": "",
-        "enum": [
-            "dust",
-            "organic matter",
-            "particulate matter",
-            "volatile organic compounds",
-            "biological contaminants",
-            "radon",
-            "nutrients",
-            "biocides"
-        ],
-        "title": "SurfAirContEnum",
-        "type": "string"
-    },
-    "SurfMaterialEnum": {
-        "description": "",
-        "enum": [
-            "adobe",
-            "carpet",
-            "cinder blocks",
-            "concrete",
-            "hay bales",
-            "glass",
-            "metal",
-            "paint",
-            "plastic",
-            "stainless steel",
-            "stone",
-            "stucco",
-            "tile",
-            "vinyl",
-            "wood"
-        ],
-        "title": "SurfMaterialEnum",
-        "type": "string"
-    },
-    "TextValue": {
-        "additionalProperties": false,
-        "description": "A basic string value",
-        "properties": {
-            "has_raw_value": {
-                "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
-                "type": "string"
-            },
-            "language": {
-                "description": "Should use ISO 639-1 code e.g. \"en\", \"fr\"",
-                "type": "string"
-            },
-            "was_generated_by": {
-                "type": "string"
-            }
-        },
-        "title": "TextValue",
-        "type": "object"
-    },
-    "TidalStageEnum": {
-        "description": "",
-        "enum": [
-            "low tide",
-            "ebb tide",
-            "flood tide",
-            "high tide"
-        ],
-        "title": "TidalStageEnum",
-        "type": "string"
-    },
-    "TillageEnum": {
-        "description": "",
-        "enum": [
-            "drill",
-            "cutting disc",
-            "ridge till",
-            "strip tillage",
-            "zonal tillage",
-            "chisel",
-            "tined",
-            "mouldboard",
-            "disc plough"
-        ],
-        "title": "TillageEnum",
-        "type": "string"
-    },
-    "TimestampValue": {
-        "additionalProperties": false,
-        "description": "A value that is a timestamp. The range should be ISO-8601",
-        "properties": {
-            "has_raw_value": {
-                "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
-                "type": "string"
-            },
-            "was_generated_by": {
-                "type": "string"
-            }
-        },
-        "title": "TimestampValue",
-        "type": "object"
-    },
-    "TrainLineEnum": {
-        "description": "",
-        "enum": [
-            "red",
-            "green",
-            "orange"
-        ],
-        "title": "TrainLineEnum",
-        "type": "string"
-    },
-    "TrainStatLocEnum": {
-        "description": "",
-        "enum": [
-            "south station above ground",
-            "south station underground",
-            "south station amtrak",
-            "forest hills",
-            "riverside"
-        ],
-        "title": "TrainStatLocEnum",
-        "type": "string"
-    },
-    "TrainStopLocEnum": {
-        "description": "",
-        "enum": [
-            "end",
-            "mid",
-            "downtown"
-        ],
-        "title": "TrainStopLocEnum",
-        "type": "string"
-    },
-    "UrlValue": {
-        "additionalProperties": false,
-        "description": "A value that is a string that conforms to URL syntax",
-        "properties": {
-            "has_raw_value": {
-                "description": "The value that was specified for an annotation in raw form, i.e. a string. E.g. \"2 cm\" or \"2-4 cm\"",
-                "type": "string"
-            },
-            "was_generated_by": {
-                "type": "string"
-            }
-        },
-        "title": "UrlValue",
-        "type": "object"
-    },
-    "VisMediaEnum": {
-        "description": "",
-        "enum": [
-            "photos",
-            "videos",
-            "commonly of the building",
-            "site context (adjacent buildings, vegetation, terrain, streets)",
-            "interiors",
-            "equipment",
-            "3D scans"
-        ],
-        "title": "VisMediaEnum",
-        "type": "string"
-    },
-    "WallConstTypeEnum": {
-        "description": "",
-        "enum": [
-            "frame construction",
-            "joisted masonry",
-            "light noncombustible",
-            "masonry noncombustible",
-            "modified fire resistive",
-            "fire resistive"
-        ],
-        "title": "WallConstTypeEnum",
-        "type": "string"
-    },
-    "WallFinishMatEnum": {
-        "description": "",
-        "enum": [
-            "plaster",
-            "gypsum plaster",
-            "veneer plaster",
-            "gypsum board",
-            "tile",
-            "terrazzo",
-            "stone facing",
-            "acoustical treatment",
-            "wood",
-            "metal",
-            "masonry"
-        ],
-        "title": "WallFinishMatEnum",
-        "type": "string"
-    },
-    "WallLocEnum": {
-        "description": "",
-        "enum": [
-            "north",
-            "south",
-            "east",
-            "west"
-        ],
-        "title": "WallLocEnum",
-        "type": "string"
-    },
-    "WallSurfTreatmentEnum": {
-        "description": "",
-        "enum": [
-            "painted",
-            "wall paper",
-            "no treatment",
-            "paneling",
-            "stucco",
-            "fabric"
-        ],
-        "title": "WallSurfTreatmentEnum",
-        "type": "string"
-    },
-    "WallTextureEnum": {
-        "description": "",
-        "enum": [
-            "crows feet",
-            "crows-foot stomp",
-            "",
-            "double skip",
-            "hawk and trowel",
-            "knockdown",
-            "popcorn",
-            "orange peel",
-            "rosebud stomp",
-            "Santa-Fe texture",
-            "skip trowel",
-            "smooth",
-            "stomp knockdown",
-            "swirl"
-        ],
-        "title": "WallTextureEnum",
-        "type": "string"
-    },
-    "WaterFeatTypeEnum": {
-        "description": "",
-        "enum": [
-            "fountain",
-            "pool",
-            "standing feature",
-            "stream",
-            "waterfall"
-        ],
-        "title": "WaterFeatTypeEnum",
-        "type": "string"
-    },
-    "WeekdayEnum": {
-        "description": "",
-        "enum": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-        ],
-        "title": "WeekdayEnum",
-        "type": "string"
-    },
-    "WindowCondEnum": {
-        "description": "",
-        "enum": [
-            "damaged",
-            "needs repair",
-            "new",
-            "rupture",
-            "visible wear"
-        ],
-        "title": "WindowCondEnum",
-        "type": "string"
-    },
-    "WindowCoverEnum": {
-        "description": "",
-        "enum": [
-            "blinds",
-            "curtains",
-            "none"
-        ],
-        "title": "WindowCoverEnum",
-        "type": "string"
-    },
-    "WindowHorizPosEnum": {
-        "description": "",
-        "enum": [
-            "left",
-            "middle",
-            "right"
-        ],
-        "title": "WindowHorizPosEnum",
-        "type": "string"
-    },
-    "WindowLocEnum": {
-        "description": "",
-        "enum": [
-            "north",
-            "south",
-            "east",
-            "west"
-        ],
-        "title": "WindowLocEnum",
-        "type": "string"
-    },
-    "WindowMatEnum": {
-        "description": "",
-        "enum": [
-            "clad",
-            "fiberglass",
-            "metal",
-            "vinyl",
-            "wood"
-        ],
-        "title": "WindowMatEnum",
-        "type": "string"
-    },
-    "WindowTypeEnum": {
-        "description": "",
-        "enum": [
-            "single-hung sash window",
-            "horizontal sash window",
-            "fixed window"
-        ],
-        "title": "WindowTypeEnum",
-        "type": "string"
-    },
-    "WindowVertPosEnum": {
-        "description": "",
-        "enum": [
-            "bottom",
-            "middle",
-            "top",
-            "low",
-            "high"
-        ],
-        "title": "WindowVertPosEnum",
-        "type": "string"
-    },
-    "WorkflowExecution": {
-        "additionalProperties": false,
-        "description": "Represents an instance of an execution of a particular workflow",
-        "properties": {
-            "ended_at_time": {
-                "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                "type": "string"
-            },
-            "execution_resource": {
-                "type": "string"
-            },
-            "git_url": {
-                "type": "string"
-            },
-            "has_input": {
-                "description": "An input to a process.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "has_output": {
-                "description": "An output biosample to a processing step",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                "pattern": "^(nmdc):wf-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
-                "type": "string"
-            },
-            "name": {
-                "description": "A human readable label for an entity",
-                "type": "string"
-            },
-            "part_of": {
-                "description": "Links a resource to another resource that either logically or physically includes it.",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "started_at_time": {
-                "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                "type": "string"
-            },
-            "type": {
-                "description": "An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.",
-                "type": "string"
-            },
-            "used": {
-                "type": "string"
-            },
-            "version": {
-                "type": "string"
-            },
-            "was_informed_by": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "execution_resource",
-            "git_url",
-            "has_input",
-            "has_output",
-            "type",
-            "id",
-            "started_at_time",
-            "ended_at_time"
-        ],
-        "title": "WorkflowExecution",
-        "type": "object"
-    },
-    "YesNoEnum": {
-        "description": "replaces DnaDnaseEnum and DnaseRnaEnum",
-        "enum": [
-            "no",
-            "yes"
-        ],
-        "title": "YesNoEnum",
-        "type": "string"
-    }
-},
-"$id": "https://w3id.org/nmdc/nmdc",
-"$schema": "http://json-schema.org/draft-07/schema#",
-"additionalProperties": false,
-"description": "An abstract holder for any set of metadata and data. It does not need to correspond to an actual managed database top level holder class. When translated to JSON-Schema this is the 'root' object. It should contain pointers to other objects of interest. For MongoDB, the lists of objects that Database slots point to correspond to **collections**.",
-"metamodel_version": "1.7.0",
-"properties": {
-    "activity_set": {
-        "description": "This property links a database object to the set of workflow activities.",
-        "items": {
-            "$ref": "#/$defs/WorkflowExecution"
-        },
-        "type": "array"
-    },
-    "biosample_set": {
-        "description": "This property links a database object to the set of samples within it.",
-        "items": {
-            "$ref": "#/$defs/Biosample"
-        },
-        "type": "array"
-    },
-    "collecting_biosamples_from_site_set": {
-        "items": {
-            "$ref": "#/$defs/CollectingBiosamplesFromSite"
-        },
-        "type": "array"
-    },
-    "data_object_set": {
-        "description": "This property links a database object to the set of data objects within it.",
-        "items": {
-            "$ref": "#/$defs/DataObject"
-        },
-        "type": "array"
-    },
-    "dissolving_activity_set": {
-        "items": {
-            "$ref": "#/$defs/DissolvingActivity"
-        },
-        "type": "array"
-    },
-    "extraction_set": {
-        "description": "This property links a database object to the set of extractions within it.",
-        "items": {
-            "$ref": "#/$defs/Extraction"
-        },
-        "type": "array"
-    },
-    "field_research_site_set": {
-        "items": {
-            "$ref": "#/$defs/FieldResearchSite"
-        },
-        "type": "array"
-    },
-    "functional_annotation_agg": {
-        "items": {
-            "$ref": "#/$defs/FunctionalAnnotationAggMember"
-        },
-        "type": "array"
-    },
-    "functional_annotation_set": {
-        "description": "This property links a database object to the set of all functional annotations",
-        "items": {
-            "$ref": "#/$defs/FunctionalAnnotation"
-        },
-        "type": "array"
-    },
-    "genome_feature_set": {
-        "description": "This property links a database object to the set of all features",
-        "items": {
-            "$ref": "#/$defs/GenomeFeature"
-        },
-        "type": "array"
-    },
-    "library_preparation_set": {
-        "description": "This property links a database object to the set of DNA extractions within it.",
-        "items": {
-            "$ref": "#/$defs/LibraryPreparation"
-        },
-        "type": "array"
-    },
-    "mags_activity_set": {
-        "description": "This property links a database object to the set of MAGs analysis activities.",
-        "items": {
-            "$ref": "#/$defs/MagsAnalysisActivity"
-        },
-        "type": "array"
-    },
-    "material_sample_set": {
-        "items": {
-            "$ref": "#/$defs/MaterialSample"
-        },
-        "type": "array"
-    },
-    "material_sampling_activity_set": {
-        "items": {
-            "$ref": "#/$defs/MaterialSamplingActivity"
-        },
-        "type": "array"
-    },
-    "metabolomics_analysis_activity_set": {
-        "description": "This property links a database object to the set of metabolomics analysis activities.",
-        "items": {
-            "$ref": "#/$defs/MetabolomicsAnalysis"
-        },
-        "type": "array"
-    },
-    "metagenome_annotation_set": {
-        "description": "This property links a database object to the set of metagenome annotation activities.",
-        "items": {
-            "$ref": "#/$defs/MetagenomeAnnotation"
-        },
-        "type": "array"
-    },
-    "metagenome_assembly_set": {
-        "description": "This property links a database object to the set of metagenome assembly activities.",
-        "items": {
-            "$ref": "#/$defs/MetagenomeAssembly"
-        },
-        "type": "array"
-    },
-    "metagenome_sequencing_set": {
-        "description": "This property links a database object to the set of metagenome sequencing activities.",
-        "items": {
-            "$ref": "#/$defs/MetagenomeSequencing"
-        },
-        "type": "array"
-    },
-    "metaproteomics_analysis_set": {
-        "description": "This property links a database object to the set of metaproteomics analysis activities.",
-        "items": {
-            "$ref": "#/$defs/MetaproteomicsAnalysis"
-        },
-        "type": "array"
-    },
-    "metatranscriptome_set": {
-        "description": "This property links a database object to the set of metatranscriptome analysis activities.",
-        "items": {
-            "$ref": "#/$defs/MetatranscriptomeActivity"
-        },
-        "type": "array"
-    },
-    "nom_analysis_set": {
-        "description": "This property links a database object to the set of natural organic matter (NOM) analysis activities.",
-        "items": {
-            "$ref": "#/$defs/NomAnalysis"
-        },
-        "type": "array"
-    },
-    "omics_processing_set": {
-        "description": "This property links a database object to the set of omics processings within it.",
-        "items": {
-            "$ref": "#/$defs/OmicsProcessing"
-        },
-        "type": "array"
-    },
-    "planned_process_set": {
-        "description": "This property links a database object to the set of planned processes within it.",
-        "items": {
-            "anyOf": [
-                {
-                    "$ref": "#/$defs/CollectingBiosamplesFromSite"
-                },
-                {
-                    "$ref": "#/$defs/BiosampleProcessing"
-                },
-                {
-                    "$ref": "#/$defs/SubSamplingProcess"
-                },
-                {
-                    "$ref": "#/$defs/MixingProcess"
-                },
-                {
-                    "$ref": "#/$defs/FiltrationProcess"
-                },
-                {
-                    "$ref": "#/$defs/OmicsProcessing"
-                },
-                {
-                    "$ref": "#/$defs/Pooling"
-                },
-                {
-                    "$ref": "#/$defs/Extraction"
-                },
-                {
-                    "$ref": "#/$defs/LibraryPreparation"
-                }
-            ]
-        },
-        "type": "array"
-    },
-    "pooling_set": {
-        "items": {
-            "$ref": "#/$defs/Pooling"
-        },
-        "type": "array"
-    },
-    "processed_sample_set": {
-        "description": "This property links a database object to the set of processed samples within it.",
-        "items": {
-            "$ref": "#/$defs/ProcessedSample"
-        },
-        "type": "array"
-    },
-    "reaction_activity_set": {
-        "items": {
-            "$ref": "#/$defs/ReactionActivity"
-        },
-        "type": "array"
-    },
-    "read_based_taxonomy_analysis_set": {
-        "description": "This property links a database object to the set of read based analysis activities.",
-        "items": {
-            "$ref": "#/$defs/ReadBasedTaxonomyAnalysis"
-        },
-        "type": "array"
-    },
-    "read_qc_analysis_set": {
-        "description": "This property links a database object to the set of read QC analysis activities.",
-        "items": {
-            "$ref": "#/$defs/ReadQcAnalysis"
-        },
-        "type": "array"
-    },
-    "study_set": {
-        "description": "This property links a database object to the set of studies within it.",
-        "items": {
-            "$ref": "#/$defs/Study"
-        },
-        "type": "array"
-    }
-},
-"title": "NMDC",
-"type": "object",
-"version": "v9.2.0"
+        "study_set": {
+            "description": "This property links a database object to the set of studies within it.",
+            "items": {
+                "$ref": "#/$defs/Study"
+            },
+            "type": "array"
+        }
+    },
+    "title": "NMDC",
+    "type": "object",
+    "version": "v9.2.0"
 }
-MagsAnalysisMagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptomeMetatranscriptomemags_setmetabolomics_analysis_set
+MagsAnalysisMagsAnalysisMagsAnalysisMetatranscriptomeMetatranscriptomeMetatranscriptomemags_setmetabolomics_analysis_setMetatranscriptomeAnalysisMetatranscriptomeAnalysisMetatranscriptomeAnalysis
