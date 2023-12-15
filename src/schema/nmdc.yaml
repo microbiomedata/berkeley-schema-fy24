@@ -1836,7 +1836,6 @@ classes:
       - add_date
       #      - chimera_check # commenting this out because the current dynamic MIxS generation only interrogates Biosample and the retired OmicsProcessing
       - gold_sequencing_project_identifiers
-      - has_data_generation_parts
       - has_input
       - has_output
       - insdc_bioproject_identifiers
@@ -1858,6 +1857,7 @@ classes:
       - target_subfragment
       - type
       - instrument_used
+      - has_process_parts
 
     slot_usage:
       id:
@@ -1876,6 +1876,8 @@ classes:
       has_output:
         range: DataObject
         pattern: "^nmdc:dobj-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$" # better applied as a structured_pattern, but even that might get out of sync from the asserted DataObject structured_pattern
+      has_process_parts:
+        range: DataGeneration
     broad_mappings:
       - OBI:0000070
       - ISA:Assay
@@ -2749,16 +2751,6 @@ slots:
     range: InstrumentModelEnum
   vendor:
     range: InstrumentVendorEnum
-
-  has_data_generation_parts:
-    description: A list of data generation parts that make up an overall data generation.
-    domain: DataGeneration
-    range: DataGeneration
-    multivalued: true
-    list_elements_ordered: true
-    comments: >-
-      Can be used in cases where there are two sequencing runs, for example, that need to get analyzed together, either
-      from a single library or two libraries of the same type.
 
   metagenome_annotation_id:
     domain: FunctionalAnnotationAggMember
