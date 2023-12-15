@@ -1858,7 +1858,6 @@ classes:
       - target_subfragment
       - type
       - instrument_used
-      - has_process_parts
 
     slot_usage:
       id:
@@ -1872,8 +1871,8 @@ classes:
         comments:
           - pattern should allow typecode for Biosample and ProcessedSample
       part_of:
-        range: Study
-        pattern: "^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$" # better applied as a structured_pattern, but even that might get out of sync from the asserted Study structured_pattern
+        range: DataGeneration
+        pattern: "^nmdc:datgen-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$" # better applied as a structured_pattern, but even that might get out of sync from the asserted Study structured_pattern
       has_output:
         range: DataObject
         pattern: "^nmdc:dobj-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$" # better applied as a structured_pattern, but even that might get out of sync from the asserted DataObject structured_pattern
