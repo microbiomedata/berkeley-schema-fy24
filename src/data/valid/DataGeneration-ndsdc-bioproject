@@ -14,7 +14,7 @@ ncbi_project_name: Thawing permafrost microbial communities from the Arctic, stu
   carbon transformations - Permafrost 712P3D
 insdc_bioproject_identifiers:
   - bioproject:PRJNA1029144
-part_of:
+was_informed_by:
   - nmdc:sty-00-555xxx
 processing_institution: JGI
 type: nmdc:OmicsProcessing
