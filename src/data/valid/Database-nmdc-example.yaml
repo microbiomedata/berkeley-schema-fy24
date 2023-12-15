@@ -121,7 +121,7 @@ data_generation_set:
       - nmdc:sty-00-avacado
     processing_institution: JGI
     type: nmdc:OmicsProcessing
-    part_of: nmdc:dgen-77-89xxx
+    part_of: nmdc:datgen-99-dk9vgI
 biosample_set:
   - id: nmdc:bsm-99-isqhuW
     gold_biosample_identifiers:
