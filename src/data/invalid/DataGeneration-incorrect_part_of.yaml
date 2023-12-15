@@ -12,10 +12,8 @@ has_output:
   - nmdc:dobj-00-9n9n9n
 ncbi_project_name: Thawing permafrost microbial communities from the Arctic, studying
   carbon transformations - Permafrost 712P3D
-part_of:
+was_informed_by:
   - nmdc:sty-00-555xxx
 processing_institution: JGI
 type: nmdc:OmicsProcessing
-has_process_parts: 
-  - this is a string
-  - this is another string
+part_of: this is a string
