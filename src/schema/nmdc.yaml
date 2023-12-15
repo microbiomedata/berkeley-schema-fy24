@@ -1618,6 +1618,8 @@ classes:
         structured_pattern:
           syntax: "{id_nmdc_prefix}:pex-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
+      has_process_parts:
+        required: true
 
 
   MaterialProcessing:
@@ -3501,10 +3503,8 @@ slots:
     required: true
 
   has_process_parts:
-    domain: ProtocolExecution
     range: PlannedProcess
-    description: A list of process parts that make up a protocol.
-    required: true
+    description: A list of process parts that make up an executed process
     multivalued: true
     list_elements_ordered: true
 
