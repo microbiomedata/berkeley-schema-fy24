@@ -101,8 +101,7 @@ data_generation_set:
       - nmdc:dobj-12-yx0tfp52
     instrument_used: 
       - nmdc:inst-12-yx0tfp52
-    was_informed_by:
-      - nmdc:sty-11-34xj1150
+    associated_study: nmdc:sty-11-34xj1150
     processing_institution: Battelle
     type: nmdc:OmicsProcessing
 workflow_chain_set:

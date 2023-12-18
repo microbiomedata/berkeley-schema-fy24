@@ -79,8 +79,7 @@ data_generation_set:
       - nmdc:dobj-00-90125
     ncbi_project_name: Forest soil microbial communities from Barre Woods Harvard Forest
       LTER site, Petersham, Massachusetts, United States - Inc-BW-C-14-O
-    was_informed_by:
-      - nmdc:sty-00-31415
+    associated_study: nmdc:sty-00-31415
     processing_institution: JGI
     type: nmdc:OmicsProcessing
   - id: nmdc:datgen-99-dk9vgI
@@ -97,8 +96,7 @@ data_generation_set:
       - nmdc:dobj-00-pizza
     ncbi_project_name: Permafrost microbial communities from Stordalen Mire, Sweden
       - 611E1M metaG
-    was_informed_by:
-      - nmdc:sty-00-8675309
+    associated_study: nmdc:sty-00-8675309
     processing_institution: JGI
     type: nmdc:OmicsProcessing
   - id: nmdc:datgen-99-MVW1FV
@@ -117,8 +115,7 @@ data_generation_set:
       - nmdc:dobj-00-mobydick
     ncbi_project_name: Rhizosphere microbial communities from Carex aquatilis grown
       in University of Washington, Seatle, WA, United States - 4-1-23 metaG
-    was_informed_by:
-      - nmdc:sty-00-avacado
+    associated_study: nmdc:sty-00-avacado
     processing_institution: JGI
     type: nmdc:OmicsProcessing
     part_of: nmdc:datgen-89-MVWdfV
