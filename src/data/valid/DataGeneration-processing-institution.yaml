@@ -14,4 +14,4 @@ ncbi_project_name: Thawing permafrost microbial communities from the Arctic, stu
   carbon transformations - Permafrost 712P3D
 associated_study: nmdc:sty-00-555xxx
 processing_institution: UCD_Genome_Center
-type: nmdc:DataGeneration
+type: nmdc:OmicsProcessing

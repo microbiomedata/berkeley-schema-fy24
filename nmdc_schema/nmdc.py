@@ -1,5 +1,5 @@
 # Auto generated from nmdc.yaml by pythongen.py version: 0.0.1
-# Generation date: 2023-12-18T10:30:16
+# Generation date: 2023-12-14T18:25:41
 # Schema: NMDC
 #
 # id: https://w3id.org/nmdc/nmdc
@@ -37,7 +37,6 @@ version = "v9.2.0"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-AFO = CurieNamespace('AFO', 'http://example.org/UNKNOWN/AFO/')
 CATH = CurieNamespace('CATH', 'https://bioregistry.io/cath:')
 CHEBI = CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_')
 CHEMBL_COMPOUND = CurieNamespace('CHEMBL_COMPOUND', 'https://bioregistry.io/chembl.compound:')
@@ -255,10 +254,6 @@ class ChromatographicSeparationProcessId(FluidHandlingId):
 
 
 class ChemicalConversionProcessId(MaterialProcessingId):
-    pass
-
-
-class DissolvingProcessId(MaterialProcessingId):
     pass
 
 
@@ -4374,7 +4369,7 @@ class ChromatographicSeparationProcess(FluidHandling):
 
     id: Union[str, ChromatographicSeparationProcessId] = None
     has_calibration: Optional[Union[str, DataObjectId]] = None
-    chromatographic_category: Optional[Union[str, "ChromatographicCategoryEnum"]] = None
+    chromatrographic_category: Optional[Union[str, "ChromatographicCategoryEnum"]] = None
     ordered_mobile_phases: Optional[Union[Union[dict, Solution], List[Union[dict, Solution]]]] = empty_list()
     stationary_phase: Optional[Union[str, "StationaryPhaseEnum"]] = None
     temperature: Optional[Union[dict, "QuantityValue"]] = None
@@ -4388,8 +4383,8 @@ class ChromatographicSeparationProcess(FluidHandling):
         if self.has_calibration is not None and not isinstance(self.has_calibration, DataObjectId):
             self.has_calibration = DataObjectId(self.has_calibration)
 
-        if self.chromatographic_category is not None and not isinstance(self.chromatographic_category, ChromatographicCategoryEnum):
-            self.chromatographic_category = ChromatographicCategoryEnum(self.chromatographic_category)
+        if self.chromatrographic_category is not None and not isinstance(self.chromatrographic_category, ChromatographicCategoryEnum):
+            self.chromatrographic_category = ChromatographicCategoryEnum(self.chromatrographic_category)
 
         if not isinstance(self.ordered_mobile_phases, list):
             self.ordered_mobile_phases = [self.ordered_mobile_phases] if self.ordered_mobile_phases is not None else []
@@ -4419,7 +4414,6 @@ class ChemicalConversionProcess(MaterialProcessing):
     class_model_uri: ClassVar[URIRef] = NMDC.ChemicalConversionProcess
 
     id: Union[str, ChemicalConversionProcessId] = None
-    chemical_conversion_category: Optional[Union[str, "ChemicalConversionCategoryEnum"]] = None
     has_reagents: Optional[Union[Union[dict, LaboratoryReagent], List[Union[dict, LaboratoryReagent]]]] = empty_list()
     temperature: Optional[Union[dict, "QuantityValue"]] = None
     duration: Optional[Union[dict, "QuantityValue"]] = None
@@ -4430,9 +4424,6 @@ class ChemicalConversionProcess(MaterialProcessing):
         if not isinstance(self.id, ChemicalConversionProcessId):
             self.id = ChemicalConversionProcessId(self.id)
 
-        if self.chemical_conversion_category is not None and not isinstance(self.chemical_conversion_category, ChemicalConversionCategoryEnum):
-            self.chemical_conversion_category = ChemicalConversionCategoryEnum(self.chemical_conversion_category)
-
         if not isinstance(self.has_reagents, list):
             self.has_reagents = [self.has_reagents] if self.has_reagents is not None else []
         self.has_reagents = [v if isinstance(v, LaboratoryReagent) else LaboratoryReagent(**as_dict(v)) for v in self.has_reagents]
@@ -4442,48 +4433,6 @@ class ChemicalConversionProcess(MaterialProcessing):
 
         if self.duration is not None and not isinstance(self.duration, QuantityValue):
             self.duration = QuantityValue(**as_dict(self.duration))
-
-        super().__post_init__(**kwargs)
-        self.designated_class = str(self.class_class_curie)
-
-
-@dataclass
-class DissolvingProcess(MaterialProcessing):
-    """
-    A mixing step where a soluble component is mixed with a liquid component.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = NMDC["DissolvingProcess"]
-    class_class_curie: ClassVar[str] = "nmdc:DissolvingProcess"
-    class_name: ClassVar[str] = "DissolvingProcess"
-    class_model_uri: ClassVar[URIRef] = NMDC.DissolvingProcess
-
-    id: Union[str, DissolvingProcessId] = None
-    solvent: Union[dict, Solution] = None
-    solubilizing_agent: Optional[Union[str, "CompoundEnum"]] = None
-    duration: Optional[Union[dict, "QuantityValue"]] = None
-    temperature: Optional[Union[dict, "QuantityValue"]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DissolvingProcessId):
-            self.id = DissolvingProcessId(self.id)
-
-        if self._is_empty(self.solvent):
-            self.MissingRequiredField("solvent")
-        if not isinstance(self.solvent, Solution):
-            self.solvent = Solution(**as_dict(self.solvent))
-
-        if self.solubilizing_agent is not None and not isinstance(self.solubilizing_agent, CompoundEnum):
-            self.solubilizing_agent = CompoundEnum(self.solubilizing_agent)
-
-        if self.duration is not None and not isinstance(self.duration, QuantityValue):
-            self.duration = QuantityValue(**as_dict(self.duration))
-
-        if self.temperature is not None and not isinstance(self.temperature, QuantityValue):
-            self.temperature = QuantityValue(**as_dict(self.temperature))
 
         super().__post_init__(**kwargs)
         self.designated_class = str(self.class_class_curie)
@@ -4512,7 +4461,7 @@ class DataGeneration(PlannedProcess):
     mod_date: Optional[str] = None
     ncbi_project_name: Optional[str] = None
     nucl_acid_ext: Optional[Union[dict, "TextValue"]] = None
-    part_of: Optional[Union[Union[str, DataGenerationId], List[Union[str, DataGenerationId]]]] = empty_list()
+    part_of: Optional[Union[Union[str, StudyId], List[Union[str, StudyId]]]] = empty_list()
     pcr_cond: Optional[Union[dict, "TextValue"]] = None
     pcr_primers: Optional[Union[dict, "TextValue"]] = None
     principal_investigator: Optional[Union[dict, "PersonValue"]] = None
@@ -4524,7 +4473,6 @@ class DataGeneration(PlannedProcess):
     target_subfragment: Optional[Union[dict, "TextValue"]] = None
     type: Optional[str] = None
     instrument_used: Optional[Union[Union[str, InstrumentId], List[Union[str, InstrumentId]]]] = empty_list()
-    associated_study: Optional[Union[str, StudyId]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -4573,7 +4521,7 @@ class DataGeneration(PlannedProcess):
 
         if not isinstance(self.part_of, list):
             self.part_of = [self.part_of] if self.part_of is not None else []
-        self.part_of = [v if isinstance(v, DataGenerationId) else DataGenerationId(v) for v in self.part_of]
+        self.part_of = [v if isinstance(v, StudyId) else StudyId(v) for v in self.part_of]
 
         if self.pcr_cond is not None and not isinstance(self.pcr_cond, TextValue):
             self.pcr_cond = TextValue(**as_dict(self.pcr_cond))
@@ -4608,9 +4556,6 @@ class DataGeneration(PlannedProcess):
         if not isinstance(self.instrument_used, list):
             self.instrument_used = [self.instrument_used] if self.instrument_used is not None else []
         self.instrument_used = [v if isinstance(v, InstrumentId) else InstrumentId(v) for v in self.instrument_used]
-
-        if self.associated_study is not None and not isinstance(self.associated_study, StudyId):
-            self.associated_study = StudyId(self.associated_study)
 
         super().__post_init__(**kwargs)
         self.designated_class = str(self.class_class_curie)
@@ -6399,17 +6344,7 @@ class ExecutionResourceEnum(EnumDefinitionImpl):
 
 class InstrumentModelEnum(EnumDefinitionImpl):
 
-    exploris_240 = PermissibleValue(text="exploris_240")
-    exploris_480 = PermissibleValue(text="exploris_480")
-    ltq_orbitrap_velos = PermissibleValue(text="ltq_orbitrap_velos")
-    orbitrap_fusion_lumos = PermissibleValue(text="orbitrap_fusion_lumos")
-    orbitrap_eclipse_tribid = PermissibleValue(text="orbitrap_eclipse_tribid")
-    orbitrap_q_exactive = PermissibleValue(text="orbitrap_q_exactive")
-    solarix_7T = PermissibleValue(text="solarix_7T")
-    solarix_12T = PermissibleValue(text="solarix_12T")
-    solarix_15T = PermissibleValue(text="solarix_15T")
-    agilent_8890A = PermissibleValue(text="agilent_8890A")
-    agilent_7980A = PermissibleValue(text="agilent_7980A")
+    orbitrap = PermissibleValue(text="orbitrap")
     vortex_genie_2 = PermissibleValue(text="vortex_genie_2")
     novaseq = PermissibleValue(text="novaseq")
 
@@ -6419,9 +6354,6 @@ class InstrumentModelEnum(EnumDefinitionImpl):
 
 class InstrumentVendorEnum(EnumDefinitionImpl):
 
-    waters = PermissibleValue(text="waters")
-    agilent = PermissibleValue(text="agilent")
-    bruker = PermissibleValue(text="bruker")
     thermo_fisher = PermissibleValue(text="thermo_fisher")
     vwr = PermissibleValue(text="vwr")
     perkin_elmer = PermissibleValue(text="perkin_elmer")
@@ -6976,11 +6908,6 @@ class CompoundEnum(EnumDefinitionImpl):
         name="CompoundEnum",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "triton_X-100",
-            PermissibleValue(text="triton_X-100"))
-
 class StationaryPhaseEnum(EnumDefinitionImpl):
     """
     The type of stationary phase used in a solid phase extraction process.
@@ -7059,19 +6986,6 @@ class ChromatographicCategoryEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="ChromatographicCategoryEnum",
-    )
-
-class ChemicalConversionCategoryEnum(EnumDefinitionImpl):
-
-    addition = PermissibleValue(text="addition")
-    substitution = PermissibleValue(text="substitution")
-    acid_base = PermissibleValue(text="acid_base")
-    reduction_oxidation = PermissibleValue(text="reduction_oxidation")
-    combustion = PermissibleValue(text="combustion")
-    decomposition = PermissibleValue(text="decomposition")
-
-    _defn = EnumDefinition(
-        name="ChemicalConversionCategoryEnum",
     )
 
 class DeviceEnum(EnumDefinitionImpl):
@@ -9148,10 +9062,6 @@ slots.model = Slot(uri=NMDC.model, name="model", curie=NMDC.curie('model'),
 slots.vendor = Slot(uri=NMDC.vendor, name="vendor", curie=NMDC.curie('vendor'),
                    model_uri=NMDC.vendor, domain=None, range=Optional[Union[str, "InstrumentVendorEnum"]])
 
-slots.associated_study = Slot(uri=NMDC.associated_study, name="associated_study", curie=NMDC.curie('associated_study'),
-                   model_uri=NMDC.associated_study, domain=None, range=Optional[Union[str, StudyId]],
-                   pattern=re.compile(r'^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$'))
-
 slots.metagenome_annotation_id = Slot(uri=NMDC.metagenome_annotation_id, name="metagenome_annotation_id", curie=NMDC.curie('metagenome_annotation_id'),
                    model_uri=NMDC.metagenome_annotation_id, domain=FunctionalAnnotationAggMember, range=Optional[Union[str, WorkflowExecutionId]])
 
@@ -9457,7 +9367,7 @@ slots.protocol_execution_category = Slot(uri=NMDC.protocol_execution_category, n
                    model_uri=NMDC.protocol_execution_category, domain=ProtocolExecution, range=Union[str, "ProtocolCategoryEnum"])
 
 slots.has_process_parts = Slot(uri=NMDC.has_process_parts, name="has_process_parts", curie=NMDC.curie('has_process_parts'),
-                   model_uri=NMDC.has_process_parts, domain=None, range=Optional[Union[Union[str, PlannedProcessId], List[Union[str, PlannedProcessId]]]])
+                   model_uri=NMDC.has_process_parts, domain=ProtocolExecution, range=Union[Union[str, PlannedProcessId], List[Union[str, PlannedProcessId]]])
 
 slots.filter_material = Slot(uri=NMDC.filter_material, name="filter_material", curie=NMDC.curie('filter_material'),
                    model_uri=NMDC.filter_material, domain=None, range=Optional[str])
@@ -9487,7 +9397,7 @@ slots.is_pressurized = Slot(uri=NMDC.is_pressurized, name="is_pressurized", curi
                    model_uri=NMDC.is_pressurized, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.duration = Slot(uri=NMDC.duration, name="duration", curie=NMDC.curie('duration'),
-                   model_uri=NMDC.duration, domain=None, range=Optional[Union[dict, QuantityValue]])
+                   model_uri=NMDC.duration, domain=PlannedProcess, range=Optional[Union[dict, "QuantityValue"]])
 
 slots.contained_in = Slot(uri=NMDC.contained_in, name="contained_in", curie=NMDC.curie('contained_in'),
                    model_uri=NMDC.contained_in, domain=None, range=Optional[Union[str, "ContainerCategoryEnum"]])
@@ -9513,23 +9423,14 @@ slots.ordered_mobile_phases = Slot(uri=NMDC.ordered_mobile_phases, name="ordered
 slots.stationary_phase = Slot(uri=NMDC.stationary_phase, name="stationary_phase", curie=NMDC.curie('stationary_phase'),
                    model_uri=NMDC.stationary_phase, domain=ChromatographicSeparationProcess, range=Optional[Union[str, "StationaryPhaseEnum"]])
 
-slots.chromatographic_category = Slot(uri=NMDC.chromatographic_category, name="chromatographic_category", curie=NMDC.curie('chromatographic_category'),
-                   model_uri=NMDC.chromatographic_category, domain=ChromatographicSeparationProcess, range=Optional[Union[str, "ChromatographicCategoryEnum"]])
+slots.chromatrographic_category = Slot(uri=NMDC.chromatrographic_category, name="chromatrographic_category", curie=NMDC.curie('chromatrographic_category'),
+                   model_uri=NMDC.chromatrographic_category, domain=ChromatographicSeparationProcess, range=Optional[Union[str, "ChromatographicCategoryEnum"]])
 
 slots.has_reagents = Slot(uri=NMDC.has_reagents, name="has_reagents", curie=NMDC.curie('has_reagents'),
                    model_uri=NMDC.has_reagents, domain=ChemicalConversionProcess, range=Optional[Union[Union[dict, LaboratoryReagent], List[Union[dict, LaboratoryReagent]]]])
 
 slots.sample_state_information = Slot(uri=NMDC.sample_state_information, name="sample_state_information", curie=NMDC.curie('sample_state_information'),
                    model_uri=NMDC.sample_state_information, domain=ChemicalConversionProcess, range=Optional[Union[str, "SampleStateEnum"]])
-
-slots.solvent = Slot(uri=NMDC.solvent, name="solvent", curie=NMDC.curie('solvent'),
-                   model_uri=NMDC.solvent, domain=DissolvingProcess, range=Union[dict, Solution])
-
-slots.solubilizing_agent = Slot(uri=NMDC.solubilizing_agent, name="solubilizing_agent", curie=NMDC.curie('solubilizing_agent'),
-                   model_uri=NMDC.solubilizing_agent, domain=DissolvingProcess, range=Optional[Union[str, "CompoundEnum"]])
-
-slots.chemical_conversion_category = Slot(uri=NMDC.chemical_conversion_category, name="chemical_conversion_category", curie=NMDC.curie('chemical_conversion_category'),
-                   model_uri=NMDC.chemical_conversion_category, domain=ChemicalConversionProcess, range=Optional[Union[str, "ChemicalConversionCategoryEnum"]])
 
 slots.has_part = Slot(uri=NMDC.has_part, name="has_part", curie=NMDC.curie('has_part'),
                    model_uri=NMDC.has_part, domain=Pathway, range=Optional[Union[Union[str, ReactionId], List[Union[str, ReactionId]]]])
@@ -12042,9 +11943,6 @@ slots.ProtocolExecution_id = Slot(uri=NMDC.id, name="ProtocolExecution_id", curi
                    model_uri=NMDC.ProtocolExecution_id, domain=ProtocolExecution, range=Union[str, ProtocolExecutionId],
                    pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
 
-slots.ProtocolExecution_has_process_parts = Slot(uri=NMDC.has_process_parts, name="ProtocolExecution_has_process_parts", curie=NMDC.curie('has_process_parts'),
-                   model_uri=NMDC.ProtocolExecution_has_process_parts, domain=ProtocolExecution, range=Union[Union[str, PlannedProcessId], List[Union[str, PlannedProcessId]]])
-
 slots.MaterialProcessing_id = Slot(uri=NMDC.id, name="MaterialProcessing_id", curie=NMDC.curie('id'),
                    model_uri=NMDC.MaterialProcessing_id, domain=MaterialProcessing, range=Union[str, MaterialProcessingId],
                    pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
@@ -12090,10 +11988,6 @@ slots.ChemicalConversionProcess_id = Slot(uri=NMDC.id, name="ChemicalConversionP
                    model_uri=NMDC.ChemicalConversionProcess_id, domain=ChemicalConversionProcess, range=Union[str, ChemicalConversionProcessId],
                    pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
 
-slots.DissolvingProcess_id = Slot(uri=NMDC.id, name="DissolvingProcess_id", curie=NMDC.curie('id'),
-                   model_uri=NMDC.DissolvingProcess_id, domain=DissolvingProcess, range=Union[str, DissolvingProcessId],
-                   pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
-
 slots.DataGeneration_id = Slot(uri=NMDC.id, name="DataGeneration_id", curie=NMDC.curie('id'),
                    model_uri=NMDC.DataGeneration_id, domain=DataGeneration, range=Union[str, DataGenerationId],
                    pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
@@ -12103,8 +11997,8 @@ slots.DataGeneration_has_input = Slot(uri=NMDC.has_input, name="DataGeneration_h
                    pattern=re.compile(r'^nmdc:(bsm|procsm)-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$'))
 
 slots.DataGeneration_part_of = Slot(uri=DCTERMS.isPartOf, name="DataGeneration_part_of", curie=DCTERMS.curie('isPartOf'),
-                   model_uri=NMDC.DataGeneration_part_of, domain=DataGeneration, range=Optional[Union[Union[str, DataGenerationId], List[Union[str, DataGenerationId]]]],
-                   pattern=re.compile(r'^nmdc:datgen-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$'))
+                   model_uri=NMDC.DataGeneration_part_of, domain=DataGeneration, range=Optional[Union[Union[str, StudyId], List[Union[str, StudyId]]]],
+                   pattern=re.compile(r'^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$'))
 
 slots.DataGeneration_has_output = Slot(uri=NMDC.has_output, name="DataGeneration_has_output", curie=NMDC.curie('has_output'),
                    model_uri=NMDC.DataGeneration_has_output, domain=DataGeneration, range=Optional[Union[Union[str, DataObjectId], List[Union[str, DataObjectId]]]],
