@@ -1858,7 +1858,7 @@ classes:
       - target_subfragment
       - type
       - instrument_used
-      - was_informed_by
+      - associated_study
 
     slot_usage:
       id:
@@ -1878,10 +1878,6 @@ classes:
       has_output:
         range: DataObject
         pattern: "^nmdc:dobj-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$" # better applied as a structured_pattern, but even that might get out of sync from the asserted DataObject structured_pattern
-      was_informed_by:
-        range: Study
-        multivalued: true
-        pattern: "^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$"
 
     broad_mappings:
       - OBI:0000070
@@ -2765,6 +2761,11 @@ slots:
     range: InstrumentModelEnum
   vendor:
     range: InstrumentVendorEnum
+
+  associated_study:
+    description: The study associated with a resource.
+    range: Study
+    pattern: "^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$"
 
   metagenome_annotation_id:
     domain: FunctionalAnnotationAggMember
