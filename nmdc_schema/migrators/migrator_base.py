@@ -22,6 +22,10 @@ class MigratorBase:
         #
         self.agenda: Dict[str, List[callable]] = dict()
 
-    def get_transformers_for(self, collection_name: str) -> List[callable]:
-        """Returns the list of transformers defined for the specified collection."""
-        return self.agenda.get(collection_name, [])
+    def get_transformers_for(self, collection_name: str = None) -> List[callable]:
+        """Returns the list of transformers defined for the collection if specified, otherwise returns the list of migrators 
+        to be performed on the entire database (for changing collection names or adding collections)."""
+        if collection_name is not None:
+            return self.agenda.get(collection_name, [])
+        else:
+            return self.agenda

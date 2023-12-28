@@ -165,17 +165,26 @@ def main(schema_path, input_path, output_path, salvage_prefix, migrator_name):
     for current_migrator in migrators:
         migrator = current_migrator(logger=logger)
 
-        # iterate over collections, applying migration-specific transformations
-        for tdk, tdv in total_dict.items():
-            # If the migration specifies any transformers for this collection,
-            # apply them—in order—to each document within this collection.
-            transformers = migrator.get_transformers_for(collection_name=tdk)
-            if len(transformers) > 0:
-                migrator_class_name = current_migrator.__name__
-                logger.info(f"Starting {tdk}-specific transformations using {migrator_class_name}")
-                for document in tdv:
-                    for transformer in transformers:
-                        transformer(document)  # modifies the document in place
+        # try block will execute the migrations if collections are specified
+        try:
+            # iterate over collections, applying migration-specific transformations
+            for tdk, tdv in total_dict.items():
+                # If the migration specifies any transformers for this collection,
+                # apply them—in order—to each document within this collection.
+                transformers = migrator.get_transformers_for(collection_name=tdk)
+                if len(transformers) > 0:
+                    migrator_class_name = current_migrator.__name__
+                    logger.info(f"Starting {tdk}-specific transformations using {migrator_class_name}")
+                    for document in tdv:
+                        for transformer in transformers:
+                            transformer(document)  # modifies the document in place
+
+        # except block will execute migrations on entire database (if collection is not specified).
+        # For changing collection names or creating new collections.
+        except:
+            transformers = migrator.get_transformers_for()
+            for transformer in transformers:
+                transformer(total_dict)
 
     # all migrations complete. save data.
     logger.info(f"Saving migrated data to {output_path}")
