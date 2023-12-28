@@ -1,7 +1,7 @@
 from nmdc_schema.migrators.migrator_base import MigratorBase
 
-class Migrator_from_X_to_pr24(MigratorBase):
-    """Migrates data from schema X to PR24"""
+class Migrator_from_X_to_pr2_and_pr24(MigratorBase):
+    """Migrates data from schema X to PR2 and PR24"""
 
     def __init__(self, *args, **kwargs) -> None:
         """Invokes parent constructor and populates collection-to-transformations map."""
