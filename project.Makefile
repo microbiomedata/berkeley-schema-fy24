@@ -424,6 +424,19 @@ nmdc_schema/nmdc_schema_accepting_legacy_ids.py: nmdc_schema/nmdc_schema_accepti
 # todo compress large files
 # todo: switch to API method for getting collection names and stats: https://api.microbiomedata.org/nmdcschema/collection_stats # partially implemented
 
+.PHONY: migrate-validate-single-study-database
+migrate-validate-single-study-database:
+
+
+local/single-study-database-rdf-safe.yaml: nmdc_schema/nmdc_schema_accepting_legacy_ids.yaml assets/nmdc-sty-11-hdd4bf83-for-9-3-2.yaml
+	date # 449.56 seconds on 2023-08-30 without functional_annotation_agg or metaproteomics_analysis_set
+	time $(RUN) migration-recursion \
+		--migrator-name Migrator_from_X_to_PR10 \
+		--schema-path $(word 1,$^) \
+		--input-path $(word 2,$^) \
+		--salvage-prefix generic \
+		--output-path $@
+
 make-rdf: rdf-clean local/mongo_as_nmdc_database_validation.log local/mongo_as_nmdc_database_cuire_repaired.ttl
 
 # could also check --client-base-url https://api-napa.microbiomedata.org
