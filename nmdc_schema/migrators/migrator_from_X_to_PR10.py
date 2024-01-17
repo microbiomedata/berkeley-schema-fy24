@@ -1,5 +1,8 @@
 from nmdc_schema.migrators.migrator_base import MigratorBase
 from linkml_runtime import SchemaView
+from linkml_runtime.dumpers import yaml_dumper
+import nmdc_schema.nmdc_data as nd
+
 
 class Migrator_from_X_to_PR10(MigratorBase):
     """Migrates data from schema X to PR10"""
@@ -9,28 +12,44 @@ class Migrator_from_X_to_PR10(MigratorBase):
 
         super().__init__(*args, **kwargs)
 
+        schema_string = nd.get_nmdc_yaml_string()
+
+        self.view = SchemaView(schema_string)
+
         # Populate the "collection-to-transformers" map for this specific migration.
         self.agenda = dict(
             biosample_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:Biosample")],
             data_object_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:DataObject")],
-            functional_annotation_agg=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:FunctionalAnnotationAggMember")],
+            functional_annotation_agg=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:FunctionalAnnotationAggMember")],
             study_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:Study")],
             extraction_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:Extraction")],
-            field_research_site_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:FieldResearchSite")],
-            library_preparation_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:LibraryPreparation")],
+            field_research_site_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:FieldResearchSite")],
+            library_preparation_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:LibraryPreparation")],
             mags_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MagsAnalysis")],
-            metabolomics_analysis_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetabolomicsAnalysis")],
-            metagenome_annotation_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetagenomeAnnotation")],
-            metagenome_assembly_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetagenomeAssembly")],
-            metagenome_sequencing_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetagenomeSequencing")],
-            metaproteomics_analysis_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetaproteomicsAnalysis")],
-            metatranscriptome_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetatranscriptomeAnalysis")],
-            nom_analysis_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:NomAnalysis")],
+            metabolomics_analysis_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetabolomicsAnalysis")],
+            metagenome_annotation_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetagenomeAnnotation")],
+            metagenome_assembly_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetagenomeAssembly")],
+            metagenome_sequencing_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetagenomeSequencing")],
+            metaproteomics_analysis_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetaproteomicsAnalysis")],
+            metatranscriptome_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:MetatranscriptomeAnalysis")],
+            nom_analysis_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:NomAnalysis")],
             omics_processing_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:DataGeneration")],
             pooling_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:Pooling")],
             processed_sample_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:ProcessedSample")],
-            read_based_taxonomy_analysis_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:ReadBasedTaxonomyAnalysis")],
-            read_qc_analysis_activity_set=[lambda document: self.add_type_slot_with_class_uri(document, "nmdc:ReadQcAnalysis")],
+            read_based_taxonomy_analysis_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:ReadBasedTaxonomyAnalysis")],
+            read_qc_analysis_activity_set=[
+                lambda document: self.add_type_slot_with_class_uri(document, "nmdc:ReadQcAnalysis")],
         )
 
     def add_type_to_inlined_classes(self, document: dict, slot: str, uri: str):
@@ -43,17 +62,16 @@ class Migrator_from_X_to_PR10(MigratorBase):
             if isinstance(document[slot], list):
                 # If slot is a list, iterate over each item in the list (e.g. chem_administration and has_credit_associations)
                 for item in document[slot]:
-                    item["type"] = uri
+                    item["type"] = str(uri)
                     if item.get("term"):
                         item["term"]["type"] = "nmdc:OntologyClass"
                     if item.get("applies_to_person"):
                         item["applies_to_person"]["type"] = "nmdc:PersonValue"
-            else:
+            elif isinstance(document[slot], dict):
                 # If slot is a dictionary, update the type directly
-                document[slot]["type"] = uri
+                document[slot]["type"] = str(uri)
                 if document[slot].get("term"):
                     document[slot]["term"]["type"] = "nmdc:OntologyClass"
-                    
 
     def add_type_slot_with_class_uri(self, document: dict, class_uri: str):
         r"""
@@ -70,7 +88,7 @@ class Migrator_from_X_to_PR10(MigratorBase):
             >>> m.add_type_slot_with_class_uri({'id': 456}, 'nmdc:NomAnalysis')
             {'id': 456, 'type': 'nmdc:NomAnalysis'}
         """
-        
+
         # Adds the type slot with the correct class_uri as a value to each collection instance
         document["type"] = class_uri
 
@@ -155,29 +173,27 @@ class Migrator_from_X_to_PR10(MigratorBase):
         #     "quality_control_report": "nmdc:QualityControlReport"
         #     }
 
-        view = SchemaView("src/schema/nmdc.yaml")
+        # view = SchemaView("src/schema/nmdc.yaml")
 
         # Get list of all classes that are used as ranges for slots (that are applicable to this migration)
-        value_classes = view.class_children("AttributeValue")
+        value_classes = self.view.class_children("AttributeValue")
         value_classes.extend(["ControlledIdentifiedTermValue", "Doi", "QualityControlReport"])
 
         # create a dictionary of inlined class uris
         value_class_uris = {}
         for value_class in value_classes:
-            uri = view.get_class(value_class).class_uri
+            uri = self.view.get_class(value_class).class_uri
             value_class_uris[value_class] = uri
 
         # create dictionary of slots and their range's associated class_uris
         slots_with_inlined_classes = {}
-        for slot_name, slot_def in view.all_slots().items():
+        for slot_name, slot_def in self.view.all_slots().items():
             if slot_def.range in value_class_uris:
                 slots_with_inlined_classes[slot_name] = value_class_uris[slot_def.range]
-                
+
         # types_with_inlined_classes = ["nmdc:Biosample", "nmdc:Study", "nmdc:Extraction"]
         # Add the type slot to any inlined classes in the biosample_set
         for slot, uri in slots_with_inlined_classes.items():
             self.add_type_to_inlined_classes(document, slot, uri)
-                
-        return document
 
-    
+        return document
