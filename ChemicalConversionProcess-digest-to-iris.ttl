@@ -1,0 +1,31 @@
+@prefix nmdc: <https://w3id.org/nmdc/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nmdc:chcpr-19-7890 a nmdc:ChemicalConversionProcess ;
+    nmdc:catalyzed_by [ a nmdc:Solution ;
+            nmdc:has_solution_components [ a nmdc:SolutionComponent ;
+                    nmdc:compound "trypsin" ;
+                    nmdc:concentration [ a nmdc:QuantityValue ;
+                            nmdc:has_numeric_value 5e-02 ;
+                            nmdc:has_unit "μg/μL" ] ] ] ;
+    nmdc:duration [ a nmdc:QuantityValue ;
+            nmdc:has_numeric_value 3e+00 ;
+            nmdc:has_unit "h" ] ;
+    nmdc:has_input nmdc:procsm-37 ;
+    nmdc:has_output nmdc:procsm-39 ;
+    nmdc:has_reagents [ a nmdc:ReagentsCollection ;
+            nmdc:solutions_used [ a nmdc:Solution ;
+                    nmdc:has_solution_components [ a nmdc:SolutionComponent ;
+                            nmdc:compound "deionized_water" ],
+                        [ a nmdc:SolutionComponent ;
+                            nmdc:compound "ammonium_bicarbonate" ;
+                            nmdc:concentration [ a nmdc:QuantityValue ;
+                                    nmdc:has_numeric_value 5e+01 ;
+                                    nmdc:has_unit "mM" ] ] ;
+                    nmdc:volume [ a nmdc:QuantityValue ;
+                            nmdc:has_numeric_value 7.5e+01 ;
+                            nmdc:has_unit "μL" ] ] ] ;
+    nmdc:temperature [ a nmdc:QuantityValue ;
+            nmdc:has_numeric_value 3.7e+01 ;
+            nmdc:has_unit "Cel" ] .
+

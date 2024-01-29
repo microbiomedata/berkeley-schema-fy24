@@ -1,0 +1,814 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix nmdc: <https://w3id.org/nmdc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcterms:isPartOf a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Biosample,
+        nmdc:DataGeneration,
+        nmdc:FieldResearchSite,
+        nmdc:MagsAnalysis,
+        nmdc:MassSpectrometry,
+        nmdc:MetabolomicsAnalysis,
+        nmdc:MetagenomeAnnotation,
+        nmdc:MetagenomeAssembly,
+        nmdc:MetagenomeSequencing,
+        nmdc:MetaproteomicsAnalysis,
+        nmdc:MetatranscriptomeAnalysis,
+        nmdc:MetatranscriptomeAnnotation,
+        nmdc:MetatranscriptomeAssembly,
+        nmdc:NomAnalysis,
+        nmdc:NucleotideSequencing,
+        nmdc:ReadBasedTaxonomyAnalysis,
+        nmdc:ReadQcAnalysis,
+        nmdc:Study,
+        nmdc:WorkflowExecution ;
+    rdfs:range nmdc:DataGeneration,
+        nmdc:NamedThing,
+        nmdc:Study,
+        nmdc:WorkflowChain .
+
+prov:qualifiedAssociation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Study ;
+    rdfs:range nmdc:CreditAssociation .
+
+nmdc:all_proteins a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:PeptideQuantification,
+        nmdc:ProteinQuantification ;
+    rdfs:range nmdc:GeneProduct .
+
+nmdc:associated_dois a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Study ;
+    rdfs:range nmdc:Doi .
+
+nmdc:associated_studies a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:DataGeneration,
+        nmdc:MassSpectrometry,
+        nmdc:NucleotideSequencing ;
+    rdfs:range nmdc:Study .
+
+nmdc:best_protein a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:PeptideQuantification,
+        nmdc:ProteinQuantification ;
+    rdfs:range nmdc:GeneProduct .
+
+nmdc:biosample_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:Biosample .
+
+nmdc:catalyzed_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChemicalConversionProcess ;
+    rdfs:range nmdc:Solution .
+
+nmdc:chemical a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ReactionParticipant ;
+    rdfs:range nmdc:ChemicalEntity .
+
+nmdc:collected_from a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Biosample ;
+    rdfs:range nmdc:FieldResearchSite .
+
+nmdc:collecting_biosamples_from_site_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:CollectingBiosamplesFromSite .
+
+nmdc:compound a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:SolutionComponent ;
+    rdfs:range nmdc:CompoundEnum,
+        nmdc:ProteolyticEnzymeEnum .
+
+nmdc:data_generation_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:DataGeneration .
+
+nmdc:data_object_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:DataObject .
+
+nmdc:eluent_introduction a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:MassSpectrometry ;
+    rdfs:range nmdc:FluidHandling .
+
+nmdc:encodes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:GenomeFeature ;
+    rdfs:range nmdc:GeneProduct .
+
+nmdc:extractant a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Extraction ;
+    rdfs:range nmdc:Solution .
+
+nmdc:extraction_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:Extraction .
+
+nmdc:field_research_site_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:FieldResearchSite .
+
+nmdc:functional_annotation_agg a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:FunctionalAnnotationAggMember .
+
+nmdc:functional_annotation_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:FunctionalAnnotation .
+
+nmdc:genome_feature_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:GenomeFeature .
+
+nmdc:has_calibration a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChromatographicSeparationProcess ;
+    rdfs:range nmdc:DataObject .
+
+nmdc:has_input a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChemicalConversionProcess,
+        nmdc:ChromatographicSeparationProcess,
+        nmdc:CollectingBiosamplesFromSite,
+        nmdc:DataGeneration,
+        nmdc:DirectInfusionProcess,
+        nmdc:DissolvingProcess,
+        nmdc:Extraction,
+        nmdc:FiltrationProcess,
+        nmdc:FluidHandling,
+        nmdc:LibraryPreparation,
+        nmdc:MagsAnalysis,
+        nmdc:MassSpectrometry,
+        nmdc:MaterialProcessing,
+        nmdc:MetabolomicsAnalysis,
+        nmdc:MetagenomeAnnotation,
+        nmdc:MetagenomeAssembly,
+        nmdc:MetagenomeSequencing,
+        nmdc:MetaproteomicsAnalysis,
+        nmdc:MetatranscriptomeAnalysis,
+        nmdc:MetatranscriptomeAnnotation,
+        nmdc:MetatranscriptomeAssembly,
+        nmdc:MixingProcess,
+        nmdc:NomAnalysis,
+        nmdc:NucleotideSequencing,
+        nmdc:PlannedProcess,
+        nmdc:Pooling,
+        nmdc:ProtocolExecution,
+        nmdc:ReadBasedTaxonomyAnalysis,
+        nmdc:ReadQcAnalysis,
+        nmdc:SubSamplingProcess,
+        nmdc:WorkflowChain,
+        nmdc:WorkflowExecution ;
+    rdfs:range nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample,
+        nmdc:Site .
+
+nmdc:has_metabolite_quantifications a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:MetabolomicsAnalysis ;
+    rdfs:range nmdc:MetaboliteQuantification .
+
+nmdc:has_output a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChemicalConversionProcess,
+        nmdc:ChromatographicSeparationProcess,
+        nmdc:CollectingBiosamplesFromSite,
+        nmdc:DataGeneration,
+        nmdc:DirectInfusionProcess,
+        nmdc:DissolvingProcess,
+        nmdc:Extraction,
+        nmdc:FiltrationProcess,
+        nmdc:FluidHandling,
+        nmdc:LibraryPreparation,
+        nmdc:MagsAnalysis,
+        nmdc:MassSpectrometry,
+        nmdc:MaterialProcessing,
+        nmdc:MetabolomicsAnalysis,
+        nmdc:MetagenomeAnnotation,
+        nmdc:MetagenomeAssembly,
+        nmdc:MetagenomeSequencing,
+        nmdc:MetaproteomicsAnalysis,
+        nmdc:MetatranscriptomeAnalysis,
+        nmdc:MetatranscriptomeAnnotation,
+        nmdc:MetatranscriptomeAssembly,
+        nmdc:MixingProcess,
+        nmdc:NomAnalysis,
+        nmdc:NucleotideSequencing,
+        nmdc:PlannedProcess,
+        nmdc:Pooling,
+        nmdc:ProtocolExecution,
+        nmdc:ReadBasedTaxonomyAnalysis,
+        nmdc:ReadQcAnalysis,
+        nmdc:SubSamplingProcess,
+        nmdc:WorkflowChain,
+        nmdc:WorkflowExecution ;
+    rdfs:range nmdc:Biosample,
+        nmdc:DataObject,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample .
+
+nmdc:has_part a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Pathway ;
+    rdfs:range nmdc:Reaction .
+
+nmdc:has_peptide_quantifications a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:MetaproteomicsAnalysis ;
+    rdfs:range nmdc:PeptideQuantification .
+
+nmdc:has_process_parts a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ProtocolExecution ;
+    rdfs:range nmdc:PlannedProcess .
+
+nmdc:has_reagents a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChemicalConversionProcess ;
+    rdfs:range nmdc:ReagentsCollection .
+
+nmdc:has_solution_components a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Solution ;
+    rdfs:range nmdc:SolutionComponent .
+
+nmdc:instrument_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:Instrument .
+
+nmdc:instrument_used a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChemicalConversionProcess,
+        nmdc:ChromatographicSeparationProcess,
+        nmdc:CollectingBiosamplesFromSite,
+        nmdc:DataGeneration,
+        nmdc:DirectInfusionProcess,
+        nmdc:DissolvingProcess,
+        nmdc:Extraction,
+        nmdc:FiltrationProcess,
+        nmdc:FluidHandling,
+        nmdc:LibraryPreparation,
+        nmdc:MagsAnalysis,
+        nmdc:MassSpectrometry,
+        nmdc:MaterialProcessing,
+        nmdc:MetabolomicsAnalysis,
+        nmdc:MetagenomeAnnotation,
+        nmdc:MetagenomeAssembly,
+        nmdc:MetagenomeSequencing,
+        nmdc:MetaproteomicsAnalysis,
+        nmdc:MetatranscriptomeAnalysis,
+        nmdc:MetatranscriptomeAnnotation,
+        nmdc:MetatranscriptomeAssembly,
+        nmdc:MixingProcess,
+        nmdc:NomAnalysis,
+        nmdc:NucleotideSequencing,
+        nmdc:PlannedProcess,
+        nmdc:Pooling,
+        nmdc:ProtocolExecution,
+        nmdc:ReadBasedTaxonomyAnalysis,
+        nmdc:ReadQcAnalysis,
+        nmdc:SubSamplingProcess,
+        nmdc:WorkflowChain,
+        nmdc:WorkflowExecution ;
+    rdfs:range nmdc:Instrument .
+
+nmdc:lab_reagents_used a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ReagentsCollection ;
+    rdfs:range nmdc:LaboratoryReagent .
+
+nmdc:left_participants a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Reaction ;
+    rdfs:range nmdc:ReactionParticipant .
+
+nmdc:library_preparation_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:LibraryPreparation .
+
+nmdc:mags_list a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:MagsAnalysis ;
+    rdfs:range nmdc:MagBin .
+
+nmdc:mags_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MagsAnalysis .
+
+nmdc:metabolite_quantified a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:MetaboliteQuantification ;
+    rdfs:range nmdc:ChemicalEntity .
+
+nmdc:metabolomics_analysis_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MetabolomicsAnalysis .
+
+nmdc:metagenome_annotation_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:FunctionalAnnotationAggMember ;
+    rdfs:range nmdc:WorkflowExecution .
+
+nmdc:metagenome_annotation_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MetagenomeAnnotation .
+
+nmdc:metagenome_assembly_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MetagenomeAssembly .
+
+nmdc:metagenome_sequencing_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MetagenomeSequencing .
+
+nmdc:metaproteomics_analysis_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MetaproteomicsAnalysis .
+
+nmdc:metatranscriptome_analysis_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:MetatranscriptomeAnalysis .
+
+nmdc:nom_analysis_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:NomAnalysis .
+
+nmdc:ordered_mobile_phases a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChromatographicSeparationProcess ;
+    rdfs:range nmdc:Solution .
+
+nmdc:planned_process_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:PlannedProcess .
+
+nmdc:pooling_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:Pooling .
+
+nmdc:processed_sample_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:ProcessedSample .
+
+nmdc:protocol_link a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ChemicalConversionProcess,
+        nmdc:ChromatographicSeparationProcess,
+        nmdc:CollectingBiosamplesFromSite,
+        nmdc:DataGeneration,
+        nmdc:DirectInfusionProcess,
+        nmdc:DissolvingProcess,
+        nmdc:Extraction,
+        nmdc:FiltrationProcess,
+        nmdc:FluidHandling,
+        nmdc:LibraryPreparation,
+        nmdc:MagsAnalysis,
+        nmdc:MassSpectrometry,
+        nmdc:MaterialProcessing,
+        nmdc:MetabolomicsAnalysis,
+        nmdc:MetagenomeAnnotation,
+        nmdc:MetagenomeAssembly,
+        nmdc:MetagenomeSequencing,
+        nmdc:MetaproteomicsAnalysis,
+        nmdc:MetatranscriptomeAnalysis,
+        nmdc:MetatranscriptomeAnnotation,
+        nmdc:MetatranscriptomeAssembly,
+        nmdc:MixingProcess,
+        nmdc:NomAnalysis,
+        nmdc:NucleotideSequencing,
+        nmdc:PlannedProcess,
+        nmdc:Pooling,
+        nmdc:ProtocolExecution,
+        nmdc:ReadBasedTaxonomyAnalysis,
+        nmdc:ReadQcAnalysis,
+        nmdc:Study,
+        nmdc:SubSamplingProcess,
+        nmdc:WorkflowChain,
+        nmdc:WorkflowExecution ;
+    rdfs:range nmdc:Protocol .
+
+nmdc:quality_control_report a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Extraction ;
+    rdfs:range nmdc:QualityControlReport .
+
+nmdc:read_based_taxonomy_analysis_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:ReadBasedTaxonomyAnalysis .
+
+nmdc:read_qc_analysis_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:ReadQcAnalysis .
+
+nmdc:right_participants a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Reaction ;
+    rdfs:range nmdc:ReactionParticipant .
+
+nmdc:solutions_used a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ReagentsCollection ;
+    rdfs:range nmdc:Solution .
+
+nmdc:solvent a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:DissolvingProcess ;
+    rdfs:range nmdc:Solution .
+
+nmdc:study_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:Study .
+
+nmdc:subject a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:FunctionalAnnotation ;
+    rdfs:range nmdc:GeneProduct .
+
+nmdc:term a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:ControlledIdentifiedTermValue,
+        nmdc:ControlledTermValue ;
+    rdfs:range nmdc:OntologyClass .
+
+nmdc:was_generated_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:AttributeValue,
+        nmdc:BooleanValue,
+        nmdc:ControlledIdentifiedTermValue,
+        nmdc:ControlledTermValue,
+        nmdc:DataObject,
+        nmdc:FunctionalAnnotation,
+        nmdc:GeolocationValue,
+        nmdc:ImageValue,
+        nmdc:IntegerValue,
+        nmdc:PersonValue,
+        nmdc:QuantityValue,
+        nmdc:TextValue,
+        nmdc:TimestampValue,
+        nmdc:UrlValue ;
+    rdfs:range nmdc:MetagenomeAnnotation,
+        nmdc:WorkflowExecution .
+
+nmdc:was_informed_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:WorkflowChain ;
+    rdfs:range nmdc:DataGeneration .
+
+nmdc:workflow_chain_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:WorkflowChain .
+
+nmdc:workflow_execution_set a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:domain nmdc:Database ;
+    rdfs:range nmdc:WorkflowExecution .
+
+nmdc:AttributeValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:BooleanValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:GeolocationValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:ImageValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:IntegerValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:Pathway nmdc:has_part nmdc:Reaction .
+
+nmdc:PersonValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:QuantityValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:TextValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:TimestampValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:UrlValue nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:ControlledIdentifiedTermValue nmdc:term nmdc:OntologyClass ;
+    nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:ControlledTermValue nmdc:term nmdc:OntologyClass ;
+    nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:ProteinQuantification nmdc:all_proteins nmdc:GeneProduct ;
+    nmdc:best_protein nmdc:GeneProduct .
+
+nmdc:FunctionalAnnotationAggMember nmdc:metagenome_annotation_id nmdc:WorkflowExecution .
+
+nmdc:GenomeFeature nmdc:encodes nmdc:GeneProduct .
+
+nmdc:MetaboliteQuantification nmdc:metabolite_quantified nmdc:ChemicalEntity .
+
+nmdc:SolutionComponent nmdc:compound nmdc:CompoundEnum,
+        nmdc:ProteolyticEnzymeEnum .
+
+nmdc:DirectInfusionProcess nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:FiltrationProcess nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:FunctionalAnnotation nmdc:subject nmdc:GeneProduct ;
+    nmdc:was_generated_by nmdc:MetagenomeAnnotation .
+
+nmdc:MaterialProcessing nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MixingProcess nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:PeptideQuantification nmdc:all_proteins nmdc:GeneProduct ;
+    nmdc:best_protein nmdc:GeneProduct .
+
+nmdc:Reaction nmdc:left_participants nmdc:ReactionParticipant ;
+    nmdc:right_participants nmdc:ReactionParticipant .
+
+nmdc:ReagentsCollection nmdc:lab_reagents_used nmdc:LaboratoryReagent ;
+    nmdc:solutions_used nmdc:Solution .
+
+nmdc:SubSamplingProcess nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:DissolvingProcess nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol ;
+    nmdc:solvent nmdc:Solution .
+
+nmdc:FieldResearchSite dcterms:isPartOf nmdc:NamedThing .
+
+nmdc:MetatranscriptomeAnnotation dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MetatranscriptomeAssembly dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:ProtocolExecution nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:has_process_parts nmdc:PlannedProcess ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:ReactionParticipant nmdc:chemical nmdc:ChemicalEntity .
+
+nmdc:ChemicalConversionProcess nmdc:catalyzed_by nmdc:Solution ;
+    nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:has_reagents nmdc:ReagentsCollection ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:ChromatographicSeparationProcess nmdc:has_calibration nmdc:DataObject ;
+    nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:ordered_mobile_phases nmdc:Solution ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:CollectingBiosamplesFromSite nmdc:has_input nmdc:Site ;
+    nmdc:has_output nmdc:Biosample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:FluidHandling nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:LibraryPreparation nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:NucleotideSequencing dcterms:isPartOf nmdc:DataGeneration ;
+    nmdc:associated_studies nmdc:Study ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:DataObject ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:Pooling nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MassSpectrometry dcterms:isPartOf nmdc:DataGeneration ;
+    nmdc:associated_studies nmdc:Study ;
+    nmdc:eluent_introduction nmdc:FluidHandling ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:DataObject ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MetagenomeAssembly dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MetagenomeSequencing dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MetatranscriptomeAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:NomAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:ReadBasedTaxonomyAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:ReadQcAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:Extraction nmdc:extractant nmdc:Solution ;
+    nmdc:has_input nmdc:Biosample,
+        nmdc:NamedThing,
+        nmdc:ProcessedSample ;
+    nmdc:has_output nmdc:ProcessedSample ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol ;
+    nmdc:quality_control_report nmdc:QualityControlReport .
+
+nmdc:MagsAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:mags_list nmdc:MagBin ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MetabolomicsAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_metabolite_quantifications nmdc:MetaboliteQuantification ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:MetaproteomicsAnalysis dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:has_peptide_quantifications nmdc:PeptideQuantification ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:PlannedProcess nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:DataObject nmdc:was_generated_by nmdc:WorkflowExecution .
+
+nmdc:MetagenomeAnnotation dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:Solution nmdc:has_solution_components nmdc:SolutionComponent .
+
+nmdc:Study dcterms:isPartOf nmdc:Study ;
+    prov:qualifiedAssociation nmdc:CreditAssociation ;
+    nmdc:associated_dois nmdc:Doi ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:DataGeneration dcterms:isPartOf nmdc:DataGeneration ;
+    nmdc:associated_studies nmdc:Study ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:DataObject ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:Biosample dcterms:isPartOf nmdc:Study ;
+    nmdc:collected_from nmdc:FieldResearchSite .
+
+nmdc:WorkflowChain nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol ;
+    nmdc:was_informed_by nmdc:DataGeneration .
+
+nmdc:WorkflowExecution dcterms:isPartOf nmdc:WorkflowChain ;
+    nmdc:has_input nmdc:NamedThing ;
+    nmdc:has_output nmdc:NamedThing ;
+    nmdc:instrument_used nmdc:Instrument ;
+    nmdc:protocol_link nmdc:Protocol .
+
+nmdc:Database nmdc:biosample_set nmdc:Biosample ;
+    nmdc:collecting_biosamples_from_site_set nmdc:CollectingBiosamplesFromSite ;
+    nmdc:data_generation_set nmdc:DataGeneration ;
+    nmdc:data_object_set nmdc:DataObject ;
+    nmdc:extraction_set nmdc:Extraction ;
+    nmdc:field_research_site_set nmdc:FieldResearchSite ;
+    nmdc:functional_annotation_agg nmdc:FunctionalAnnotationAggMember ;
+    nmdc:functional_annotation_set nmdc:FunctionalAnnotation ;
+    nmdc:genome_feature_set nmdc:GenomeFeature ;
+    nmdc:instrument_set nmdc:Instrument ;
+    nmdc:library_preparation_set nmdc:LibraryPreparation ;
+    nmdc:mags_set nmdc:MagsAnalysis ;
+    nmdc:metabolomics_analysis_set nmdc:MetabolomicsAnalysis ;
+    nmdc:metagenome_annotation_set nmdc:MetagenomeAnnotation ;
+    nmdc:metagenome_assembly_set nmdc:MetagenomeAssembly ;
+    nmdc:metagenome_sequencing_set nmdc:MetagenomeSequencing ;
+    nmdc:metaproteomics_analysis_set nmdc:MetaproteomicsAnalysis ;
+    nmdc:metatranscriptome_analysis_set nmdc:MetatranscriptomeAnalysis ;
+    nmdc:nom_analysis_set nmdc:NomAnalysis ;
+    nmdc:planned_process_set nmdc:PlannedProcess ;
+    nmdc:pooling_set nmdc:Pooling ;
+    nmdc:processed_sample_set nmdc:ProcessedSample ;
+    nmdc:read_based_taxonomy_analysis_set nmdc:ReadBasedTaxonomyAnalysis ;
+    nmdc:read_qc_analysis_set nmdc:ReadQcAnalysis ;
+    nmdc:study_set nmdc:Study ;
+    nmdc:workflow_chain_set nmdc:WorkflowChain ;
+    nmdc:workflow_execution_set nmdc:WorkflowExecution .
+
