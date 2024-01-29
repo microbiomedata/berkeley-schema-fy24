@@ -1,0 +1,28 @@
+# https://w3id.org/nmdc/QuantityValue
+https://w3id.org/nmdc/ChemicalConversionProcess
+https://w3id.org/nmdc/LaboratoryReagent
+https://w3id.org/nmdc/MaterialEntity
+https://w3id.org/nmdc/MaterialProcessing
+https://w3id.org/nmdc/NamedThing
+https://w3id.org/nmdc/PlannedProcess
+https://w3id.org/nmdc/ProcessedSample
+https://w3id.org/nmdc/ReagentsCollection
+https://w3id.org/nmdc/ReagentsCollection
+https://w3id.org/nmdc/Solution
+https://w3id.org/nmdc/SolutionComponent
+https://w3id.org/nmdc/has_output
+
+# robot merge --input project/owl/nmdc.owl.ttl --input ../linkml-model/linkml_model/owl/meta.owl.ttl --output berkeley-and-linkml.ttl
+# robot extract  --input  berkeley-and-linkml.ttl --method  STAR --term-file proteolytic_digestion_term_list.txt --output proteolytic_digestion_term_list.ttl
+
+#* Cannot infer property type of https://w3id.org/nmdc/type in cardinality restriction of https://w3id.org/nmdc/ReagentsCollection
+#* Cannot infer property type of https://w3id.org/nmdc/id in cardinality restriction of https://w3id.org/nmdc/ChemicalConversionProcess
+#* Cannot infer property type of https://w3id.org/nmdc/has_solution_components in cardinality restriction of https://w3id.org/nmdc/Solution
+#* Cannot infer property type of https://w3id.org/nmdc/type in cardinality restriction of https://w3id.org/nmdc/Solution
+#* Cannot infer property type of https://w3id.org/nmdc/id in cardinality restriction of https://w3id.org/nmdc/MaterialProcessing
+#* Cannot infer property type of https://w3id.org/nmdc/type in cardinality restriction of https://w3id.org/nmdc/LaboratoryReagent
+#* Cannot infer property type of https://w3id.org/nmdc/id in cardinality restriction of https://w3id.org/nmdc/ProcessedSample
+#* Cannot infer property type of https://w3id.org/nmdc/id in cardinality restriction of https://w3id.org/nmdc/NamedThing
+#* Cannot infer property type of https://w3id.org/nmdc/type in cardinality restriction of https://w3id.org/nmdc/NamedThing
+#* Cannot infer property type of https://w3id.org/nmdc/type in cardinality restriction of https://w3id.org/nmdc/SolutionComponent
+#* Cannot infer property type of https://w3id.org/nmdc/compound in cardinality restriction of https://w3id.org/nmdc/SolutionComponent
