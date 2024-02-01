@@ -2138,9 +2138,9 @@ enums:
           - NextSeq 550
         meaning: OBI:0003387
       gridion:
-         aliases:
-           - Oxford Nanopore GridION Mk1
-         meaning: OBI:0002751
+        aliases:
+          - Oxford Nanopore GridION Mk1
+        meaning: OBI:0002751
       minion:
         aliases:
           - Oxford Nanopore MinION
@@ -2158,13 +2158,13 @@ enums:
           - PacBio Sequel
         meaning: OBI:0002632
       sequel_II:
-         aliases:
-           - PacBio Sequel II
-         meaning: OBI:0002633
+        aliases:
+          - PacBio Sequel II
+        meaning: OBI:0002633
       revio:
-        aliases: 
-           - PacBio Revio
-           - Revio
+        aliases:
+          - PacBio Revio
+          - Revio
 
   InstrumentVendorEnum:
     permissible_values:
@@ -2760,6 +2760,7 @@ enums:
       - http://purl.obolibrary.org/obo/NCIT_C16554
     permissible_values:
       trypsin:
+        meaning: http://purl.obolibrary.org/obo/PR_000027795
       chymotrypsin:
       lys_c:
         aliases:
