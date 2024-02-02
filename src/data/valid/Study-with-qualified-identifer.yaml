@@ -1,0 +1,12 @@
+id: nmdc:sty-11-ab
+study_category: research_study
+type: nmdc:Study
+has_qualified_identifiers:
+  - identifier_value: gold:Gs1234
+    assertion_date: "2024-01-15"
+  - identifier_value: emsl.project:60141
+    assertion_date: "2023-01-15"
+  - identifier_value: doi:10.46936/fics.proj.2017.49991/60006232
+    assertion_date: "2023-01-15"
+    provider: emsl
+    doi_category: award_doi

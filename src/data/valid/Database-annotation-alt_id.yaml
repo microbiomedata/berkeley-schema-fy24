@@ -1,0 +1,27 @@
+metagenome_annotation_set:
+ - id: nmdc:wfmgan-11-ykb8p905.1
+   has_input:
+    - nmdc:dobj-11-1236
+   has_output:
+    - nmdc:dobj-11-1237
+   type: nmdc:MetagenomeAnnotation
+   has_qualified_identifiers:
+    - identifier_value: img.taxon:3300069301
+      assertion_date: "2024-01-15"
+#      exact_mapping:true
+ #same input but reannontated 
+ - id: nmdc:wfmgan-11-ykb8p905.2
+   has_input:
+    - nmdc:dobj-11-1236
+   has_output:
+    - nmdc:dobj-11-1238
+   type: nmdc:MetagenomeAnnotation
+   has_qualified_identifiers:
+    - identifier_value: img.taxon:3300069304
+      assertion_date: "2024-01-17"
+#      exact_mapping:true
+
+#How to handle data that exists before we have workflow results or are a combined assembly
+ #qualitified_identifier_set:
+ # - identifier_value_from: 
+#use https://gold.jgi.doe.gov/analysis_projects?Project.GOLD%20Project%20ID=Gp0704892 as an example of where we'd want to link to a combined assembly
