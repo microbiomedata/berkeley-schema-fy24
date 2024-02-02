@@ -1,0 +1,11 @@
+metagenome_annotation_set:
+ - id: nmdc:wfmgan-11-1234
+   has_input:
+    - nmdc:dobj-11-1236
+   has_output:
+    - nmdc:dobj-11-1236
+   type: nmdc:MetagenomeAnnotation
+   has_qualified_identifiers:
+    - identifier_value: img.taxon:3300069301
+      assertion_date: "2024-01-15"
+
