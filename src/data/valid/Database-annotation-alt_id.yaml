@@ -1,5 +1,5 @@
 metagenome_annotation_set:
- - id: nmdc:wfmgan-11-1234
+ - id: nmdc:wfmgan-11-ykb8p905.1
    has_input:
     - nmdc:dobj-11-1236
    has_output:
