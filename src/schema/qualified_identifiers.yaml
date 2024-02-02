@@ -1,0 +1,51 @@
+id: https://w3id.org/nmdc/qualified_identifiers
+name: NMDC-qualified-identifiers
+
+imports:
+  - linkml:types
+
+comments:
+  - also considering a QualifiedDoi subclass OR broadening the scope of the categories slot, 
+    in which case we might suggest asserting a provider and a category for non-DOI 
+    identifiers  even at the risk of contradictory information
+classes:
+  QualifiedIdentifier:
+    #    slot_uri: nmdc:QualifiedIdentifier
+    slots:
+      - identifier_value
+      - assertion_date
+      - provider
+      - doi_category
+
+slots:
+  identifier_value:
+    description: The value of the external identifier
+    required: true
+    range: curie
+  #    provenance:
+  #        description: The source of the external identifier
+  #        required: true
+  #        multivalued: false
+  #        range: string
+  assertion_date:
+    aliases:
+      - date mapped
+    description: The date that NMDC asserted the mapping
+    required: true
+    range: string
+  provider:
+    see_also: https://www.osti.gov/award-doi-service/biblio/10.46936/10.25585/60001289
+    range: DoiProviderEnum
+    comments:
+      - may be most relevant for DOIs
+      - resource descriptors may decrease the verbosity of this slot
+    examples:
+      - value: OSTI
+  doi_category:
+    range: DoiCategoryEnum
+    comments:
+      - besides DOIs, are are other identifiers for which we need to assert a category
+  has_qualified_identifiers:
+    range: QualifiedIdentifier
+    multivalued: true
+    inlined_as_list: true
