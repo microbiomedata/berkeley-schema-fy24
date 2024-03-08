@@ -308,6 +308,12 @@ classes:
       - compound
       - concentration
       - type
+    slot_usage:
+      compound:
+        any_of:
+        - range: CompoundEnum
+        - range: ProteolyticEnzymeEnum
+
 
   Solution:
     class_uri: nmdc:Solution
@@ -3734,9 +3740,6 @@ slots:
     #list example
   compound:
     domain: SolutionComponent
-    any_of:
-      - range: CompoundEnum
-      - range: ProteolyticEnzymeEnum
     description: A substance that consists of more than one atom or ion. Includes solvents and solutes. Can be combined into solutions.
     required: true
   ordered_mobile_phases:
