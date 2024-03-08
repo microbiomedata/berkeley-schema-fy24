@@ -2796,24 +2796,32 @@ enums:
     see_also:
       - http://purl.obolibrary.org/obo/NCIT_C16554
     permissible_values:
-      trypsin:
+      trypsin: 
+        description: A serine protease that hydrolyzes peptide bonds at the C-terminus of arginine and lysine.
       chymotrypsin:
+        description: A serine protease that hydrolyzes peptide bonds at the C-terminus of tryptophan, leucine, tyrosine, and phenylalanine.
       lys_c:
+        description: A serine protease that hydrolyzes peptide, ester, and amide bonds at the C-terminus of lysine.
         aliases:
           - Lys-C
       lys_n:
+        description: A metalloendopeptidase that hydrolyzes peptide bonds at the C-terminus of lysine.
         aliases:
           - Lys-N
       glu_c:
+        description: A serine protease that hydrolyzes peptide and ester bonds at the C-terminus of aspartic acid or glutamic acid
         aliases:
           - Glu-C
       arg_c:
+        description: A cysteine protease that hydrolyzes peptide, ester, and amide bonds at the C-terminus of arginine and with lower efficiency, lysine.
         aliases:
           - Arg-C
       asp_n:
+        description: A zinc metalloendopeptidase that hydrolyzes peptide bonds at the N-terminus of aspartic acid.
         aliases:
           - Asp-N
       alphalp:
+        description: A serine protease that hydrolyzes peptide bonds at the C-terminus of threonine, alanine, serine, and valine.
         aliases:
           - alphaLP
 
