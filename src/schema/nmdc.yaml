@@ -308,12 +308,14 @@ classes:
       - compound
       - concentration
       - type
-    slot_usage:
-      compound:
-        any_of:
-        - range: CompoundEnum
-        - range: ProteolyticEnzymeEnum
 
+  SolutionComponent:
+    class_uri: nmdc:SolutionComponent
+    description: A chemical entity present in a homogenous mixture.
+    slots:
+      - compound
+      - concentration
+      - volume
 
   Solution:
     class_uri: nmdc:Solution
@@ -1783,8 +1785,7 @@ classes:
     is_a: MaterialProcessing
     slots:
       - chemical_conversion_category
-      - has_reagents
-      - catalyzed_by
+      - has_components
       - temperature
       - duration
     comments:
@@ -2892,6 +2893,9 @@ enums:
       reduction_oxidation:
       combustion:
       decomposition:
+      protease_cleavage: 
+        meaning: OBI:0600056
+
 
 slots:
   associated_studies:
@@ -3742,6 +3746,9 @@ slots:
     domain: SolutionComponent
     description: A substance that consists of more than one atom or ion. Includes solvents and solutes. Can be combined into solutions.
     required: true
+    any_of:
+      - range: CompoundEnum
+      - range: ProteolyticEnzymeEnum
   ordered_mobile_phases:
     domain: ChromatographicSeparationProcess
     range: Solution
@@ -3764,6 +3771,12 @@ slots:
     description: The reagents used in a chemical reaction.
     #multivalued: true
     #inlined_as_list: true
+  has_components:
+    domain: ChemicalConversionProcess
+    range: SolutionComponent
+    description: A collection of chemical entities used in a chemical conversion process.
+    multivalues: true
+    inlined_as_list: true
   sample_state_information:
     domain: ChemicalConversionProcess
     description: >-
