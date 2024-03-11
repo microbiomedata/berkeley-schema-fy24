@@ -308,6 +308,7 @@ classes:
       - compound
       - concentration
       - volume
+      - type
 
   Solution:
     class_uri: nmdc:Solution
