@@ -303,14 +303,6 @@ classes:
 
   SolutionComponent:
     class_uri: nmdc:SolutionComponent
-    description: One constituent of a solution
-    slots:
-      - compound
-      - concentration
-      - type
-
-  SolutionComponent:
-    class_uri: nmdc:SolutionComponent
     description: A chemical entity present in a homogenous mixture.
     slots:
       - compound
@@ -3764,30 +3756,17 @@ slots:
     domain: ChromatographicSeparationProcess
     range: ChromatographicCategoryEnum
     description: The type of chromatography used in a process.
-
-  has_reagents:
-    domain: ChemicalConversionProcess
-    range: ReagentsCollection
-    description: The reagents used in a chemical reaction.
-    #multivalued: true
-    #inlined_as_list: true
   has_components:
     domain: ChemicalConversionProcess
     range: SolutionComponent
     description: A collection of chemical entities used in a chemical conversion process.
-    multivalues: true
+    multivalued: true
     inlined_as_list: true
   sample_state_information:
     domain: ChemicalConversionProcess
     description: >-
       The chemical phase of a pure sample, or the state of a mixed sample
     range: SampleStateEnum
-  catalyzed_by:
-    domain: ChemicalConversionProcess
-    range: Solution
-    description: The catalyst used to increase the rate of a chemical reaction.
-    multivalued: true
-    inlined_as_list: true
   solutions_used:
     domain: ReagentsCollection
     range: Solution
