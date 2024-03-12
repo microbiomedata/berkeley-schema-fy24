@@ -1,0 +1,82 @@
+name: full_linkml_trypsinizastion_schema
+id: http://example.com/full_linkml_trypsinizastion_schema
+
+prefixes:
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  MSIO: http://purl.obolibrary.org/obo/MSIO_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  RO: http://purl.obolibrary.org/obo/RO_
+  schema: http://schema.org/
+  PR: http://purl.obolibrary.org/obo/PR_
+
+classes:
+  ChemicalConversionProcess:
+    class_uri: MSIO:0000001
+    description: >-
+      A process that converts one or more chemical substances into one or more different substances
+    slots:
+      - id
+      - name
+      - conversion_category
+      - has_inputs
+      - has_outputs
+      - temperature
+      - duration
+    slot_usage:
+      has_input:
+        range: ChemicalEntity
+      has_output:
+        range: ChemicalEntity
+  ChemicalEntity:
+    class_uri: CHEBI:24431
+    slots:
+      - entity_category
+      - concentration
+      - amount
+
+slots:
+  id:
+    slot_uri: schema:identifier
+    description: >-
+      A string that uniquely distinguishes this object from all other objects
+    required: true
+    range: string
+  name:
+    slot_uri: schema:name
+    description: >-
+      A human-readable name for the object
+    required: true
+    range: string
+  conversion_category:
+    range: ConversionCategoryEnum
+    required: true
+  has_inputs:
+    slot_uri: RO:0002233
+    required: true
+    multivalued: true
+    inlined_as_list: true
+  has_outputs:
+    slot_uri: RO:0002234
+    required: true
+    multivalued: true
+    inlined_as_list: true
+  entity_category:
+    required: true
+    range: EntityCategoryEnum
+  temperature: { }
+  duration: { }
+  concentration: { }
+  amount: { }
+
+
+enums:
+  ConversionCategoryEnum:
+    permissible_values:
+      protease_cleavage:
+        meaning: OBI:0600056
+  EntityCategoryEnum:
+    permissible_values:
+      trypsin:
+        meaning: PR:000027795
+      ammonium_bicarbonate:
+        meaning: CHEBI:184335

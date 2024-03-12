@@ -1,0 +1,446 @@
+@prefix ns0: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns1: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix ns2: <http://purl.obolibrary.org/obo/chebi/> .
+
+<http://example.com/mass_spec_data_output_1> a <http://purl.obolibrary.org/obo/IAO_0000027> .
+<http://example.com/mass_spec_assay_1>
+  a <http://purl.obolibrary.org/obo/OBI_0000470> ;
+  ns0:OBI_0000293 <http://example.com/eluant_1> ;
+  ns0:OBI_0000299 <http://example.com/mass_spec_data_output_1> .
+
+<http://example.com/ammonium_bicarbonate_concentration_assay_1>
+  a ns0:OBI_0000443 ;
+  ns0:OBI_0000293 <http://example.com/protease_solution> ;
+  ns0:OBI_0000299 <http://example.com/ammonium_bicarbonate_concentration_data_1> .
+
+<http://example.com/ammonium_bicarbonate_concentration_data_1>
+  a ns0:IAO_0000027 ;
+  ns0:IAO_0000039 "mM"@en ;
+  ns0:OBI_0001938 100 .
+
+<http://example.com/liquid_chromatographic_separation_1>
+  a ns0:OBI_0003547 ;
+  ns0:OBI_0000293 <http://example.com/cleavage_output_1> ;
+  ns0:OBI_0000299 <http://example.com/eluant_1> .
+
+<http://example.com/eluant_1> a ns0:OBI_0000047 .
+<http://example.com/protease_cleavage_1>
+  a ns0:OBI_0600056 ;
+  ns0:OBI_0000293 <http://example.com/protease_solution>, <http://example.com/specimen_1> ;
+  ns0:OBI_0000299 <http://example.com/cleavage_output_1> .
+
+<http://example.com/cleavage_output_1> a ns0:OBI_0000047 .
+<http://example.com/protease_solution> a ns0:OBI_0302729 .
+<http://example.com/material_combination_1>
+  a ns0:OBI_0000652 ;
+  ns0:OBI_0000293 <http://example.com/some_trypsin>, <http://example.com/some_ammonium_bicarbonate> ;
+  ns0:OBI_0000299 <http://example.com/protease_solution> .
+
+<http://example.com/some_trypsin>
+  a ns0:PR_000027795 ;
+  ns0:BFO_0000050 <http://example.com/protease_solution> .
+
+<http://example.com/some_ammonium_bicarbonate>
+  a ns0:CHEBI_184335 ;
+  ns0:BFO_0000050 <http://example.com/protease_solution> .
+
+<http://example.com/specimen_1> a ns0:OBI_0100051 .
+ns0:IAO_0000117 a owl:AnnotationProperty .
+ns0:IAO_0000119 a owl:AnnotationProperty .
+ns0:IAO_0000114 a owl:AnnotationProperty .
+ns0:IAO_0000116 a owl:AnnotationProperty .
+ns0:IAO_0000115 a owl:AnnotationProperty .
+ns0:IAO_0000112 a owl:AnnotationProperty .
+ns0:IAO_0000111 a owl:AnnotationProperty .
+ns0:OBI_0000293
+  a owl:ObjectProperty ;
+  rdfs:label "has_specified_input"@en ;
+  ns0:IAO_0000117 "PERSON: Melanie Coutot", "PERSON: Bjoern Peters", "PERSON: Larry Hunter", "PERSON: Alan Ruttenberg"@en ;
+  ns0:IAO_0000111 "has_specified_input", "has_specified_input"@en ;
+  ns0:IAO_0000116 "8/17/09: specified inputs of one process are not necessarily specified inputs of a larger process that it is part of. This is in contrast to how 'has participant' works." ;
+  ns0:IAO_0000115 "The inverse property of is_specified_input_of"@en ;
+  ns0:IAO_0000112 "see is_input_of example_of_usage"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000122 ;
+  rdfs:domain ns0:OBI_0000011 ;
+  owl:inverseOf ns0:OBI_0000295 ;
+  rdfs:subPropertyOf ns0:RO_0000057 ;
+  owl:equivalentProperty [ owl:inverseOf ns0:OBI_0000295 ] .
+
+ns0:OBI_0000299
+  a owl:ObjectProperty ;
+  rdfs:label "has_specified_output"@en ;
+  ns0:IAO_0000117 "PERSON: Alan Ruttenberg"@en, "PERSON: Melanie Courtot", "PERSON: Larry Hunter", "PERSON: Bjoern Peters" ;
+  ns0:IAO_0000111 "has_specified_output", "has_specified_output"@en ;
+  ns0:IAO_0000115 "The inverse property of is_specified_output_of"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000122 ;
+  rdfs:domain ns0:OBI_0000011 ;
+  owl:inverseOf ns0:OBI_0000312 ;
+  rdfs:subPropertyOf ns0:RO_0000057 ;
+  owl:equivalentProperty [ owl:inverseOf ns0:OBI_0000312 ] .
+
+ns0:RO_0001025
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:label "located in"@en .
+
+ns0:BFO_0000040
+  a owl:Class ;
+  rdfs:label "material entity"@en .
+
+ns0:CHEBI_16670
+  a owl:Class ;
+  rdfs:label "peptide" .
+
+ns0:IAO_0000078 a owl:Class .
+ns0:OBI_0000231
+  a owl:Class ;
+  rdfs:label "enzymatic cleavage"@en .
+
+ns0:OBI_0600056
+  a owl:Class ;
+  rdfs:label "protease cleavage"@en ;
+  rdfs:subClassOf ns0:OBI_0000231, [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000293 ;
+    owl:someValuesFrom [
+      a owl:Class ;
+      owl:intersectionOf ( ns0:PR_000000001 )
+    ]
+  ], [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000299 ;
+    owl:someValuesFrom ns0:CHEBI_16670
+  ] ;
+  ns0:IAO_0000119 "OBI branch derived"@en ;
+  ns0:IAO_0000117 "PlanAndPlannedProcess Branch"@en ;
+  ns0:IAO_0000116 "enzymatic digestion"@en ;
+  ns0:IAO_0000111 "protease cleavage"@en ;
+  ns0:IAO_0000115 "protease cleavage is an enzymatic cleavage which relies on enzyme with protease activity to act on proteins and produce polypeptides (protein fragments)."@en ;
+  ns0:IAO_0000112 "the use of trypsin to cleave pepsin into peptide fragments"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000125 .
+
+ns0:PR_000000001
+  a owl:Class ;
+  rdfs:label "protein", "protein"^^xsd:string .
+
+ns0:IAO_0000125
+  a owl:Thing, ns0:IAO_0000078, owl:NamedIndividual ;
+  rdfs:label "pending final vetting"@en .
+
+ns0:OBI_0000417
+  a owl:ObjectProperty ;
+  rdfs:label "achieves_planned_objective" .
+
+ns0:OBI_0000094
+  a owl:Class ;
+  rdfs:label "material processing"@en .
+
+ns0:OBI_0000652
+  a owl:Class ;
+  rdfs:label "material combination" ;
+  owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000417 ;
+    owl:someValuesFrom ns0:OBI_0000686
+  ] ;
+  rdfs:subClassOf ns0:OBI_0000094, [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000299 ;
+    owl:someValuesFrom ns0:BFO_0000040
+  ], [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000293 ;
+    owl:someValuesFrom ns0:BFO_0000040
+  ] ;
+  ns0:IAO_0000111 "material combination" ;
+  ns0:IAO_0000119 "bp" ;
+  ns0:IAO_0000112 "Mixing two fluids. Adding salt into water. Injecting a mouse with PBS." ;
+  ns0:IAO_0000115 "is a material processing with the objective to combine two or more material entities as input into a single material entity as output." ;
+  ns0:IAO_0000116 "created at workshop as parent class for 'adding material into target', which is asymmetric, while combination encompasses all addition processes." ;
+  ns0:IAO_0000117 "bp" ;
+  ns0:IAO_0000114 ns0:IAO_0000122 .
+
+ns0:OBI_0000686
+  a owl:Class ;
+  rdfs:label "material combination objective" .
+
+ns0:IAO_0000122
+  a owl:Thing, ns0:IAO_0000078, owl:NamedIndividual ;
+  rdfs:label "ready for release"@en .
+
+ns0:IAO_0000412 a owl:AnnotationProperty .
+ns0:OBI_0000295
+  a owl:ObjectProperty ;
+  rdfs:label "is_specified_input_of"@en .
+
+ns0:RO_0000057
+  a owl:ObjectProperty ;
+  rdfs:label "has participant"@en .
+
+ns0:OBI_0000011
+  a owl:Class ;
+  rdfs:label "planned process"@en .
+
+ns0:OBI_0000312
+  a owl:ObjectProperty ;
+  rdfs:label "is_specified_output_of"@en .
+
+<http://www.geneontology.org/formats/oboInOwl#hasOBONamespace> a owl:AnnotationProperty .
+<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> a owl:AnnotationProperty .
+<http://www.geneontology.org/formats/oboInOwl#id> a owl:AnnotationProperty .
+ns0:PR_000027795
+  a owl:Class ;
+  rdfs:label "trypsin"^^xsd:string ;
+  rdfs:subClassOf ns0:PR_000000001 ;
+  ns0:IAO_0000115 "A protein that in active form is a serine protease that cleaves peptide bonds on the carboxyl side of lysine or arginine amino acids within amino acid chains."^^xsd:string ;
+  rdfs:comment "Category=family."^^xsd:string ;
+  ns1:id "PR:000027795"^^xsd:string ;
+  ns1:hasExactSynonym "PRSS"^^xsd:string ;
+  ns1:hasOBONamespace "protein"^^xsd:string .
+
+ns1:hasDbXref a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/inchi> a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/charge> a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/smiles> a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/inchikey> a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/monoisotopicmass> a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/formula> a owl:AnnotationProperty .
+ns1:inSubset a owl:AnnotationProperty .
+<http://purl.obolibrary.org/obo/chebi/mass> a owl:AnnotationProperty .
+ns0:CHEBI_184335
+  a owl:Class ;
+  rdfs:label "Ammonium bicarbonate"^^xsd:string ;
+  rdfs:subClassOf ns0:CHEBI_36963 ;
+  ns2:charge "0"^^xsd:string ;
+  ns2:monoisotopicmass "79.02694"^^xsd:string ;
+  ns2:mass "79.055"^^xsd:string ;
+  ns2:inchikey "ATRRKUHOCOJYRX-UHFFFAOYSA-N"^^xsd:string ;
+  ns1:hasDbXref "CAS:1066-33-7"^^xsd:string, "Chemspider:13395"^^xsd:string, "DrugBank:DB15925"^^xsd:string ;
+  ns1:id "CHEBI:184335"^^xsd:string ;
+  ns2:formula "CHO3.H4N"^^xsd:string ;
+  ns2:inchi "InChI=1S/CH2O3.H3N/c2-1(3)4;/h(H2,2,3,4);1H3"^^xsd:string ;
+  ns2:smiles "OC([O-])=O.[NH4+]"^^xsd:string ;
+  ns1:hasExactSynonym "azanium;hydrogen carbonate"^^xsd:string ;
+  ns1:hasOBONamespace "chebi_ontology"^^xsd:string .
+
+ns0:CHEBI_36963
+  a owl:Class ;
+  rdfs:label "organooxygen compound"^^xsd:string .
+
+ns0:IAO_0000118 a owl:AnnotationProperty .
+ns0:BFO_0000051
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:label "has part"@en .
+
+ns0:RO_0000087
+  a owl:ObjectProperty ;
+  rdfs:label "has role"@en .
+
+ns0:OBI_0000576
+  a owl:Class ;
+  rdfs:label "scattered molecular aggregate"@en .
+
+ns0:OBI_0302729
+  a owl:Class ;
+  rdfs:label "chemical solution"@en ;
+  rdfs:subClassOf ns0:BFO_0000040 ;
+  ns0:IAO_0000117 "PERSON: Philippe Rocca-Serra", "PERSON: Bjoern Peters" ;
+  ns0:IAO_0000119 "GROUP: OBI Biomaterial Branch" ;
+  ns0:IAO_0000115 "A material entity that is made up of at least 2 scattered molecular aggregates, one playing the role of solvent and the other one playing the role of solute."@en ;
+  ns0:IAO_0000112 "PMID: 18289311.Anesth Analg. 2008 Apr;106(4):1078-86.Less impairment of hemostasis and reduced blood loss in pigs after resuscitation from hemorrhagic shock using the small-volume concept with hypertonic saline/hydroxyethyl starch as compared to administration of 4% gelatin or 6% hydroxyethyl starch solution."@en ;
+  ns0:IAO_0000111 "chemical solution"@en ;
+  ns0:IAO_0000118 "liquid chemical solution"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000122 .
+
+ns0:OBI_0302732
+  a owl:Class ;
+  rdfs:label "solvent role"@en .
+
+ns0:OBI_0302733
+  a owl:Class ;
+  rdfs:label "solute role"@en .
+
+ns0:IAO_0000233 a owl:AnnotationProperty .
+ns0:OBI_0000112
+  a owl:Class ;
+  rdfs:label "specimen role"@en .
+
+ns0:OBI_0100051
+  a owl:Class ;
+  rdfs:label "specimen"@en ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( ns0:BFO_0000040 )
+  ] ;
+  rdfs:subClassOf ns0:BFO_0000040 ;
+  ns0:IAO_0000112 "Biobanking of blood taken and stored in a freezer for potential future investigations stores specimen." ;
+  ns0:IAO_0000119 "GROUP: OBI Biomaterial Branch"@en ;
+  ns0:IAO_0000117 "PERSON: James Malone", "PERSON: Philippe Rocca-Serra" ;
+  ns0:IAO_0000116 "Note: definition is in specimen creation objective which is defined as an objective to obtain and store a material entity for potential use as an input during an investigation." ;
+  ns0:IAO_0000115 "A material entity that has the specimen role."@en ;
+  ns0:IAO_0000111 "specimen"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000122 ;
+  ns0:IAO_0000233 <https://github.com/obi-ontology/obi/issues/1013> .
+
+ns0:OBI_0000047
+  a owl:Class ;
+  rdfs:label "processed material"@en ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( ns0:BFO_0000040 )
+  ] ;
+  rdfs:subClassOf ns0:BFO_0000040 ;
+  ns0:IAO_0000112 "Examples include gel matrices, filter paper, parafilm and buffer solutions, mass spectrometer, tissue samples"@en ;
+  ns0:IAO_0000115 "Is a material entity that is created or changed during material processing."@en ;
+  ns0:IAO_0000117 "PERSON: Alan Ruttenberg"@en ;
+  ns0:IAO_0000111 "processed material"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000122 .
+
+ns0:OBI_0003547
+  a owl:Class ;
+  rdfs:label "liquid chromatography" ;
+  rdfs:subClassOf ns0:OBI_0600046 ;
+  ns0:IAO_0000233 "https://github.com/obi-ontology/obi/issues/1685" ;
+  ns0:IAO_0000119 "OBI" ;
+  ns0:IAO_0000117 "Hector Guzman-Orozco" ;
+  ns0:IAO_0000115 "A preparative chromatography in which material components are separated in a liquid solution." ;
+  ns0:IAO_0000111 "liquid chromatography" ;
+  ns0:IAO_0000114 ns0:IAO_0000120 .
+
+ns0:OBI_0600046
+  a owl:Class ;
+  rdfs:label "preparative chromatography"@en .
+
+ns0:IAO_0000120
+  a owl:Thing, ns0:IAO_0000078, owl:NamedIndividual ;
+  rdfs:label "metadata complete"@en .
+
+ns0:BFO_0000055
+  a owl:ObjectProperty ;
+  rdfs:label "realizes"@en .
+
+ns0:RO_0000052
+  a owl:ObjectProperty ;
+  rdfs:label "inheres in"@en .
+
+ns0:BFO_0000034
+  a owl:Class ;
+  rdfs:label "function"@en .
+
+ns0:OBI_0000049
+  a owl:Class ;
+  rdfs:label "mass spectrometer" .
+
+ns0:OBI_0000070
+  a owl:Class ;
+  rdfs:label "assay"@en .
+
+ns0:OBI_0000470
+  a owl:Class ;
+  rdfs:label "mass spectrometry assay" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( ns0:OBI_0000070 )
+  ] ;
+  rdfs:subClassOf ns0:OBI_0000070 ;
+  ns0:IAO_0000119 "Philippe Rocca-Serra" ;
+  ns0:IAO_0000115 "An assay that identifies the amount and type of material entities present in a sample by fragmenting the sample and measuring the mass-to-charge ratio of the resulting particles." ;
+  ns0:IAO_0000112 "Identification of a proteins cut out from a 2D gel by cleaving it into peptides using trypsin digestion using electrospray ionizatino to ensure the peptides are charged, and accelerating them with an electro magnetic field in which the flight path is determined by the mass / charge ratio of the peptides. Comparing the mass/charge ratio of peptides in the proteins with databases of protein sequences allows to identify which protein gave rise to the peptides." ;
+  ns0:IAO_0000111 "mass spectrometry assay" ;
+  ns0:IAO_0000117 "Philippe Rocca-Serra" ;
+  ns0:IAO_0000114 ns0:IAO_0000120 .
+
+ns0:IAO_0000027
+  a owl:Class ;
+  rdfs:label "data item"@en ;
+  rdfs:subClassOf ns0:IAO_0000030 ;
+  ns0:IAO_0000116 "2009-03-16: data item deliberatly ambiguous: we merged data set and datum to be one entity, not knowing how to define singular versus plural. So data item is more general than datum."@en, "2009-03-16: removed datum as alternative term as datum specifically refers to singular form, and is thus not an exact synonym."@en, "2014-03-31: See discussion at http://odontomachus.wordpress.com/2014/03/30/aboutness-objects-propositions/", "2/2/2009 Alan and Bjoern discussing FACS run output data. This is a data item because it is about the cell population. Each element records an event and is typically further composed a set of measurment data items that record the fluorescent intensity stimulated by one of the lasers."@en, "JAR: datum -- well, this will be very tricky to define, but maybe some information-like stuff that might be put into a computer and that is meant, by someone, to denote and/or to be interpreted by some process... I would include lists, tables, sentences... I think I might defer to Barry, or to Brian Cantwell Smith JAR: A data item is an approximately justified approximately true approximate belief"@en ;
+  ns0:IAO_0000115 "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."@en ;
+  ns0:IAO_0000112 "Data items include counts of things, analyte concentrations, and statistical summaries."@en ;
+  ns0:IAO_0000117 "PERSON: Alan Ruttenberg"@en, "PERSON: Chris Stoeckert"@en, "PERSON: Jonathan Rees"@en ;
+  ns0:IAO_0000118 "data"@en ;
+  ns0:IAO_0000111 "data item"@en ;
+  ns0:IAO_0000114 ns0:IAO_0000125 .
+
+ns0:IAO_0000030
+  a owl:Class ;
+  rdfs:label "information content entity"@en .
+
+ns0:RO_0001900 a owl:AnnotationProperty .
+ns0:BFO_0000050
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:label "part of"@en ;
+  ns0:IAO_0000116 "Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other."@en, "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en, "Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.) A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."@en ;
+  rdfs:seeAlso "http://www.obofoundry.org/ro/#OBO_REL:part_of" ;
+  ns0:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
+  ns0:IAO_0000111 "is part of"@en ;
+  ns0:IAO_0000112 "my brain is part of my body (continuant parthood, two material entities)"@en, "my stomach cavity is part of my stomach (continuant parthood, immaterial entity is part of material entity)"@en, "this day is part of this year (occurrent parthood)"@en ;
+  ns0:IAO_0000118 "part_of"@en ;
+  owl:inverseOf ns0:BFO_0000051 ;
+  ns0:RO_0001900 ns0:RO_0001901 .
+
+ns0:RO_0001901
+  a owl:NamedIndividual ;
+  rdfs:label "axiom holds for all times"@en .
+
+ns0:IAO_0000109
+  a owl:Class ;
+  rdfs:label "measurement datum"@en .
+
+ns0:OBI_0000437
+  a owl:Class ;
+  rdfs:label "analyte measurement objective"@en .
+
+ns0:OBI_0000443
+  a owl:Class ;
+  rdfs:label "analyte assay" ;
+  rdfs:subClassOf ns0:OBI_0000070, [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000417 ;
+    owl:someValuesFrom ns0:OBI_0000437
+  ], [
+    a owl:Restriction ;
+    owl:onProperty ns0:OBI_0000299 ;
+    owl:someValuesFrom ns0:IAO_0000109
+  ] ;
+  ns0:IAO_0000119 "Philippe Rocca-Serra", "Bjoern Peters", "Helen Parkinson", "OBI Planned process branch", "Alan Ruttenberg" ;
+  ns0:IAO_0000115 "An assay with the objective to capture information about the presence, concentration, or amount of an analyte in an evaluant." ;
+  ns0:IAO_0000117 "Alan Ruttenberg", "Helen Parkinson", "Bjoern Peters", "Philippe Rocca-Serra" ;
+  ns0:IAO_0000111 "analyte assay" ;
+  ns0:IAO_0000112 "example of usage: In lab test for blood glucose, the test is the assay, the blood bears evaluant_role and glucose bears the analyte role. The evaluant is considered an input to the assay and the information entity that records the measurement of glucose concentration the output" ;
+  ns0:IAO_0000114 ns0:IAO_0000122 .
+
+ns0:OBI_0001933
+  a owl:Class ;
+  rdfs:label "value specification" ;
+  rdfs:subClassOf ns0:IAO_0000030 ;
+  ns0:IAO_0000116 "This term is currently a descendant of 'information content entity', which requires that it 'is about' something. A value specification of '20g' for a measurement data item of the mass of a particular mouse 'is about' the mass of that mouse. However there are cases where a value specification is not clearly about any particular. In the future we may change 'value specification' to remove the 'is about' requirement." ;
+  ns0:IAO_0000111 "value specification" ;
+  ns0:IAO_0000115 "An information content entity that specifies a value within a classification scheme or on a quantitative scale." ;
+  ns0:IAO_0000117 "PERSON:Bjoern Peters" ;
+  ns0:IAO_0000112 "The value of 'positive' in a classification scheme of \"positive or negative\"; the value of '20g' on the quantitative scale of mass." ;
+  ns0:IAO_0000114 ns0:IAO_0000122 .
+
+ns0:OBI_0001938
+  a owl:ObjectProperty ;
+  rdfs:label "has value specification" ;
+  ns0:IAO_0000117 "PERSON: James A. Overton" ;
+  ns0:IAO_0000115 "A relation between an information content entity and a value specification that specifies its value." ;
+  ns0:IAO_0000119 "OBI" ;
+  ns0:IAO_0000111 "has value specification" ;
+  rdfs:subPropertyOf ns0:BFO_0000051 ;
+  rdfs:domain ns0:IAO_0000030 ;
+  ns0:IAO_0000114 ns0:IAO_0000120 ;
+  rdfs:range ns0:OBI_0001933 .
+
+ns0:IAO_0000039
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has measurement unit label"@en ;
+  rdfs:subPropertyOf ns0:BFO_0000051 ;
+  rdfs:range ns0:IAO_0000003 .
+
+ns0:IAO_0000003
+  a owl:Class ;
+  rdfs:label "measurement unit label"@en .

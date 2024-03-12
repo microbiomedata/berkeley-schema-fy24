@@ -1,0 +1,13 @@
+id: ccp1
+name: Chemical Conversion Process 1
+conversion_category: protease_cleavage
+temperature: 37 C
+duration: 30 minutes
+has_inputs:
+  - entity_category: trypsin
+    concentration: 10 ug/mL
+has_outputs:
+  - entity_category: ammonium bicarbonate
+    concentration: 50 mM
+
+
