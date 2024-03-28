@@ -1,51 +1,59 @@
 from nmdc_schema.migrators.migrator_base import MigratorBase
 
 
-class Migrator_from_A_B_C_to_X_Y_Z(MigratorBase):
+class Migrator(MigratorBase):
     """
-    Migrates data from schema A.B.C to X.Y.Z
+    Migrates data between two schemas.
 
     TUTORIAL: This is an example of a "migrator" class.
               It was designed for use during developer training and
               to serve as a template for production "migrator" classes.
     """
 
-    def __init__(self, *args, **kwargs) -> None:
+    """
+    TUTORIAL: These two strings tell people the versions of the schema this
+              "migrator" class was designed to migrate data between.
+              
+              -->  As part of creating a new "migrator" class, you will
+                   populate its `_from_version` and `_to_version` strings.
+    """
+    _from_version = "A.B.C"
+    _to_version = "X.Y.Z"
+
+    def upgrade(self):
+        r"""
+        Migrates the database from conforming to the original schema, to conforming to the new schema.
+
+        TUTORIAL: This is the `upgrade` function. You can think of it as the "main" function or
+                  "entry point" of the migrator. Its job is to transform the database from
+                  conforming to the original schema to conforming to the new schema.
+
+                  The `upgrade` function accesses the database via an "adapter", instead of
+                  accessing the database directly. That allows the same migrator to be used
+                  with different types of data stores (e.g. MongoDB database, Python dictionary).
+
+              --> As part of creating a new "migrator" class, you will implement an `upgrade` function.
         """
-        TUTORIAL: This is the "constructor" function of the class.
-                  As is true about the "constructor" function of any class,
-                  it runs whenever that class is instantiated, and its job
-                  is to initialize the newly-created instance of that class.
 
-                  When this "constructor" function runs, it does two things:
-                  1. It invokes the base class's "constructor" function; and
-                  2. It populates a dictionary that keeps track of which
-                     transformation functions will be applied to objects
-                     from which collections. You can think of this as the
-                     "agenda", "itinerary", "plan", or "registry" of
-                     transformations that make up this migration. As
-                     security guards at marathons say, "If it ain't
-                     part of the plan, it ain't gonna be ran."
+        # Process each document in the specified collection.
+        #
+        # Note: This works in a similar way to the "agenda-based" migrations we used to use before
+        #       adapters were introduced. However, now, each collection's entry in the "agenda" is
+        #       expressed as an invocation of the `self.adapter.process_each_document` function.
+        #
+        self.adapter.process_each_document("study_set", [self.allow_multiple_names])
 
-             -->  As part of creating a new "migration" class, you will
-                  populate its "agenda."
-        """
-
-        # Invoke the base class's "constructor" function, passing/forwarding to it
-        # all arguments that were passed to the current function.
-        super().__init__(*args, **kwargs)
-
-        # Populate the "collection-to-transformers" map for this specific migration.
-        self.agenda = dict(
-            study_set=[self.allow_multiple_names],
-        )
+        # Invoke some other adapter functions (as an example).
+        self.adapter.create_collection("comment_set")
+        self.adapter.insert_document("comment_set", {"id": 1, "text": "Hello"})
+        self.adapter.insert_document("comment_set", {"id": 2, "text": "Goodbye"})
 
     def allow_multiple_names(self, study: dict) -> dict:
         """
         TUTORIAL: This is an example "transformation" function within the class.
                   Its job is to transform a dictionary that conforms to the
-                  initial schema version (in this case, version "A.B.C"), into one
-                  that conforms to the target schema version (in this case,
+                  initial schema (in this case, version "A.B.C"), into one
+                  that conforms to the target schema (in this case,
                   version "X.Y.Z"). That might involve adding a field,
                   converting a string into a list of strings, etc.
 
@@ -54,9 +62,8 @@ class Migrator_from_A_B_C_to_X_Y_Z(MigratorBase):
                   2. It transforms that dictionary.
                   3. It returns the transformed dictionary.
 
-              --> As part of creating a new "migration" class, you will
+              --> As part of creating a new "migrator" class, you will
                   typically implement one or more "transformation" functions.
-                  You will also add them to the "agenda" of the class.
 
         TUTORIAL: The remaining part of this comment consists of several "doctests".
                   You can read more about doctests in the official Python documentation:
@@ -72,10 +79,10 @@ class Migrator_from_A_B_C_to_X_Y_Z(MigratorBase):
               --> As part of implementing a "transformation" function, you will
                   typically write a few doctests in the docstring of that function.
 
-        >>> mig = Migrator_from_A_B_C_to_X_Y_Z()  # creates a class instance on which we can call this function (method)
-        >>> mig.allow_multiple_names({'id': 123, 'name': 'My project'})  # test: transfers existing name to `names` list
+        >>> m = Migrator()  # creates a class instance on which we can call this function (i.e. this method)
+        >>> m.allow_multiple_names({'id': 123, 'name': 'My project'})  # test: transfers existing name to `names` list
         {'id': 123, 'names': ['My project']}
-        >>> mig.allow_multiple_names({'id': 123, 'name': 'My project', 'foo': 'bar'})  # test: preserves other keys
+        >>> m.allow_multiple_names({'id': 123, 'name': 'My project', 'foo': 'bar'})  # test: preserves other keys
         {'id': 123, 'foo': 'bar', 'names': ['My project']}
         """
 
