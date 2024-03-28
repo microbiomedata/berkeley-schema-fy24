@@ -15,7 +15,7 @@ default_prefix: nmdc
 default_range: string
 
 subsets:
-  workflow subset:
+  workflow_subset:
     description: >-
       Subset consisting of just the workflow execution activities
 
@@ -60,7 +60,7 @@ classes:
     comments:
       - Each instance of this (and all other) subclasses of WorkflowExecution is a distinct run with start and stop times, potentially with different inputs and outputs
     in_subset:
-      - workflow subset
+      - workflow_subset
     description: >-
       Represents an instance of an execution of a particular workflow
     alt_descriptions:
@@ -106,7 +106,7 @@ classes:
       - instances of this class may use a de novo assembly strategy in most or all cases relevant to NMDC
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
       - asm_score
       - scaffolds
@@ -147,7 +147,7 @@ classes:
     class_uri: "nmdc:MetatranscriptomeAssembly"
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
       - asm_score
       - scaffolds
@@ -191,7 +191,7 @@ classes:
     slots:
       - gold_analysis_project_identifiers
     in_subset:
-      - workflow subset
+      - workflow_subset
     slot_usage:
       id:
         required: true
@@ -205,7 +205,7 @@ classes:
     slots:
       - gold_analysis_project_identifiers
     in_subset:
-      - workflow subset
+      - workflow_subset
     slot_usage:
       id:
         required: true
@@ -219,7 +219,7 @@ classes:
     description: >-
       A metatranscriptome activity that e.g. pools assembly and annotation activity.
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
     slot_usage:
       id:
@@ -235,7 +235,7 @@ classes:
     title: Metagenome-Assembled Genome analysis activity
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
       - binned_contig_num
       - input_contig_num
@@ -257,7 +257,7 @@ classes:
     title: Metagenome sequencing activity
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slot_usage:
       id:
         required: true
@@ -272,7 +272,7 @@ classes:
     title: Read quality control analysis activity
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
       - input_base_count
       - input_read_bases
@@ -293,7 +293,7 @@ classes:
     title: Read based analysis activity
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slot_usage:
       id:
         required: true
@@ -306,7 +306,7 @@ classes:
     class_uri: "nmdc:MetabolomicsAnalysis"
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
       - has_metabolite_quantifications
     slot_usage:
@@ -320,7 +320,7 @@ classes:
     class_uri: "nmdc:MetaproteomicsAnalysis"
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slots:
       - has_peptide_quantifications
     slot_usage:
@@ -334,7 +334,7 @@ classes:
     class_uri: "nmdc:NomAnalysis"
     is_a: WorkflowExecution
     in_subset:
-      - workflow subset
+      - workflow_subset
     slot_usage:
       id:
         required: true

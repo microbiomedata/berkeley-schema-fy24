@@ -126,11 +126,11 @@ settings:
   id_locus: "(_[A-Za-z0-9_\\.-]+)?$"
 
 subsets:
-  sample subset:
+  sample_subset:
     description:
       Subset consisting of entities linked to the processing of samples.  Currently,
       this subset consists of study, omics process, and biosample.
-  data object subset:
+  data_object_subset:
     description:
       Subset consisting of the data objects that either inputs or outputs
       of processes or workflows.
@@ -442,7 +442,7 @@ classes:
     class_uri: nmdc:DataObject
     is_a: NamedThing
     in_subset:
-      - data object subset
+      - data_object_subset
     description:
       "An object that primarily consists of symbols that represent information.   Files,
       records, and omics data are examples of data objects."
@@ -526,7 +526,7 @@ classes:
 
     is_a: MaterialEntity
     in_subset:
-      - sample subset
+      - sample_subset
     aliases:
       - sample
       - material sample
@@ -1487,7 +1487,7 @@ classes:
     class_uri: 'nmdc:Study'
     is_a: NamedThing
     in_subset:
-      - sample subset
+      - sample_subset
     aliases:
       - proposal
       - research proposal
@@ -1840,7 +1840,7 @@ classes:
       - experiment
     is_a: PlannedProcess
     in_subset:
-      - sample subset
+      - sample_subset
     description: >-
       The methods and processes used to generate omics data from a biosample or organism.
     alt_descriptions:
