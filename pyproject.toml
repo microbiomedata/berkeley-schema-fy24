@@ -10,7 +10,7 @@ license = "MIT"
 name = "nmdc_schema"
 readme = "README.md"
 repository = "https://github.com/microbiomedata/nmdc-schema"
-version = "9.2.0" # nmdc.yaml and GH say v9.2.0
+version = "0.0.0"
 authors = [
     "Bill Duncan <wdduncan@gmail.com>",
     "Chris Mungall <cjmungall@lbl.gov>",
@@ -40,60 +40,52 @@ classifiers = [
 packages = [
     { include = "nmdc_schema" }, # this is the package Poetry would have included by default
     { include = "migrators", from = "nmdc_schema" },
+    { include = "adapters", from = "nmdc_schema/migrators" },
 ]
 
-[tool.poetry.dependencies]
-click-log = "^0.4.0"
-linkml = "^1.6.3"
-linkml-runtime = "^1.6.2"
+[tool.poetry.dependencies] # having trouble with mkdocs in docker esp on linux. addits its ecosystem here may be unnecessary
 python = "^3.9"
-
-[tool.poetry.group.dev.dependencies] # are some of these actually required as non-dev dependencies?
-#cruft = "^2.12.0" # for doing cookiecutter update... should this be installed wiht pipx instead?
-#deepdiff = "^6.2.1"
-#gen-pop-linkml2sheets = "^0.1.8" # for generate_and_populate_template, deprecated by schemasheets linkml2schemasheets-template # not necessary excep[t for local/usage_template.tsv
-#schemasheets = "^0.1.18"
-#strsimpy = "0.2.1"
-#toml = "0.10.2" # not sure why this wasw needed
-black = "^23.1.0"
-click-log = "^0.4.0"
-exhaustion-check = "^0.1.1" # for exhaustion-check, pretty-sort-yaml (also get-first-of-first)
+linkml = "^1.6.10"
+linkml-runtime = "^1.6.2"
 mkdocs = "^1.4.2"
 mkdocs-material = "^9.0.12"
 mkdocs-mermaid2-plugin = "^0.6.0"
 mkdocs-redirects = "^1.2.1"
+pymongo = "^4.3.3"
+
+
+[tool.poetry.group.dev.dependencies] # are some of these actually required as non-dev dependencies? # cruft for cookiecutter update could be installed with pipx?
+black = "^23.1.0"
+click = "^8.1.3"
+click-log = "^0.4.0"
+exhaustion-check = "^0.1.1" # for exhaustion-check, pretty-sort-yaml (also get-first-of-first)
 oaklib = "^0.5.24"
 pydantic = "^1.10.13"
-pymongo = "^4.3.3"
 python-dotenv = "^0.21.0"
 rdflib = "^6.2.0" # some LinkML components are not compatible with rdflib 7+ yet
+schemasheets = "^0.1.24" # was in main dependencies but brings in so much like pandas
 semsimian = "^0.2.11"
-sheets_and_friends = "^0.5.0" # for do_shuttle (and possible more) # causes Downgrading pandas (2.1.3 -> 1.5.3)
+sheets_and_friends = "^0.5.0" # for do_shuttle (and possibly more)
 sparql-burger = "^1.0.2"
 sparql-dataframe = "^0.4"
 
-## cheat sheet for other ways of loading a dev dependency. add github branch method.
-## /Users/MAM/Documents/gitrepos/sheets_and_friends
-## /home/mark/gitrepos/sheets_and_friends
-#sheets-and-friends = { path = "/home/mark/gitrepos/sheets_and_friends", develop = true }
-
 [tool.poetry-dynamic-versioning]
+# We need poetry-dynamic-versioning to update the version in the src schema file,
+# then generate project artifacts from that schema with the real version populated,
+# and then perform any build or publish actions. Since this requires running
+# `poetry dynamic-versioning` manually before `poetry build`, we set enable = false.
 enable = false
 vcs = "git"
 style = "pep440"
 
-#[tool.poetry-dynamic-versioning.substitution]
-#files = [
-#    "*.py",
-#    "src/**/__init__.py",
-#    "src/**/__version__.py",
-#    "src/**/_version.py",
-#    "src/schema/nmdc.yaml"
-#]
-#patterns = [
-#    "(^\\s*__version__\\s*(?::.*?)?=\\s*['\\\"])[^'\\\"]*(['\\\"])",
-#    "(^version:\\s*['\\\"]?)[^'\\\"]*?(['\\\"]?)$"
-#]
+[tool.poetry-dynamic-versioning.substitution]
+files = [
+    "src/schema/nmdc.yaml"
+]
+patterns = [
+    "(^\\s*__version__\\s*(?::.*?)?=\\s*['\\\"])[^'\\\"]*(['\\\"])",
+    "(^version:\\s*['\\\"]?)[^'\\\"]*?(['\\\"]?)$"
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
@@ -111,8 +103,12 @@ generate-import-slots-regardless = "nmdc_schema.generate_import_slots_regardless
 get-mixs-slots-matching-slot-list = "nmdc_schema.get_mixs_slots_matching_slot_list:main"
 get-mixs-slots-used-in-schema = "nmdc_schema.get_mixs_slots_used_in_schema:main" # see nmdc_schema/generate_import_slots_regardless.py
 get-slots-from-class = "nmdc_schema.get_slots_from_class:main" # see tests/test_getters.py
+get-study-related-records = "src.scripts.nmdc_database_tools:cli"
 migration-recursion = 'nmdc_schema.migration_recursion:main'
+create-migrator = 'nmdc_schema.migrators.cli.create_migrator:create_migrator'
 nmdc-data = "nmdc_schema.nmdc_data:cli"
 nmdc-version = "nmdc_schema.nmdc_version:cli"
 pure-export = "nmdc_schema.mongo_dump_api_emph:cli"
 test-more-tolerant-schema = "nmdc_schema.test_more_tolerant_schema:do_test"
+slot-range-type-reporter = "src.scripts.slot_range_type_reporter:cli"
+get-study-id-from-filename = "src.scripts.get_study_id_from_filename:main"

@@ -28,6 +28,10 @@ types:
     pattern: '^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'
 
 slots:
+
+  qc_status:
+    description: Stores information about the result of a process (ie the process of sequencing a library may have for qc_status of 'fail' if not enough data was generated)
+    range: StatusEnum
   
   file_size_bytes:
     domain: DataObject
@@ -68,7 +72,7 @@ slots:
   mass_analyzer:
     domain: MassSpectrometry
     range: MassAnalyzerEnum
-    description: which kind of mass analyzer is used during the spectra colleciton
+    description: which kind of mass analyzer is primarily used during the spectra collection.
   ionization_source:
     domain: MassSpectrometry
     range: IonizationSourceEnum
@@ -76,7 +80,7 @@ slots:
   mass_spectrum_collection_mode:
     domain: MassSpectrometry
     range: MassSpectrumCollectionModeEnum
-    description: whether mass spectra are centroided during collection
+    description: Indicates whether mass spectra were collected in full profile, reduced profile, or centroid mode during acquisition.
   polarity_mode:
     domain: MassSpectrometry
     range: PolarityModeEnum
@@ -144,7 +148,7 @@ slots:
     recommended: true
   dna_concentration:
     see_also:
-      nmdc:nucleic_acid_concentration
+      - nmdc:nucleic_acid_concentration
     title: DNA concentration in ng/ul
     comments:
       - Units must be in ng/uL. Enter the numerical part only. Must be calculated using
@@ -264,7 +268,6 @@ slots:
     domain: PlannedProcess
     range: Protocol
 
-
   #  nucleic_acid_concentration:
   #    range: InstrumentValue
 
@@ -272,12 +275,48 @@ slots:
     domain: ProcessedSample
     range: QuantityValue
 
+  qc_failure_what:
+    domain: FailureCategorization
+    range: FailureWhatEnum
+    description: >-
+      Provides a summary about what caused a lab or workflow process to fail
+    comments:
+      - For example Low read count from a sequencer, malformed fastq files, etc)
+
+  qc_failure_where:
+    domain: FailureCategorization
+    range: FailureWhereEnum
+    description: >-
+      Describes the nmdc schema class that corresonds to where the failure occurred.
+      Most commonly this would be the same as Class that generated the results.
+    comments:
+      - If the assembly size was too small to proceed to annotation failure_where would be MetagenomeAssembly.
+
+  qc_comment:
+    range: string
+    description: >-
+      Slot to store additional comments about laboratory or workflow output. For workflow output
+      it may describe the particular workflow stage that failed. (ie Failed at call-stage due to a malformed fastq file).
 
 enums:
+
+  StatusEnum:
+    permissible_values:
+      pass: { }
+      fail: { }
+  #      accepted: { }
+  #      archived: { }
+  #      deleted: { }
+  #      draft: { }
+  #      rejected: { }
+  #      submitted: { }
+  #      superseded: { }
+  #      withdrawn: { }
+
   ProcessingInstitutionEnum:
     notes:
+      - This will become the range of processing_institution.omics processing
       - use ROR meanings like https://ror.org/0168r3w48 for UCSD
-    from_schema: NMDC_enums_roundtrip
     permissible_values:
       UCSD:
         title: University of California, San Diego
@@ -305,24 +344,3 @@ enums:
       UCD_Genome_Center:
         title: University of California, Davis Genome Center
         meaning: https://genomecenter.ucdavis.edu/
-
-#  instrument_name_enum:
-#    todos:
-#      - remove "21T Agilent"
-#    permissible_values:
-#      - 12T_FTICR_B
-#      - 15T_FTICR
-#      - 21T Agilent
-#      - 21T_Agilent
-#      - Agilent_GC_MS_01
-#      - Illumina HiSeq
-#      - Illumina HiSeq 2500
-#      - Illumina HiSeq 2500-1TB
-#      - Illumina NextSeq 550
-#      - Illumina NovaSeq
-#      - Illumina NovaSeq S4
-#      - QExactHF03
-#      - QExactP02
-#      - VOrbiETD04
-
-
