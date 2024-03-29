@@ -506,7 +506,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Solution/">Solution</a></p>
+<p>Range: <a href="../String/">String</a>&nbsp;or&nbsp;<br /><a href="../Solution/">Solution</a>&nbsp;or&nbsp;<br /><a href="../PortionOfSubstance/">PortionOfSubstance</a></p>
 </li>
 <li>
 <p>Required: True</p>
@@ -531,8 +531,11 @@ domain: DissolvingProcess
 alias: solvent
 domain_of:
 - DissolvingProcess
-range: Solution
+range: string
 required: true
+any_of:
+- range: Solution
+- range: PortionOfSubstance
 
 </code></pre>
 

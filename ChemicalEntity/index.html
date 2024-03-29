@@ -305,11 +305,13 @@
 <p>URI: <a href="https://w3id.org/nmdc/ChemicalEntity">nmdc:ChemicalEntity</a></p>
 <div class="mermaid">classDiagram
   class ChemicalEntity
-    OntologyClass &lt;|-- ChemicalEntity
+    SubstanceEntity &lt;|-- ChemicalEntity
 
 
 
   ChemicalEntity : alternative_identifiers
+
+  ChemicalEntity : alternative_names
 
   ChemicalEntity : chemical_formula
 
@@ -334,7 +336,10 @@
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
 <li><a href="../OntologyClass/">OntologyClass</a><ul>
+<li><a href="../SubstanceEntity/">SubstanceEntity</a><ul>
 <li><strong>ChemicalEntity</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -374,6 +379,12 @@
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>A string encoding of a molecular graph, no chiral or isotopic information</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../alternative_names/">alternative_names</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>A list of alternative names used to refer to the entity</td>
+<td><a href="../SubstanceEntity/">SubstanceEntity</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -539,7 +550,7 @@ aliases:
 - chemical
 exact_mappings:
 - biolink:ChemicalSubstance
-is_a: OntologyClass
+is_a: SubstanceEntity
 slots:
 - chemical_formula
 - inchi
@@ -577,7 +588,7 @@ aliases:
 - chemical
 exact_mappings:
 - biolink:ChemicalSubstance
-is_a: OntologyClass
+is_a: SubstanceEntity
 attributes:
   chemical_formula:
     name: chemical_formula
@@ -587,7 +598,6 @@ attributes:
     alias: chemical_formula
     owner: ChemicalEntity
     domain_of:
-    - Substance
     - ChemicalEntity
     range: string
   inchi:
@@ -597,7 +607,6 @@ attributes:
     alias: inchi
     owner: ChemicalEntity
     domain_of:
-    - Substance
     - ChemicalEntity
     range: string
   inchi_key:
@@ -611,7 +620,6 @@ attributes:
     alias: inchi_key
     owner: ChemicalEntity
     domain_of:
-    - Substance
     - ChemicalEntity
     range: string
   smiles:
@@ -625,8 +633,23 @@ attributes:
     alias: smiles
     owner: ChemicalEntity
     domain_of:
-    - Substance
     - ChemicalEntity
+    range: string
+  alternative_names:
+    name: alternative_names
+    description: A list of alternative names used to refer to the entity. The distinction
+      between name and alternative names is application-specific.
+    from_schema: https://w3id.org/nmdc/nmdc
+    exact_mappings:
+    - dcterms:alternative
+    - skos:altLabel
+    rank: 1000
+    multivalued: true
+    alias: alternative_names
+    owner: ChemicalEntity
+    domain_of:
+    - Study
+    - SubstanceEntity
     range: string
   id:
     name: id
@@ -704,9 +727,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification

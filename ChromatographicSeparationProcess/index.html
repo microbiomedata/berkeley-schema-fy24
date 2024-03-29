@@ -315,8 +315,6 @@
 
   ChromatographicSeparationProcess : ordered_mobile_phases
 
-    ChromatographicSeparationProcess --|&gt; Solution : ordered_mobile_phases
-
   ChromatographicSeparationProcess : processing_institution
 
     ChromatographicSeparationProcess --|&gt; ProcessingInstitutionEnum : processing_institution
@@ -387,7 +385,7 @@
 </tr>
 <tr>
 <td><a href="../ordered_mobile_phases/">ordered_mobile_phases</a></td>
-<td>0..* <br/> <a href="../Solution/">Solution</a></td>
+<td>0..* <br/> <a href="../String/">String</a> or <br/><a href="../Solution/">Solution</a> or <br/><a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
 <td>The solution(s) that moves through a chromatography column</td>
 <td>direct</td>
 </tr>
@@ -655,9 +653,12 @@ attributes:
     owner: ChromatographicSeparationProcess
     domain_of:
     - ChromatographicSeparationProcess
-    range: Solution
+    range: string
     inlined: true
     inlined_as_list: true
+    any_of:
+    - range: Solution
+    - range: PortionOfSubstance
   stationary_phase:
     name: stationary_phase
     description: The material the stationary phase is comprised of used in chromatography.
@@ -893,9 +894,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification

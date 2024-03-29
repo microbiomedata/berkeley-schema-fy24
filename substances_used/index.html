@@ -501,12 +501,27 @@
 <td>A process that results in the interconversion of chemical species by a reacti...</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../Solution/">Solution</a></td>
+<td>A mixture that is homogeneous, made up of two or more scattered molecular agg...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Mixture/">Mixture</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Extraction/">Extraction</a></td>
+<td>A material separation in which a desired component of an input material is se...</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Substance/">Substance</a></p>
+<p>Range: <a href="../PortionOfSubstance/">PortionOfSubstance</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -527,8 +542,10 @@ rank: 1000
 multivalued: true
 alias: substances_used
 domain_of:
+- Extraction
+- Mixture
 - ChemicalConversionProcess
-range: Substance
+range: PortionOfSubstance
 inlined: true
 inlined_as_list: true
 

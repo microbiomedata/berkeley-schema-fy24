@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://microbiomedata.github.io/nmdc-schema/Substance/" rel="canonical"/>
+<link href="https://microbiomedata.github.io/nmdc-schema/Mixture/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.15" name="generator"/>
-<title>Class: Material Substance (Substance) - NMDC Schema Documentation</title>
+<title>Class: Mixture - NMDC Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-material-substance-substance">
+<a class="md-skip" href="#class-mixture">
           Skip to content
         </a>
 </div>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: Material Substance (Substance)
+              Class: Mixture
             
           </span>
 </div>
@@ -195,16 +195,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
+<a class="md-nav__link" href="#inheritance">
 <span class="md-ellipsis">
-      Slots
+      Inheritance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
+<a class="md-nav__link" href="#slots">
 <span class="md-ellipsis">
-      Usages
+      Slots
     </span>
 </a>
 </li>
@@ -265,52 +265,34 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-material-substance-substance">Class: Material Substance (Substance)</h1>
-<p><em>Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/Substance">nmdc:Substance</a></p>
+<h1 id="class-mixture">Class: Mixture</h1>
+<p>URI: <a href="https://w3id.org/nmdc/Mixture">nmdc:Mixture</a></p>
 <div class="mermaid">classDiagram
-  class Substance
+  class Mixture
+    Mixture &lt;|-- Solution
 
-  Substance : chemical_formula
 
-  Substance : final_concentration
 
-    Substance --|&gt; QuantityValue : final_concentration
+  Mixture : substances_used
 
-  Substance : inchi
+    Mixture --|&gt; PortionOfSubstance : substances_used
 
-  Substance : inchi_key
+  Mixture : type
 
-  Substance : mass
+  Mixture : volume
 
-    Substance --|&gt; QuantityValue : mass
-
-  Substance : sample_state_information
-
-    Substance --|&gt; SampleStateEnum : sample_state_information
-
-  Substance : smiles
-
-  Substance : source_concentration
-
-    Substance --|&gt; QuantityValue : source_concentration
-
-  Substance : substance_category
-
-    Substance --|&gt; SubstanceCategoryEnum : substance_category
-
-  Substance : substance_role
-
-    Substance --|&gt; SubstanceRoleEnum : substance_role
-
-  Substance : volume
-
-    Substance --|&gt; QuantityValue : volume
+    Mixture --|&gt; QuantityValue : volume
 
 
 
 </div>
-<!-- no inheritance hierarchy -->
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><strong>Mixture</strong><ul>
+<li><a href="../Solution/">Solution</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -323,33 +305,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../final_concentration/">final_concentration</a></td>
-<td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
-<td>When solutions A (containing substance X) and B are combined together, this s...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../sample_state_information/">sample_state_information</a></td>
-<td>0..1 <br/> <a href="../SampleStateEnum/">SampleStateEnum</a></td>
-<td>The chemical phase of a pure sample, or the state of a mixed sample</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../source_concentration/">source_concentration</a></td>
-<td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
-<td>When solutions A (containing substance X) and B are combined together, this s...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../substance_category/">substance_category</a></td>
-<td>0..1 <br/> <a href="../SubstanceCategoryEnum/">SubstanceCategoryEnum</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../substance_role/">substance_role</a></td>
-<td>0..1 <br/> <a href="../SubstanceRoleEnum/">SubstanceRoleEnum</a></td>
-<td>The role of a substance in a process</td>
+<td><a href="../substances_used/">substances_used</a></td>
+<td>0..* <br/> <a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td>The substances that are combined to enable a ChemicalConversionProcess</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -359,53 +317,10 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../mass/">mass</a></td>
-<td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
-<td>A physical quality that inheres in a bearer by virtue of the proportion of th...</td>
+<td><a href="../type/">type</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>the id of the class that is instantiated by some data</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../chemical_formula/">chemical_formula</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A generic grouping for molecular formulae and empirical formulae</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../inchi/">inchi</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../inchi_key/">inchi_key</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../smiles/">smiles</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>A string encoding of a molecular graph, no chiral or isotopic information</td>
-<td>direct</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../ChemicalConversionProcess/">ChemicalConversionProcess</a></td>
-<td><a href="../substances_used/">substances_used</a></td>
-<td>range</td>
-<td><a href="./">Substance</a></td>
 </tr>
 </tbody>
 </table>
@@ -425,15 +340,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>nmdc:Substance</td>
+<td>nmdc:Mixture</td>
 </tr>
 <tr>
 <td>native</td>
-<td>nmdc:Substance</td>
-</tr>
-<tr>
-<td>exact</td>
-<td>schema:Substance</td>
+<td>nmdc:Mixture</td>
 </tr>
 </tbody>
 </table>
@@ -441,94 +352,36 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: Substance
-description: Any matter of defined composition that has discrete existence, whose
-  origin may be biological, mineral or chemical.
-title: Material Substance
+<pre><code class="language-yaml">name: Mixture
 from_schema: https://w3id.org/nmdc/nmdc
-exact_mappings:
-- schema:Substance
 slots:
-- final_concentration
-- sample_state_information
-- source_concentration
-- substance_category
-- substance_role
+- substances_used
 - volume
-- mass
-- chemical_formula
-- inchi
-- inchi_key
-- smiles
-class_uri: nmdc:Substance
+- type
+class_uri: nmdc:Mixture
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: Substance
-description: Any matter of defined composition that has discrete existence, whose
-  origin may be biological, mineral or chemical.
-title: Material Substance
+<pre><code class="language-yaml">name: Mixture
 from_schema: https://w3id.org/nmdc/nmdc
-exact_mappings:
-- schema:Substance
 attributes:
-  final_concentration:
-    name: final_concentration
-    description: When solutions A (containing substance X) and B are combined together,
-      this slot captures the concentration of X in the combination
+  substances_used:
+    name: substances_used
+    description: The substances that are combined to enable a ChemicalConversionProcess.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    is_a: concentration
-    domain: SolutionComponent
-    alias: final_concentration
-    owner: Substance
+    multivalued: true
+    alias: substances_used
+    owner: Mixture
     domain_of:
-    - Substance
-    range: QuantityValue
-  sample_state_information:
-    name: sample_state_information
-    description: The chemical phase of a pure sample, or the state of a mixed sample
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: sample_state_information
-    owner: Substance
-    domain_of:
-    - Substance
-    range: SampleStateEnum
-  source_concentration:
-    name: source_concentration
-    description: When solutions A (containing substance X) and B are combined together,
-      this slot captures the concentration of X in solution A
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    is_a: concentration
-    domain: SolutionComponent
-    alias: source_concentration
-    owner: Substance
-    domain_of:
-    - Substance
-    range: QuantityValue
-  substance_category:
-    name: substance_category
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: substance_category
-    owner: Substance
-    domain_of:
-    - Substance
-    range: SubstanceCategoryEnum
-  substance_role:
-    name: substance_role
-    description: The role of a substance in a process
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: substance_role
-    owner: Substance
-    domain_of:
-    - Substance
-    range: SubstanceRoleEnum
+    - Extraction
+    - Mixture
+    - ChemicalConversionProcess
+    range: PortionOfSubstance
+    inlined: true
+    inlined_as_list: true
   volume:
     name: volume
     description: The volume of a substance.
@@ -539,79 +392,53 @@ attributes:
     rank: 1000
     domain: PlannedProcess
     alias: volume
-    owner: Substance
+    owner: Mixture
     domain_of:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
     range: QuantityValue
-  mass:
-    name: mass
-    description: A physical quality that inheres in a bearer by virtue of the proportion
-      of the bearer's amount of matter.
-    title: mass
-    from_schema: https://w3id.org/nmdc/nmdc
-    exact_mappings:
-    - PATO:0000125
-    rank: 1000
-    alias: mass
-    owner: Substance
-    domain_of:
-    - SubSamplingProcess
-    - Substance
-    range: QuantityValue
-  chemical_formula:
-    name: chemical_formula
-    description: A generic grouping for molecular formulae and empirical formulae
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: chemical_formula
-    owner: Substance
-    domain_of:
-    - Substance
-    - ChemicalEntity
-    range: string
-  inchi:
-    name: inchi
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: inchi
-    owner: Substance
-    domain_of:
-    - Substance
-    - ChemicalEntity
-    range: string
-  inchi_key:
-    name: inchi_key
+  type:
+    name: type
+    description: the id of the class that is instantiated by some data
     notes:
-    - 'key set to false due to rare collisions: Pletnev I, Erin A, McNaught A, Blinov
-      K, Tchekhovskoi D, Heller S (2012) InChIKey collision resistance: an experimental
-      testing. J Cheminform. 4:12'
+    - replacing legacy nmdc:type slot
+    - will make examples files clearer
+    - required for polymorphic MongoDB collections
+    examples:
+    - value: nmdc:Biosample
+    - value: nmdc:Study
     from_schema: https://w3id.org/nmdc/nmdc
+    see_also:
+    - https://github.com/microbiomedata/nmdc-schema/issues/1048
+    - https://github.com/microbiomedata/nmdc-schema/issues/1233
+    - https://github.com/microbiomedata/nmdc-schema/issues/248
     rank: 1000
-    alias: inchi_key
-    owner: Substance
+    slot_uri: rdf:type
+    designates_type: true
+    alias: type
+    owner: Mixture
     domain_of:
-    - Substance
-    - ChemicalEntity
-    range: string
-  smiles:
-    name: smiles
-    description: A string encoding of a molecular graph, no chiral or isotopic information.
-      There are usually a large number of valid SMILES which represent a given structure.
-      For example, CCO, OCC and C(O)C all specify the structure of ethanol.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: smiles
-    owner: Substance
-    domain_of:
-    - Substance
-    - ChemicalEntity
-    range: string
-class_uri: nmdc:Substance
+    - FunctionalAnnotationAggMember
+    - Protocol
+    - Doi
+    - CreditAssociation
+    - Mixture
+    - NamedThing
+    - PortionOfSubstance
+    - AttributeValue
+    - MagBin
+    - MetaboliteQuantification
+    - PeptideQuantification
+    - ProteinQuantification
+    - GenomeFeature
+    - ReactionParticipant
+    - FunctionalAnnotation
+    range: uriorcurie
+    required: true
+class_uri: nmdc:Mixture
 
 </code></pre>
 </details>

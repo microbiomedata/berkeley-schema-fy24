@@ -563,14 +563,14 @@ slot_usage:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
   mass:
     name: mass
     description: The output mass of the SubSampling Process.
     domain_of:
     - SubSamplingProcess
-    - Substance
+    - PortionOfSubstance
   has_output:
     name: has_output
     description: The subsample.
@@ -620,14 +620,14 @@ slot_usage:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
   mass:
     name: mass
     description: The output mass of the SubSampling Process.
     domain_of:
     - SubSamplingProcess
-    - Substance
+    - PortionOfSubstance
   has_output:
     name: has_output
     description: The subsample.
@@ -690,8 +690,8 @@ attributes:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
     range: QuantityValue
   mass:
     name: mass
@@ -703,7 +703,7 @@ attributes:
     owner: SubSamplingProcess
     domain_of:
     - SubSamplingProcess
-    - Substance
+    - PortionOfSubstance
     range: QuantityValue
   has_input:
     name: has_input
@@ -911,9 +911,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification

@@ -287,10 +287,6 @@
 
   Extraction : end_date
 
-  Extraction : extractant
-
-    Extraction --|&gt; Solution : extractant
-
   Extraction : extraction_target
 
     Extraction --|&gt; ExtractionTargetEnum : extraction_target
@@ -335,6 +331,10 @@
 
   Extraction : start_date
 
+  Extraction : substances_used
+
+    Extraction --|&gt; PortionOfSubstance : substances_used
+
   Extraction : type
 
   Extraction : volume
@@ -369,9 +369,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../extractant/">extractant</a></td>
-<td>0..1 <br/> <a href="../Solution/">Solution</a></td>
-<td>The active component(s) primarily responsible for transfer of a solute from o...</td>
+<td><a href="../substances_used/">substances_used</a></td>
+<td>0..* <br/> <a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td>The substances that are combined to enable a ChemicalConversionProcess</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -501,12 +501,6 @@
 <td>range</td>
 <td><a href="./">Extraction</a></td>
 </tr>
-<tr>
-<td><a href="./">Extraction</a></td>
-<td><a href="../extractant/">extractant</a></td>
-<td>domain</td>
-<td><a href="./">Extraction</a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -549,7 +543,7 @@ exact_mappings:
 - OBI:0302884
 is_a: MaterialProcessing
 slots:
-- extractant
+- substances_used
 - extraction_target
 - input_mass
 - volume
@@ -574,8 +568,8 @@ slot_usage:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
 class_uri: nmdc:Extraction
 
 </code></pre>
@@ -610,21 +604,24 @@ slot_usage:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
 attributes:
-  extractant:
-    name: extractant
-    description: The active component(s) primarily responsible for transfer of a solute
-      from one phase to the other.
+  substances_used:
+    name: substances_used
+    description: The substances that are combined to enable a ChemicalConversionProcess.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: Extraction
-    alias: extractant
+    multivalued: true
+    alias: substances_used
     owner: Extraction
     domain_of:
     - Extraction
-    range: Solution
+    - Mixture
+    - ChemicalConversionProcess
+    range: PortionOfSubstance
+    inlined: true
+    inlined_as_list: true
   extraction_target:
     name: extraction_target
     description: Provides the target biomolecule that has been separated from a sample
@@ -672,8 +669,8 @@ attributes:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
     range: QuantityValue
   has_input:
     name: has_input
@@ -882,9 +879,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification

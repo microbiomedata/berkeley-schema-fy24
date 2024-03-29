@@ -335,11 +335,9 @@
 
   DissolvingProcess : solubilizing_agent
 
-    DissolvingProcess --|&gt; CompoundEnum : solubilizing_agent
+    DissolvingProcess --|&gt; PortionOfSubstance : solubilizing_agent
 
   DissolvingProcess : solvent
-
-    DissolvingProcess --|&gt; Solution : solvent
 
   DissolvingProcess : start_date
 
@@ -378,13 +376,13 @@
 <tbody>
 <tr>
 <td><a href="../solvent/">solvent</a></td>
-<td>1..1 <br/> <a href="../Solution/">Solution</a></td>
+<td>1..1 <br/> <a href="../String/">String</a> or <br/><a href="../Solution/">Solution</a> or <br/><a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
 <td>A liquid that can dissolve other substances (solutes) without any change in t...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../solubilizing_agent/">solubilizing_agent</a></td>
-<td>0..1 <br/> <a href="../CompoundEnum/">CompoundEnum</a></td>
+<td>0..1 <br/> <a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
 <td>A substance within a formulation that enhances the solubility of another subs...</td>
 <td>direct</td>
 </tr>
@@ -622,8 +620,11 @@ attributes:
     owner: DissolvingProcess
     domain_of:
     - DissolvingProcess
-    range: Solution
+    range: string
     required: true
+    any_of:
+    - range: Solution
+    - range: PortionOfSubstance
   solubilizing_agent:
     name: solubilizing_agent
     description: A substance within a formulation that enhances the solubility of
@@ -637,7 +638,7 @@ attributes:
     owner: DissolvingProcess
     domain_of:
     - DissolvingProcess
-    range: CompoundEnum
+    range: PortionOfSubstance
   duration:
     name: duration
     description: The elapsed time of an activity.
@@ -876,9 +877,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification

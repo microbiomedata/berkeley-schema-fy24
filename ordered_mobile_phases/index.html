@@ -506,7 +506,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Solution/">Solution</a></p>
+<p>Range: <a href="../String/">String</a>&nbsp;or&nbsp;<br /><a href="../Solution/">Solution</a>&nbsp;or&nbsp;<br /><a href="../PortionOfSubstance/">PortionOfSubstance</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -530,9 +530,12 @@ list_elements_ordered: true
 alias: ordered_mobile_phases
 domain_of:
 - ChromatographicSeparationProcess
-range: Solution
+range: string
 inlined: true
 inlined_as_list: true
+any_of:
+- range: Solution
+- range: PortionOfSubstance
 
 </code></pre>
 

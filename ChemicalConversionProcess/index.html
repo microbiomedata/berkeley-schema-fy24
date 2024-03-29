@@ -348,7 +348,7 @@
 
   ChemicalConversionProcess : substances_used
 
-    ChemicalConversionProcess --|&gt; Substance : substances_used
+    ChemicalConversionProcess --|&gt; PortionOfSubstance : substances_used
 
   ChemicalConversionProcess : substances_volume
 
@@ -407,7 +407,7 @@
 </tr>
 <tr>
 <td><a href="../substances_used/">substances_used</a></td>
-<td>0..* <br/> <a href="../Substance/">Substance</a></td>
+<td>0..* <br/> <a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
 <td>The substances that are combined to enable a ChemicalConversionProcess</td>
 <td>direct</td>
 </tr>
@@ -685,8 +685,10 @@ attributes:
     alias: substances_used
     owner: ChemicalConversionProcess
     domain_of:
+    - Extraction
+    - Mixture
     - ChemicalConversionProcess
-    range: Substance
+    range: PortionOfSubstance
     inlined: true
     inlined_as_list: true
   substances_volume:
@@ -905,9 +907,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification

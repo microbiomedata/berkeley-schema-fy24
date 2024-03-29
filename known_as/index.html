@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/extractant/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/known_as/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: extractant - NMDC Schema Documentation</title>
+        <title>Slot: known_as - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-extractant" class="md-skip">
+        <a href="#slot-known_as" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: extractant
+              Slot: known_as
             
           </span>
         </div>
@@ -481,9 +481,8 @@
   
 
 
-<h1 id="slot-extractant">Slot: extractant</h1>
-<p><em>The active component(s) primarily responsible for transfer of a solute from one phase to the other.</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/extractant">nmdc:extractant</a></p>
+<h1 id="slot-known_as">Slot: known_as</h1>
+<p>URI: <a href="https://w3id.org/nmdc/known_as">nmdc:known_as</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -497,15 +496,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Extraction/">Extraction</a></td>
-<td>A material separation in which a desired component of an input material is se...</td>
+<td><a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td>A portion of any matter of defined composition that has discrete existence, w...</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Solution/">Solution</a></li>
+<li>Range: <a href="../SubstanceEntity/">SubstanceEntity</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -515,16 +514,13 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: extractant
-description: The active component(s) primarily responsible for transfer of a solute
-  from one phase to the other.
+<pre><code class="language-yaml">name: known_as
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
-domain: Extraction
-alias: extractant
+alias: known_as
 domain_of:
-- Extraction
-range: Solution
+- PortionOfSubstance
+range: SubstanceEntity
 
 </code></pre>
 

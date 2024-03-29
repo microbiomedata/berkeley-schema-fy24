@@ -195,16 +195,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
+<a class="md-nav__link" href="#inheritance">
 <span class="md-ellipsis">
-      Slots
+      Inheritance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
+<a class="md-nav__link" href="#slots">
 <span class="md-ellipsis">
-      Usages
+      Slots
     </span>
 </a>
 </li>
@@ -284,10 +284,13 @@
 <p>URI: <a href="https://w3id.org/nmdc/Solution">nmdc:Solution</a></p>
 <div class="mermaid">classDiagram
   class Solution
+    Mixture &lt;|-- Solution
 
-  Solution : has_solution_components
 
-    Solution --|&gt; SolutionComponent : has_solution_components
+
+  Solution : substances_used
+
+    Solution --|&gt; PortionOfSubstance : substances_used
 
   Solution : type
 
@@ -298,7 +301,13 @@
 
 
 </div>
-<!-- no inheritance hierarchy -->
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../Mixture/">Mixture</a><ul>
+<li><strong>Solution</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -311,65 +320,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../has_solution_components/">has_solution_components</a></td>
-<td>1..* <br/> <a href="../SolutionComponent/">SolutionComponent</a></td>
-<td>Relationship from a Solution to one or more constituent solution components</td>
-<td>direct</td>
+<td><a href="../substances_used/">substances_used</a></td>
+<td>0..* <br/> <a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td>The substances that are combined to enable a ChemicalConversionProcess</td>
+<td><a href="../Mixture/">Mixture</a></td>
 </tr>
 <tr>
 <td><a href="../volume/">volume</a></td>
 <td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
 <td>The volume of a substance</td>
-<td>direct</td>
+<td><a href="../Mixture/">Mixture</a></td>
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
 <td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>the id of the class that is instantiated by some data</td>
-<td>direct</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../Extraction/">Extraction</a></td>
-<td><a href="../extractant/">extractant</a></td>
-<td>range</td>
-<td><a href="./">Solution</a></td>
-</tr>
-<tr>
-<td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
-<td><a href="../ordered_mobile_phases/">ordered_mobile_phases</a></td>
-<td>range</td>
-<td><a href="./">Solution</a></td>
-</tr>
-<tr>
-<td><a href="../DissolvingProcess/">DissolvingProcess</a></td>
-<td><a href="../solvent/">solvent</a></td>
-<td>range</td>
-<td><a href="./">Solution</a></td>
-</tr>
-<tr>
-<td><a href="./">Solution</a></td>
-<td><a href="../has_solution_components/">has_solution_components</a></td>
-<td>domain</td>
-<td><a href="./">Solution</a></td>
+<td><a href="../Mixture/">Mixture</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="aliases">Aliases</h2>
 <ul>
-<li>mixture</li>
 <li>solvent</li>
 </ul>
 <h2 id="comments">Comments</h2>
@@ -419,12 +390,8 @@ comments:
   slot
 from_schema: https://w3id.org/nmdc/nmdc
 aliases:
-- mixture
 - solvent
-slots:
-- has_solution_components
-- volume
-- type
+is_a: Mixture
 class_uri: nmdc:Solution
 
 </code></pre>
@@ -445,26 +412,24 @@ comments:
   slot
 from_schema: https://w3id.org/nmdc/nmdc
 aliases:
-- mixture
 - solvent
+is_a: Mixture
 attributes:
-  has_solution_components:
-    name: has_solution_components
-    description: Relationship from a Solution to one or more constituent solution
-      components
+  substances_used:
+    name: substances_used
+    description: The substances that are combined to enable a ChemicalConversionProcess.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: Solution
     multivalued: true
-    alias: has_solution_components
+    alias: substances_used
     owner: Solution
     domain_of:
-    - Solution
-    range: SolutionComponent
-    required: true
+    - Extraction
+    - Mixture
+    - ChemicalConversionProcess
+    range: PortionOfSubstance
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   volume:
     name: volume
     description: The volume of a substance.
@@ -480,8 +445,8 @@ attributes:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Solution
-    - Substance
+    - Mixture
+    - PortionOfSubstance
     range: QuantityValue
   type:
     name: type
@@ -508,9 +473,9 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - SolutionComponent
-    - Solution
+    - Mixture
     - NamedThing
+    - PortionOfSubstance
     - AttributeValue
     - MagBin
     - MetaboliteQuantification
