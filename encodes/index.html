@@ -431,6 +431,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#todos" class="md-nav__link">
+    <span class="md-ellipsis">
+      TODOs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -507,6 +516,10 @@
 <ul>
 <li>Range: <a href="../GeneProduct/">GeneProduct</a></li>
 </ul>
+<h2 id="todos">TODOs</h2>
+<ul>
+<li>If we revert Reaction back into the schema, that would be a reasonable domain for this slot</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -519,6 +532,9 @@
 description: The gene product encoded by this feature. Typically this is used for
   a CDS feature or gene feature which will encode a protein. It can also be used by
   a nc transcript ot gene feature that encoded a ncRNA
+todos:
+- If we revert Reaction back into the schema, that would be a reasonable domain for
+  this slot
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 domain: GenomeFeature

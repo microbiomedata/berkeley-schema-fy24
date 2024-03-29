@@ -911,16 +911,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/Reaction/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/ReactionParticipant/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/ReadBasedTaxonomyAnalysis/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
@@ -1816,11 +1806,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/chemical/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/chemical_conversion_category/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
@@ -2082,11 +2067,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/direct_infusion_category/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/direction/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2931,16 +2911,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/has_part/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/has_participants/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/has_peptide_quantifications/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
@@ -3356,32 +3326,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/is_balanced/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/is_diastereoselective/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/is_fully_characterized/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/is_pressurized/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/is_stereo/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/is_transport/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3447,11 +3392,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/lbceq/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/left_participants/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -4386,11 +4326,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/right_participants/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/rna_absorb1/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
@@ -5011,11 +4946,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/smarts_string/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/smiles/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
@@ -5172,11 +5102,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/stationary_phase/</loc>
-         <lastmod>2024-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/stoichiometry/</loc>
          <lastmod>2024-03-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
