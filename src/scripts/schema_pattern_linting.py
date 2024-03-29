@@ -40,3 +40,21 @@ for wsk in whitespace_keys:
 
     if wse.from_schema != "https://raw.githubusercontent.com/microbiomedata/nmdc-schema/main/src/schema/mixs.yaml":
         print(yaml_dumper.dumps(wse))
+
+declared_subsets = []
+subsets = schema_view.all_subsets()
+for sbk, sbv in subsets.items():
+    if sbv.from_schema != "https://raw.githubusercontent.com/microbiomedata/nmdc-schema/main/src/schema/mixs.yaml":
+        declared_subsets.append(sbk)
+
+subset_usage = {}
+for ds in declared_subsets:
+    subset_usage[ds] = []
+
+for ek, ev in schema_elements.items():
+    if ev.in_subset:
+        for subset in ev.in_subset:
+            if subset in declared_subsets:
+                subset_usage[subset].append(ev.name)
+
+pprint.pprint(subset_usage)
