@@ -277,7 +277,7 @@
 
   PortionOfSubstance : known_as
 
-    PortionOfSubstance --|&gt; SubstanceEntity : known_as
+    PortionOfSubstance --|&gt; ChemicalEntity : known_as
 
   PortionOfSubstance : mass
 
@@ -324,7 +324,7 @@
 </tr>
 <tr>
 <td><a href="../known_as/">known_as</a></td>
-<td>0..1 <br/> <a href="../SubstanceEntity/">SubstanceEntity</a></td>
+<td>0..1 <br/> <a href="../ChemicalEntity/">ChemicalEntity</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -390,13 +390,7 @@
 <td><a href="./">PortionOfSubstance</a></td>
 </tr>
 <tr>
-<td><a href="../Mixture/">Mixture</a></td>
-<td><a href="../substances_used/">substances_used</a></td>
-<td>range</td>
-<td><a href="./">PortionOfSubstance</a></td>
-</tr>
-<tr>
-<td><a href="../Solution/">Solution</a></td>
+<td><a href="../MobilePhaseSegment/">MobilePhaseSegment</a></td>
 <td><a href="../substances_used/">substances_used</a></td>
 <td>range</td>
 <td><a href="./">PortionOfSubstance</a></td>
@@ -491,7 +485,7 @@ attributes:
     owner: PortionOfSubstance
     domain_of:
     - PortionOfSubstance
-    range: SubstanceEntity
+    range: ChemicalEntity
   mass:
     name: mass
     description: A physical quality that inheres in a bearer by virtue of the proportion
@@ -564,7 +558,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue
@@ -591,7 +585,7 @@ attributes:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Mixture
+    - MobilePhaseSegment
     - PortionOfSubstance
     range: QuantityValue
 class_uri: nmdc:PortionOfSubstance

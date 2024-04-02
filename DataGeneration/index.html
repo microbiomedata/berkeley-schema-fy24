@@ -734,7 +734,6 @@ slot_usage:
     comments:
     - pattern should allow typecode for Biosample and ProcessedSample
     domain_of:
-    - PlaceholderClass
     - PlannedProcess
     required: true
     pattern: ^nmdc:(bsm|procsm)-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
@@ -787,7 +786,6 @@ slot_usage:
     comments:
     - pattern should allow typecode for Biosample and ProcessedSample
     domain_of:
-    - PlaceholderClass
     - PlannedProcess
     required: true
     pattern: ^nmdc:(bsm|procsm)-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
@@ -1020,7 +1018,6 @@ attributes:
     alias: has_input
     owner: DataGeneration
     domain_of:
-    - PlaceholderClass
     - PlannedProcess
     range: NamedThing
     required: true
@@ -1224,7 +1221,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue

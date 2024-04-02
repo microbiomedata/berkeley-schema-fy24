@@ -568,7 +568,7 @@ slot_usage:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Mixture
+    - MobilePhaseSegment
     - PortionOfSubstance
 class_uri: nmdc:Extraction
 
@@ -604,7 +604,7 @@ slot_usage:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Mixture
+    - MobilePhaseSegment
     - PortionOfSubstance
 attributes:
   substances_used:
@@ -618,7 +618,7 @@ attributes:
     domain_of:
     - Extraction
     - DissolvingProcess
-    - Mixture
+    - MobilePhaseSegment
     - ChemicalConversionProcess
     range: PortionOfSubstance
     inlined: true
@@ -670,7 +670,7 @@ attributes:
     - Extraction
     - SubSamplingProcess
     - FiltrationProcess
-    - Mixture
+    - MobilePhaseSegment
     - PortionOfSubstance
     range: QuantityValue
   has_input:
@@ -683,7 +683,6 @@ attributes:
     alias: has_input
     owner: Extraction
     domain_of:
-    - PlaceholderClass
     - PlannedProcess
     range: NamedThing
     any_of:
@@ -880,7 +879,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue

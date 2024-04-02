@@ -574,6 +574,7 @@ attributes:
     domain_of:
     - MixingProcess
     - DissolvingProcess
+    - MobilePhaseSegment
     - ChemicalConversionProcess
     range: QuantityValue
   has_input:
@@ -586,7 +587,6 @@ attributes:
     alias: has_input
     owner: MixingProcess
     domain_of:
-    - PlaceholderClass
     - PlannedProcess
     range: NamedThing
     any_of:
@@ -782,7 +782,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue

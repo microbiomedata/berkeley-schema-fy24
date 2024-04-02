@@ -315,6 +315,8 @@
 
   ChromatographicSeparationProcess : ordered_mobile_phases
 
+    ChromatographicSeparationProcess --|&gt; MobilePhaseSegment : ordered_mobile_phases
+
   ChromatographicSeparationProcess : processing_institution
 
     ChromatographicSeparationProcess --|&gt; ProcessingInstitutionEnum : processing_institution
@@ -385,7 +387,7 @@
 </tr>
 <tr>
 <td><a href="../ordered_mobile_phases/">ordered_mobile_phases</a></td>
-<td>0..* <br/> <a href="../String/">String</a> or <br/><a href="../Solution/">Solution</a> or <br/><a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td>0..* <br/> <a href="../MobilePhaseSegment/">MobilePhaseSegment</a></td>
 <td>The solution(s) that moves through a chromatography column</td>
 <td>direct</td>
 </tr>
@@ -619,7 +621,7 @@ attributes:
     notes:
     - 'has_calibration will be removed from all WorkflowExecution classes and stay
       only on the ChromatographicSeparationProcess class after an ingest of the chromatographic_separation_process_set
-      has  ocurred. The commented out portion of the slot definition above will be
+      has  occurred. The commented out portion of the slot definition above will be
       implemented. See PR #29 in Berkeley schema.'
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
@@ -653,12 +655,9 @@ attributes:
     owner: ChromatographicSeparationProcess
     domain_of:
     - ChromatographicSeparationProcess
-    range: string
+    range: MobilePhaseSegment
     inlined: true
     inlined_as_list: true
-    any_of:
-    - range: Solution
-    - range: PortionOfSubstance
   stationary_phase:
     name: stationary_phase
     description: The material the stationary phase is comprised of used in chromatography.
@@ -698,7 +697,6 @@ attributes:
     alias: has_input
     owner: ChromatographicSeparationProcess
     domain_of:
-    - PlaceholderClass
     - PlannedProcess
     range: NamedThing
     any_of:
@@ -894,7 +892,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue

@@ -731,7 +731,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/Mixture/</loc>
+         <loc>https://microbiomedata.github.io/nmdc-schema/MobilePhaseSegment/</loc>
          <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -817,11 +817,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/PersonValue/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/PlaceholderClass/</loc>
          <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1046,11 +1041,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/Solution/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/Sparqlpath/</loc>
          <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
@@ -1107,11 +1097,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/SubSamplingProcess/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/SubstanceEntity/</loc>
          <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>

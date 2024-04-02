@@ -305,7 +305,7 @@
 <p>URI: <a href="https://w3id.org/nmdc/ChemicalEntity">nmdc:ChemicalEntity</a></p>
 <div class="mermaid">classDiagram
   class ChemicalEntity
-    SubstanceEntity &lt;|-- ChemicalEntity
+    OntologyClass &lt;|-- ChemicalEntity
 
 
 
@@ -336,10 +336,7 @@
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
 <li><a href="../OntologyClass/">OntologyClass</a><ul>
-<li><a href="../SubstanceEntity/">SubstanceEntity</a><ul>
 <li><strong>ChemicalEntity</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -356,6 +353,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../alternative_names/">alternative_names</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>A list of alternative names used to refer to the entity</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../chemical_formula/">chemical_formula</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
@@ -379,12 +382,6 @@
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>A string encoding of a molecular graph, no chiral or isotopic information</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../alternative_names/">alternative_names</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>A list of alternative names used to refer to the entity</td>
-<td><a href="../SubstanceEntity/">SubstanceEntity</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -432,6 +429,12 @@
 <tr>
 <td><a href="../Database/">Database</a></td>
 <td><a href="../chemical_entity_set/">chemical_entity_set</a></td>
+<td>range</td>
+<td><a href="./">ChemicalEntity</a></td>
+</tr>
+<tr>
+<td><a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td><a href="../known_as/">known_as</a></td>
 <td>range</td>
 <td><a href="./">ChemicalEntity</a></td>
 </tr>
@@ -544,8 +547,9 @@ aliases:
 - chemical
 exact_mappings:
 - biolink:ChemicalSubstance
-is_a: SubstanceEntity
+is_a: OntologyClass
 slots:
+- alternative_names
 - chemical_formula
 - inchi
 - inchi_key
@@ -582,8 +586,24 @@ aliases:
 - chemical
 exact_mappings:
 - biolink:ChemicalSubstance
-is_a: SubstanceEntity
+is_a: OntologyClass
 attributes:
+  alternative_names:
+    name: alternative_names
+    description: A list of alternative names used to refer to the entity. The distinction
+      between name and alternative names is application-specific.
+    from_schema: https://w3id.org/nmdc/nmdc
+    exact_mappings:
+    - dcterms:alternative
+    - skos:altLabel
+    rank: 1000
+    multivalued: true
+    alias: alternative_names
+    owner: ChemicalEntity
+    domain_of:
+    - Study
+    - ChemicalEntity
+    range: string
   chemical_formula:
     name: chemical_formula
     description: A generic grouping for molecular formulae and empirical formulae
@@ -628,22 +648,6 @@ attributes:
     owner: ChemicalEntity
     domain_of:
     - ChemicalEntity
-    range: string
-  alternative_names:
-    name: alternative_names
-    description: A list of alternative names used to refer to the entity. The distinction
-      between name and alternative names is application-specific.
-    from_schema: https://w3id.org/nmdc/nmdc
-    exact_mappings:
-    - dcterms:alternative
-    - skos:altLabel
-    rank: 1000
-    multivalued: true
-    alias: alternative_names
-    owner: ChemicalEntity
-    domain_of:
-    - Study
-    - SubstanceEntity
     range: string
   id:
     name: id
@@ -721,7 +725,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue

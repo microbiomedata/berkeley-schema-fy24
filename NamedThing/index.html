@@ -283,7 +283,6 @@
   class NamedThing
     NamedThing &lt;|-- DataObject
     NamedThing &lt;|-- Study
-    NamedThing &lt;|-- PlaceholderClass
     NamedThing &lt;|-- MaterialEntity
     NamedThing &lt;|-- PlannedProcess
     NamedThing &lt;|-- OntologyClass
@@ -309,7 +308,6 @@
 <li><strong>NamedThing</strong><ul>
 <li><a href="../DataObject/">DataObject</a></li>
 <li><a href="../Study/">Study</a></li>
-<li><a href="../PlaceholderClass/">PlaceholderClass</a></li>
 <li><a href="../MaterialEntity/">MaterialEntity</a></li>
 <li><a href="../PlannedProcess/">PlannedProcess</a></li>
 <li><a href="../OntologyClass/">OntologyClass</a></li>
@@ -693,18 +691,6 @@
 <td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
 <td><a href="../has_output/">has_output</a></td>
 <td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../PlaceholderClass/">PlaceholderClass</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../PlaceholderClass/">PlaceholderClass</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1301,7 +1287,7 @@ attributes:
     - Protocol
     - Doi
     - CreditAssociation
-    - Mixture
+    - MobilePhaseSegment
     - NamedThing
     - PortionOfSubstance
     - AttributeValue
