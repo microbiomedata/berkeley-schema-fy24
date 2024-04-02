@@ -278,6 +278,8 @@
 
     FailureCategorization --|&gt; FailureWhereEnum : qc_failure_where
 
+  FailureCategorization : type
+
 
 
 </div>
@@ -303,6 +305,12 @@
 <td><a href="../qc_failure_where/">qc_failure_where</a></td>
 <td>0..1 <br/> <a href="../FailureWhereEnum/">FailureWhereEnum</a></td>
 <td>Describes the nmdc schema class that corresonds to where the failure occurred</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../type/">type</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>the id of the class that is instantiated by some data</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -557,6 +565,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 slots:
 - qc_failure_what
 - qc_failure_where
+- type
 class_uri: nmdc:FailureCategorization
 
 </code></pre>
@@ -595,6 +604,44 @@ attributes:
     domain_of:
     - FailureCategorization
     range: FailureWhereEnum
+  type:
+    name: type
+    description: the id of the class that is instantiated by some data
+    notes:
+    - replacing legacy nmdc:type slot
+    - will make examples files clearer
+    - required for polymorphic MongoDB collections
+    examples:
+    - value: nmdc:Biosample
+    - value: nmdc:Study
+    from_schema: https://w3id.org/nmdc/nmdc
+    see_also:
+    - https://github.com/microbiomedata/nmdc-schema/issues/1048
+    - https://github.com/microbiomedata/nmdc-schema/issues/1233
+    - https://github.com/microbiomedata/nmdc-schema/issues/248
+    rank: 1000
+    slot_uri: rdf:type
+    designates_type: true
+    alias: type
+    owner: FailureCategorization
+    domain_of:
+    - FailureCategorization
+    - FunctionalAnnotationAggMember
+    - Protocol
+    - Doi
+    - CreditAssociation
+    - MobilePhaseSegment
+    - NamedThing
+    - PortionOfSubstance
+    - AttributeValue
+    - MagBin
+    - MetaboliteQuantification
+    - PeptideQuantification
+    - ProteinQuantification
+    - GenomeFeature
+    - FunctionalAnnotation
+    range: uriorcurie
+    required: true
 class_uri: nmdc:FailureCategorization
 
 </code></pre>
