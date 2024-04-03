@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/DataGeneration/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.15" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.17" name="generator"/>
 <title>Class: DataGeneration - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.bcfcd587.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -581,32 +581,8 @@
 <tbody>
 <tr>
 <td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../gold_sequencing_project_identifiers/">gold_sequencing_project_identifiers</a></td>
-<td>domain</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
-<td>domain</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
 <td><a href="../part_of/">part_of</a></td>
 <td>range</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../gold_sequencing_project_identifiers/">gold_sequencing_project_identifiers</a></td>
-<td>domain</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
-<td>domain</td>
 <td><a href="./">DataGeneration</a></td>
 </tr>
 <tr>
@@ -619,24 +595,6 @@
 <td><a href="../Database/">Database</a></td>
 <td><a href="../data_generation_set/">data_generation_set</a></td>
 <td>range</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../DataObject/">DataObject</a></td>
-<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
-<td>domain</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="./">DataGeneration</a></td>
-<td><a href="../gold_sequencing_project_identifiers/">gold_sequencing_project_identifiers</a></td>
-<td>domain</td>
-<td><a href="./">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="./">DataGeneration</a></td>
-<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
-<td>domain</td>
 <td><a href="./">DataGeneration</a></td>
 </tr>
 <tr>
@@ -853,7 +811,6 @@ attributes:
     is_a: omics_processing_identifiers
     mixins:
     - gold_identifiers
-    domain: DataGeneration
     multivalued: true
     alias: gold_sequencing_project_identifiers
     owner: DataGeneration
@@ -897,7 +854,6 @@ attributes:
     is_a: external_database_identifiers
     mixins:
     - insdc_identifiers
-    domain: DataGeneration
     multivalued: true
     alias: insdc_experiment_identifiers
     owner: DataGeneration
@@ -932,7 +888,6 @@ attributes:
       includes it.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     slot_uri: dcterms:isPartOf
     multivalued: true
     alias: part_of
@@ -978,7 +933,6 @@ attributes:
     alias: target_gene
     owner: DataGeneration
     domain_of:
-    - Biosample
     - DataGeneration
     range: TextValue
   target_subfragment:
@@ -1003,7 +957,6 @@ attributes:
     alias: target_subfragment
     owner: DataGeneration
     domain_of:
-    - Biosample
     - DataGeneration
     range: TextValue
   has_input:
@@ -1013,7 +966,6 @@ attributes:
     - pattern should allow typecode for Biosample and ProcessedSample
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     multivalued: true
     alias: has_input
     owner: DataGeneration
@@ -1027,7 +979,6 @@ attributes:
     description: An output from a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     multivalued: true
     alias: has_output
     owner: DataGeneration
@@ -1051,7 +1002,6 @@ attributes:
     description: The organization that processed the sample.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: PlannedProcess
     alias: processing_institution
     owner: DataGeneration
     domain_of:
@@ -1061,12 +1011,11 @@ attributes:
     name: protocol_link
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: PlannedProcess
     alias: protocol_link
     owner: DataGeneration
     domain_of:
-    - Study
     - PlannedProcess
+    - Study
     range: Protocol
   start_date:
     name: start_date
@@ -1167,9 +1116,9 @@ attributes:
     alias: name
     owner: DataGeneration
     domain_of:
-    - Protocol
-    - NamedThing
     - PersonValue
+    - NamedThing
+    - Protocol
     range: string
   description:
     name: description
@@ -1180,8 +1129,8 @@ attributes:
     alias: description
     owner: DataGeneration
     domain_of:
-    - NamedThing
     - ImageValue
+    - NamedThing
     range: string
   alternative_identifiers:
     name: alternative_identifiers
@@ -1192,8 +1141,8 @@ attributes:
     alias: alternative_identifiers
     owner: DataGeneration
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
@@ -1217,21 +1166,21 @@ attributes:
     alias: type
     owner: DataGeneration
     domain_of:
-    - FailureCategorization
     - FunctionalAnnotationAggMember
-    - Protocol
-    - Doi
-    - CreditAssociation
     - MobilePhaseSegment
-    - NamedThing
     - PortionOfSubstance
-    - AttributeValue
     - MagBin
     - MetaboliteQuantification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature
     - FunctionalAnnotation
+    - AttributeValue
+    - NamedThing
+    - FailureCategorization
+    - Protocol
+    - CreditAssociation
+    - Doi
     range: uriorcurie
     required: true
 class_uri: nmdc:DataGeneration
@@ -1263,7 +1212,7 @@ class_uri: nmdc:DataGeneration
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+<script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
       
 
@@ -431,15 +431,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Usages
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -766,67 +757,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../eluent_introduction/">eluent_introduction</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../acquisition_category/">acquisition_category</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../acquisition_strategy/">acquisition_strategy</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../resolution_category/">resolution_category</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../mass_analyzer/">mass_analyzer</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../ionization_source/">ionization_source</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../mass_spectrum_collection_mode/">mass_spectrum_collection_mode</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-<tr>
-<td><a href="./">MassSpectrometry</a></td>
-<td><a href="../polarity_mode/">polarity_mode</a></td>
-<td>domain</td>
-<td><a href="./">MassSpectrometry</a></td>
-</tr>
-</tbody>
-</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -916,7 +846,6 @@ attributes:
       example liquid chromatography or direct infusion through a syringe
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: eluent_introduction
     owner: MassSpectrometry
     domain_of:
@@ -927,7 +856,6 @@ attributes:
     description: whether only survey or tandem mass spectra are part of the experiment
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: acquisition_category
     owner: MassSpectrometry
     domain_of:
@@ -939,7 +867,6 @@ attributes:
       during the experiment
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: acquisition_strategy
     owner: MassSpectrometry
     domain_of:
@@ -950,7 +877,6 @@ attributes:
     description: whether mass spectra are collected at higher than unity resolution
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: resolution_category
     owner: MassSpectrometry
     domain_of:
@@ -962,7 +888,6 @@ attributes:
       collection.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: mass_analyzer
     owner: MassSpectrometry
     domain_of:
@@ -974,7 +899,6 @@ attributes:
       a mass spectrometer
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: ionization_source
     owner: MassSpectrometry
     domain_of:
@@ -986,7 +910,6 @@ attributes:
       profile, or centroid mode during acquisition.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: mass_spectrum_collection_mode
     owner: MassSpectrometry
     domain_of:
@@ -997,7 +920,6 @@ attributes:
     description: the polarity of which ions are generated and detected
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: MassSpectrometry
     alias: polarity_mode
     owner: MassSpectrometry
     domain_of:
@@ -1051,7 +973,6 @@ attributes:
     is_a: omics_processing_identifiers
     mixins:
     - gold_identifiers
-    domain: DataGeneration
     multivalued: true
     alias: gold_sequencing_project_identifiers
     owner: MassSpectrometry
@@ -1095,7 +1016,6 @@ attributes:
     is_a: external_database_identifiers
     mixins:
     - insdc_identifiers
-    domain: DataGeneration
     multivalued: true
     alias: insdc_experiment_identifiers
     owner: MassSpectrometry
@@ -1130,7 +1050,6 @@ attributes:
       includes it.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     slot_uri: dcterms:isPartOf
     multivalued: true
     alias: part_of
@@ -1176,7 +1095,6 @@ attributes:
     alias: target_gene
     owner: MassSpectrometry
     domain_of:
-    - Biosample
     - DataGeneration
     range: TextValue
   target_subfragment:
@@ -1201,7 +1119,6 @@ attributes:
     alias: target_subfragment
     owner: MassSpectrometry
     domain_of:
-    - Biosample
     - DataGeneration
     range: TextValue
   has_input:
@@ -1211,7 +1128,6 @@ attributes:
     - pattern should allow typecode for Biosample and ProcessedSample
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     multivalued: true
     alias: has_input
     owner: MassSpectrometry
@@ -1225,7 +1141,6 @@ attributes:
     description: An output from a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     multivalued: true
     alias: has_output
     owner: MassSpectrometry
@@ -1249,7 +1164,6 @@ attributes:
     description: The organization that processed the sample.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: PlannedProcess
     alias: processing_institution
     owner: MassSpectrometry
     domain_of:
@@ -1259,12 +1173,11 @@ attributes:
     name: protocol_link
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: PlannedProcess
     alias: protocol_link
     owner: MassSpectrometry
     domain_of:
-    - Study
     - PlannedProcess
+    - Study
     range: Protocol
   start_date:
     name: start_date
@@ -1357,9 +1270,9 @@ attributes:
     alias: name
     owner: MassSpectrometry
     domain_of:
-    - Protocol
-    - NamedThing
     - PersonValue
+    - NamedThing
+    - Protocol
     range: string
   description:
     name: description
@@ -1370,8 +1283,8 @@ attributes:
     alias: description
     owner: MassSpectrometry
     domain_of:
-    - NamedThing
     - ImageValue
+    - NamedThing
     range: string
   alternative_identifiers:
     name: alternative_identifiers
@@ -1382,8 +1295,8 @@ attributes:
     alias: alternative_identifiers
     owner: MassSpectrometry
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
@@ -1407,21 +1320,21 @@ attributes:
     alias: type
     owner: MassSpectrometry
     domain_of:
-    - FailureCategorization
     - FunctionalAnnotationAggMember
-    - Protocol
-    - Doi
-    - CreditAssociation
     - MobilePhaseSegment
-    - NamedThing
     - PortionOfSubstance
-    - AttributeValue
     - MagBin
     - MetaboliteQuantification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature
     - FunctionalAnnotation
+    - AttributeValue
+    - NamedThing
+    - FailureCategorization
+    - Protocol
+    - CreditAssociation
+    - Doi
     range: uriorcurie
     required: true
 class_uri: nmdc:MassSpectrometry
@@ -1480,7 +1393,7 @@ class_uri: nmdc:MassSpectrometry
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

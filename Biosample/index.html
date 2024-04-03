@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
       
 
@@ -3189,18 +3189,6 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../target_gene/">target_gene</a></td>
-<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
-<td>Targeted gene or locus name for marker gene studies</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../target_subfragment/">target_subfragment</a></td>
-<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
-<td>Name of subfragment of a gene or locus</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../temp/">temp</a></td>
 <td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
 <td>Temperature of the sample at the time of sampling</td>
@@ -4287,12 +4275,6 @@
 <td>range</td>
 <td><a href="./">Biosample</a></td>
 </tr>
-<tr>
-<td><a href="./">Biosample</a></td>
-<td><a href="../collected_from/">collected_from</a></td>
-<td>domain</td>
-<td><a href="./">Biosample</a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="aliases">Aliases</h2>
@@ -4798,8 +4780,6 @@ slots:
 - suspend_part_matter
 - suspend_solids
 - tan
-- target_gene
-- target_subfragment
 - temp
 - temp_out
 - tertiary_treatment
@@ -5018,8 +4998,8 @@ slot_usage:
     description: Unique identifier for a biosample submitted to additional resources.
       Matches the entity that has been submitted to NMDC
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
   lat_lon:
     name: lat_lon
     notes:
@@ -5509,8 +5489,8 @@ slot_usage:
     description: Unique identifier for a biosample submitted to additional resources.
       Matches the entity that has been submitted to NMDC
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
   lat_lon:
     name: lat_lon
     notes:
@@ -5897,7 +5877,6 @@ attributes:
     - this illustrates implementing a Biosample relation with a (binary) slot
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: Biosample
     alias: collected_from
     owner: Biosample
     domain_of:
@@ -5986,8 +5965,8 @@ attributes:
     alias: img_identifiers
     owner: Biosample
     domain_of:
-    - Biosample
     - MetagenomeAnnotation
+    - Biosample
     - MetatranscriptomeAnnotation
     - MetatranscriptomeAnalysis
     - MagsAnalysis
@@ -17553,55 +17532,6 @@ attributes:
     domain_of:
     - Biosample
     range: QuantityValue
-  target_gene:
-    name: target_gene
-    annotations:
-      expected_value:
-        tag: expected_value
-        value: gene name
-    description: Targeted gene or locus name for marker gene studies
-    title: target gene
-    examples:
-    - value: 16S rRNA, 18S rRNA, nif, amoA, rpo
-    from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - target gene
-    rank: 1000
-    is_a: sequencing field
-    string_serialization: '{text}'
-    slot_uri: MIXS:0000044
-    multivalued: false
-    alias: target_gene
-    owner: Biosample
-    domain_of:
-    - Biosample
-    - DataGeneration
-    range: TextValue
-  target_subfragment:
-    name: target_subfragment
-    annotations:
-      expected_value:
-        tag: expected_value
-        value: gene fragment name
-    description: Name of subfragment of a gene or locus. Important to e.g. identify
-      special regions on marker genes like V6 on 16S rRNA
-    title: target subfragment
-    examples:
-    - value: V6, V9, ITS
-    from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - target subfragment
-    rank: 1000
-    is_a: sequencing field
-    string_serialization: '{text}'
-    slot_uri: MIXS:0000045
-    multivalued: false
-    alias: target_subfragment
-    owner: Biosample
-    domain_of:
-    - Biosample
-    - DataGeneration
-    range: TextValue
   temp:
     name: temp
     annotations:
@@ -19604,7 +19534,6 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 7
     is_a: biomaterial_purity
-    domain: ProcessedSample
     alias: dna_absorb1
     owner: Biosample
     domain_of:
@@ -19624,7 +19553,6 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 8
     is_a: biomaterial_purity
-    domain: ProcessedSample
     alias: dna_absorb2
     owner: Biosample
     domain_of:
@@ -19968,9 +19896,7 @@ attributes:
     - value: '2.02'
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 7
-    is_a: biomaterial_purity
     string_serialization: '{float}'
-    domain: ProcessedSample
     alias: rna_absorb1
     owner: Biosample
     domain_of:
@@ -19988,9 +19914,7 @@ attributes:
     - value: '2.02'
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 8
-    is_a: biomaterial_purity
     string_serialization: '{float}'
-    domain: ProcessedSample
     alias: rna_absorb2
     owner: Biosample
     domain_of:
@@ -20821,9 +20745,9 @@ attributes:
     alias: name
     owner: Biosample
     domain_of:
-    - Protocol
-    - NamedThing
     - PersonValue
+    - NamedThing
+    - Protocol
     range: string
   description:
     name: description
@@ -20834,8 +20758,8 @@ attributes:
     alias: description
     owner: Biosample
     domain_of:
-    - NamedThing
     - ImageValue
+    - NamedThing
     range: string
   alternative_identifiers:
     name: alternative_identifiers
@@ -20847,8 +20771,8 @@ attributes:
     alias: alternative_identifiers
     owner: Biosample
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
@@ -20872,21 +20796,21 @@ attributes:
     alias: type
     owner: Biosample
     domain_of:
-    - FailureCategorization
     - FunctionalAnnotationAggMember
-    - Protocol
-    - Doi
-    - CreditAssociation
     - MobilePhaseSegment
-    - NamedThing
     - PortionOfSubstance
-    - AttributeValue
     - MagBin
     - MetaboliteQuantification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature
     - FunctionalAnnotation
+    - AttributeValue
+    - NamedThing
+    - FailureCategorization
+    - Protocol
+    - CreditAssociation
+    - Doi
     range: uriorcurie
     required: true
 class_uri: nmdc:Biosample
@@ -21005,7 +20929,7 @@ rules:
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

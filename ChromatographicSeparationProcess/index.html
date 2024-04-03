@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/ChromatographicSeparationProcess/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.15" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.17" name="generator"/>
 <title>Class: ChromatographicSeparationProcess - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.bcfcd587.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -692,7 +692,6 @@ attributes:
     description: An input to a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     multivalued: true
     alias: has_input
     owner: ChromatographicSeparationProcess
@@ -707,7 +706,6 @@ attributes:
     description: An output from a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: NamedThing
     multivalued: true
     alias: has_output
     owner: ChromatographicSeparationProcess
@@ -730,7 +728,6 @@ attributes:
     description: The organization that processed the sample.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: PlannedProcess
     alias: processing_institution
     owner: ChromatographicSeparationProcess
     domain_of:
@@ -740,12 +737,11 @@ attributes:
     name: protocol_link
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: PlannedProcess
     alias: protocol_link
     owner: ChromatographicSeparationProcess
     domain_of:
-    - Study
     - PlannedProcess
+    - Study
     range: Protocol
   start_date:
     name: start_date
@@ -838,9 +834,9 @@ attributes:
     alias: name
     owner: ChromatographicSeparationProcess
     domain_of:
-    - Protocol
-    - NamedThing
     - PersonValue
+    - NamedThing
+    - Protocol
     range: string
   description:
     name: description
@@ -851,8 +847,8 @@ attributes:
     alias: description
     owner: ChromatographicSeparationProcess
     domain_of:
-    - NamedThing
     - ImageValue
+    - NamedThing
     range: string
   alternative_identifiers:
     name: alternative_identifiers
@@ -863,8 +859,8 @@ attributes:
     alias: alternative_identifiers
     owner: ChromatographicSeparationProcess
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
@@ -888,21 +884,21 @@ attributes:
     alias: type
     owner: ChromatographicSeparationProcess
     domain_of:
-    - FailureCategorization
     - FunctionalAnnotationAggMember
-    - Protocol
-    - Doi
-    - CreditAssociation
     - MobilePhaseSegment
-    - NamedThing
     - PortionOfSubstance
-    - AttributeValue
     - MagBin
     - MetaboliteQuantification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature
     - FunctionalAnnotation
+    - AttributeValue
+    - NamedThing
+    - FailureCategorization
+    - Protocol
+    - CreditAssociation
+    - Doi
     range: uriorcurie
     required: true
 class_uri: nmdc:ChromatographicSeparationProcess
@@ -948,7 +944,7 @@ rules:
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+<script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

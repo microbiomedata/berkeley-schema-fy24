@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/NamedThing/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.15" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.17" name="generator"/>
 <title>Class: NamedThing - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.bcfcd587.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -281,12 +281,12 @@
 <p>URI: <a href="https://w3id.org/nmdc/NamedThing">nmdc:NamedThing</a></p>
 <div class="mermaid">classDiagram
   class NamedThing
-    NamedThing &lt;|-- DataObject
-    NamedThing &lt;|-- Study
+    NamedThing &lt;|-- GeneProduct
+    NamedThing &lt;|-- OntologyClass
     NamedThing &lt;|-- MaterialEntity
     NamedThing &lt;|-- PlannedProcess
-    NamedThing &lt;|-- OntologyClass
-    NamedThing &lt;|-- GeneProduct
+    NamedThing &lt;|-- Study
+    NamedThing &lt;|-- DataObject
 
 
 
@@ -306,12 +306,12 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>NamedThing</strong><ul>
-<li><a href="../DataObject/">DataObject</a></li>
-<li><a href="../Study/">Study</a></li>
+<li><a href="../GeneProduct/">GeneProduct</a></li>
+<li><a href="../OntologyClass/">OntologyClass</a></li>
 <li><a href="../MaterialEntity/">MaterialEntity</a></li>
 <li><a href="../PlannedProcess/">PlannedProcess</a></li>
-<li><a href="../OntologyClass/">OntologyClass</a></li>
-<li><a href="../GeneProduct/">GeneProduct</a></li>
+<li><a href="../Study/">Study</a></li>
+<li><a href="../DataObject/">DataObject</a></li>
 </ul>
 </li>
 </ul>
@@ -371,50 +371,14 @@
 <tbody>
 <tr>
 <td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../FluidHandling/">FluidHandling</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../FluidHandling/">FluidHandling</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../FluidHandling/">FluidHandling</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DirectInfusionProcess/">DirectInfusionProcess</a></td>
 <td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
+<td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -424,39 +388,9 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../DirectInfusionProcess/">DirectInfusionProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
 <td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../Pooling/">Pooling</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -466,33 +400,9 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../Pooling/">Pooling</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../Extraction/">Extraction</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
 <td><a href="../Extraction/">Extraction</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../Extraction/">Extraction</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../LibraryPreparation/">LibraryPreparation</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -502,15 +412,63 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../LibraryPreparation/">LibraryPreparation</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
+<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../FieldResearchSite/">FieldResearchSite</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
+<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
+<td><a href="../has_output/">has_output</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../SubSamplingProcess/">SubSamplingProcess</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../MixingProcess/">MixingProcess</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../FiltrationProcess/">FiltrationProcess</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../DissolvingProcess/">DissolvingProcess</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../ChemicalConversionProcess/">ChemicalConversionProcess</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
+<td><a href="../has_output/">has_output</a></td>
+<td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -520,195 +478,15 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../Study/">Study</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../SubSamplingProcess/">SubSamplingProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../SubSamplingProcess/">SubSamplingProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../SubSamplingProcess/">SubSamplingProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MixingProcess/">MixingProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MixingProcess/">MixingProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MixingProcess/">MixingProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../FiltrationProcess/">FiltrationProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../FiltrationProcess/">FiltrationProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../FiltrationProcess/">FiltrationProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DissolvingProcess/">DissolvingProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DissolvingProcess/">DissolvingProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DissolvingProcess/">DissolvingProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
 <td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
 <td><a href="../PlannedProcess/">PlannedProcess</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -718,27 +496,9 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../ChemicalConversionProcess/">ChemicalConversionProcess</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ChemicalConversionProcess/">ChemicalConversionProcess</a></td>
+<td><a href="../DataGeneration/">DataGeneration</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ChemicalConversionProcess/">ChemicalConversionProcess</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowChain/">WorkflowChain</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -750,25 +510,7 @@
 <tr>
 <td><a href="../WorkflowChain/">WorkflowChain</a></td>
 <td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowChain/">WorkflowChain</a></td>
-<td><a href="../has_output/">has_output</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -780,25 +522,7 @@
 <tr>
 <td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
 <td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td><a href="../has_output/">has_output</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -810,25 +534,7 @@
 <tr>
 <td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
 <td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
-<td><a href="../has_output/">has_output</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -839,68 +545,14 @@
 </tr>
 <tr>
 <td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
 <td><a href="../has_output/">has_output</a></td>
 <td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -911,26 +563,8 @@
 </tr>
 <tr>
 <td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -941,26 +575,8 @@
 </tr>
 <tr>
 <td><a href="../MagsAnalysis/">MagsAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MagsAnalysis/">MagsAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MagsAnalysis/">MagsAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MagsAnalysis/">MagsAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -971,26 +587,8 @@
 </tr>
 <tr>
 <td><a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1001,26 +599,8 @@
 </tr>
 <tr>
 <td><a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1031,26 +611,8 @@
 </tr>
 <tr>
 <td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1061,26 +623,8 @@
 </tr>
 <tr>
 <td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1091,26 +635,8 @@
 </tr>
 <tr>
 <td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1121,26 +647,8 @@
 </tr>
 <tr>
 <td><a href="../NomAnalysis/">NomAnalysis</a></td>
-<td><a href="../part_of/">part_of</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../NomAnalysis/">NomAnalysis</a></td>
-<td><a href="../has_input/">has_input</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../NomAnalysis/">NomAnalysis</a></td>
 <td><a href="../has_input/">has_input</a></td>
 <td>range</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../NomAnalysis/">NomAnalysis</a></td>
-<td><a href="../has_output/">has_output</a></td>
-<td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
@@ -1233,9 +741,9 @@ attributes:
     alias: name
     owner: NamedThing
     domain_of:
-    - Protocol
-    - NamedThing
     - PersonValue
+    - NamedThing
+    - Protocol
     range: string
   description:
     name: description
@@ -1246,8 +754,8 @@ attributes:
     alias: description
     owner: NamedThing
     domain_of:
-    - NamedThing
     - ImageValue
+    - NamedThing
     range: string
   alternative_identifiers:
     name: alternative_identifiers
@@ -1258,8 +766,8 @@ attributes:
     alias: alternative_identifiers
     owner: NamedThing
     domain_of:
-    - NamedThing
     - MetaboliteQuantification
+    - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
@@ -1283,21 +791,21 @@ attributes:
     alias: type
     owner: NamedThing
     domain_of:
-    - FailureCategorization
     - FunctionalAnnotationAggMember
-    - Protocol
-    - Doi
-    - CreditAssociation
     - MobilePhaseSegment
-    - NamedThing
     - PortionOfSubstance
-    - AttributeValue
     - MagBin
     - MetaboliteQuantification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature
     - FunctionalAnnotation
+    - AttributeValue
+    - NamedThing
+    - FailureCategorization
+    - Protocol
+    - CreditAssociation
+    - Doi
     range: uriorcurie
     required: true
 class_uri: nmdc:NamedThing
@@ -1329,7 +837,7 @@ class_uri: nmdc:NamedThing
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+<script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
