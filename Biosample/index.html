@@ -4966,11 +4966,6 @@ slot_usage:
     - FieldResearchSite
     - Biosample
     range: float
-  oxy_stat_samp:
-    name: oxy_stat_samp
-    domain_of:
-    - Biosample
-    range: oxy_stat_samp_enum
   id:
     name: id
     description: An NMDC assigned unique identifier for a biosample submitted to NMDC.
@@ -5457,11 +5452,6 @@ slot_usage:
     - FieldResearchSite
     - Biosample
     range: float
-  oxy_stat_samp:
-    name: oxy_stat_samp
-    domain_of:
-    - Biosample
-    range: oxy_stat_samp_enum
   id:
     name: id
     description: An NMDC assigned unique identifier for a biosample submitted to NMDC.
@@ -13332,9 +13322,20 @@ attributes:
     range: QuantityValue
   oxy_stat_samp:
     name: oxy_stat_samp
+    annotations:
+      expected_value:
+        tag: expected_value
+        value: enumeration
+      occurrence:
+        tag: occurrence
+        value: '1'
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/nmdc/nmdc
+    aliases:
+    - oxygenation status of sample
     rank: 1000
     is_a: core field
     slot_uri: MIXS:0000753
