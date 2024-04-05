@@ -289,45 +289,45 @@
 
   ProtocolExecution : has_failure_categorization
 
-    ProtocolExecution --|&gt; FailureCategorization : has_failure_categorization
+    ProtocolExecution --&gt; FailureCategorization : has_failure_categorization
 
   ProtocolExecution : has_input
 
-    ProtocolExecution --|&gt; NamedThing : has_input
+    ProtocolExecution --&gt; NamedThing : has_input
 
   ProtocolExecution : has_output
 
-    ProtocolExecution --|&gt; NamedThing : has_output
+    ProtocolExecution --&gt; NamedThing : has_output
 
   ProtocolExecution : has_process_parts
 
-    ProtocolExecution --|&gt; PlannedProcess : has_process_parts
+    ProtocolExecution --&gt; PlannedProcess : has_process_parts
 
   ProtocolExecution : id
 
   ProtocolExecution : instrument_used
 
-    ProtocolExecution --|&gt; Instrument : instrument_used
+    ProtocolExecution --&gt; Instrument : instrument_used
 
   ProtocolExecution : name
 
   ProtocolExecution : processing_institution
 
-    ProtocolExecution --|&gt; ProcessingInstitutionEnum : processing_institution
+    ProtocolExecution --&gt; ProcessingInstitutionEnum : processing_institution
 
   ProtocolExecution : protocol_execution_category
 
-    ProtocolExecution --|&gt; ProtocolCategoryEnum : protocol_execution_category
+    ProtocolExecution --&gt; ProtocolCategoryEnum : protocol_execution_category
 
   ProtocolExecution : protocol_link
 
-    ProtocolExecution --|&gt; Protocol : protocol_link
+    ProtocolExecution --&gt; Protocol : protocol_link
 
   ProtocolExecution : qc_comment
 
   ProtocolExecution : qc_status
 
-    ProtocolExecution --|&gt; StatusEnum : qc_status
+    ProtocolExecution --&gt; StatusEnum : qc_status
 
   ProtocolExecution : start_date
 
@@ -824,5 +824,5 @@ class_uri: nmdc:ProtocolExecution
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

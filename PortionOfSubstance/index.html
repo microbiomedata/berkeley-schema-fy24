@@ -273,33 +273,33 @@
 
   PortionOfSubstance : final_concentration
 
-    PortionOfSubstance --|&gt; QuantityValue : final_concentration
+    PortionOfSubstance --&gt; QuantityValue : final_concentration
 
   PortionOfSubstance : known_as
 
-    PortionOfSubstance --|&gt; ChemicalEntity : known_as
+    PortionOfSubstance --&gt; ChemicalEntity : known_as
 
   PortionOfSubstance : mass
 
-    PortionOfSubstance --|&gt; QuantityValue : mass
+    PortionOfSubstance --&gt; QuantityValue : mass
 
   PortionOfSubstance : sample_state_information
 
-    PortionOfSubstance --|&gt; SampleStateEnum : sample_state_information
+    PortionOfSubstance --&gt; SampleStateEnum : sample_state_information
 
   PortionOfSubstance : source_concentration
 
-    PortionOfSubstance --|&gt; QuantityValue : source_concentration
+    PortionOfSubstance --&gt; QuantityValue : source_concentration
 
   PortionOfSubstance : substance_role
 
-    PortionOfSubstance --|&gt; SubstanceRoleEnum : substance_role
+    PortionOfSubstance --&gt; SubstanceRoleEnum : substance_role
 
   PortionOfSubstance : type
 
   PortionOfSubstance : volume
 
-    PortionOfSubstance --|&gt; QuantityValue : volume
+    PortionOfSubstance --&gt; QuantityValue : volume
 
 
 
@@ -620,5 +620,5 @@ class_uri: nmdc:PortionOfSubstance
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

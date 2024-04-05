@@ -287,7 +287,7 @@
 
   FiltrationProcess : container_size
 
-    FiltrationProcess --|&gt; QuantityValue : container_size
+    FiltrationProcess --&gt; QuantityValue : container_size
 
   FiltrationProcess : description
 
@@ -297,27 +297,27 @@
 
   FiltrationProcess : filter_pore_size
 
-    FiltrationProcess --|&gt; QuantityValue : filter_pore_size
+    FiltrationProcess --&gt; QuantityValue : filter_pore_size
 
   FiltrationProcess : filtration_category
 
   FiltrationProcess : has_failure_categorization
 
-    FiltrationProcess --|&gt; FailureCategorization : has_failure_categorization
+    FiltrationProcess --&gt; FailureCategorization : has_failure_categorization
 
   FiltrationProcess : has_input
 
-    FiltrationProcess --|&gt; NamedThing : has_input
+    FiltrationProcess --&gt; NamedThing : has_input
 
   FiltrationProcess : has_output
 
-    FiltrationProcess --|&gt; ProcessedSample : has_output
+    FiltrationProcess --&gt; ProcessedSample : has_output
 
   FiltrationProcess : id
 
   FiltrationProcess : instrument_used
 
-    FiltrationProcess --|&gt; Instrument : instrument_used
+    FiltrationProcess --&gt; Instrument : instrument_used
 
   FiltrationProcess : is_pressurized
 
@@ -325,21 +325,21 @@
 
   FiltrationProcess : processing_institution
 
-    FiltrationProcess --|&gt; ProcessingInstitutionEnum : processing_institution
+    FiltrationProcess --&gt; ProcessingInstitutionEnum : processing_institution
 
   FiltrationProcess : protocol_link
 
-    FiltrationProcess --|&gt; Protocol : protocol_link
+    FiltrationProcess --&gt; Protocol : protocol_link
 
   FiltrationProcess : qc_comment
 
   FiltrationProcess : qc_status
 
-    FiltrationProcess --|&gt; StatusEnum : qc_status
+    FiltrationProcess --&gt; StatusEnum : qc_status
 
   FiltrationProcess : separation_method
 
-    FiltrationProcess --|&gt; SeparationMethodEnum : separation_method
+    FiltrationProcess --&gt; SeparationMethodEnum : separation_method
 
   FiltrationProcess : start_date
 
@@ -347,7 +347,7 @@
 
   FiltrationProcess : volume
 
-    FiltrationProcess --|&gt; QuantityValue : volume
+    FiltrationProcess --&gt; QuantityValue : volume
 
 
 
@@ -1004,5 +1004,5 @@ class_uri: nmdc:FiltrationProcess
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

@@ -292,7 +292,7 @@
 
   WorkflowChain : analyte_category
 
-    WorkflowChain --|&gt; AnalyteCategoryEnum : analyte_category
+    WorkflowChain --&gt; AnalyteCategoryEnum : analyte_category
 
   WorkflowChain : description
 
@@ -302,21 +302,21 @@
 
   WorkflowChain : has_failure_categorization
 
-    WorkflowChain --|&gt; FailureCategorization : has_failure_categorization
+    WorkflowChain --&gt; FailureCategorization : has_failure_categorization
 
   WorkflowChain : has_input
 
-    WorkflowChain --|&gt; NamedThing : has_input
+    WorkflowChain --&gt; NamedThing : has_input
 
   WorkflowChain : has_output
 
-    WorkflowChain --|&gt; NamedThing : has_output
+    WorkflowChain --&gt; NamedThing : has_output
 
   WorkflowChain : id
 
   WorkflowChain : instrument_used
 
-    WorkflowChain --|&gt; Instrument : instrument_used
+    WorkflowChain --&gt; Instrument : instrument_used
 
   WorkflowChain : jgi_portal_analysis_project_identifiers
 
@@ -324,17 +324,17 @@
 
   WorkflowChain : processing_institution
 
-    WorkflowChain --|&gt; ProcessingInstitutionEnum : processing_institution
+    WorkflowChain --&gt; ProcessingInstitutionEnum : processing_institution
 
   WorkflowChain : protocol_link
 
-    WorkflowChain --|&gt; Protocol : protocol_link
+    WorkflowChain --&gt; Protocol : protocol_link
 
   WorkflowChain : qc_comment
 
   WorkflowChain : qc_status
 
-    WorkflowChain --|&gt; StatusEnum : qc_status
+    WorkflowChain --&gt; StatusEnum : qc_status
 
   WorkflowChain : start_date
 
@@ -342,7 +342,7 @@
 
   WorkflowChain : was_informed_by
 
-    WorkflowChain --|&gt; DataGeneration : was_informed_by
+    WorkflowChain --&gt; DataGeneration : was_informed_by
 
 
 
@@ -1006,5 +1006,5 @@ class_uri: nmdc:WorkflowChain
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

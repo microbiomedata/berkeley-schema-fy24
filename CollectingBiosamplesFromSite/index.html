@@ -295,37 +295,37 @@
 
   CollectingBiosamplesFromSite : has_failure_categorization
 
-    CollectingBiosamplesFromSite --|&gt; FailureCategorization : has_failure_categorization
+    CollectingBiosamplesFromSite --&gt; FailureCategorization : has_failure_categorization
 
   CollectingBiosamplesFromSite : has_input
 
-    CollectingBiosamplesFromSite --|&gt; Site : has_input
+    CollectingBiosamplesFromSite --&gt; Site : has_input
 
   CollectingBiosamplesFromSite : has_output
 
-    CollectingBiosamplesFromSite --|&gt; Biosample : has_output
+    CollectingBiosamplesFromSite --&gt; Biosample : has_output
 
   CollectingBiosamplesFromSite : id
 
   CollectingBiosamplesFromSite : instrument_used
 
-    CollectingBiosamplesFromSite --|&gt; Instrument : instrument_used
+    CollectingBiosamplesFromSite --&gt; Instrument : instrument_used
 
   CollectingBiosamplesFromSite : name
 
   CollectingBiosamplesFromSite : processing_institution
 
-    CollectingBiosamplesFromSite --|&gt; ProcessingInstitutionEnum : processing_institution
+    CollectingBiosamplesFromSite --&gt; ProcessingInstitutionEnum : processing_institution
 
   CollectingBiosamplesFromSite : protocol_link
 
-    CollectingBiosamplesFromSite --|&gt; Protocol : protocol_link
+    CollectingBiosamplesFromSite --&gt; Protocol : protocol_link
 
   CollectingBiosamplesFromSite : qc_comment
 
   CollectingBiosamplesFromSite : qc_status
 
-    CollectingBiosamplesFromSite --|&gt; StatusEnum : qc_status
+    CollectingBiosamplesFromSite --&gt; StatusEnum : qc_status
 
   CollectingBiosamplesFromSite : start_date
 
@@ -812,5 +812,5 @@ class_uri: nmdc:CollectingBiosamplesFromSite
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

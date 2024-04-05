@@ -280,43 +280,43 @@
 
   DirectInfusionProcess : direct_infusion_category
 
-    DirectInfusionProcess --|&gt; DirectInfusionEnum : direct_infusion_category
+    DirectInfusionProcess --&gt; DirectInfusionEnum : direct_infusion_category
 
   DirectInfusionProcess : end_date
 
   DirectInfusionProcess : has_failure_categorization
 
-    DirectInfusionProcess --|&gt; FailureCategorization : has_failure_categorization
+    DirectInfusionProcess --&gt; FailureCategorization : has_failure_categorization
 
   DirectInfusionProcess : has_input
 
-    DirectInfusionProcess --|&gt; NamedThing : has_input
+    DirectInfusionProcess --&gt; NamedThing : has_input
 
   DirectInfusionProcess : has_output
 
-    DirectInfusionProcess --|&gt; ProcessedSample : has_output
+    DirectInfusionProcess --&gt; ProcessedSample : has_output
 
   DirectInfusionProcess : id
 
   DirectInfusionProcess : instrument_used
 
-    DirectInfusionProcess --|&gt; Instrument : instrument_used
+    DirectInfusionProcess --&gt; Instrument : instrument_used
 
   DirectInfusionProcess : name
 
   DirectInfusionProcess : processing_institution
 
-    DirectInfusionProcess --|&gt; ProcessingInstitutionEnum : processing_institution
+    DirectInfusionProcess --&gt; ProcessingInstitutionEnum : processing_institution
 
   DirectInfusionProcess : protocol_link
 
-    DirectInfusionProcess --|&gt; Protocol : protocol_link
+    DirectInfusionProcess --&gt; Protocol : protocol_link
 
   DirectInfusionProcess : qc_comment
 
   DirectInfusionProcess : qc_status
 
-    DirectInfusionProcess --|&gt; StatusEnum : qc_status
+    DirectInfusionProcess --&gt; StatusEnum : qc_status
 
   DirectInfusionProcess : start_date
 
@@ -754,5 +754,5 @@ class_uri: nmdc:DirectInfusionProcess
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

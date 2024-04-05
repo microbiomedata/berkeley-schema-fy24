@@ -283,21 +283,21 @@
 
   MetatranscriptomeAnnotation : execution_resource
 
-    MetatranscriptomeAnnotation --|&gt; ExecutionResourceEnum : execution_resource
+    MetatranscriptomeAnnotation --&gt; ExecutionResourceEnum : execution_resource
 
   MetatranscriptomeAnnotation : git_url
 
   MetatranscriptomeAnnotation : has_failure_categorization
 
-    MetatranscriptomeAnnotation --|&gt; FailureCategorization : has_failure_categorization
+    MetatranscriptomeAnnotation --&gt; FailureCategorization : has_failure_categorization
 
   MetatranscriptomeAnnotation : has_input
 
-    MetatranscriptomeAnnotation --|&gt; NamedThing : has_input
+    MetatranscriptomeAnnotation --&gt; NamedThing : has_input
 
   MetatranscriptomeAnnotation : has_output
 
-    MetatranscriptomeAnnotation --|&gt; NamedThing : has_output
+    MetatranscriptomeAnnotation --&gt; NamedThing : has_output
 
   MetatranscriptomeAnnotation : id
 
@@ -305,27 +305,27 @@
 
   MetatranscriptomeAnnotation : instrument_used
 
-    MetatranscriptomeAnnotation --|&gt; Instrument : instrument_used
+    MetatranscriptomeAnnotation --&gt; Instrument : instrument_used
 
   MetatranscriptomeAnnotation : name
 
   MetatranscriptomeAnnotation : part_of
 
-    MetatranscriptomeAnnotation --|&gt; WorkflowChain : part_of
+    MetatranscriptomeAnnotation --&gt; WorkflowChain : part_of
 
   MetatranscriptomeAnnotation : processing_institution
 
-    MetatranscriptomeAnnotation --|&gt; ProcessingInstitutionEnum : processing_institution
+    MetatranscriptomeAnnotation --&gt; ProcessingInstitutionEnum : processing_institution
 
   MetatranscriptomeAnnotation : protocol_link
 
-    MetatranscriptomeAnnotation --|&gt; Protocol : protocol_link
+    MetatranscriptomeAnnotation --&gt; Protocol : protocol_link
 
   MetatranscriptomeAnnotation : qc_comment
 
   MetatranscriptomeAnnotation : qc_status
 
-    MetatranscriptomeAnnotation --|&gt; StatusEnum : qc_status
+    MetatranscriptomeAnnotation --&gt; StatusEnum : qc_status
 
   MetatranscriptomeAnnotation : start_date
 
@@ -913,5 +913,5 @@ class_uri: nmdc:MetatranscriptomeAnnotation
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

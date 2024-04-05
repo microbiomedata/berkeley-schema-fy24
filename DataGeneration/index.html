@@ -302,11 +302,11 @@
 
   DataGeneration : analyte_category
 
-    DataGeneration --|&gt; AnalyteCategoryEnum : analyte_category
+    DataGeneration --&gt; AnalyteCategoryEnum : analyte_category
 
   DataGeneration : associated_studies
 
-    DataGeneration --|&gt; Study : associated_studies
+    DataGeneration --&gt; Study : associated_studies
 
   DataGeneration : description
 
@@ -316,15 +316,15 @@
 
   DataGeneration : has_failure_categorization
 
-    DataGeneration --|&gt; FailureCategorization : has_failure_categorization
+    DataGeneration --&gt; FailureCategorization : has_failure_categorization
 
   DataGeneration : has_input
 
-    DataGeneration --|&gt; NamedThing : has_input
+    DataGeneration --&gt; NamedThing : has_input
 
   DataGeneration : has_output
 
-    DataGeneration --|&gt; DataObject : has_output
+    DataGeneration --&gt; DataObject : has_output
 
   DataGeneration : id
 
@@ -334,7 +334,7 @@
 
   DataGeneration : instrument_used
 
-    DataGeneration --|&gt; Instrument : instrument_used
+    DataGeneration --&gt; Instrument : instrument_used
 
   DataGeneration : mod_date
 
@@ -344,35 +344,35 @@
 
   DataGeneration : part_of
 
-    DataGeneration --|&gt; DataGeneration : part_of
+    DataGeneration --&gt; DataGeneration : part_of
 
   DataGeneration : principal_investigator
 
-    DataGeneration --|&gt; PersonValue : principal_investigator
+    DataGeneration --&gt; PersonValue : principal_investigator
 
   DataGeneration : processing_institution
 
-    DataGeneration --|&gt; ProcessingInstitutionEnum : processing_institution
+    DataGeneration --&gt; ProcessingInstitutionEnum : processing_institution
 
   DataGeneration : protocol_link
 
-    DataGeneration --|&gt; Protocol : protocol_link
+    DataGeneration --&gt; Protocol : protocol_link
 
   DataGeneration : qc_comment
 
   DataGeneration : qc_status
 
-    DataGeneration --|&gt; StatusEnum : qc_status
+    DataGeneration --&gt; StatusEnum : qc_status
 
   DataGeneration : start_date
 
   DataGeneration : target_gene
 
-    DataGeneration --|&gt; TextValue : target_gene
+    DataGeneration --&gt; TextValue : target_gene
 
   DataGeneration : target_subfragment
 
-    DataGeneration --|&gt; TextValue : target_subfragment
+    DataGeneration --&gt; TextValue : target_subfragment
 
   DataGeneration : type
 
@@ -1215,5 +1215,5 @@ class_uri: nmdc:DataGeneration
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

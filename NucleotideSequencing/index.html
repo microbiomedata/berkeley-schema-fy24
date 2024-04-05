@@ -287,11 +287,11 @@
 
   NucleotideSequencing : analyte_category
 
-    NucleotideSequencing --|&gt; AnalyteCategoryEnum : analyte_category
+    NucleotideSequencing --&gt; AnalyteCategoryEnum : analyte_category
 
   NucleotideSequencing : associated_studies
 
-    NucleotideSequencing --|&gt; Study : associated_studies
+    NucleotideSequencing --&gt; Study : associated_studies
 
   NucleotideSequencing : description
 
@@ -301,15 +301,15 @@
 
   NucleotideSequencing : has_failure_categorization
 
-    NucleotideSequencing --|&gt; FailureCategorization : has_failure_categorization
+    NucleotideSequencing --&gt; FailureCategorization : has_failure_categorization
 
   NucleotideSequencing : has_input
 
-    NucleotideSequencing --|&gt; NamedThing : has_input
+    NucleotideSequencing --&gt; NamedThing : has_input
 
   NucleotideSequencing : has_output
 
-    NucleotideSequencing --|&gt; DataObject : has_output
+    NucleotideSequencing --&gt; DataObject : has_output
 
   NucleotideSequencing : id
 
@@ -319,7 +319,7 @@
 
   NucleotideSequencing : instrument_used
 
-    NucleotideSequencing --|&gt; Instrument : instrument_used
+    NucleotideSequencing --&gt; Instrument : instrument_used
 
   NucleotideSequencing : mod_date
 
@@ -329,35 +329,35 @@
 
   NucleotideSequencing : part_of
 
-    NucleotideSequencing --|&gt; DataGeneration : part_of
+    NucleotideSequencing --&gt; DataGeneration : part_of
 
   NucleotideSequencing : principal_investigator
 
-    NucleotideSequencing --|&gt; PersonValue : principal_investigator
+    NucleotideSequencing --&gt; PersonValue : principal_investigator
 
   NucleotideSequencing : processing_institution
 
-    NucleotideSequencing --|&gt; ProcessingInstitutionEnum : processing_institution
+    NucleotideSequencing --&gt; ProcessingInstitutionEnum : processing_institution
 
   NucleotideSequencing : protocol_link
 
-    NucleotideSequencing --|&gt; Protocol : protocol_link
+    NucleotideSequencing --&gt; Protocol : protocol_link
 
   NucleotideSequencing : qc_comment
 
   NucleotideSequencing : qc_status
 
-    NucleotideSequencing --|&gt; StatusEnum : qc_status
+    NucleotideSequencing --&gt; StatusEnum : qc_status
 
   NucleotideSequencing : start_date
 
   NucleotideSequencing : target_gene
 
-    NucleotideSequencing --|&gt; TextValue : target_gene
+    NucleotideSequencing --&gt; TextValue : target_gene
 
   NucleotideSequencing : target_subfragment
 
-    NucleotideSequencing --|&gt; TextValue : target_subfragment
+    NucleotideSequencing --&gt; TextValue : target_subfragment
 
   NucleotideSequencing : type
 
@@ -1063,5 +1063,5 @@ class_uri: nmdc:NucleotideSequencing
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

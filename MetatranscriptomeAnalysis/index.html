@@ -291,21 +291,21 @@
 
   MetatranscriptomeAnalysis : execution_resource
 
-    MetatranscriptomeAnalysis --|&gt; ExecutionResourceEnum : execution_resource
+    MetatranscriptomeAnalysis --&gt; ExecutionResourceEnum : execution_resource
 
   MetatranscriptomeAnalysis : git_url
 
   MetatranscriptomeAnalysis : has_failure_categorization
 
-    MetatranscriptomeAnalysis --|&gt; FailureCategorization : has_failure_categorization
+    MetatranscriptomeAnalysis --&gt; FailureCategorization : has_failure_categorization
 
   MetatranscriptomeAnalysis : has_input
 
-    MetatranscriptomeAnalysis --|&gt; NamedThing : has_input
+    MetatranscriptomeAnalysis --&gt; NamedThing : has_input
 
   MetatranscriptomeAnalysis : has_output
 
-    MetatranscriptomeAnalysis --|&gt; NamedThing : has_output
+    MetatranscriptomeAnalysis --&gt; NamedThing : has_output
 
   MetatranscriptomeAnalysis : id
 
@@ -313,27 +313,27 @@
 
   MetatranscriptomeAnalysis : instrument_used
 
-    MetatranscriptomeAnalysis --|&gt; Instrument : instrument_used
+    MetatranscriptomeAnalysis --&gt; Instrument : instrument_used
 
   MetatranscriptomeAnalysis : name
 
   MetatranscriptomeAnalysis : part_of
 
-    MetatranscriptomeAnalysis --|&gt; WorkflowChain : part_of
+    MetatranscriptomeAnalysis --&gt; WorkflowChain : part_of
 
   MetatranscriptomeAnalysis : processing_institution
 
-    MetatranscriptomeAnalysis --|&gt; ProcessingInstitutionEnum : processing_institution
+    MetatranscriptomeAnalysis --&gt; ProcessingInstitutionEnum : processing_institution
 
   MetatranscriptomeAnalysis : protocol_link
 
-    MetatranscriptomeAnalysis --|&gt; Protocol : protocol_link
+    MetatranscriptomeAnalysis --&gt; Protocol : protocol_link
 
   MetatranscriptomeAnalysis : qc_comment
 
   MetatranscriptomeAnalysis : qc_status
 
-    MetatranscriptomeAnalysis --|&gt; StatusEnum : qc_status
+    MetatranscriptomeAnalysis --&gt; StatusEnum : qc_status
 
   MetatranscriptomeAnalysis : start_date
 
@@ -944,5 +944,5 @@ class_uri: nmdc:MetatranscriptomeAnalysis
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

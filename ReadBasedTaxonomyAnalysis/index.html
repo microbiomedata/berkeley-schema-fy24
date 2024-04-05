@@ -291,47 +291,47 @@
 
   ReadBasedTaxonomyAnalysis : execution_resource
 
-    ReadBasedTaxonomyAnalysis --|&gt; ExecutionResourceEnum : execution_resource
+    ReadBasedTaxonomyAnalysis --&gt; ExecutionResourceEnum : execution_resource
 
   ReadBasedTaxonomyAnalysis : git_url
 
   ReadBasedTaxonomyAnalysis : has_failure_categorization
 
-    ReadBasedTaxonomyAnalysis --|&gt; FailureCategorization : has_failure_categorization
+    ReadBasedTaxonomyAnalysis --&gt; FailureCategorization : has_failure_categorization
 
   ReadBasedTaxonomyAnalysis : has_input
 
-    ReadBasedTaxonomyAnalysis --|&gt; NamedThing : has_input
+    ReadBasedTaxonomyAnalysis --&gt; NamedThing : has_input
 
   ReadBasedTaxonomyAnalysis : has_output
 
-    ReadBasedTaxonomyAnalysis --|&gt; NamedThing : has_output
+    ReadBasedTaxonomyAnalysis --&gt; NamedThing : has_output
 
   ReadBasedTaxonomyAnalysis : id
 
   ReadBasedTaxonomyAnalysis : instrument_used
 
-    ReadBasedTaxonomyAnalysis --|&gt; Instrument : instrument_used
+    ReadBasedTaxonomyAnalysis --&gt; Instrument : instrument_used
 
   ReadBasedTaxonomyAnalysis : name
 
   ReadBasedTaxonomyAnalysis : part_of
 
-    ReadBasedTaxonomyAnalysis --|&gt; WorkflowChain : part_of
+    ReadBasedTaxonomyAnalysis --&gt; WorkflowChain : part_of
 
   ReadBasedTaxonomyAnalysis : processing_institution
 
-    ReadBasedTaxonomyAnalysis --|&gt; ProcessingInstitutionEnum : processing_institution
+    ReadBasedTaxonomyAnalysis --&gt; ProcessingInstitutionEnum : processing_institution
 
   ReadBasedTaxonomyAnalysis : protocol_link
 
-    ReadBasedTaxonomyAnalysis --|&gt; Protocol : protocol_link
+    ReadBasedTaxonomyAnalysis --&gt; Protocol : protocol_link
 
   ReadBasedTaxonomyAnalysis : qc_comment
 
   ReadBasedTaxonomyAnalysis : qc_status
 
-    ReadBasedTaxonomyAnalysis --|&gt; StatusEnum : qc_status
+    ReadBasedTaxonomyAnalysis --&gt; StatusEnum : qc_status
 
   ReadBasedTaxonomyAnalysis : start_date
 
@@ -898,5 +898,5 @@ class_uri: nmdc:ReadBasedTaxonomyAnalysis
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

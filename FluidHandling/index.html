@@ -297,37 +297,37 @@
 
   FluidHandling : has_failure_categorization
 
-    FluidHandling --|&gt; FailureCategorization : has_failure_categorization
+    FluidHandling --&gt; FailureCategorization : has_failure_categorization
 
   FluidHandling : has_input
 
-    FluidHandling --|&gt; NamedThing : has_input
+    FluidHandling --&gt; NamedThing : has_input
 
   FluidHandling : has_output
 
-    FluidHandling --|&gt; ProcessedSample : has_output
+    FluidHandling --&gt; ProcessedSample : has_output
 
   FluidHandling : id
 
   FluidHandling : instrument_used
 
-    FluidHandling --|&gt; Instrument : instrument_used
+    FluidHandling --&gt; Instrument : instrument_used
 
   FluidHandling : name
 
   FluidHandling : processing_institution
 
-    FluidHandling --|&gt; ProcessingInstitutionEnum : processing_institution
+    FluidHandling --&gt; ProcessingInstitutionEnum : processing_institution
 
   FluidHandling : protocol_link
 
-    FluidHandling --|&gt; Protocol : protocol_link
+    FluidHandling --&gt; Protocol : protocol_link
 
   FluidHandling : qc_comment
 
   FluidHandling : qc_status
 
-    FluidHandling --|&gt; StatusEnum : qc_status
+    FluidHandling --&gt; StatusEnum : qc_status
 
   FluidHandling : start_date
 
@@ -768,5 +768,5 @@ class_uri: nmdc:FluidHandling
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

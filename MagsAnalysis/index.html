@@ -293,21 +293,21 @@
 
   MagsAnalysis : execution_resource
 
-    MagsAnalysis --|&gt; ExecutionResourceEnum : execution_resource
+    MagsAnalysis --&gt; ExecutionResourceEnum : execution_resource
 
   MagsAnalysis : git_url
 
   MagsAnalysis : has_failure_categorization
 
-    MagsAnalysis --|&gt; FailureCategorization : has_failure_categorization
+    MagsAnalysis --&gt; FailureCategorization : has_failure_categorization
 
   MagsAnalysis : has_input
 
-    MagsAnalysis --|&gt; NamedThing : has_input
+    MagsAnalysis --&gt; NamedThing : has_input
 
   MagsAnalysis : has_output
 
-    MagsAnalysis --|&gt; NamedThing : has_output
+    MagsAnalysis --&gt; NamedThing : has_output
 
   MagsAnalysis : id
 
@@ -317,33 +317,33 @@
 
   MagsAnalysis : instrument_used
 
-    MagsAnalysis --|&gt; Instrument : instrument_used
+    MagsAnalysis --&gt; Instrument : instrument_used
 
   MagsAnalysis : low_depth_contig_num
 
   MagsAnalysis : mags_list
 
-    MagsAnalysis --|&gt; MagBin : mags_list
+    MagsAnalysis --&gt; MagBin : mags_list
 
   MagsAnalysis : name
 
   MagsAnalysis : part_of
 
-    MagsAnalysis --|&gt; WorkflowChain : part_of
+    MagsAnalysis --&gt; WorkflowChain : part_of
 
   MagsAnalysis : processing_institution
 
-    MagsAnalysis --|&gt; ProcessingInstitutionEnum : processing_institution
+    MagsAnalysis --&gt; ProcessingInstitutionEnum : processing_institution
 
   MagsAnalysis : protocol_link
 
-    MagsAnalysis --|&gt; Protocol : protocol_link
+    MagsAnalysis --&gt; Protocol : protocol_link
 
   MagsAnalysis : qc_comment
 
   MagsAnalysis : qc_status
 
-    MagsAnalysis --|&gt; StatusEnum : qc_status
+    MagsAnalysis --&gt; StatusEnum : qc_status
 
   MagsAnalysis : start_date
 
@@ -1064,5 +1064,5 @@ class_uri: nmdc:MagsAnalysis
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

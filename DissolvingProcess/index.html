@@ -288,53 +288,53 @@
 
   DissolvingProcess : duration
 
-    DissolvingProcess --|&gt; QuantityValue : duration
+    DissolvingProcess --&gt; QuantityValue : duration
 
   DissolvingProcess : end_date
 
   DissolvingProcess : has_failure_categorization
 
-    DissolvingProcess --|&gt; FailureCategorization : has_failure_categorization
+    DissolvingProcess --&gt; FailureCategorization : has_failure_categorization
 
   DissolvingProcess : has_input
 
-    DissolvingProcess --|&gt; NamedThing : has_input
+    DissolvingProcess --&gt; NamedThing : has_input
 
   DissolvingProcess : has_output
 
-    DissolvingProcess --|&gt; ProcessedSample : has_output
+    DissolvingProcess --&gt; ProcessedSample : has_output
 
   DissolvingProcess : id
 
   DissolvingProcess : instrument_used
 
-    DissolvingProcess --|&gt; Instrument : instrument_used
+    DissolvingProcess --&gt; Instrument : instrument_used
 
   DissolvingProcess : name
 
   DissolvingProcess : processing_institution
 
-    DissolvingProcess --|&gt; ProcessingInstitutionEnum : processing_institution
+    DissolvingProcess --&gt; ProcessingInstitutionEnum : processing_institution
 
   DissolvingProcess : protocol_link
 
-    DissolvingProcess --|&gt; Protocol : protocol_link
+    DissolvingProcess --&gt; Protocol : protocol_link
 
   DissolvingProcess : qc_comment
 
   DissolvingProcess : qc_status
 
-    DissolvingProcess --|&gt; StatusEnum : qc_status
+    DissolvingProcess --&gt; StatusEnum : qc_status
 
   DissolvingProcess : start_date
 
   DissolvingProcess : substances_used
 
-    DissolvingProcess --|&gt; PortionOfSubstance : substances_used
+    DissolvingProcess --&gt; PortionOfSubstance : substances_used
 
   DissolvingProcess : temperature
 
-    DissolvingProcess --|&gt; QuantityValue : temperature
+    DissolvingProcess --&gt; QuantityValue : temperature
 
   DissolvingProcess : type
 
@@ -861,5 +861,5 @@ class_uri: nmdc:DissolvingProcess
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

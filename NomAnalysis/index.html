@@ -290,7 +290,7 @@
 
   NomAnalysis : execution_resource
 
-    NomAnalysis --|&gt; ExecutionResourceEnum : execution_resource
+    NomAnalysis --&gt; ExecutionResourceEnum : execution_resource
 
   NomAnalysis : git_url
 
@@ -298,41 +298,41 @@
 
   NomAnalysis : has_failure_categorization
 
-    NomAnalysis --|&gt; FailureCategorization : has_failure_categorization
+    NomAnalysis --&gt; FailureCategorization : has_failure_categorization
 
   NomAnalysis : has_input
 
-    NomAnalysis --|&gt; NamedThing : has_input
+    NomAnalysis --&gt; NamedThing : has_input
 
   NomAnalysis : has_output
 
-    NomAnalysis --|&gt; NamedThing : has_output
+    NomAnalysis --&gt; NamedThing : has_output
 
   NomAnalysis : id
 
   NomAnalysis : instrument_used
 
-    NomAnalysis --|&gt; Instrument : instrument_used
+    NomAnalysis --&gt; Instrument : instrument_used
 
   NomAnalysis : name
 
   NomAnalysis : part_of
 
-    NomAnalysis --|&gt; WorkflowChain : part_of
+    NomAnalysis --&gt; WorkflowChain : part_of
 
   NomAnalysis : processing_institution
 
-    NomAnalysis --|&gt; ProcessingInstitutionEnum : processing_institution
+    NomAnalysis --&gt; ProcessingInstitutionEnum : processing_institution
 
   NomAnalysis : protocol_link
 
-    NomAnalysis --|&gt; Protocol : protocol_link
+    NomAnalysis --&gt; Protocol : protocol_link
 
   NomAnalysis : qc_comment
 
   NomAnalysis : qc_status
 
-    NomAnalysis --|&gt; StatusEnum : qc_status
+    NomAnalysis --&gt; StatusEnum : qc_status
 
   NomAnalysis : start_date
 
@@ -918,5 +918,5 @@ class_uri: nmdc:NomAnalysis
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

@@ -291,21 +291,21 @@
 
   MetagenomeAnnotation : execution_resource
 
-    MetagenomeAnnotation --|&gt; ExecutionResourceEnum : execution_resource
+    MetagenomeAnnotation --&gt; ExecutionResourceEnum : execution_resource
 
   MetagenomeAnnotation : git_url
 
   MetagenomeAnnotation : has_failure_categorization
 
-    MetagenomeAnnotation --|&gt; FailureCategorization : has_failure_categorization
+    MetagenomeAnnotation --&gt; FailureCategorization : has_failure_categorization
 
   MetagenomeAnnotation : has_input
 
-    MetagenomeAnnotation --|&gt; NamedThing : has_input
+    MetagenomeAnnotation --&gt; NamedThing : has_input
 
   MetagenomeAnnotation : has_output
 
-    MetagenomeAnnotation --|&gt; NamedThing : has_output
+    MetagenomeAnnotation --&gt; NamedThing : has_output
 
   MetagenomeAnnotation : id
 
@@ -313,27 +313,27 @@
 
   MetagenomeAnnotation : instrument_used
 
-    MetagenomeAnnotation --|&gt; Instrument : instrument_used
+    MetagenomeAnnotation --&gt; Instrument : instrument_used
 
   MetagenomeAnnotation : name
 
   MetagenomeAnnotation : part_of
 
-    MetagenomeAnnotation --|&gt; WorkflowChain : part_of
+    MetagenomeAnnotation --&gt; WorkflowChain : part_of
 
   MetagenomeAnnotation : processing_institution
 
-    MetagenomeAnnotation --|&gt; ProcessingInstitutionEnum : processing_institution
+    MetagenomeAnnotation --&gt; ProcessingInstitutionEnum : processing_institution
 
   MetagenomeAnnotation : protocol_link
 
-    MetagenomeAnnotation --|&gt; Protocol : protocol_link
+    MetagenomeAnnotation --&gt; Protocol : protocol_link
 
   MetagenomeAnnotation : qc_comment
 
   MetagenomeAnnotation : qc_status
 
-    MetagenomeAnnotation --|&gt; StatusEnum : qc_status
+    MetagenomeAnnotation --&gt; StatusEnum : qc_status
 
   MetagenomeAnnotation : start_date
 
@@ -950,5 +950,5 @@ class_uri: nmdc:MetagenomeAnnotation
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

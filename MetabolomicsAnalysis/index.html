@@ -290,7 +290,7 @@
 
   MetabolomicsAnalysis : execution_resource
 
-    MetabolomicsAnalysis --|&gt; ExecutionResourceEnum : execution_resource
+    MetabolomicsAnalysis --&gt; ExecutionResourceEnum : execution_resource
 
   MetabolomicsAnalysis : git_url
 
@@ -298,45 +298,45 @@
 
   MetabolomicsAnalysis : has_failure_categorization
 
-    MetabolomicsAnalysis --|&gt; FailureCategorization : has_failure_categorization
+    MetabolomicsAnalysis --&gt; FailureCategorization : has_failure_categorization
 
   MetabolomicsAnalysis : has_input
 
-    MetabolomicsAnalysis --|&gt; NamedThing : has_input
+    MetabolomicsAnalysis --&gt; NamedThing : has_input
 
   MetabolomicsAnalysis : has_metabolite_quantifications
 
-    MetabolomicsAnalysis --|&gt; MetaboliteQuantification : has_metabolite_quantifications
+    MetabolomicsAnalysis --&gt; MetaboliteQuantification : has_metabolite_quantifications
 
   MetabolomicsAnalysis : has_output
 
-    MetabolomicsAnalysis --|&gt; NamedThing : has_output
+    MetabolomicsAnalysis --&gt; NamedThing : has_output
 
   MetabolomicsAnalysis : id
 
   MetabolomicsAnalysis : instrument_used
 
-    MetabolomicsAnalysis --|&gt; Instrument : instrument_used
+    MetabolomicsAnalysis --&gt; Instrument : instrument_used
 
   MetabolomicsAnalysis : name
 
   MetabolomicsAnalysis : part_of
 
-    MetabolomicsAnalysis --|&gt; WorkflowChain : part_of
+    MetabolomicsAnalysis --&gt; WorkflowChain : part_of
 
   MetabolomicsAnalysis : processing_institution
 
-    MetabolomicsAnalysis --|&gt; ProcessingInstitutionEnum : processing_institution
+    MetabolomicsAnalysis --&gt; ProcessingInstitutionEnum : processing_institution
 
   MetabolomicsAnalysis : protocol_link
 
-    MetabolomicsAnalysis --|&gt; Protocol : protocol_link
+    MetabolomicsAnalysis --&gt; Protocol : protocol_link
 
   MetabolomicsAnalysis : qc_comment
 
   MetabolomicsAnalysis : qc_status
 
-    MetabolomicsAnalysis --|&gt; StatusEnum : qc_status
+    MetabolomicsAnalysis --&gt; StatusEnum : qc_status
 
   MetabolomicsAnalysis : start_date
 
@@ -946,5 +946,5 @@ class_uri: nmdc:MetabolomicsAnalysis
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

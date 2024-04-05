@@ -280,19 +280,19 @@
 
   FunctionalAnnotation : feature_category
 
-    FunctionalAnnotation --|&gt; ControlledIdentifiedTermValue : feature_category
+    FunctionalAnnotation --&gt; ControlledIdentifiedTermValue : feature_category
 
   FunctionalAnnotation : has_function
 
   FunctionalAnnotation : subject
 
-    FunctionalAnnotation --|&gt; GeneProduct : subject
+    FunctionalAnnotation --&gt; GeneProduct : subject
 
   FunctionalAnnotation : type
 
   FunctionalAnnotation : was_generated_by
 
-    FunctionalAnnotation --|&gt; MetagenomeAnnotation : was_generated_by
+    FunctionalAnnotation --&gt; MetagenomeAnnotation : was_generated_by
 
 
 
@@ -610,5 +610,5 @@ class_uri: nmdc:FunctionalAnnotation
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

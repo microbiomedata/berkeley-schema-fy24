@@ -303,7 +303,7 @@
 
   MetatranscriptomeAssembly : execution_resource
 
-    MetatranscriptomeAssembly --|&gt; ExecutionResourceEnum : execution_resource
+    MetatranscriptomeAssembly --&gt; ExecutionResourceEnum : execution_resource
 
   MetatranscriptomeAssembly : gap_pct
 
@@ -315,15 +315,15 @@
 
   MetatranscriptomeAssembly : has_failure_categorization
 
-    MetatranscriptomeAssembly --|&gt; FailureCategorization : has_failure_categorization
+    MetatranscriptomeAssembly --&gt; FailureCategorization : has_failure_categorization
 
   MetatranscriptomeAssembly : has_input
 
-    MetatranscriptomeAssembly --|&gt; NamedThing : has_input
+    MetatranscriptomeAssembly --&gt; NamedThing : has_input
 
   MetatranscriptomeAssembly : has_output
 
-    MetatranscriptomeAssembly --|&gt; NamedThing : has_output
+    MetatranscriptomeAssembly --&gt; NamedThing : has_output
 
   MetatranscriptomeAssembly : id
 
@@ -331,7 +331,7 @@
 
   MetatranscriptomeAssembly : instrument_used
 
-    MetatranscriptomeAssembly --|&gt; Instrument : instrument_used
+    MetatranscriptomeAssembly --&gt; Instrument : instrument_used
 
   MetatranscriptomeAssembly : name
 
@@ -341,21 +341,21 @@
 
   MetatranscriptomeAssembly : part_of
 
-    MetatranscriptomeAssembly --|&gt; WorkflowChain : part_of
+    MetatranscriptomeAssembly --&gt; WorkflowChain : part_of
 
   MetatranscriptomeAssembly : processing_institution
 
-    MetatranscriptomeAssembly --|&gt; ProcessingInstitutionEnum : processing_institution
+    MetatranscriptomeAssembly --&gt; ProcessingInstitutionEnum : processing_institution
 
   MetatranscriptomeAssembly : protocol_link
 
-    MetatranscriptomeAssembly --|&gt; Protocol : protocol_link
+    MetatranscriptomeAssembly --&gt; Protocol : protocol_link
 
   MetatranscriptomeAssembly : qc_comment
 
   MetatranscriptomeAssembly : qc_status
 
-    MetatranscriptomeAssembly --|&gt; StatusEnum : qc_status
+    MetatranscriptomeAssembly --&gt; StatusEnum : qc_status
 
   MetatranscriptomeAssembly : scaf_bp
 
@@ -1474,5 +1474,5 @@ class_uri: nmdc:MetatranscriptomeAssembly
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

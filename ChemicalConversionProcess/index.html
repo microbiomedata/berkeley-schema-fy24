@@ -300,63 +300,63 @@
 
   ChemicalConversionProcess : chemical_conversion_category
 
-    ChemicalConversionProcess --|&gt; ChemicalConversionCategoryEnum : chemical_conversion_category
+    ChemicalConversionProcess --&gt; ChemicalConversionCategoryEnum : chemical_conversion_category
 
   ChemicalConversionProcess : description
 
   ChemicalConversionProcess : duration
 
-    ChemicalConversionProcess --|&gt; QuantityValue : duration
+    ChemicalConversionProcess --&gt; QuantityValue : duration
 
   ChemicalConversionProcess : end_date
 
   ChemicalConversionProcess : has_failure_categorization
 
-    ChemicalConversionProcess --|&gt; FailureCategorization : has_failure_categorization
+    ChemicalConversionProcess --&gt; FailureCategorization : has_failure_categorization
 
   ChemicalConversionProcess : has_input
 
-    ChemicalConversionProcess --|&gt; NamedThing : has_input
+    ChemicalConversionProcess --&gt; NamedThing : has_input
 
   ChemicalConversionProcess : has_output
 
-    ChemicalConversionProcess --|&gt; ProcessedSample : has_output
+    ChemicalConversionProcess --&gt; ProcessedSample : has_output
 
   ChemicalConversionProcess : id
 
   ChemicalConversionProcess : instrument_used
 
-    ChemicalConversionProcess --|&gt; Instrument : instrument_used
+    ChemicalConversionProcess --&gt; Instrument : instrument_used
 
   ChemicalConversionProcess : name
 
   ChemicalConversionProcess : processing_institution
 
-    ChemicalConversionProcess --|&gt; ProcessingInstitutionEnum : processing_institution
+    ChemicalConversionProcess --&gt; ProcessingInstitutionEnum : processing_institution
 
   ChemicalConversionProcess : protocol_link
 
-    ChemicalConversionProcess --|&gt; Protocol : protocol_link
+    ChemicalConversionProcess --&gt; Protocol : protocol_link
 
   ChemicalConversionProcess : qc_comment
 
   ChemicalConversionProcess : qc_status
 
-    ChemicalConversionProcess --|&gt; StatusEnum : qc_status
+    ChemicalConversionProcess --&gt; StatusEnum : qc_status
 
   ChemicalConversionProcess : start_date
 
   ChemicalConversionProcess : substances_used
 
-    ChemicalConversionProcess --|&gt; PortionOfSubstance : substances_used
+    ChemicalConversionProcess --&gt; PortionOfSubstance : substances_used
 
   ChemicalConversionProcess : substances_volume
 
-    ChemicalConversionProcess --|&gt; QuantityValue : substances_volume
+    ChemicalConversionProcess --&gt; QuantityValue : substances_volume
 
   ChemicalConversionProcess : temperature
 
-    ChemicalConversionProcess --|&gt; QuantityValue : temperature
+    ChemicalConversionProcess --&gt; QuantityValue : temperature
 
   ChemicalConversionProcess : type
 
@@ -949,5 +949,5 @@ class_uri: nmdc:ChemicalConversionProcess
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

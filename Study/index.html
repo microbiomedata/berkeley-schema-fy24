@@ -312,7 +312,7 @@
 
   Study : associated_dois
 
-    Study --|&gt; Doi : associated_dois
+    Study --&gt; Doi : associated_dois
 
   Study : description
 
@@ -334,7 +334,7 @@
 
   Study : has_credit_associations
 
-    Study --|&gt; CreditAssociation : has_credit_associations
+    Study --&gt; CreditAssociation : has_credit_associations
 
   Study : homepage_website
 
@@ -356,15 +356,15 @@
 
   Study : part_of
 
-    Study --|&gt; Study : part_of
+    Study --&gt; Study : part_of
 
   Study : principal_investigator
 
-    Study --|&gt; PersonValue : principal_investigator
+    Study --&gt; PersonValue : principal_investigator
 
   Study : protocol_link
 
-    Study --|&gt; Protocol : protocol_link
+    Study --&gt; Protocol : protocol_link
 
   Study : related_identifiers
 
@@ -372,11 +372,11 @@
 
   Study : study_category
 
-    Study --|&gt; StudyCategoryEnum : study_category
+    Study --&gt; StudyCategoryEnum : study_category
 
   Study : study_image
 
-    Study --|&gt; ImageValue : study_image
+    Study --&gt; ImageValue : study_image
 
   Study : title
 
@@ -1713,5 +1713,5 @@ class_uri: nmdc:Study
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

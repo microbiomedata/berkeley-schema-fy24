@@ -291,47 +291,47 @@
 
   MetagenomeSequencing : execution_resource
 
-    MetagenomeSequencing --|&gt; ExecutionResourceEnum : execution_resource
+    MetagenomeSequencing --&gt; ExecutionResourceEnum : execution_resource
 
   MetagenomeSequencing : git_url
 
   MetagenomeSequencing : has_failure_categorization
 
-    MetagenomeSequencing --|&gt; FailureCategorization : has_failure_categorization
+    MetagenomeSequencing --&gt; FailureCategorization : has_failure_categorization
 
   MetagenomeSequencing : has_input
 
-    MetagenomeSequencing --|&gt; NamedThing : has_input
+    MetagenomeSequencing --&gt; NamedThing : has_input
 
   MetagenomeSequencing : has_output
 
-    MetagenomeSequencing --|&gt; NamedThing : has_output
+    MetagenomeSequencing --&gt; NamedThing : has_output
 
   MetagenomeSequencing : id
 
   MetagenomeSequencing : instrument_used
 
-    MetagenomeSequencing --|&gt; Instrument : instrument_used
+    MetagenomeSequencing --&gt; Instrument : instrument_used
 
   MetagenomeSequencing : name
 
   MetagenomeSequencing : part_of
 
-    MetagenomeSequencing --|&gt; WorkflowChain : part_of
+    MetagenomeSequencing --&gt; WorkflowChain : part_of
 
   MetagenomeSequencing : processing_institution
 
-    MetagenomeSequencing --|&gt; ProcessingInstitutionEnum : processing_institution
+    MetagenomeSequencing --&gt; ProcessingInstitutionEnum : processing_institution
 
   MetagenomeSequencing : protocol_link
 
-    MetagenomeSequencing --|&gt; Protocol : protocol_link
+    MetagenomeSequencing --&gt; Protocol : protocol_link
 
   MetagenomeSequencing : qc_comment
 
   MetagenomeSequencing : qc_status
 
-    MetagenomeSequencing --|&gt; StatusEnum : qc_status
+    MetagenomeSequencing --&gt; StatusEnum : qc_status
 
   MetagenomeSequencing : start_date
 
@@ -898,5 +898,5 @@ class_uri: nmdc:MetagenomeSequencing
 <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>
