@@ -616,7 +616,7 @@
 </tr>
 <tr>
 <td><a href="../gold_biosample_identifiers/">gold_biosample_identifiers</a></td>
-<td>0..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
 <td>Unique identifier for a biosample submitted to GOLD that matches the NMDC sub...</td>
 <td>direct</td>
 </tr>
@@ -4987,7 +4987,6 @@ slot_usage:
     - This is the ID provided by GOLD that starts with 'GB'
     domain_of:
     - Biosample
-    range: uriorcurie
   alternative_identifiers:
     name: alternative_identifiers
     description: Unique identifier for a biosample submitted to additional resources.
@@ -5473,7 +5472,6 @@ slot_usage:
     - This is the ID provided by GOLD that starts with 'GB'
     domain_of:
     - Biosample
-    range: uriorcurie
   alternative_identifiers:
     name: alternative_identifiers
     description: Unique identifier for a biosample submitted to additional resources.
@@ -6023,7 +6021,7 @@ attributes:
     owner: Biosample
     domain_of:
     - Biosample
-    range: uriorcurie
+    range: external_identifier
     pattern: ^gold:Gb[0-9]+$
   insdc_biosample_identifiers:
     name: insdc_biosample_identifiers
