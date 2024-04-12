@@ -138,10 +138,7 @@ class TestChromatographySeparationProcess(unittest.TestCase):
 
         csp = ChromatographicSeparationProcess(
             id="nmdc:NOT_CHECKED_IN_TEST",
-            chromatographic_category="liquid_chromatography",
-            stationary_phase="C8",
             type="nmdc:ChromatographicSeparationProcess",
-            ordered_mobile_phases=[mbp1, mbp2],
         )
 
         validator.validate_object(csp, target_class=ChromatographicSeparationProcess)
