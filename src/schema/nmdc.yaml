@@ -1084,7 +1084,7 @@ slots:
     description: The material the stationary phase is comprised of used in chromatography.
     
   chromatographic_category:
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: ChromatographicCategoryEnum
     description: The type of chromatography used in a process.
 
