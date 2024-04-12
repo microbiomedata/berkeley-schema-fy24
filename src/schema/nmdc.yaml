@@ -445,10 +445,7 @@ classes:
     is_a: FluidHandling
     slots:
       - has_calibration
-      - chromatographic_category
-      - ordered_mobile_phases
-      - stationary_phase
-      - temperature
+      - has_configuration
     rules:
       - title: has_calibration_required_if_gc
         description: >-
@@ -466,6 +463,21 @@ classes:
         required: true
         structured_pattern:
           syntax: "{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          interpolated: true
+  
+  ChromatographicSeparationConfiguration:
+    is_a: Configuration
+    class_uri: nmdc:ChromatographicSeparationConfiguration
+    description: A platform that enables the user to configure the actions of a chromatographic separation process.
+    slots:
+      - chromatographic_category
+      - ordered_mobile_phases
+      - stationary_phase
+      - temperature
+    slot_usage:
+      id:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(cscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
 
   DissolvingProcess:
