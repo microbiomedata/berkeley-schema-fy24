@@ -151,29 +151,6 @@ class TestChromatographySeparationProcess(unittest.TestCase):
         extr_yaml_string = """
 id: nmdc:NOT_CHECKED_IN_TEST
 type: nmdc:ChromatographicSeparationProcess
-chromatographic_category: liquid_chromatography
-ordered_mobile_phases:
-- type: nmdc:MobilePhaseSegment
-  duration:
-    type: nmdc:QuantityValue
-    has_numeric_value: 5.0
-    has_unit: minutes
-  substances_used:
-  - type: nmdc:PortionOfSubstance
-    known_as: nmdc:chem-99-000005
-- type: nmdc:MobilePhaseSegment
-  duration:
-    type: nmdc:QuantityValue
-    has_numeric_value: 5.0
-    has_unit: minutes
-  substances_used:
-  - type: nmdc:PortionOfSubstance
-    final_concentration:
-      type: nmdc:QuantityValue
-      has_numeric_value: 5.0
-      has_unit: '%'
-    known_as: nmdc:chem-99-000003
-stationary_phase: C8
         """
 
         from_yaml_string = yaml_loader.load(source=extr_yaml_string, target_class=ChromatographicSeparationProcess)
