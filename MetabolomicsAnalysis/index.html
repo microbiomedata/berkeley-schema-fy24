@@ -304,9 +304,9 @@
 
     MetabolomicsAnalysis --&gt; NamedThing : has_input
 
-  MetabolomicsAnalysis : has_metabolite_quantifications
+  MetabolomicsAnalysis : has_metabolite_identifications
 
-    MetabolomicsAnalysis --&gt; MetaboliteQuantification : has_metabolite_quantifications
+    MetabolomicsAnalysis --&gt; MetaboliteIdentification : has_metabolite_identifications
 
   MetabolomicsAnalysis : has_output
 
@@ -380,8 +380,8 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../has_metabolite_quantifications/">has_metabolite_quantifications</a></td>
-<td>0..* <br/> <a href="../MetaboliteQuantification/">MetaboliteQuantification</a></td>
+<td><a href="../has_metabolite_identifications/">has_metabolite_identifications</a></td>
+<td>0..* <br/> <a href="../MetaboliteIdentification/">MetaboliteIdentification</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -532,7 +532,7 @@
 </tr>
 <tr>
 <td><a href="./">MetabolomicsAnalysis</a></td>
-<td><a href="../has_metabolite_quantifications/">has_metabolite_quantifications</a></td>
+<td><a href="../has_metabolite_identifications/">has_metabolite_identifications</a></td>
 <td>domain</td>
 <td><a href="./">MetabolomicsAnalysis</a></td>
 </tr>
@@ -573,7 +573,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 is_a: WorkflowExecution
 slots:
 - has_calibration
-- has_metabolite_quantifications
+- has_metabolite_identifications
 slot_usage:
   id:
     name: id
@@ -621,17 +621,17 @@ attributes:
     - MetabolomicsAnalysis
     - NomAnalysis
     range: string
-  has_metabolite_quantifications:
-    name: has_metabolite_quantifications
+  has_metabolite_identifications:
+    name: has_metabolite_identifications
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     domain: MetabolomicsAnalysis
     multivalued: true
-    alias: has_metabolite_quantifications
+    alias: has_metabolite_identifications
     owner: MetabolomicsAnalysis
     domain_of:
     - MetabolomicsAnalysis
-    range: MetaboliteQuantification
+    range: MetaboliteIdentification
   ended_at_time:
     name: ended_at_time
     from_schema: https://w3id.org/nmdc/nmdc
@@ -872,7 +872,7 @@ attributes:
     alias: alternative_identifiers
     owner: MetabolomicsAnalysis
     domain_of:
-    - MetaboliteQuantification
+    - MetaboliteIdentification
     - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
@@ -901,7 +901,7 @@ attributes:
     - MobilePhaseSegment
     - PortionOfSubstance
     - MagBin
-    - MetaboliteQuantification
+    - MetaboliteIdentification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature

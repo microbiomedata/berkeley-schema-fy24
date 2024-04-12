@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://microbiomedata.github.io/nmdc-schema/MetaboliteQuantification/" rel="canonical"/>
+<link href="https://microbiomedata.github.io/nmdc-schema/MetaboliteIdentification/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
-<title>Class: MetaboliteQuantification - NMDC Schema Documentation</title>
+<title>Class: MetaboliteIdentification - NMDC Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-metabolitequantification">
+<a class="md-skip" href="#class-metaboliteidentification">
           Skip to content
         </a>
 </div>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: MetaboliteQuantification
+              Class: MetaboliteIdentification
             
           </span>
 </div>
@@ -265,21 +265,21 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-metabolitequantification">Class: MetaboliteQuantification</h1>
+<h1 id="class-metaboliteidentification">Class: MetaboliteIdentification</h1>
 <p><em>This is used to link a metabolomics analysis workflow to a specific metabolite</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/MetaboliteQuantification">nmdc:MetaboliteQuantification</a></p>
+<p>URI: <a href="https://w3id.org/nmdc/MetaboliteIdentification">nmdc:MetaboliteIdentification</a></p>
 <div class="mermaid">classDiagram
-  class MetaboliteQuantification
+  class MetaboliteIdentification
 
-  MetaboliteQuantification : alternative_identifiers
+  MetaboliteIdentification : alternative_identifiers
 
-  MetaboliteQuantification : highest_similarity_score
+  MetaboliteIdentification : highest_similarity_score
 
-  MetaboliteQuantification : metabolite_quantified
+  MetaboliteIdentification : metabolite_identified
 
-    MetaboliteQuantification --&gt; ChemicalEntity : metabolite_quantified
+    MetaboliteIdentification --&gt; ChemicalEntity : metabolite_identified
 
-  MetaboliteQuantification : type
+  MetaboliteIdentification : type
 
 
 
@@ -309,7 +309,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../metabolite_quantified/">metabolite_quantified</a></td>
+<td><a href="../metabolite_identified/">metabolite_identified</a></td>
 <td>0..1 <br/> <a href="../ChemicalEntity/">ChemicalEntity</a></td>
 <td>the specific metabolite identifier</td>
 <td>direct</td>
@@ -335,9 +335,9 @@
 <tbody>
 <tr>
 <td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td><a href="../has_metabolite_quantifications/">has_metabolite_quantifications</a></td>
+<td><a href="../has_metabolite_identifications/">has_metabolite_identifications</a></td>
 <td>range</td>
-<td><a href="./">MetaboliteQuantification</a></td>
+<td><a href="./">MetaboliteIdentification</a></td>
 </tr>
 </tbody>
 </table>
@@ -357,11 +357,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>nmdc:MetaboliteQuantification</td>
+<td>nmdc:MetaboliteIdentification</td>
 </tr>
 <tr>
 <td>native</td>
-<td>nmdc:MetaboliteQuantification</td>
+<td>nmdc:MetaboliteIdentification</td>
 </tr>
 </tbody>
 </table>
@@ -369,21 +369,21 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: MetaboliteQuantification
+<pre><code class="language-yaml">name: MetaboliteIdentification
 description: This is used to link a metabolomics analysis workflow to a specific metabolite
 from_schema: https://w3id.org/nmdc/nmdc
 slots:
 - alternative_identifiers
 - highest_similarity_score
-- metabolite_quantified
+- metabolite_identified
 - type
-class_uri: nmdc:MetaboliteQuantification
+class_uri: nmdc:MetaboliteIdentification
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: MetaboliteQuantification
+<pre><code class="language-yaml">name: MetaboliteIdentification
 description: This is used to link a metabolomics analysis workflow to a specific metabolite
 from_schema: https://w3id.org/nmdc/nmdc
 attributes:
@@ -394,9 +394,9 @@ attributes:
     rank: 1000
     multivalued: true
     alias: alternative_identifiers
-    owner: MetaboliteQuantification
+    owner: MetaboliteIdentification
     domain_of:
-    - MetaboliteQuantification
+    - MetaboliteIdentification
     - NamedThing
     range: uriorcurie
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
@@ -407,19 +407,19 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: highest_similarity_score
-    owner: MetaboliteQuantification
+    owner: MetaboliteIdentification
     domain_of:
-    - MetaboliteQuantification
+    - MetaboliteIdentification
     range: float
-  metabolite_quantified:
-    name: metabolite_quantified
+  metabolite_identified:
+    name: metabolite_identified
     description: the specific metabolite identifier
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: metabolite_quantified
-    owner: MetaboliteQuantification
+    alias: metabolite_identified
+    owner: MetaboliteIdentification
     domain_of:
-    - MetaboliteQuantification
+    - MetaboliteIdentification
     range: ChemicalEntity
   type:
     name: type
@@ -440,13 +440,13 @@ attributes:
     slot_uri: rdf:type
     designates_type: true
     alias: type
-    owner: MetaboliteQuantification
+    owner: MetaboliteIdentification
     domain_of:
     - FunctionalAnnotationAggMember
     - MobilePhaseSegment
     - PortionOfSubstance
     - MagBin
-    - MetaboliteQuantification
+    - MetaboliteIdentification
     - PeptideQuantification
     - ProteinQuantification
     - GenomeFeature
@@ -459,7 +459,7 @@ attributes:
     - Doi
     range: uriorcurie
     required: true
-class_uri: nmdc:MetaboliteQuantification
+class_uri: nmdc:MetaboliteIdentification
 
 </code></pre>
 </details>
