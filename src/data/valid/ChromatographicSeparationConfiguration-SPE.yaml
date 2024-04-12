@@ -1,6 +1,7 @@
 id: nmdc:cscon-99-oW43DzG1
 type: nmdc:ChromatographicSeparationConfiguration
 stationary_phase: "CN"
+chromatographic_category: solid_phase_extraction
 ordered_mobile_phases:
   - type: nmdc:MobilePhaseSegment
     substances_used:

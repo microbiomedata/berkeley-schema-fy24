@@ -1071,7 +1071,7 @@ slots:
     description: The volume of the input sample.
 
   ordered_mobile_phases:
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: MobilePhaseSegment
     description: The solution(s) that moves through a chromatography column.
     multivalued: true
@@ -1079,9 +1079,10 @@ slots:
     inlined_as_list: true
 
   stationary_phase:
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: StationaryPhaseEnum
     description: The material the stationary phase is comprised of used in chromatography.
+    
   chromatographic_category:
     domain: ChromatographicSeparationProcess
     range: ChromatographicCategoryEnum
