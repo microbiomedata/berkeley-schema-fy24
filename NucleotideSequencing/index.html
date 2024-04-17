@@ -389,6 +389,42 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../gold_sequencing_project_identifiers/">gold_sequencing_project_identifiers</a></td>
+<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
+<td>identifiers for corresponding sequencing project in GOLD</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../insdc_bioproject_identifiers/">insdc_bioproject_identifiers</a></td>
+<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
+<td>identifiers for corresponding project in INSDC Bioproject</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
+<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ncbi_project_name/">ncbi_project_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../target_gene/">target_gene</a></td>
+<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
+<td>Targeted gene or locus name for marker gene studies</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../target_subfragment/">target_subfragment</a></td>
+<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
+<td>Name of subfragment of a gene or locus</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../add_date/">add_date</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The date on which the information was added to the database</td>
@@ -407,33 +443,9 @@
 <td><a href="../DataGeneration/">DataGeneration</a></td>
 </tr>
 <tr>
-<td><a href="../gold_sequencing_project_identifiers/">gold_sequencing_project_identifiers</a></td>
-<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
-<td>identifiers for corresponding sequencing project in GOLD</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../insdc_bioproject_identifiers/">insdc_bioproject_identifiers</a></td>
-<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
-<td>identifiers for corresponding project in INSDC Bioproject</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
-<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
-<td></td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
 <td><a href="../mod_date/">mod_date</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The last date on which the database information was modified</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../ncbi_project_name/">ncbi_project_name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
 <td><a href="../DataGeneration/">DataGeneration</a></td>
 </tr>
 <tr>
@@ -446,18 +458,6 @@
 <td><a href="../principal_investigator/">principal_investigator</a></td>
 <td>0..1 <br/> <a href="../PersonValue/">PersonValue</a></td>
 <td>Principal Investigator who led the study and/or generated the dataset</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../target_gene/">target_gene</a></td>
-<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
-<td>Targeted gene or locus name for marker gene studies</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../target_subfragment/">target_subfragment</a></td>
-<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
-<td>Name of subfragment of a gene or locus</td>
 <td><a href="../DataGeneration/">DataGeneration</a></td>
 </tr>
 <tr>
@@ -590,6 +590,13 @@ comments:
 - For example data generated from an Illumina or Pacific Biosciences instrument.
 from_schema: https://w3id.org/nmdc/nmdc
 is_a: DataGeneration
+slots:
+- gold_sequencing_project_identifiers
+- insdc_bioproject_identifiers
+- insdc_experiment_identifiers
+- ncbi_project_name
+- target_gene
+- target_subfragment
 slot_usage:
   id:
     name: id
@@ -619,6 +626,123 @@ slot_usage:
       syntax: '{id_nmdc_prefix}:(dgns|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
 attributes:
+  gold_sequencing_project_identifiers:
+    name: gold_sequencing_project_identifiers
+    description: identifiers for corresponding sequencing project in GOLD
+    examples:
+    - value: https://bioregistry.io/gold:Gp0108335
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    is_a: omics_processing_identifiers
+    mixins:
+    - gold_identifiers
+    multivalued: true
+    alias: gold_sequencing_project_identifiers
+    owner: NucleotideSequencing
+    domain_of:
+    - NucleotideSequencing
+    range: external_identifier
+    pattern: ^gold:Gp[0-9]+$
+  insdc_bioproject_identifiers:
+    name: insdc_bioproject_identifiers
+    description: identifiers for corresponding project in INSDC Bioproject
+    comments:
+    - these are distinct IDs from INSDC SRA/ENA project identifiers, but are usually(?)
+      one to one
+    examples:
+    - value: https://bioregistry.io/bioproject:PRJNA366857
+      description: Avena fatua rhizosphere microbial communities - H1_Rhizo_Litter_2
+        metatranscriptome
+    from_schema: https://w3id.org/nmdc/nmdc
+    see_also:
+    - https://www.ncbi.nlm.nih.gov/bioproject/
+    - https://www.ddbj.nig.ac.jp/bioproject/index-e.html
+    aliases:
+    - NCBI bioproject identifiers
+    - DDBJ bioproject identifiers
+    rank: 1000
+    is_a: study_identifiers
+    mixins:
+    - insdc_identifiers
+    multivalued: true
+    alias: insdc_bioproject_identifiers
+    owner: NucleotideSequencing
+    domain_of:
+    - NucleotideSequencing
+    - Study
+    range: external_identifier
+    pattern: ^bioproject:PRJ[DEN][A-Z][0-9]+$
+  insdc_experiment_identifiers:
+    name: insdc_experiment_identifiers
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    is_a: external_database_identifiers
+    mixins:
+    - insdc_identifiers
+    multivalued: true
+    alias: insdc_experiment_identifiers
+    owner: NucleotideSequencing
+    domain_of:
+    - NucleotideSequencing
+    - DataObject
+    range: external_identifier
+    pattern: ^insdc.sra:(E|D|S)RX[0-9]{6,}$
+  ncbi_project_name:
+    name: ncbi_project_name
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: ncbi_project_name
+    owner: NucleotideSequencing
+    domain_of:
+    - NucleotideSequencing
+    range: string
+  target_gene:
+    name: target_gene
+    annotations:
+      expected_value:
+        tag: expected_value
+        value: gene name
+    description: Targeted gene or locus name for marker gene studies
+    title: target gene
+    examples:
+    - value: 16S rRNA, 18S rRNA, nif, amoA, rpo
+    from_schema: https://w3id.org/nmdc/nmdc
+    aliases:
+    - target gene
+    rank: 1000
+    is_a: sequencing field
+    string_serialization: '{text}'
+    slot_uri: MIXS:0000044
+    multivalued: false
+    alias: target_gene
+    owner: NucleotideSequencing
+    domain_of:
+    - NucleotideSequencing
+    range: TextValue
+  target_subfragment:
+    name: target_subfragment
+    annotations:
+      expected_value:
+        tag: expected_value
+        value: gene fragment name
+    description: Name of subfragment of a gene or locus. Important to e.g. identify
+      special regions on marker genes like V6 on 16S rRNA
+    title: target subfragment
+    examples:
+    - value: V6, V9, ITS
+    from_schema: https://w3id.org/nmdc/nmdc
+    aliases:
+    - target subfragment
+    rank: 1000
+    is_a: sequencing field
+    string_serialization: '{text}'
+    slot_uri: MIXS:0000045
+    multivalued: false
+    alias: target_subfragment
+    owner: NucleotideSequencing
+    domain_of:
+    - NucleotideSequencing
+    range: TextValue
   add_date:
     name: add_date
     description: The date on which the information was added to the database.
@@ -657,67 +781,6 @@ attributes:
     range: Study
     required: true
     pattern: ^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
-  gold_sequencing_project_identifiers:
-    name: gold_sequencing_project_identifiers
-    description: identifiers for corresponding sequencing project in GOLD
-    examples:
-    - value: https://bioregistry.io/gold:Gp0108335
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    is_a: omics_processing_identifiers
-    mixins:
-    - gold_identifiers
-    multivalued: true
-    alias: gold_sequencing_project_identifiers
-    owner: NucleotideSequencing
-    domain_of:
-    - DataGeneration
-    range: external_identifier
-    pattern: ^gold:Gp[0-9]+$
-  insdc_bioproject_identifiers:
-    name: insdc_bioproject_identifiers
-    description: identifiers for corresponding project in INSDC Bioproject
-    comments:
-    - these are distinct IDs from INSDC SRA/ENA project identifiers, but are usually(?)
-      one to one
-    examples:
-    - value: https://bioregistry.io/bioproject:PRJNA366857
-      description: Avena fatua rhizosphere microbial communities - H1_Rhizo_Litter_2
-        metatranscriptome
-    from_schema: https://w3id.org/nmdc/nmdc
-    see_also:
-    - https://www.ncbi.nlm.nih.gov/bioproject/
-    - https://www.ddbj.nig.ac.jp/bioproject/index-e.html
-    aliases:
-    - NCBI bioproject identifiers
-    - DDBJ bioproject identifiers
-    rank: 1000
-    is_a: study_identifiers
-    mixins:
-    - insdc_identifiers
-    multivalued: true
-    alias: insdc_bioproject_identifiers
-    owner: NucleotideSequencing
-    domain_of:
-    - Study
-    - DataGeneration
-    range: external_identifier
-    pattern: ^bioproject:PRJ[DEN][A-Z][0-9]+$
-  insdc_experiment_identifiers:
-    name: insdc_experiment_identifiers
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    is_a: external_database_identifiers
-    mixins:
-    - insdc_identifiers
-    multivalued: true
-    alias: insdc_experiment_identifiers
-    owner: NucleotideSequencing
-    domain_of:
-    - DataObject
-    - DataGeneration
-    range: external_identifier
-    pattern: ^insdc.sra:(E|D|S)RX[0-9]{6,}$
   mod_date:
     name: mod_date
     description: The last date on which the database information was modified.
@@ -727,15 +790,6 @@ attributes:
     owner: NucleotideSequencing
     domain_of:
     - Biosample
-    - DataGeneration
-    range: string
-  ncbi_project_name:
-    name: ncbi_project_name
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: ncbi_project_name
-    owner: NucleotideSequencing
-    domain_of:
     - DataGeneration
     range: string
   part_of:
@@ -768,53 +822,6 @@ attributes:
     - Study
     - DataGeneration
     range: PersonValue
-  target_gene:
-    name: target_gene
-    annotations:
-      expected_value:
-        tag: expected_value
-        value: gene name
-    description: Targeted gene or locus name for marker gene studies
-    title: target gene
-    examples:
-    - value: 16S rRNA, 18S rRNA, nif, amoA, rpo
-    from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - target gene
-    rank: 1000
-    is_a: sequencing field
-    string_serialization: '{text}'
-    slot_uri: MIXS:0000044
-    multivalued: false
-    alias: target_gene
-    owner: NucleotideSequencing
-    domain_of:
-    - DataGeneration
-    range: TextValue
-  target_subfragment:
-    name: target_subfragment
-    annotations:
-      expected_value:
-        tag: expected_value
-        value: gene fragment name
-    description: Name of subfragment of a gene or locus. Important to e.g. identify
-      special regions on marker genes like V6 on 16S rRNA
-    title: target subfragment
-    examples:
-    - value: V6, V9, ITS
-    from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - target subfragment
-    rank: 1000
-    is_a: sequencing field
-    string_serialization: '{text}'
-    slot_uri: MIXS:0000045
-    multivalued: false
-    alias: target_subfragment
-    owner: NucleotideSequencing
-    domain_of:
-    - DataGeneration
-    range: TextValue
   has_input:
     name: has_input
     description: An input to a process.

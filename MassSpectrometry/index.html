@@ -1,525 +1,377 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/MassSpectrometry/">
-      
-      
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
-    
-    
-      
-        <title>Class: MassSpectrometry - NMDC Schema Documentation</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#class-massspectrometry" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://microbiomedata.github.io/nmdc-schema/MassSpectrometry/" rel="canonical"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
+<title>Class: MassSpectrometry - NMDC Schema Documentation</title>
+<link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-massspectrometry">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="NMDC Schema Documentation" class="md-header__button md-logo" aria-label="NMDC Schema Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="NMDC Schema Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="NMDC Schema Documentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             NMDC Schema Documentation
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               Class: MassSpectrometry
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+</div>
+</div>
+</div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/microbiomedata/nmdc-schema" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/microbiomedata/nmdc-schema" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     GitHub
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="NMDC Schema Documentation" class="md-nav__button md-logo" aria-label="NMDC Schema Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="NMDC Schema Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="NMDC Schema Documentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
     NMDC Schema Documentation
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/microbiomedata/nmdc-schema" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/microbiomedata/nmdc-schema" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     GitHub
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
     NMDC Schema
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../about/">
+<span class="md-ellipsis">
     About
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://linkml.io/linkml/howtos/collaborative-development.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://linkml.io/linkml/howtos/collaborative-development.html">
+<span class="md-ellipsis">
     How to run a collaborative data modeling project
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../identifiers/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../identifiers/">
+<span class="md-ellipsis">
     Identifiers in NMDC
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../prefixes_curies_ids_mappings_etc/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../prefixes_curies_ids_mappings_etc/">
+<span class="md-ellipsis">
     Identifiers, CURIes, Prefixes, etc.
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Metadata_Documentation_Overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Metadata_Documentation_Overview/">
+<span class="md-ellipsis">
     NMDC Metadata Standards Documentation
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://docs.google.com/presentation/d/1ZH41QAoESUwAkdHyUxlrmSKS5M-bT0TOulBgX4rBx2A/edit#slide=id.g26390794265_0_693" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://docs.google.com/presentation/d/1ZH41QAoESUwAkdHyUxlrmSKS5M-bT0TOulBgX4rBx2A/edit#slide=id.g26390794265_0_693">
+<span class="md-ellipsis">
     NMDC Schema Contributors How-to from Schema Hackathon 2023-12-10
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../schema-validation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-validation/">
+<span class="md-ellipsis">
     NMDC Schema Validation
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../schema_element_deprecation_guide/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema_element_deprecation_guide/">
+<span class="md-ellipsis">
     Schema element deprecation guide
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-  </ul>
+</a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inheritance">
+<span class="md-ellipsis">
       Inheritance
     </span>
-  </a>
-  
+</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#slots" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
       Slots
     </span>
-  </a>
-  
+</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
       Identifier and Mapping Information
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
       Schema Source
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
       Mappings
     </span>
-  </a>
-  
+</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
       LinkML Source
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="LinkML Source">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
       Direct
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#induced" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
       Induced
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-  
-
-
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
 <h1 id="class-massspectrometry">Class: MassSpectrometry</h1>
 <p><em>Spectrometry where the sample is converted into gaseous ions which are characterised by their mass-to-charge ratio and relative abundance.</em></p>
 <p>URI: <a href="https://w3id.org/nmdc/MassSpectrometry">nmdc:MassSpectrometry</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Mermaid class diagram too large to render.</p>
+<div class="mermaid">classDiagram
+  class MassSpectrometry
+    DataGeneration &lt;|-- MassSpectrometry
+
+
+
+  MassSpectrometry : acquisition_category
+
+    MassSpectrometry --&gt; AcquisitionCategoryEnum : acquisition_category
+
+  MassSpectrometry : acquisition_strategy
+
+    MassSpectrometry --&gt; AcquisitionStrategyEnum : acquisition_strategy
+
+  MassSpectrometry : add_date
+
+  MassSpectrometry : alternative_identifiers
+
+  MassSpectrometry : analyte_category
+
+    MassSpectrometry --&gt; AnalyteCategoryEnum : analyte_category
+
+  MassSpectrometry : associated_studies
+
+    MassSpectrometry --&gt; Study : associated_studies
+
+  MassSpectrometry : description
+
+  MassSpectrometry : eluent_introduction
+
+    MassSpectrometry --&gt; FluidHandling : eluent_introduction
+
+  MassSpectrometry : end_date
+
+  MassSpectrometry : has_failure_categorization
+
+    MassSpectrometry --&gt; FailureCategorization : has_failure_categorization
+
+  MassSpectrometry : has_input
+
+    MassSpectrometry --&gt; NamedThing : has_input
+
+  MassSpectrometry : has_output
+
+    MassSpectrometry --&gt; DataObject : has_output
+
+  MassSpectrometry : id
+
+  MassSpectrometry : instrument_used
+
+    MassSpectrometry --&gt; Instrument : instrument_used
+
+  MassSpectrometry : ionization_source
+
+    MassSpectrometry --&gt; IonizationSourceEnum : ionization_source
+
+  MassSpectrometry : mass_analyzer
+
+    MassSpectrometry --&gt; MassAnalyzerEnum : mass_analyzer
+
+  MassSpectrometry : mass_spectrum_collection_mode
+
+    MassSpectrometry --&gt; MassSpectrumCollectionModeEnum : mass_spectrum_collection_mode
+
+  MassSpectrometry : mod_date
+
+  MassSpectrometry : name
+
+  MassSpectrometry : part_of
+
+    MassSpectrometry --&gt; DataGeneration : part_of
+
+  MassSpectrometry : polarity_mode
+
+    MassSpectrometry --&gt; PolarityModeEnum : polarity_mode
+
+  MassSpectrometry : principal_investigator
+
+    MassSpectrometry --&gt; PersonValue : principal_investigator
+
+  MassSpectrometry : processing_institution
+
+    MassSpectrometry --&gt; ProcessingInstitutionEnum : processing_institution
+
+  MassSpectrometry : protocol_link
+
+    MassSpectrometry --&gt; Protocol : protocol_link
+
+  MassSpectrometry : qc_comment
+
+  MassSpectrometry : qc_status
+
+    MassSpectrometry --&gt; StatusEnum : qc_status
+
+  MassSpectrometry : resolution_category
+
+    MassSpectrometry --&gt; ResolutionCategoryEnum : resolution_category
+
+  MassSpectrometry : start_date
+
+  MassSpectrometry : type
+
+
+
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
@@ -612,33 +464,9 @@
 <td><a href="../DataGeneration/">DataGeneration</a></td>
 </tr>
 <tr>
-<td><a href="../gold_sequencing_project_identifiers/">gold_sequencing_project_identifiers</a></td>
-<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
-<td>identifiers for corresponding sequencing project in GOLD</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../insdc_bioproject_identifiers/">insdc_bioproject_identifiers</a></td>
-<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
-<td>identifiers for corresponding project in INSDC Bioproject</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../insdc_experiment_identifiers/">insdc_experiment_identifiers</a></td>
-<td>0..* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
-<td></td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
 <td><a href="../mod_date/">mod_date</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The last date on which the database information was modified</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../ncbi_project_name/">ncbi_project_name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
 <td><a href="../DataGeneration/">DataGeneration</a></td>
 </tr>
 <tr>
@@ -651,18 +479,6 @@
 <td><a href="../principal_investigator/">principal_investigator</a></td>
 <td>0..1 <br/> <a href="../PersonValue/">PersonValue</a></td>
 <td>Principal Investigator who led the study and/or generated the dataset</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../target_gene/">target_gene</a></td>
-<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
-<td>Targeted gene or locus name for marker gene studies</td>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-</tr>
-<tr>
-<td><a href="../target_subfragment/">target_subfragment</a></td>
-<td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
-<td>Name of subfragment of a gene or locus</td>
 <td><a href="../DataGeneration/">DataGeneration</a></td>
 </tr>
 <tr>
@@ -787,10 +603,8 @@
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
 <h3 id="direct">Direct</h3>
 <details>
-
 <pre><code class="language-yaml">name: MassSpectrometry
 description: Spectrometry where the sample is converted into gaseous ions which are
   characterised by their mass-to-charge ratio and relative abundance.
@@ -818,12 +632,9 @@ slot_usage:
 class_uri: nmdc:MassSpectrometry
 
 </code></pre>
-
 </details>
-
 <h3 id="induced">Induced</h3>
 <details>
-
 <pre><code class="language-yaml">name: MassSpectrometry
 description: Spectrometry where the sample is converted into gaseous ions which are
   characterised by their mass-to-charge ratio and relative abundance.
@@ -938,8 +749,8 @@ attributes:
     range: string
   analyte_category:
     name: analyte_category
-    description: &quot;The type of analyte(s) that were measured in the data generation\
-      \ process and analyzed\n  in the Workflow Chain\n&quot;
+    description: "The type of analyte(s) that were measured in the data generation\
+      \ process and analyzed\n  in the Workflow Chain\n"
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: analyte_category
@@ -963,67 +774,6 @@ attributes:
     range: Study
     required: true
     pattern: ^nmdc:sty-[0-9][a-z]{0,6}[0-9]-[A-Za-z0-9]{1,}(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
-  gold_sequencing_project_identifiers:
-    name: gold_sequencing_project_identifiers
-    description: identifiers for corresponding sequencing project in GOLD
-    examples:
-    - value: https://bioregistry.io/gold:Gp0108335
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    is_a: omics_processing_identifiers
-    mixins:
-    - gold_identifiers
-    multivalued: true
-    alias: gold_sequencing_project_identifiers
-    owner: MassSpectrometry
-    domain_of:
-    - DataGeneration
-    range: external_identifier
-    pattern: ^gold:Gp[0-9]+$
-  insdc_bioproject_identifiers:
-    name: insdc_bioproject_identifiers
-    description: identifiers for corresponding project in INSDC Bioproject
-    comments:
-    - these are distinct IDs from INSDC SRA/ENA project identifiers, but are usually(?)
-      one to one
-    examples:
-    - value: https://bioregistry.io/bioproject:PRJNA366857
-      description: Avena fatua rhizosphere microbial communities - H1_Rhizo_Litter_2
-        metatranscriptome
-    from_schema: https://w3id.org/nmdc/nmdc
-    see_also:
-    - https://www.ncbi.nlm.nih.gov/bioproject/
-    - https://www.ddbj.nig.ac.jp/bioproject/index-e.html
-    aliases:
-    - NCBI bioproject identifiers
-    - DDBJ bioproject identifiers
-    rank: 1000
-    is_a: study_identifiers
-    mixins:
-    - insdc_identifiers
-    multivalued: true
-    alias: insdc_bioproject_identifiers
-    owner: MassSpectrometry
-    domain_of:
-    - Study
-    - DataGeneration
-    range: external_identifier
-    pattern: ^bioproject:PRJ[DEN][A-Z][0-9]+$
-  insdc_experiment_identifiers:
-    name: insdc_experiment_identifiers
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    is_a: external_database_identifiers
-    mixins:
-    - insdc_identifiers
-    multivalued: true
-    alias: insdc_experiment_identifiers
-    owner: MassSpectrometry
-    domain_of:
-    - DataObject
-    - DataGeneration
-    range: external_identifier
-    pattern: ^insdc.sra:(E|D|S)RX[0-9]{6,}$
   mod_date:
     name: mod_date
     description: The last date on which the database information was modified.
@@ -1033,15 +783,6 @@ attributes:
     owner: MassSpectrometry
     domain_of:
     - Biosample
-    - DataGeneration
-    range: string
-  ncbi_project_name:
-    name: ncbi_project_name
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: ncbi_project_name
-    owner: MassSpectrometry
-    domain_of:
     - DataGeneration
     range: string
   part_of:
@@ -1074,53 +815,6 @@ attributes:
     - Study
     - DataGeneration
     range: PersonValue
-  target_gene:
-    name: target_gene
-    annotations:
-      expected_value:
-        tag: expected_value
-        value: gene name
-    description: Targeted gene or locus name for marker gene studies
-    title: target gene
-    examples:
-    - value: 16S rRNA, 18S rRNA, nif, amoA, rpo
-    from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - target gene
-    rank: 1000
-    is_a: sequencing field
-    string_serialization: '{text}'
-    slot_uri: MIXS:0000044
-    multivalued: false
-    alias: target_gene
-    owner: MassSpectrometry
-    domain_of:
-    - DataGeneration
-    range: TextValue
-  target_subfragment:
-    name: target_subfragment
-    annotations:
-      expected_value:
-        tag: expected_value
-        value: gene fragment name
-    description: Name of subfragment of a gene or locus. Important to e.g. identify
-      special regions on marker genes like V6 on 16S rRNA
-    title: target subfragment
-    examples:
-    - value: V6, V9, ITS
-    from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - target subfragment
-    rank: 1000
-    is_a: sequencing field
-    string_serialization: '{text}'
-    slot_uri: MIXS:0000045
-    multivalued: false
-    alias: target_subfragment
-    owner: MassSpectrometry
-    domain_of:
-    - DataGeneration
-    range: TextValue
   has_input:
     name: has_input
     description: An input to a process.
@@ -1340,65 +1034,34 @@ attributes:
 class_uri: nmdc:MassSpectrometry
 
 </code></pre>
-
 </details>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
-      
-        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../javascripts/tablesort.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+<script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+<script src="../javascripts/tablesort.js"></script>
+<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>
