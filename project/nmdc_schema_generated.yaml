@@ -721,19 +721,6 @@ enums:
         text: DNA
       RNA:
         text: RNA
-  ContainerCategoryEnum:
-    name: ContainerCategoryEnum
-    description: The permitted types of containers used in processing metabolomic
-      samples.
-    from_schema: https://w3id.org/nmdc/nmdc
-    contributors:
-    - ORCID:0009-0001-1555-1601
-    - ORCID:0000-0002-8683-0050
-    permissible_values:
-      v-bottom_conical_tube:
-        text: v-bottom_conical_tube
-      falcon_tube:
-        text: falcon_tube
   SeparationMethodEnum:
     name: SeparationMethodEnum
     description: The tool/substance used to separate or filter a solution or mixture.
@@ -746,11 +733,14 @@ enums:
         text: ptfe_96_well_filter_plate
   StationaryPhaseEnum:
     name: StationaryPhaseEnum
-    description: The type of stationary phase used in a solid phase extraction process.
+    description: The type of stationary phase used in a chromatography process.
     from_schema: https://w3id.org/nmdc/nmdc
     contributors:
     - ORCID:0009-0001-1555-1601
+    - ORCID:0000-0002-4504-1039
     permissible_values:
+      BEH-HILIC:
+        text: BEH-HILIC
       C18:
         text: C18
       C8:
@@ -777,6 +767,8 @@ enums:
         text: NH2
       Phenyl:
         text: Phenyl
+      Polysiloxane:
+        text: Polysiloxane
       PS-DVB:
         text: PS-DVB
       SAX:
@@ -903,6 +895,14 @@ enums:
         description: Maintains the pH of the solution within a specific range to stabilize
           analytes or reactions.
         meaning: CHEBI:35225
+      acid:
+        text: acid
+        description: Donates a proton or accepts an electron pair in a chemical reaction.
+        meaning: CHEBI:37527
+      base:
+        text: base
+        description: Accepts a proton or donates an electron pair in a chemical reaction.
+        meaning: CHEBI:22695
       ms_proteolytic_enzyme:
         text: ms_proteolytic_enzyme
         description: Enzyme that catalyzes the hydrolysis of proteins and is used
@@ -931,6 +931,19 @@ enums:
         text: liquid
       gas:
         text: gas
+  ContainerCategoryEnum:
+    name: ContainerCategoryEnum
+    description: The permitted types of containers used in processing metabolomic
+      samples.
+    from_schema: https://w3id.org/nmdc/nmdc
+    contributors:
+    - ORCID:0009-0001-1555-1601
+    - ORCID:0000-0002-8683-0050
+    permissible_values:
+      v-bottom_conical_tube:
+        text: v-bottom_conical_tube
+      falcon_tube:
+        text: falcon_tube
   arch_struc_enum:
     name: arch_struc_enum
     from_schema: https://w3id.org/nmdc/nmdc
@@ -4098,6 +4111,35 @@ enums:
         text: metatranscriptomics
       natural organic matter:
         text: natural organic matter
+  CalibrationTargetEnum:
+    name: CalibrationTargetEnum
+    from_schema: https://w3id.org/nmdc/nmdc
+    permissible_values:
+      mass:
+        text: mass
+        aliases:
+        - Mass
+        - m/z
+      retention_time:
+        text: retention_time
+        aliases:
+        - RT
+      retention_index:
+        text: retention_index
+        aliases:
+        - RI
+  CalibrationStandardEnum:
+    name: CalibrationStandardEnum
+    from_schema: https://w3id.org/nmdc/nmdc
+    permissible_values:
+      fames:
+        text: fames
+        aliases:
+        - FAMES
+      alkanes:
+        text: alkanes
+        aliases:
+        - Alkanes
 slots:
   polarity_mode:
     name: polarity_mode
@@ -4144,6 +4186,11 @@ slots:
       example liquid chromatography or direct infusion through a syringe
     from_schema: https://w3id.org/nmdc/nmdc
     range: FluidHandling
+  has_configuration:
+    name: has_configuration
+    description: a set of parameters that define the actions of the process
+    from_schema: https://w3id.org/nmdc/nmdc
+    range: Configuration
   metagenome_annotation_id:
     name: metagenome_annotation_id
     from_schema: https://w3id.org/nmdc/nmdc
@@ -4469,6 +4516,22 @@ slots:
     - object_set
     domain: Database
     range: Instrument
+  configuration_set:
+    name: configuration_set
+    description: This property links a database object to the set of configurations
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    mixins:
+    - object_set
+    range: Configuration
+  calibration_set:
+    name: calibration_set
+    description: This property links a database object to the set of calibrations
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    mixins:
+    - object_set
+    range: Calibration
   omics_type:
     name: omics_type
     description: The type of omics data
@@ -4594,11 +4657,6 @@ slots:
     description: Whether or not pressure was applied to a thing or process.
     from_schema: https://w3id.org/nmdc/nmdc
     range: boolean
-  contained_in:
-    name: contained_in
-    description: A type of container. i.e. test tube, falcon tube, etc.
-    from_schema: https://w3id.org/nmdc/nmdc
-    range: ContainerCategoryEnum
   input_volume:
     name: input_volume
     description: The volume of the input sample.
@@ -4609,7 +4667,7 @@ slots:
     name: ordered_mobile_phases
     description: The solution(s) that moves through a chromatography column.
     from_schema: https://w3id.org/nmdc/nmdc
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     multivalued: true
     list_elements_ordered: true
     range: MobilePhaseSegment
@@ -4618,13 +4676,13 @@ slots:
     name: stationary_phase
     description: The material the stationary phase is comprised of used in chromatography.
     from_schema: https://w3id.org/nmdc/nmdc
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: StationaryPhaseEnum
   chromatographic_category:
     name: chromatographic_category
     description: The type of chromatography used in a process.
     from_schema: https://w3id.org/nmdc/nmdc
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: ChromatographicCategoryEnum
   chemical_conversion_category:
     name: chemical_conversion_category
@@ -4922,6 +4980,11 @@ slots:
       this slot captures the concentration of X in the combination
     from_schema: https://w3id.org/nmdc/nmdc
     is_a: concentration
+  contained_in:
+    name: contained_in
+    description: A type of container. i.e. test tube, falcon tube, etc.
+    from_schema: https://w3id.org/nmdc/nmdc
+    range: ContainerCategoryEnum
   duration:
     name: duration
     description: The elapsed time of an activity.
@@ -5025,8 +5088,8 @@ slots:
     - Yuri to fill in description
     from_schema: https://w3id.org/nmdc/nmdc
     range: float
-  metabolite_quantified:
-    name: metabolite_quantified
+  metabolite_identified:
+    name: metabolite_identified
     description: the specific metabolite identifier
     from_schema: https://w3id.org/nmdc/nmdc
     range: ChemicalEntity
@@ -16603,6 +16666,15 @@ slots:
     name: sequencing field
     from_schema: https://w3id.org/nmdc/nmdc
     abstract: true
+  workflow_configuration_objects:
+    name: workflow_configuration_objects
+    description: Data object(s) that stores settings that are specific to a particular
+      software.
+    examples:
+    - value: '[''nmdc:dobj-99-izwYW6'', ''nmdc:dobj-78-ebzPH6'']'
+    from_schema: https://w3id.org/nmdc/nmdc
+    multivalued: true
+    range: DataObject
   associated_studies:
     name: associated_studies
     description: The study associated with a resource.
@@ -16911,7 +16983,7 @@ slots:
     mappings:
     - qud:quantityValue
     - schema:value
-    range: float
+    range: decimal
   has_minimum_numeric_value:
     name: has_minimum_numeric_value
     description: The minimum value part, expressed as number, of the quantity value
@@ -18490,20 +18562,44 @@ slots:
     range: float
   has_calibration:
     name: has_calibration
-    description: A reference to a file that holds calibration information.
+    description: a calibration instance associated with a process
     notes:
-    - 'has_calibration will be removed from all WorkflowExecution classes and stay
-      only on the ChromatographicSeparationProcess class after an ingest of the chromatographic_separation_process_set
-      has  occurred. The commented out portion of the slot definition above will be
-      implemented. See PR #29 in Berkeley schema.'
+    - 'has_calibration slot will be removed from all WorkflowExecution classes but
+      remain on the ChromatographicSeparationProcess and MassSpectrometry classes
+      after an ingest of the  chromatographic_separation_process_set has occurred.  Once
+      this has occured, this slot''s range can be updated to Calibration and class/slot
+      definitions can move to nmdc.yaml.   See PR #29 in Berkeley schema.'
     from_schema: https://w3id.org/nmdc/nmdc
-    range: string
-  has_metabolite_quantifications:
-    name: has_metabolite_quantifications
+    any_of:
+    - range: Calibration
+    - range: string
+  calibration_file:
+    name: calibration_file
+    description: the file containing calibration data object
+    from_schema: https://w3id.org/nmdc/nmdc
+    range: DataObject
+  internal_calibration:
+    name: internal_calibration
+    description: whether internal calibration was used, if false, external calibration
+      was used
+    from_schema: https://w3id.org/nmdc/nmdc
+    range: boolean
+  calibration_target:
+    name: calibration_target
+    description: the target measurement of the calibration
+    from_schema: https://w3id.org/nmdc/nmdc
+    range: CalibrationTargetEnum
+  calibration_standard:
+    name: calibration_standard
+    description: the reference standard(s) used for calibration
+    from_schema: https://w3id.org/nmdc/nmdc
+    range: CalibrationStandardEnum
+  has_metabolite_identifications:
+    name: has_metabolite_identifications
     from_schema: https://w3id.org/nmdc/nmdc
     domain: MetabolomicsAnalysis
     multivalued: true
-    range: MetaboliteQuantification
+    range: MetaboliteIdentification
 classes:
   NucleotideSequencing:
     name: NucleotideSequencing
@@ -18513,6 +18609,13 @@ classes:
     - For example data generated from an Illumina or Pacific Biosciences instrument.
     from_schema: https://w3id.org/nmdc/nmdc
     is_a: DataGeneration
+    slots:
+    - gold_sequencing_project_identifiers
+    - insdc_bioproject_identifiers
+    - insdc_experiment_identifiers
+    - ncbi_project_name
+    - target_gene
+    - target_subfragment
     slot_usage:
       id:
         name: id
@@ -18548,13 +18651,7 @@ classes:
     is_a: DataGeneration
     slots:
     - eluent_introduction
-    - acquisition_category
-    - acquisition_strategy
-    - resolution_category
-    - mass_analyzer
-    - ionization_source
-    - mass_spectrum_collection_mode
-    - polarity_mode
+    - has_configuration
     slot_usage:
       id:
         name: id
@@ -18563,6 +18660,49 @@ classes:
           syntax: '{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
           interpolated: true
     class_uri: nmdc:MassSpectrometry
+  Configuration:
+    name: Configuration
+    description: A set of parameters that define the actions of a process and is shared
+      among multiple instances of the process.
+    notes:
+    - This class is intended to represent the parameters within a method file (or
+      similar) that control a process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    is_a: NamedThing
+    abstract: true
+    class_uri: nmdc:Configuration
+  MassSpectrometryConfiguration:
+    name: MassSpectrometryConfiguration
+    description: A set of parameters that define and control the actions of a mass
+      spectrometry process.
+    notes:
+    - This class is intended to represent a mass sepctrometry method file that controls
+      a mass spectrometry process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    is_a: Configuration
+    slots:
+    - acquisition_category
+    - acquisition_strategy
+    - resolution_category
+    - mass_analyzer
+    - ionization_source
+    - mass_spectrum_collection_mode
+    - polarity_mode
+    - has_calibration
+    slot_usage:
+      name:
+        name: name
+        required: true
+      description:
+        name: description
+        required: true
+      id:
+        name: id
+        pattern: ^(nmdc):(mscon)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
+        structured_pattern:
+          syntax: '{id_nmdc_prefix}:(mscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+          interpolated: true
+    class_uri: nmdc:MassSpectrometryConfiguration
   FunctionalAnnotationAggMember:
     name: FunctionalAnnotationAggMember
     from_schema: https://w3id.org/nmdc/nmdc
@@ -18613,6 +18753,8 @@ classes:
     - study_set
     - workflow_execution_set
     - instrument_set
+    - configuration_set
+    - calibration_set
     class_uri: nmdc:Database
     tree_root: true
   Pooling:
@@ -18767,8 +18909,6 @@ classes:
     is_a: MaterialProcessing
     slots:
     - container_size
-    - contained_in
-    - temperature
     - volume
     - mass
     slot_usage:
@@ -18808,8 +18948,6 @@ classes:
     - ORCID:0009-0001-1555-1601
     - ORCID:0000-0002-8683-0050
     is_a: MaterialProcessing
-    slots:
-    - duration
     slot_usage:
       id:
         name: id
@@ -18869,10 +19007,10 @@ classes:
     is_a: FluidHandling
     slots:
     - has_calibration
+    - has_configuration
     - chromatographic_category
     - ordered_mobile_phases
     - stationary_phase
-    - temperature
     slot_usage:
       id:
         name: id
@@ -18896,6 +19034,25 @@ classes:
       description: If chromatographic_category is gas_chromatography, then has_calibration
         is required.
       title: has_calibration_required_if_gc
+  ChromatographicSeparationConfiguration:
+    name: ChromatographicSeparationConfiguration
+    description: A platform that enables the user to configure the actions of a chromatographic
+      separation process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    is_a: Configuration
+    slots:
+    - chromatographic_category
+    - ordered_mobile_phases
+    - stationary_phase
+    - temperature
+    slot_usage:
+      id:
+        name: id
+        pattern: ^(nmdc):(cscon)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
+        structured_pattern:
+          syntax: '{id_nmdc_prefix}:(cscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+          interpolated: true
+    class_uri: nmdc:ChromatographicSeparationConfiguration
   DissolvingProcess:
     name: DissolvingProcess
     description: 'A mixing step where a soluble component is mixed with a liquid component.
@@ -18911,8 +19068,6 @@ classes:
     - ORCID:0000-0002-1368-8217
     is_a: MaterialProcessing
     slots:
-    - duration
-    - temperature
     - substances_used
     slot_usage:
       id:
@@ -18943,8 +19098,6 @@ classes:
     is_a: MaterialProcessing
     slots:
     - chemical_conversion_category
-    - duration
-    - temperature
     - substances_used
     - substances_volume
     slot_usage:
@@ -20063,6 +20216,10 @@ classes:
     broad_mappings:
     - OBI:0000094
     is_a: PlannedProcess
+    slots:
+    - contained_in
+    - duration
+    - temperature
     slot_usage:
       id:
         name: id
@@ -20164,17 +20321,17 @@ classes:
     - total_bases
     - type
     class_uri: nmdc:MagBin
-  MetaboliteQuantification:
-    name: MetaboliteQuantification
+  MetaboliteIdentification:
+    name: MetaboliteIdentification
     description: This is used to link a metabolomics analysis workflow to a specific
       metabolite
     from_schema: https://w3id.org/nmdc/nmdc
     slots:
     - alternative_identifiers
     - highest_similarity_score
-    - metabolite_quantified
+    - metabolite_identified
     - type
-    class_uri: nmdc:MetaboliteQuantification
+    class_uri: nmdc:MetaboliteIdentification
   PeptideQuantification:
     name: PeptideQuantification
     description: This is used to link a metaproteomics analysis workflow to a specific
@@ -20415,7 +20572,6 @@ classes:
       has_numeric_value:
         name: has_numeric_value
         description: The number part of the quantity
-        range: double
     class_uri: nmdc:QuantityValue
   ImageValue:
     name: ImageValue
@@ -20881,15 +21037,9 @@ classes:
     - add_date
     - analyte_category
     - associated_studies
-    - gold_sequencing_project_identifiers
-    - insdc_bioproject_identifiers
-    - insdc_experiment_identifiers
     - mod_date
-    - ncbi_project_name
     - part_of
     - principal_investigator
-    - target_gene
-    - target_subfragment
     slot_usage:
       has_input:
         name: has_input
@@ -20965,6 +21115,7 @@ classes:
     - part_of
     - started_at_time
     - version
+    - workflow_configuration_objects
     slot_usage:
       started_at_time:
         name: started_at_time
@@ -21255,7 +21406,7 @@ classes:
     is_a: WorkflowExecution
     slots:
     - has_calibration
-    - has_metabolite_quantifications
+    - has_metabolite_identifications
     slot_usage:
       id:
         name: id
@@ -21299,6 +21450,44 @@ classes:
           syntax: '{id_nmdc_prefix}:wfnom-{id_shoulder}-{id_blade}{id_version}{id_locus}'
           interpolated: true
     class_uri: nmdc:NomAnalysis
+  Calibration:
+    name: Calibration
+    description: A calibration object that is associated with a process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    is_a: NamedThing
+    slots:
+    - calibration_file
+    - internal_calibration
+    - calibration_target
+    - calibration_standard
+    slot_usage:
+      internal_calibration:
+        name: internal_calibration
+        required: true
+      calibration_target:
+        name: calibration_target
+        required: true
+      id:
+        name: id
+        pattern: ^(nmdc):calib-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\.-]+)?$
+        structured_pattern:
+          syntax: '{id_nmdc_prefix}:calib-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+          interpolated: true
+    class_uri: nmdc:Calibration
+    rules:
+    - preconditions:
+        slot_conditions:
+          calibration_target:
+            name: calibration_target
+            equals_string: retention_index
+      postconditions:
+        slot_conditions:
+          calibration_standard:
+            name: calibration_standard
+            required: true
+      description: If the calibration_target is retention_index, a calibration_standard
+        is required.
+      title: calibration_standard_if_rt
 source_file: src/schema/nmdc.yaml
 settings:
   id_nmdc_prefix:
