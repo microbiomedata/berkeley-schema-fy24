@@ -154,18 +154,36 @@ classes:
       - CHMO:0000470
     slots:
       - eluent_introduction
+      - has_configuration
+    slot_usage:
+      id:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          interpolated: true
+
+  Configuration:
+    abstract: true
+    class_uri: nmdc:Configuration
+    description: A platform that enables the user to configure the appearance, actions, and other usage preferences on a process.
+    slots:
+      - id
+      - type
+
+  MassSpectrometryConfiguration:
+    is_a: Configuration
+    class_uri: nmdc:MassSpectrometryConfiguration
+    description: A platform that enables the user to configure the actions of a mass spectrometry process.
+    slots:
       - acquisition_category
-      - acquisition_strategy
       - resolution_category
       - mass_analyzer
       - ionization_source
       - mass_spectrum_collection_mode
       - polarity_mode
-
     slot_usage:
       id:
         structured_pattern:
-          syntax: "{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          syntax: "{id_nmdc_prefix}:(mscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
 
   FunctionalAnnotationAggMember:
@@ -434,10 +452,7 @@ classes:
     is_a: FluidHandling
     slots:
       - has_calibration
-      - chromatographic_category
-      - ordered_mobile_phases
-      - stationary_phase
-      - temperature
+      - has_configuration
     rules:
       - title: has_calibration_required_if_gc
         description: >-
@@ -455,6 +470,21 @@ classes:
         required: true
         structured_pattern:
           syntax: "{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          interpolated: true
+  
+  ChromatographicSeparationConfiguration:
+    is_a: Configuration
+    class_uri: nmdc:ChromatographicSeparationConfiguration
+    description: A platform that enables the user to configure the actions of a chromatographic separation process.
+    slots:
+      - chromatographic_category
+      - ordered_mobile_phases
+      - stationary_phase
+      - temperature
+    slot_usage:
+      id:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(cscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
 
   DissolvingProcess:
@@ -692,6 +722,12 @@ slots:
   eluent_introduction:
     range: FluidHandling
     description: how a processed sample is introduced into a mass spectrometer, for example liquid chromatography or direct infusion through a syringe
+
+  has_configuration:
+    any_of:
+      - range: Configuration
+      - range: DataObject
+    description: a platform that enables the user to configure the appearance, actions, and other usage preferences on a process
 
   metagenome_annotation_id:
     domain: FunctionalAnnotationAggMember
@@ -1042,7 +1078,7 @@ slots:
     description: The volume of the input sample.
 
   ordered_mobile_phases:
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: MobilePhaseSegment
     description: The solution(s) that moves through a chromatography column.
     multivalued: true
@@ -1050,11 +1086,12 @@ slots:
     inlined_as_list: true
 
   stationary_phase:
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: StationaryPhaseEnum
     description: The material the stationary phase is comprised of used in chromatography.
+    
   chromatographic_category:
-    domain: ChromatographicSeparationProcess
+    domain: ChromatographicSeparationConfiguration
     range: ChromatographicCategoryEnum
     description: The type of chromatography used in a process.
 
