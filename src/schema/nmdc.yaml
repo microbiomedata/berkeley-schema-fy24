@@ -163,24 +163,31 @@ classes:
 
   Configuration:
     abstract: true
+    is_a: NamedThing
     class_uri: nmdc:Configuration
-    description: A platform that enables the user to configure the appearance, actions, and other usage preferences on a process.
-    slots:
-      - id
-      - type
+    description: A set of parameters that define the actions of a process and is shared among multiple instances of the process.
+    notes:
+      - This class is intended to represent the parameters within a method file (or similar) that control a process.
 
   MassSpectrometryConfiguration:
     is_a: Configuration
     class_uri: nmdc:MassSpectrometryConfiguration
-    description: A platform that enables the user to configure the actions of a mass spectrometry process.
+    description: A set of parameters that define and control the actions of a mass spectrometry process. 
+    notes:
+      - This class is intended to represent a mass sepctrometry method file that controls a mass spectrometry process.
     slots:
       - acquisition_category
+      - acquisition_strategy
       - resolution_category
       - mass_analyzer
       - ionization_source
       - mass_spectrum_collection_mode
       - polarity_mode
     slot_usage:
+      name:
+        required: true
+      description:
+        required: true
       id:
         structured_pattern:
           syntax: "{id_nmdc_prefix}:(mscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
@@ -236,6 +243,7 @@ classes:
       - study_set
       - workflow_execution_set
       - instrument_set
+      - configuration_set
 
   Pooling:
     class_uri: nmdc:Pooling
@@ -710,10 +718,8 @@ slots:
     description: how a processed sample is introduced into a mass spectrometer, for example liquid chromatography or direct infusion through a syringe
 
   has_configuration:
-    any_of:
-      - range: Configuration
-      - range: DataObject
-    description: a platform that enables the user to configure the appearance, actions, and other usage preferences on a process
+    range: Configuration
+    description: a set of parameters that define the actions of the process
 
   metagenome_annotation_id:
     domain: FunctionalAnnotationAggMember
@@ -969,6 +975,10 @@ slots:
     mixins: object_set
     range: Instrument
     description: This property links a database object to the set of instruments within it.
+  configuration_set:
+    mixins: object_set
+    range: Configuration
+    description: This property links a database object to the set of configurations within it.
 
   omics_type:
     deprecated_element_has_exact_replacement: analyte_category
