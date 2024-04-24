@@ -19,7 +19,7 @@ has_metabolite_identifications:
     highest_similarity_score: 0.9534156546099186
     metabolite_identified: chebi:16997
     type: nmdc:MetaboliteIdentification
-workflow_configuration_objects:
+configuration_data_objects:
   - nmdc:dobj-99-izwYW6
   - nmdc:dobj-78-ebzPH6
 

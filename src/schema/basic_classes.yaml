@@ -376,7 +376,7 @@ classes:
       - part_of
       - started_at_time
       - version
-      - workflow_configuration_objects
+      - configuration_data_objects
     rules:
       - title: qc_status_pass_has_output_required
         description: >-
@@ -425,7 +425,7 @@ classes:
           syntax: "{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
 slots:
-  workflow_configuration_objects:
+  configuration_data_objects:
     description: >-
       Data object(s) that stores settings that are specific to a particular software.
     range: DataObject
