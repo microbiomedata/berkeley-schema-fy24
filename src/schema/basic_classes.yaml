@@ -427,7 +427,7 @@ classes:
 slots:
   configuration_data_objects:
     description: >-
-      Data object(s) that stores settings that are specific to a particular software.
+      Data object(s) that stores settings that are specific to a particular process or software.
     range: DataObject
     multivalued: true
     examples:
