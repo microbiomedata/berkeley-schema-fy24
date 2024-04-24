@@ -1076,6 +1076,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/nmdc-schema/StorageProcess/</loc>
+         <lastmod>2024-04-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/String/</loc>
          <lastmod>2024-04-24</lastmod>
          <changefreq>daily</changefreq>

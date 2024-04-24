@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://microbiomedata.github.io/nmdc-schema/FailureCategorization/" rel="canonical"/>
+<link href="https://microbiomedata.github.io/nmdc-schema/StorageProcess/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
-<title>Class: FailureCategorization - NMDC Schema Documentation</title>
+<title>Class: StorageProcess - NMDC Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-failurecategorization">
+<a class="md-skip" href="#class-storageprocess">
           Skip to content
         </a>
 </div>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: FailureCategorization
+              Class: StorageProcess
             
           </span>
 </div>
@@ -195,16 +195,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
+<a class="md-nav__link" href="#inheritance">
 <span class="md-ellipsis">
-      Slots
+      Inheritance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
+<a class="md-nav__link" href="#slots">
 <span class="md-ellipsis">
-      Usages
+      Slots
     </span>
 </a>
 </li>
@@ -265,25 +265,84 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-failurecategorization">Class: FailureCategorization</h1>
-<p>URI: <a href="https://w3id.org/nmdc/FailureCategorization">nmdc:FailureCategorization</a></p>
+<h1 id="class-storageprocess">Class: StorageProcess</h1>
+<p><em>A planned process with the objective to preserve and protect material entities by placing them in an identified  location which may have a controlled environment.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/StorageProcess">nmdc:StorageProcess</a></p>
 <div class="mermaid">classDiagram
-  class FailureCategorization
+  class StorageProcess
+    PlannedProcess &lt;|-- StorageProcess
 
-  FailureCategorization : qc_failure_what
 
-    FailureCategorization --&gt; FailureWhatEnum : qc_failure_what
 
-  FailureCategorization : qc_failure_where
+  StorageProcess : alternative_identifiers
 
-    FailureCategorization --&gt; FailureWhereEnum : qc_failure_where
+  StorageProcess : contained_in
 
-  FailureCategorization : type
+    StorageProcess --&gt; ContainerCategoryEnum : contained_in
+
+  StorageProcess : description
+
+  StorageProcess : end_date
+
+  StorageProcess : has_failure_categorization
+
+    StorageProcess --&gt; FailureCategorization : has_failure_categorization
+
+  StorageProcess : has_input
+
+    StorageProcess --&gt; NamedThing : has_input
+
+  StorageProcess : has_output
+
+    StorageProcess --&gt; NamedThing : has_output
+
+  StorageProcess : id
+
+  StorageProcess : instrument_used
+
+    StorageProcess --&gt; Instrument : instrument_used
+
+  StorageProcess : name
+
+  StorageProcess : processing_institution
+
+    StorageProcess --&gt; ProcessingInstitutionEnum : processing_institution
+
+  StorageProcess : protocol_link
+
+    StorageProcess --&gt; Protocol : protocol_link
+
+  StorageProcess : qc_comment
+
+  StorageProcess : qc_status
+
+    StorageProcess --&gt; StatusEnum : qc_status
+
+  StorageProcess : start_date
+
+  StorageProcess : substances_used
+
+    StorageProcess --&gt; PortionOfSubstance : substances_used
+
+  StorageProcess : temperature
+
+    StorageProcess --&gt; QuantityValue : temperature
+
+  StorageProcess : type
 
 
 
 </div>
-<!-- no inheritance hierarchy -->
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../NamedThing/">NamedThing</a><ul>
+<li><a href="../PlannedProcess/">PlannedProcess</a><ul>
+<li><strong>StorageProcess</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -296,233 +355,112 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../qc_failure_what/">qc_failure_what</a></td>
-<td>0..1 <br/> <a href="../FailureWhatEnum/">FailureWhatEnum</a></td>
-<td>Provides a summary about what caused a lab or workflow process to fail</td>
+<td><a href="../substances_used/">substances_used</a></td>
+<td>0..* <br/> <a href="../PortionOfSubstance/">PortionOfSubstance</a></td>
+<td>The substance(s) that a processed sample is stored in</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../qc_failure_where/">qc_failure_where</a></td>
-<td>0..1 <br/> <a href="../FailureWhereEnum/">FailureWhereEnum</a></td>
-<td>Describes the nmdc schema class that corresonds to where the failure occurred</td>
+<td><a href="../contained_in/">contained_in</a></td>
+<td>0..1 <br/> <a href="../ContainerCategoryEnum/">ContainerCategoryEnum</a></td>
+<td>A type of container</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../temperature/">temperature</a></td>
+<td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
+<td>The value of a temperature measurement or temperature used in a process</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../has_input/">has_input</a></td>
+<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
+<td>An input to a process</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../has_output/">has_output</a></td>
+<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
+<td>An output from a process</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../instrument_used/">instrument_used</a></td>
+<td>0..* <br/> <a href="../Instrument/">Instrument</a></td>
+<td>What instrument was used during DataGeneration or MaterialProcessing</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../processing_institution/">processing_institution</a></td>
+<td>0..1 <br/> <a href="../ProcessingInstitutionEnum/">ProcessingInstitutionEnum</a></td>
+<td>The organization that processed the sample</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../protocol_link/">protocol_link</a></td>
+<td>0..1 <br/> <a href="../Protocol/">Protocol</a></td>
+<td></td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../start_date/">start_date</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The date on which any process or activity was started</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../end_date/">end_date</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The date on which any process or activity was ended</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../qc_status/">qc_status</a></td>
+<td>0..1 <br/> <a href="../StatusEnum/">StatusEnum</a></td>
+<td>Stores information about the result of a process (ie the process of sequencin...</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../qc_comment/">qc_comment</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Slot to store additional comments about laboratory or workflow output</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
+<td>0..* <br/> <a href="../FailureCategorization/">FailureCategorization</a></td>
+<td></td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A unique identifier for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human readable label for an entity</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>a human-readable description of a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../alternative_identifiers/">alternative_identifiers</a></td>
+<td>0..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A list of alternative identifiers for the entity</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
 <td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>the id of the class that is instantiated by some data</td>
-<td>direct</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../NucleotideSequencing/">NucleotideSequencing</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../FluidHandling/">FluidHandling</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../DirectInfusionProcess/">DirectInfusionProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../Pooling/">Pooling</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../Extraction/">Extraction</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../LibraryPreparation/">LibraryPreparation</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../ProtocolExecution/">ProtocolExecution</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../SubSamplingProcess/">SubSamplingProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MixingProcess/">MixingProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../FiltrationProcess/">FiltrationProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../StorageProcess/">StorageProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../DissolvingProcess/">DissolvingProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../ChemicalConversionProcess/">ChemicalConversionProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../DataGeneration/">DataGeneration</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowChain/">WorkflowChain</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MagsAnalysis/">MagsAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
-</tr>
-<tr>
-<td><a href="../NomAnalysis/">NomAnalysis</a></td>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>range</td>
-<td><a href="./">FailureCategorization</a></td>
+<td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 </tbody>
 </table>
@@ -542,11 +480,15 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>nmdc:FailureCategorization</td>
+<td>nmdc:StorageProcess</td>
 </tr>
 <tr>
 <td>native</td>
-<td>nmdc:FailureCategorization</td>
+<td>nmdc:StorageProcess</td>
+</tr>
+<tr>
+<td>related</td>
+<td>OBI:0302893</td>
 </tr>
 </tbody>
 </table>
@@ -554,48 +496,285 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: FailureCategorization
+<pre><code class="language-yaml">name: StorageProcess
+description: A planned process with the objective to preserve and protect material
+  entities by placing them in an identified  location which may have a controlled
+  environment.
 from_schema: https://w3id.org/nmdc/nmdc
+related_mappings:
+- OBI:0302893
+is_a: PlannedProcess
 slots:
-- qc_failure_what
-- qc_failure_where
-- type
-class_uri: nmdc:FailureCategorization
+- substances_used
+- contained_in
+- temperature
+slot_usage:
+  substances_used:
+    name: substances_used
+    description: The substance(s) that a processed sample is stored in.
+    domain_of:
+    - Extraction
+    - StorageProcess
+    - DissolvingProcess
+    - ChemicalConversionProcess
+    - MobilePhaseSegment
+class_uri: nmdc:StorageProcess
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: FailureCategorization
+<pre><code class="language-yaml">name: StorageProcess
+description: A planned process with the objective to preserve and protect material
+  entities by placing them in an identified  location which may have a controlled
+  environment.
 from_schema: https://w3id.org/nmdc/nmdc
+related_mappings:
+- OBI:0302893
+is_a: PlannedProcess
+slot_usage:
+  substances_used:
+    name: substances_used
+    description: The substance(s) that a processed sample is stored in.
+    domain_of:
+    - Extraction
+    - StorageProcess
+    - DissolvingProcess
+    - ChemicalConversionProcess
+    - MobilePhaseSegment
 attributes:
-  qc_failure_what:
-    name: qc_failure_what
-    description: Provides a summary about what caused a lab or workflow process to
-      fail
-    comments:
-    - For example Low read count from a sequencer, malformed fastq files, etc)
+  substances_used:
+    name: substances_used
+    description: The substance(s) that a processed sample is stored in.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: qc_failure_what
-    owner: FailureCategorization
+    multivalued: true
+    alias: substances_used
+    owner: StorageProcess
     domain_of:
-    - FailureCategorization
-    range: FailureWhatEnum
-  qc_failure_where:
-    name: qc_failure_where
-    description: Describes the nmdc schema class that corresonds to where the failure
-      occurred. Most commonly this would be the same as Class that generated the results.
-    comments:
-    - If the assembly size was too small to proceed to annotation failure_where would
-      be MetagenomeAssembly.
+    - Extraction
+    - StorageProcess
+    - DissolvingProcess
+    - ChemicalConversionProcess
+    - MobilePhaseSegment
+    range: PortionOfSubstance
+    inlined: true
+    inlined_as_list: true
+  contained_in:
+    name: contained_in
+    description: A type of container. i.e. test tube, falcon tube, etc.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: qc_failure_where
-    owner: FailureCategorization
+    alias: contained_in
+    owner: StorageProcess
     domain_of:
-    - FailureCategorization
-    range: FailureWhereEnum
+    - SubSamplingProcess
+    - StorageProcess
+    range: ContainerCategoryEnum
+  temperature:
+    name: temperature
+    description: The value of a temperature measurement or temperature used in a process.
+    notes:
+    - Not to be confused with the MIXS:0000113
+    from_schema: https://w3id.org/nmdc/nmdc
+    contributors:
+    - ORCID:0009-0001-1555-1601
+    - ORCID:0000-0002-8683-0050
+    rank: 1000
+    alias: temperature
+    owner: StorageProcess
+    domain_of:
+    - SubSamplingProcess
+    - StorageProcess
+    - ChromatographicSeparationProcess
+    - DissolvingProcess
+    - ChemicalConversionProcess
+    range: QuantityValue
+  has_input:
+    name: has_input
+    description: An input to a process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    aliases:
+    - input
+    rank: 1000
+    multivalued: true
+    alias: has_input
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: NamedThing
+  has_output:
+    name: has_output
+    description: An output from a process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    aliases:
+    - output
+    rank: 1000
+    multivalued: true
+    alias: has_output
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: NamedThing
+  instrument_used:
+    name: instrument_used
+    description: What instrument was used during DataGeneration or MaterialProcessing.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    multivalued: true
+    alias: instrument_used
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: Instrument
+  processing_institution:
+    name: processing_institution
+    description: The organization that processed the sample.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: processing_institution
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: ProcessingInstitutionEnum
+  protocol_link:
+    name: protocol_link
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: protocol_link
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    - Study
+    range: Protocol
+  start_date:
+    name: start_date
+    description: The date on which any process or activity was started
+    todos:
+    - add date string validation pattern
+    comments:
+    - We are using string representations of dates until all components of our ecosystem
+      can handle ISO 8610 dates
+    - The date should be formatted as YYYY-MM-DD
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: start_date
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: string
+  end_date:
+    name: end_date
+    description: The date on which any process or activity was ended
+    todos:
+    - add date string validation pattern
+    comments:
+    - We are using string representations of dates until all components of our ecosystem
+      can handle ISO 8610 dates
+    - The date should be formatted as YYYY-MM-DD
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: end_date
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: string
+  qc_status:
+    name: qc_status
+    description: Stores information about the result of a process (ie the process
+      of sequencing a library may have for qc_status of 'fail' if not enough data
+      was generated)
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: qc_status
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: StatusEnum
+  qc_comment:
+    name: qc_comment
+    description: Slot to store additional comments about laboratory or workflow output.
+      For workflow output it may describe the particular workflow stage that failed.
+      (ie Failed at call-stage due to a malformed fastq file).
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: qc_comment
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: string
+  has_failure_categorization:
+    name: has_failure_categorization
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    multivalued: true
+    alias: has_failure_categorization
+    owner: StorageProcess
+    domain_of:
+    - PlannedProcess
+    range: FailureCategorization
+  id:
+    name: id
+    description: A unique identifier for a thing. Must be either a CURIE shorthand
+      for a URI or a complete URI
+    notes:
+    - 'abstracted pattern: prefix:typecode-authshoulder-blade(.version)?(_seqsuffix)?'
+    - a minimum length of 3 characters is suggested for typecodes, but 1 or 2 characters
+      will be accepted
+    - typecodes must correspond 1:1 to a class in the NMDC schema. this will be checked
+      via per-class id slot usage assertions
+    - minting authority shoulders should probably be enumerated and checked in the
+      pattern
+    examples:
+    - value: nmdc:mgmag-00-x012.1_7_c1
+      description: https://github.com/microbiomedata/nmdc-schema/pull/499#discussion_r1018499248
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: StorageProcess
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+    pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
+  name:
+    name: name
+    description: A human readable label for an entity
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: name
+    owner: StorageProcess
+    domain_of:
+    - PersonValue
+    - NamedThing
+    - Protocol
+    range: string
+  description:
+    name: description
+    description: a human-readable description of a thing
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    slot_uri: dcterms:description
+    alias: description
+    owner: StorageProcess
+    domain_of:
+    - ImageValue
+    - NamedThing
+    range: string
+  alternative_identifiers:
+    name: alternative_identifiers
+    description: A list of alternative identifiers for the entity.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    multivalued: true
+    alias: alternative_identifiers
+    owner: StorageProcess
+    domain_of:
+    - MetaboliteIdentification
+    - NamedThing
+    range: uriorcurie
+    pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
     name: type
     description: the id of the class that is instantiated by some data
@@ -615,7 +794,7 @@ attributes:
     slot_uri: rdf:type
     designates_type: true
     alias: type
-    owner: FailureCategorization
+    owner: StorageProcess
     domain_of:
     - FunctionalAnnotationAggMember
     - MobilePhaseSegment
@@ -634,7 +813,7 @@ attributes:
     - Doi
     range: uriorcurie
     required: true
-class_uri: nmdc:FailureCategorization
+class_uri: nmdc:StorageProcess
 
 </code></pre>
 </details>
