@@ -2892,6 +2892,101 @@
             "title": "BuildingSettingEnum",
             "type": "string"
         },
+        "Calibration": {
+            "additionalProperties": false,
+            "description": "A calibration object that is associated with a process.",
+            "if": {
+                "properties": {
+                    "calibration_target": {
+                        "const": "retention_index"
+                    }
+                },
+                "required": [
+                    "calibration_target"
+                ]
+            },
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "calibration_file": {
+                    "description": "the file containing calibration data object",
+                    "type": "string"
+                },
+                "calibration_standard": {
+                    "$ref": "#/$defs/CalibrationStandardEnum",
+                    "description": "the reference standard(s) used for calibration"
+                },
+                "calibration_target": {
+                    "$ref": "#/$defs/CalibrationTargetEnum",
+                    "description": "the target measurement of the calibration"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):calib-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "internal_calibration": {
+                    "description": "whether internal calibration was used, if false, external calibration was used",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "the id of the class that is instantiated by some data",
+                    "enum": [
+                        "nmdc:Calibration"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "internal_calibration",
+                "calibration_target",
+                "id",
+                "type"
+            ],
+            "then": {
+                "properties": {
+                    "calibration_standard": {}
+                },
+                "required": [
+                    "calibration_standard"
+                ]
+            },
+            "title": "Calibration",
+            "type": "object"
+        },
+        "CalibrationStandardEnum": {
+            "description": "",
+            "enum": [
+                "fames",
+                "alkanes"
+            ],
+            "title": "CalibrationStandardEnum",
+            "type": "string"
+        },
+        "CalibrationTargetEnum": {
+            "description": "",
+            "enum": [
+                "mass",
+                "retention_time",
+                "retention_index"
+            ],
+            "title": "CalibrationTargetEnum",
+            "type": "string"
+        },
         "CeilCondEnum": {
             "description": "",
             "enum": [
@@ -2984,6 +3079,10 @@
                 "chemical_conversion_category": {
                     "$ref": "#/$defs/ChemicalConversionCategoryEnum",
                     "description": "The type of chemical conversion process."
+                },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
                 },
                 "description": {
                     "description": "a human-readable description of a thing",
@@ -3164,6 +3263,65 @@
             "title": "ChromatographicCategoryEnum",
             "type": "string"
         },
+        "ChromatographicSeparationConfiguration": {
+            "additionalProperties": false,
+            "description": "A platform that enables the user to configure the actions of a chromatographic separation process.",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "chromatographic_category": {
+                    "$ref": "#/$defs/ChromatographicCategoryEnum",
+                    "description": "The type of chromatography used in a process."
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):(cscon)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "ordered_mobile_phases": {
+                    "description": "The solution(s) that moves through a chromatography column.",
+                    "items": {
+                        "$ref": "#/$defs/MobilePhaseSegment"
+                    },
+                    "type": "array"
+                },
+                "stationary_phase": {
+                    "$ref": "#/$defs/StationaryPhaseEnum",
+                    "description": "The material the stationary phase is comprised of used in chromatography."
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
+                },
+                "type": {
+                    "description": "the id of the class that is instantiated by some data",
+                    "enum": [
+                        "nmdc:ChromatographicSeparationConfiguration"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "ChromatographicSeparationConfiguration",
+            "type": "object"
+        },
         "ChromatographicSeparationProcess": {
             "additionalProperties": false,
             "description": "The process of using a selective partitioning of the analyte or interferent between two immiscible phases.",
@@ -3190,16 +3348,36 @@
                     "$ref": "#/$defs/ChromatographicCategoryEnum",
                     "description": "The type of chromatography used in a process."
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
                     "type": "string"
                 },
                 "has_calibration": {
-                    "description": "A reference to a file that holds calibration information.",
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "a calibration instance associated with a process",
+                    "type": "string"
+                },
+                "has_configuration": {
+                    "description": "a set of parameters that define the actions of the process",
                     "type": "string"
                 },
                 "has_failure_categorization": {
@@ -3703,6 +3881,13 @@
                     },
                     "type": "array"
                 },
+                "calibration_set": {
+                    "description": "This property links a database object to the set of calibrations within it.",
+                    "items": {
+                        "$ref": "#/$defs/Calibration"
+                    },
+                    "type": "array"
+                },
                 "chemical_entity_set": {
                     "description": "This property links a database object to the set of chemical entities within it.",
                     "items": {
@@ -3713,6 +3898,20 @@
                 "collecting_biosamples_from_site_set": {
                     "items": {
                         "$ref": "#/$defs/CollectingBiosamplesFromSite"
+                    },
+                    "type": "array"
+                },
+                "configuration_set": {
+                    "description": "This property links a database object to the set of configurations within it.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/MassSpectrometryConfiguration"
+                            },
+                            {
+                                "$ref": "#/$defs/ChromatographicSeparationConfiguration"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
@@ -4071,6 +4270,10 @@
                     },
                     "type": "array"
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
@@ -4078,6 +4281,10 @@
                 "direct_infusion_category": {
                     "$ref": "#/$defs/DirectInfusionEnum",
                     "description": "used when a processed sample is introduced into a mass spectrometer without chromatographic separation"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
@@ -4146,6 +4353,10 @@
                     "description": "The date on which any process or activity was started",
                     "type": "string"
                 },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
+                },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
                     "enum": [
@@ -4172,6 +4383,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
                 },
                 "description": {
                     "description": "a human-readable description of a thing",
@@ -4595,9 +4810,17 @@
                     },
                     "type": "array"
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
@@ -4680,6 +4903,10 @@
                         "$ref": "#/$defs/PortionOfSubstance"
                     },
                     "type": "array"
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
@@ -4986,6 +5213,10 @@
                     },
                     "type": "array"
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "container_size": {
                     "$ref": "#/$defs/QuantityValue",
                     "description": "The volume of the container an analyte is stored in or an activity takes place in"
@@ -4993,6 +5224,10 @@
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
@@ -5080,6 +5315,10 @@
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
@@ -5723,9 +5962,17 @@
                     },
                     "type": "array"
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
@@ -5814,6 +6061,10 @@
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
@@ -6125,6 +6376,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -6156,14 +6414,6 @@
             "additionalProperties": false,
             "description": "Spectrometry where the sample is converted into gaseous ions which are characterised by their mass-to-charge ratio and relative abundance.",
             "properties": {
-                "acquisition_category": {
-                    "$ref": "#/$defs/AcquisitionCategoryEnum",
-                    "description": "whether only survey or tandem mass spectra are part of the experiment"
-                },
-                "acquisition_strategy": {
-                    "$ref": "#/$defs/AcquisitionStrategyEnum",
-                    "description": "whether spectra are dependent on or independent of any other spectra during the experiment"
-                },
                 "add_date": {
                     "description": "The date on which the information was added to the database.",
                     "type": "string"
@@ -6200,13 +6450,9 @@
                     "description": "The date on which any process or activity was ended",
                     "type": "string"
                 },
-                "gold_sequencing_project_identifiers": {
-                    "description": "identifiers for corresponding sequencing project in GOLD",
-                    "items": {
-                        "pattern": "^gold:Gp[0-9]+$",
-                        "type": "string"
-                    },
-                    "type": "array"
+                "has_configuration": {
+                    "description": "a set of parameters that define the actions of the process",
+                    "type": "string"
                 },
                 "has_failure_categorization": {
                     "items": {
@@ -6235,39 +6481,12 @@
                     "pattern": "^(nmdc):(dgms|omprc)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
                     "type": "string"
                 },
-                "insdc_bioproject_identifiers": {
-                    "description": "identifiers for corresponding project in INSDC Bioproject",
-                    "items": {
-                        "pattern": "^bioproject:PRJ[DEN][A-Z][0-9]+$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "insdc_experiment_identifiers": {
-                    "items": {
-                        "pattern": "^insdc.sra:(E|D|S)RX[0-9]{6,}$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
                 "instrument_used": {
                     "description": "What instrument was used during DataGeneration or MaterialProcessing.",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "ionization_source": {
-                    "$ref": "#/$defs/IonizationSourceEnum",
-                    "description": "which kind of ionization source is used to introduce analytes into a mass spectrometer"
-                },
-                "mass_analyzer": {
-                    "$ref": "#/$defs/MassAnalyzerEnum",
-                    "description": "which kind of mass analyzer is primarily used during the spectra collection."
-                },
-                "mass_spectrum_collection_mode": {
-                    "$ref": "#/$defs/MassSpectrumCollectionModeEnum",
-                    "description": "Indicates whether mass spectra were collected in full profile, reduced profile, or centroid mode during acquisition."
                 },
                 "mod_date": {
                     "description": "The last date on which the database information was modified.",
@@ -6277,9 +6496,6 @@
                     "description": "A human readable label for an entity",
                     "type": "string"
                 },
-                "ncbi_project_name": {
-                    "type": "string"
-                },
                 "part_of": {
                     "description": "Links a resource to another resource that either logically or physically includes it.",
                     "items": {
@@ -6287,10 +6503,6 @@
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "polarity_mode": {
-                    "$ref": "#/$defs/PolarityModeEnum",
-                    "description": "the polarity of which ions are generated and detected"
                 },
                 "principal_investigator": {
                     "$ref": "#/$defs/PersonValue",
@@ -6311,21 +6523,9 @@
                     "$ref": "#/$defs/StatusEnum",
                     "description": "Stores information about the result of a process (ie the process of sequencing a library may have for qc_status of 'fail' if not enough data was generated)"
                 },
-                "resolution_category": {
-                    "$ref": "#/$defs/ResolutionCategoryEnum",
-                    "description": "whether mass spectra are collected at higher than unity resolution"
-                },
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
-                },
-                "target_gene": {
-                    "$ref": "#/$defs/TextValue",
-                    "description": "Targeted gene or locus name for marker gene studies"
-                },
-                "target_subfragment": {
-                    "$ref": "#/$defs/TextValue",
-                    "description": "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
@@ -6343,6 +6543,88 @@
                 "type"
             ],
             "title": "MassSpectrometry",
+            "type": "object"
+        },
+        "MassSpectrometryConfiguration": {
+            "additionalProperties": false,
+            "description": "A set of parameters that define and control the actions of a mass spectrometry process.",
+            "properties": {
+                "acquisition_category": {
+                    "$ref": "#/$defs/AcquisitionCategoryEnum",
+                    "description": "whether only survey or tandem mass spectra are part of the experiment"
+                },
+                "acquisition_strategy": {
+                    "$ref": "#/$defs/AcquisitionStrategyEnum",
+                    "description": "whether spectra are dependent on or independent of any other spectra during the experiment"
+                },
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "has_calibration": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "a calibration instance associated with a process",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):(mscon)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[A-Za-z0-9]{1,})*(_[A-Za-z0-9_\\.-]+)?$",
+                    "type": "string"
+                },
+                "ionization_source": {
+                    "$ref": "#/$defs/IonizationSourceEnum",
+                    "description": "which kind of ionization source is used to introduce analytes into a mass spectrometer"
+                },
+                "mass_analyzer": {
+                    "$ref": "#/$defs/MassAnalyzerEnum",
+                    "description": "which kind of mass analyzer is primarily used during the spectra collection."
+                },
+                "mass_spectrum_collection_mode": {
+                    "$ref": "#/$defs/MassSpectrumCollectionModeEnum",
+                    "description": "Indicates whether mass spectra were collected in full profile, reduced profile, or centroid mode during acquisition."
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "polarity_mode": {
+                    "$ref": "#/$defs/PolarityModeEnum",
+                    "description": "the polarity of which ions are generated and detected"
+                },
+                "resolution_category": {
+                    "$ref": "#/$defs/ResolutionCategoryEnum",
+                    "description": "whether mass spectra are collected at higher than unity resolution"
+                },
+                "type": {
+                    "description": "the id of the class that is instantiated by some data",
+                    "enum": [
+                        "nmdc:MassSpectrometryConfiguration"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "description",
+                "type"
+            ],
+            "title": "MassSpectrometryConfiguration",
             "type": "object"
         },
         "MassSpectrumCollectionModeEnum": {
@@ -6367,9 +6649,17 @@
                     },
                     "type": "array"
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
@@ -6438,6 +6728,10 @@
                     "description": "The date on which any process or activity was started",
                     "type": "string"
                 },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
+                },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
                     "enum": [
@@ -6469,7 +6763,7 @@
             "title": "MechStrucEnum",
             "type": "string"
         },
-        "MetaboliteQuantification": {
+        "MetaboliteIdentification": {
             "additionalProperties": false,
             "description": "This is used to link a metabolomics analysis workflow to a specific metabolite",
             "properties": {
@@ -6484,14 +6778,14 @@
                 "highest_similarity_score": {
                     "type": "number"
                 },
-                "metabolite_quantified": {
+                "metabolite_identified": {
                     "description": "the specific metabolite identifier",
                     "type": "string"
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
                     "enum": [
-                        "nmdc:MetaboliteQuantification"
+                        "nmdc:MetaboliteIdentification"
                     ],
                     "type": "string"
                 }
@@ -6499,7 +6793,7 @@
             "required": [
                 "type"
             ],
-            "title": "MetaboliteQuantification",
+            "title": "MetaboliteIdentification",
             "type": "object"
         },
         "MetabolomicsAnalysis": {
@@ -6576,7 +6870,15 @@
                     "type": "string"
                 },
                 "has_calibration": {
-                    "description": "A reference to a file that holds calibration information.",
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "a calibration instance associated with a process",
                     "type": "string"
                 },
                 "has_failure_categorization": {
@@ -6592,9 +6894,9 @@
                     },
                     "type": "array"
                 },
-                "has_metabolite_quantifications": {
+                "has_metabolite_identifications": {
                     "items": {
-                        "$ref": "#/$defs/MetaboliteQuantification"
+                        "$ref": "#/$defs/MetaboliteIdentification"
                     },
                     "type": "array"
                 },
@@ -6660,6 +6962,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -6832,6 +7141,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -7107,6 +7423,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -7270,6 +7593,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -7439,6 +7769,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -7611,6 +7948,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -7783,6 +8127,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -8058,6 +8409,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -8084,6 +8442,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
                 },
                 "description": {
                     "description": "a human-readable description of a thing",
@@ -8159,6 +8521,10 @@
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
@@ -8282,7 +8648,15 @@
                     "type": "string"
                 },
                 "has_calibration": {
-                    "description": "A reference to a file that holds calibration information.",
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "a calibration instance associated with a process",
                     "type": "string"
                 },
                 "has_failure_categorization": {
@@ -8360,6 +8734,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -8853,9 +9234,17 @@
                     },
                     "type": "array"
                 },
+                "contained_in": {
+                    "$ref": "#/$defs/ContainerCategoryEnum",
+                    "description": "A type of container. i.e. test tube, falcon tube, etc."
+                },
                 "description": {
                     "description": "a human-readable description of a thing",
                     "type": "string"
+                },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
                 },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
@@ -8918,6 +9307,10 @@
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
+                },
+                "temperature": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The value of a temperature measurement or temperature used in a process."
                 },
                 "type": {
                     "description": "the id of the class that is instantiated by some data",
@@ -9469,6 +9862,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -9656,6 +10056,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -10042,8 +10449,9 @@
             "type": "string"
         },
         "StationaryPhaseEnum": {
-            "description": "The type of stationary phase used in a solid phase extraction process.",
+            "description": "The type of stationary phase used in a chromatography process.",
             "enum": [
+                "BEH-HILIC",
                 "C18",
                 "C8",
                 "C4",
@@ -10057,6 +10465,7 @@
                 "HILIC",
                 "NH2",
                 "Phenyl",
+                "Polysiloxane",
                 "PS-DVB",
                 "SAX",
                 "SCX",
@@ -10330,6 +10739,10 @@
                     "description": "a human-readable description of a thing",
                     "type": "string"
                 },
+                "duration": {
+                    "$ref": "#/$defs/QuantityValue",
+                    "description": "The elapsed time of an activity."
+                },
                 "end_date": {
                     "description": "The date on which any process or activity was ended",
                     "type": "string"
@@ -10428,6 +10841,8 @@
             "description": "",
             "enum": [
                 "buffer",
+                "acid",
+                "base",
                 "ms_proteolytic_enzyme",
                 "solvent",
                 "surfactant",
@@ -11054,6 +11469,13 @@
                 },
                 "version": {
                     "type": "string"
+                },
+                "workflow_configuration_objects": {
+                    "description": "Data object(s) that stores settings that are specific to a particular software.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -11092,6 +11514,13 @@
             },
             "type": "array"
         },
+        "calibration_set": {
+            "description": "This property links a database object to the set of calibrations within it.",
+            "items": {
+                "$ref": "#/$defs/Calibration"
+            },
+            "type": "array"
+        },
         "chemical_entity_set": {
             "description": "This property links a database object to the set of chemical entities within it.",
             "items": {
@@ -11102,6 +11531,20 @@
         "collecting_biosamples_from_site_set": {
             "items": {
                 "$ref": "#/$defs/CollectingBiosamplesFromSite"
+            },
+            "type": "array"
+        },
+        "configuration_set": {
+            "description": "This property links a database object to the set of configurations within it.",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/MassSpectrometryConfiguration"
+                    },
+                    {
+                        "$ref": "#/$defs/ChromatographicSeparationConfiguration"
+                    }
+                ]
             },
             "type": "array"
         },
