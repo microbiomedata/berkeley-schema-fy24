@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/mass_analyzer/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/mass_analyzers/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: mass_analyzer - NMDC Schema Documentation</title>
+        <title>Slot: mass_analyzers - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-mass_analyzer" class="md-skip">
+        <a href="#slot-mass_analyzers" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: mass_analyzer
+              Slot: mass_analyzers
             
           </span>
         </div>
@@ -481,9 +481,9 @@
   
 
 
-<h1 id="slot-mass_analyzer">Slot: mass_analyzer</h1>
-<p><em>which kind of mass analyzer is primarily used during the spectra collection.</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/mass_analyzer">nmdc:mass_analyzer</a></p>
+<h1 id="slot-mass_analyzers">Slot: mass_analyzers</h1>
+<p><em>which kind of mass analyzer(s) used during the spectra collection.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/mass_analyzers">nmdc:mass_analyzers</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -505,7 +505,12 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../MassAnalyzerEnum/">MassAnalyzerEnum</a></li>
+<li>
+<p>Range: <a href="../MassAnalyzerEnum/">MassAnalyzerEnum</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -515,11 +520,12 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: mass_analyzer
-description: which kind of mass analyzer is primarily used during the spectra collection.
+<pre><code class="language-yaml">name: mass_analyzers
+description: which kind of mass analyzer(s) used during the spectra collection.
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
-alias: mass_analyzer
+multivalued: true
+alias: mass_analyzers
 domain_of:
 - MassSpectrometry
 range: MassAnalyzerEnum

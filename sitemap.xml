@@ -3486,12 +3486,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/mass_analyzer/</loc>
+         <loc>https://microbiomedata.github.io/nmdc-schema/mass_analyzers/</loc>
          <lastmod>2024-04-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/mass_spectrum_collection_mode/</loc>
+         <loc>https://microbiomedata.github.io/nmdc-schema/mass_spectrum_collection_modes/</loc>
          <lastmod>2024-04-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -4311,7 +4311,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/resolution_category/</loc>
+         <loc>https://microbiomedata.github.io/nmdc-schema/resolution_categories/</loc>
          <lastmod>2024-04-30</lastmod>
          <changefreq>daily</changefreq>
     </url>

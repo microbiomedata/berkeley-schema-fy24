@@ -324,13 +324,13 @@
 
     MassSpectrometry --&gt; IonizationSourceEnum : ionization_source
 
-  MassSpectrometry : mass_analyzer
+  MassSpectrometry : mass_analyzers
 
-    MassSpectrometry --&gt; MassAnalyzerEnum : mass_analyzer
+    MassSpectrometry --&gt; MassAnalyzerEnum : mass_analyzers
 
-  MassSpectrometry : mass_spectrum_collection_mode
+  MassSpectrometry : mass_spectrum_collection_modes
 
-    MassSpectrometry --&gt; MassSpectrumCollectionModeEnum : mass_spectrum_collection_mode
+    MassSpectrometry --&gt; MassSpectrumCollectionModeEnum : mass_spectrum_collection_modes
 
   MassSpectrometry : mod_date
 
@@ -362,9 +362,9 @@
 
     MassSpectrometry --&gt; StatusEnum : qc_status
 
-  MassSpectrometry : resolution_category
+  MassSpectrometry : resolution_categories
 
-    MassSpectrometry --&gt; ResolutionCategoryEnum : resolution_category
+    MassSpectrometry --&gt; ResolutionCategoryEnum : resolution_categories
 
   MassSpectrometry : start_date
 
@@ -416,15 +416,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_category/">resolution_category</a></td>
-<td>0..1 <br/> <a href="../ResolutionCategoryEnum/">ResolutionCategoryEnum</a></td>
-<td>whether mass spectra are collected at higher than unity resolution</td>
+<td><a href="../resolution_categories/">resolution_categories</a></td>
+<td>0..* <br/> <a href="../ResolutionCategoryEnum/">ResolutionCategoryEnum</a></td>
+<td>whether mass spectra are collected at higher than unit resolution</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../mass_analyzer/">mass_analyzer</a></td>
-<td>0..1 <br/> <a href="../MassAnalyzerEnum/">MassAnalyzerEnum</a></td>
-<td>which kind of mass analyzer is primarily used during the spectra collection</td>
+<td><a href="../mass_analyzers/">mass_analyzers</a></td>
+<td>0..* <br/> <a href="../MassAnalyzerEnum/">MassAnalyzerEnum</a></td>
+<td>which kind of mass analyzer(s) used during the spectra collection</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -434,8 +434,8 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../mass_spectrum_collection_mode/">mass_spectrum_collection_mode</a></td>
-<td>0..1 <br/> <a href="../MassSpectrumCollectionModeEnum/">MassSpectrumCollectionModeEnum</a></td>
+<td><a href="../mass_spectrum_collection_modes/">mass_spectrum_collection_modes</a></td>
+<td>0..* <br/> <a href="../MassSpectrumCollectionModeEnum/">MassSpectrumCollectionModeEnum</a></td>
 <td>Indicates whether mass spectra were collected in full profile, reduced profil...</td>
 <td>direct</td>
 </tr>
@@ -616,10 +616,10 @@ slots:
 - eluent_introduction
 - acquisition_category
 - acquisition_strategy
-- resolution_category
-- mass_analyzer
+- resolution_categories
+- mass_analyzers
 - ionization_source
-- mass_spectrum_collection_mode
+- mass_spectrum_collection_modes
 - polarity_mode
 slot_usage:
   id:
@@ -683,23 +683,24 @@ attributes:
     domain_of:
     - MassSpectrometry
     range: AcquisitionStrategyEnum
-  resolution_category:
-    name: resolution_category
-    description: whether mass spectra are collected at higher than unity resolution
+  resolution_categories:
+    name: resolution_categories
+    description: whether mass spectra are collected at higher than unit resolution
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: resolution_category
+    multivalued: true
+    alias: resolution_categories
     owner: MassSpectrometry
     domain_of:
     - MassSpectrometry
     range: ResolutionCategoryEnum
-  mass_analyzer:
-    name: mass_analyzer
-    description: which kind of mass analyzer is primarily used during the spectra
-      collection.
+  mass_analyzers:
+    name: mass_analyzers
+    description: which kind of mass analyzer(s) used during the spectra collection.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: mass_analyzer
+    multivalued: true
+    alias: mass_analyzers
     owner: MassSpectrometry
     domain_of:
     - MassSpectrometry
@@ -715,13 +716,14 @@ attributes:
     domain_of:
     - MassSpectrometry
     range: IonizationSourceEnum
-  mass_spectrum_collection_mode:
-    name: mass_spectrum_collection_mode
+  mass_spectrum_collection_modes:
+    name: mass_spectrum_collection_modes
     description: Indicates whether mass spectra were collected in full profile, reduced
       profile, or centroid mode during acquisition.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: mass_spectrum_collection_mode
+    multivalued: true
+    alias: mass_spectrum_collection_modes
     owner: MassSpectrometry
     domain_of:
     - MassSpectrometry
