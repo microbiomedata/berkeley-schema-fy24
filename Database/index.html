@@ -723,6 +723,12 @@
 <td>This property links a database object to the set of instruments within it</td>
 <td>direct</td>
 </tr>
+<tr>
+<td><a href="../calibration_set/">calibration_set</a></td>
+<td>0..* <br/> <a href="../CalibrationInformation/">CalibrationInformation</a></td>
+<td>This property links a database object to the set of calibrations within it</td>
+<td>direct</td>
+</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -904,6 +910,12 @@
 <td>domain</td>
 <td><a href="./">Database</a></td>
 </tr>
+<tr>
+<td><a href="./">Database</a></td>
+<td><a href="../calibration_set/">calibration_set</a></td>
+<td>domain</td>
+<td><a href="./">Database</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="aliases">Aliases</h2>
@@ -980,6 +992,7 @@ slots:
 - study_set
 - workflow_execution_set
 - instrument_set
+- calibration_set
 class_uri: nmdc:Database
 tree_root: true
 
@@ -1438,6 +1451,22 @@ attributes:
     domain_of:
     - Database
     range: Instrument
+    inlined_as_list: true
+  calibration_set:
+    name: calibration_set
+    description: This property links a database object to the set of calibrations
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    domain: Database
+    multivalued: true
+    alias: calibration_set
+    owner: Database
+    domain_of:
+    - Database
+    range: CalibrationInformation
     inlined_as_list: true
 class_uri: nmdc:Database
 tree_root: true

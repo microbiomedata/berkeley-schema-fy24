@@ -670,6 +670,10 @@ This schema is organized into multiple modules, such as:</p>
 <td>Any data or knowledge that reduces uncertainty or enhances understanding abou...</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CalibrationInformation/">CalibrationInformation</a></td>
+<td>A calibration object that is associated with a process</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DataObject/">DataObject</a></td>
 <td>An object that primarily consists of symbols that represent information</td>
 </tr>
@@ -1227,6 +1231,22 @@ This schema is organized into multiple modules, such as:</p>
 <tr>
 <td><a href="calcium/">calcium</a></td>
 <td>Concentration of calcium in the sample</td>
+</tr>
+<tr>
+<td><a href="calibration_object/">calibration_object</a></td>
+<td>the file containing calibration data object</td>
+</tr>
+<tr>
+<td><a href="calibration_set/">calibration_set</a></td>
+<td>This property links a database object to the set of calibrations within it</td>
+</tr>
+<tr>
+<td><a href="calibration_standard/">calibration_standard</a></td>
+<td>the reference standard(s) used for calibration</td>
+</tr>
+<tr>
+<td><a href="calibration_target/">calibration_target</a></td>
+<td>the target measurement of the calibration</td>
 </tr>
 <tr>
 <td><a href="carb_dioxide/">carb_dioxide</a></td>
@@ -2138,7 +2158,7 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="has_calibration/">has_calibration</a></td>
-<td>A reference to a file that holds calibration information</td>
+<td>a calibration instance associated with a process</td>
 </tr>
 <tr>
 <td><a href="has_credit_associations/">has_credit_associations</a></td>
@@ -2495,6 +2515,10 @@ This schema is organized into multiple modules, such as:</p>
 <tr>
 <td><a href="int_wall_cond/">int_wall_cond</a></td>
 <td>The physical condition of the wall at the time of sampling; photos or video p...</td>
+</tr>
+<tr>
+<td><a href="internal_calibration/">internal_calibration</a></td>
+<td>whether internal calibration was used, if false, external calibration was use...</td>
 </tr>
 <tr>
 <td><a href="investigation_field/">investigation_field</a></td>
@@ -4425,6 +4449,14 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="BuildingSettingEnum/">BuildingSettingEnum</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CalibrationStandardEnum/">CalibrationStandardEnum</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CalibrationTargetEnum/">CalibrationTargetEnum</a></td>
 <td></td>
 </tr>
 <tr>

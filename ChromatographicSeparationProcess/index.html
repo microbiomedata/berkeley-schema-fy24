@@ -375,8 +375,8 @@
 <tbody>
 <tr>
 <td><a href="../has_calibration/">has_calibration</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A reference to a file that holds calibration information</td>
+<td>0..1 <br/> <a href="../String/">String</a> or <br/><a href="../CalibrationInformation/">CalibrationInformation</a> or <br/><a href="../String/">String</a></td>
+<td>a calibration instance associated with a process</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -617,21 +617,26 @@ slot_usage:
 attributes:
   has_calibration:
     name: has_calibration
-    description: A reference to a file that holds calibration information.
+    description: a calibration instance associated with a process
     notes:
-    - 'has_calibration will be removed from all WorkflowExecution classes and stay
-      only on the ChromatographicSeparationProcess class after an ingest of the chromatographic_separation_process_set
-      has  occurred. The commented out portion of the slot definition above will be
-      implemented. See PR #29 in Berkeley schema.'
+    - 'has_calibration slot will be removed from all WorkflowExecution classes but
+      remain on the ChromatographicSeparationProcess and MassSpectrometry classes
+      after an ingest of the  chromatographic_separation_process_set has occurred.  Once
+      this has occured, this slot''s range can be updated to CalibrationInformation
+      and class/slot definitions can move to nmdc.yaml.   See PR #29 in Berkeley schema.'
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: has_calibration
     owner: ChromatographicSeparationProcess
     domain_of:
+    - MassSpectrometry
     - ChromatographicSeparationProcess
     - MetabolomicsAnalysis
     - NomAnalysis
     range: string
+    any_of:
+    - range: CalibrationInformation
+    - range: string
   chromatographic_category:
     name: chromatographic_category
     description: The type of chromatography used in a process.
