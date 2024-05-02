@@ -858,6 +858,11 @@
 <td>None</td>
 <td>Liquid chromatographically separated MS1 and Data-Dependent MS2 binary instru...</td>
 </tr>
+<tr>
+<td>Configuration toml</td>
+<td>None</td>
+<td>A configuration toml file used by various programs to store settings that are...</td>
+</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots</h2>
@@ -1301,6 +1306,12 @@ permissible_values:
     text: LC-DDA-MS/MS Raw Data
     description: Liquid chromatographically separated MS1 and Data-Dependent MS2 binary
       instrument file
+  Configuration toml:
+    text: Configuration toml
+    description: A configuration toml file used by various programs to store settings
+      that are specific to their respective software.
+    broad_mappings:
+    - edam.format:4005
 
 </code></pre>
 
