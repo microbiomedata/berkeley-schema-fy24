@@ -341,7 +341,7 @@ classes:
       - OBI:0000070
       - ISA:Assay
   WorkflowChain:
-    class_uri: "nmdc:WorkflowChain"
+    class_uri: nmdc:WorkflowChain
     is_a: PlannedProcess
     description: >-
       A workflow chain is a collection of Workflow Execution(s) that
