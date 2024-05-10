@@ -7,7 +7,7 @@ calibration_set:
     calibration_standard: fames
 planned_process_set:
   - id: nmdc:cspro-99-oW43DzG1
-    type: nmdc:ChromatographicSeparationProcess
+    type: nmdc:ChromatographicIntroductionProcess
     has_input:
       - nmdc:procsm-11-9gjxns62
     has_output:
