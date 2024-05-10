@@ -193,6 +193,30 @@ classes:
         structured_pattern:
           syntax: "{id_nmdc_prefix}:(mscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
+
+  ChromatographicIntroductionConfiguration:
+    is_a: Configuration
+    class_uri: nmdc:ChromatographicIntroductionConfiguration
+    description: A set of parameters that define and control the actions of a chromatographic introduction process.
+    notes:
+      - This class is intended to represent a chromatographic introduction method file that controls a chromatographic introduction process (e.g. liquid chromatography method).
+    slots:
+      - chromatographic_category
+      - ordered_mobile_phases
+      - stationary_phase
+      - temperature
+    slot_usage:
+      name:
+        required: true
+      description:
+        required: true
+      chromatographic_category:
+        required: true
+      id:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(cscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          #TODO KRH: review this pattern, and adjust in examples as needed
+          interpolated: true
   
   FunctionalAnnotationAggMember:
     class_uri: "nmdc:FunctionalAnnotationAggMember"
