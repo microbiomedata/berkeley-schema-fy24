@@ -502,6 +502,27 @@ classes:
           syntax: "{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           interpolated: true
 
+  SolidPhaseExtraction:
+    class_uri: 'nmdc:SolidPhaseExtraction'
+    description:
+      The process of using a selective partitioning of the analyte or interferent between two immiscible phases.
+    contributors:
+      - ORCID:0009-0001-1555-1601 #Anastasiya Prymolenna
+      - ORCID:0000-0002-1368-8217 #Yuri Corilo
+      - ORCID:0000-0002-4504-1039 #Katherine Heal
+    is_a: Extraction
+    slots:
+      - has_calibration
+      - ordered_mobile_phases
+      - stationary_phase
+      - temperature
+    slot_usage:
+      id:
+        required: true
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          interpolated: true
+
   DissolvingProcess:
     class_uri: 'nmdc:DissolvingProcess'
     aliases:
