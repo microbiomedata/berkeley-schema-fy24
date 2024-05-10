@@ -201,7 +201,6 @@ classes:
     notes:
       - This class is intended to represent a chromatographic introduction method file that controls a chromatographic introduction process (e.g. liquid chromatography method).
     slots:
-      - chromatographic_category
       - ordered_mobile_phases
       - stationary_phase
       - temperature
@@ -214,7 +213,7 @@ classes:
         required: true
       id:
         structured_pattern:
-          syntax: "{id_nmdc_prefix}:(cscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          syntax: "{id_nmdc_prefix}:(cicon)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
           #TODO KRH: review this pattern, and adjust in examples as needed
           interpolated: true
   
@@ -505,10 +504,8 @@ classes:
     is_a: FluidHandling
     slots:
       - has_calibration
+      - has_configuration
       - chromatographic_category
-      - ordered_mobile_phases
-      - stationary_phase
-      - temperature
     rules:
       - title: has_calibration_required_if_gc
         description: >-
@@ -522,6 +519,8 @@ classes:
             has_calibration:
               required: true
     slot_usage:
+      has_configuration:
+        required: true
       id:
         required: true
         structured_pattern:

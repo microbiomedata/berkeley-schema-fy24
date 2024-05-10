@@ -1,0 +1,6 @@
+id: nmdc:cspro-99-oW43DzG0
+type: nmdc:ChromatographicIntroductionProcess
+chromatographic_category: liquid_chromatography
+has_configuration: nmdc:cicon-99-1W4zjQ # see src/data/valid/ChromatographicIntroductionConfiguration-LC.yaml
+
+
