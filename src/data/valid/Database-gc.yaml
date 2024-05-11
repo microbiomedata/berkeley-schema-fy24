@@ -2,7 +2,7 @@ planned_process_set:
   - id: nmdc:cspro-99-oW43DzG1
     type: nmdc:ChromatographicIntroductionProcess
     chromatographic_category: gas_chromatography
-    has_configuration: nmdc:cicon-99-1W4zjQ
+    has_configuration: nmdc:cicon-99-1W4zjk
     has_calibration: nmdc:calib-99-zUCd5Q
 calibration_set:
   - id: nmdc:calib-99-zUCd5Q
@@ -20,6 +20,13 @@ data_object_set:
     description: GCMS data file
     file_size_bytes: 9208349052
 configuration_set:
-  - id: nmdc:cicon-99-1W4zjQ
+  - id: nmdc:cicon-99-1W4zjk
     type: nmdc:ChromatographicIntroductionConfiguration
+    name: "PNNL gas chromatography configuration for polar metabolites"
+    description: "Gas chromatography configuration for polar metabolites, using a polysiloxane column (30mm x 1.5mm x 1.7um partical size) at 250 degrees Celcius"
+    #TODO KRH: add more details about the configuration to the description
     stationary_phase: Polysiloxane
+    temperature:
+      type: nmdc:QuantityValue
+      has_numeric_value: 250
+      has_unit: Cel

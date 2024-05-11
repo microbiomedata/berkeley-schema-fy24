@@ -5,7 +5,7 @@ from linkml.validators.jsonschemavalidator import JsonSchemaDataValidator
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.loaders import yaml_loader
 
-from nmdc_schema.nmdc import PortionOfSubstance, QuantityValue, Extraction, ChromatographicIntroductionProcess, \
+from nmdc_schema.nmdc import PortionOfSubstance, QuantityValue, Extraction, SolidPhaseExtraction, \
     MobilePhaseSegment
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
@@ -79,7 +79,7 @@ substances_used:
         assert ex1 == from_yaml_string
 
 
-class TestChromatographySeparationProcess(unittest.TestCase):
+class TestSolidPhaseExtraction(unittest.TestCase):
 
     def test_phase_separation(self):
         pass
@@ -136,15 +136,16 @@ class TestChromatographySeparationProcess(unittest.TestCase):
 
         validator.validate_object(mbp2, target_class=MobilePhaseSegment)
 
-        csp = ChromatographicIntroductionProcess(
+        csp = SolidPhaseExtraction(
             id="nmdc:NOT_CHECKED_IN_TEST",
-            #chromatographic_category="liquid_chromatography",
-            #stationary_phase="C8",
-            #type="nmdc:ChromatographicIntroductionProcess",
-            #ordered_mobile_phases=[mbp1, mbp2],
+            type="nmdc:SolidPhaseExtraction",
+            stationary_phase="C8",
+            ordered_mobile_phases=[mbp1, mbp2],
+            has_input=["nmdc:NOT_CHECKED_IN_TEST"],
+            has_output=["nmdc:NOT_CHECKED_IN_TEST"]            
         )
 
-        validator.validate_object(csp, target_class=ChromatographicIntroductionProcess)
+        validator.validate_object(csp, target_class=SolidPhaseExtraction)
 
         # print("\n")
         # print(csp)
@@ -153,8 +154,7 @@ class TestChromatographySeparationProcess(unittest.TestCase):
 
         extr_yaml_string = """
 id: nmdc:NOT_CHECKED_IN_TEST
-type: nmdc:ChromatographicIntroductionProcess
-chromatographic_category: liquid_chromatography
+type: nmdc:SolidPhaseExtraction
 ordered_mobile_phases:
 - type: nmdc:MobilePhaseSegment
   duration:
@@ -177,9 +177,13 @@ ordered_mobile_phases:
       has_unit: '%'
     known_as: nmdc:chem-99-000003
 stationary_phase: C8
+has_input:
+- nmdc:NOT_CHECKED_IN_TEST
+has_output:
+- nmdc:NOT_CHECKED_IN_TEST
         """
 
-        from_yaml_string = yaml_loader.load(source=extr_yaml_string, target_class=ChromatographicIntroductionProcess)
+        from_yaml_string = yaml_loader.load(source=extr_yaml_string, target_class=SolidPhaseExtraction)
 
         assert csp == from_yaml_string
 
