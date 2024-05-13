@@ -530,6 +530,7 @@ classes:
     class_uri: 'nmdc:SolidPhaseExtraction'
     description:
       The process of using a selective partitioning of the analyte or interferent between two immiscible phases.
+    #TODO KRH: review this definition
     contributors:
       - ORCID:0009-0001-1555-1601 #Anastasiya Prymolenna
       - ORCID:0000-0002-1368-8217 #Yuri Corilo
@@ -746,9 +747,6 @@ enums:
       gas_chromatography:
         aliases:
           - GC
-      solid_phase_extraction:
-        aliases:
-          - SPE
   
   SamplePortionEnum:
     permissible_values:
