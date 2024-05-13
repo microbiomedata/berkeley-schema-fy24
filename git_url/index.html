@@ -491,6 +491,7 @@
 
 
 <h1 id="slot-git_url">Slot: git_url</h1>
+<p><em>The url that points to the exact github location of a workflow.</em></p>
 <p>URI: <a href="https://w3id.org/nmdc/git_url">nmdc:git_url</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -505,7 +506,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
+<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -515,8 +516,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
-<td>A workflow execution activity that converts sequencing reads into an assemble...</td>
+<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
+<td>A workflow execution activity that provides functional and structural annotat...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -525,13 +526,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td>Represents an instance of an execution of a particular workflow</td>
-<td>yes</td>
+<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
+<td>A metatranscriptome activity that e</td>
+<td>no</td>
 </tr>
 <tr>
-<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td>A workflow execution activity that provides functional and structural annotat...</td>
+<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
+<td>A workflow execution activity that performs taxonomy classification using seq...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -540,7 +541,12 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
+<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -550,23 +556,18 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
+<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
+<td>Represents an instance of an execution of a particular workflow</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
 <td></td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
-<td>A metatranscriptome activity that e</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
-<td>A workflow execution activity that performs taxonomy classification using seq...</td>
+<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
+<td>A workflow execution activity that converts sequencing reads into an assemble...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -586,6 +587,9 @@
 <tr>
 <td><a href="https://github.com/microbiomedata/mg_annotation/releases/tag/0.1">https://github.com/microbiomedata/mg_annotation/releases/tag/0.1</a></td>
 </tr>
+<tr>
+<td><a href="https://github.com/microbiomedata/metaMS/blob/master/metaMS/gcmsWorkflow.py">https://github.com/microbiomedata/metaMS/blob/master/metaMS/gcmsWorkflow.py</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -597,8 +601,10 @@
 <details>
 
 <pre><code class="language-yaml">name: git_url
+description: The url that points to the exact github location of a workflow.
 examples:
 - value: https://github.com/microbiomedata/mg_annotation/releases/tag/0.1
+- value: https://github.com/microbiomedata/metaMS/blob/master/metaMS/gcmsWorkflow.py
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 alias: git_url
