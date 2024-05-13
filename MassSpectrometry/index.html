@@ -274,14 +274,6 @@
 
 
 
-  MassSpectrometry : acquisition_category
-
-    MassSpectrometry --&gt; AcquisitionCategoryEnum : acquisition_category
-
-  MassSpectrometry : acquisition_strategy
-
-    MassSpectrometry --&gt; AcquisitionStrategyEnum : acquisition_strategy
-
   MassSpectrometry : add_date
 
   MassSpectrometry : alternative_identifiers
@@ -304,6 +296,10 @@
 
   MassSpectrometry : has_calibration
 
+  MassSpectrometry : has_configuration
+
+    MassSpectrometry --&gt; Configuration : has_configuration
+
   MassSpectrometry : has_failure_categorization
 
     MassSpectrometry --&gt; FailureCategorization : has_failure_categorization
@@ -322,18 +318,6 @@
 
     MassSpectrometry --&gt; Instrument : instrument_used
 
-  MassSpectrometry : ionization_source
-
-    MassSpectrometry --&gt; IonizationSourceEnum : ionization_source
-
-  MassSpectrometry : mass_analyzers
-
-    MassSpectrometry --&gt; MassAnalyzerEnum : mass_analyzers
-
-  MassSpectrometry : mass_spectrum_collection_modes
-
-    MassSpectrometry --&gt; MassSpectrumCollectionModeEnum : mass_spectrum_collection_modes
-
   MassSpectrometry : mod_date
 
   MassSpectrometry : name
@@ -341,10 +325,6 @@
   MassSpectrometry : part_of
 
     MassSpectrometry --&gt; DataGeneration : part_of
-
-  MassSpectrometry : polarity_mode
-
-    MassSpectrometry --&gt; PolarityModeEnum : polarity_mode
 
   MassSpectrometry : principal_investigator
 
@@ -363,10 +343,6 @@
   MassSpectrometry : qc_status
 
     MassSpectrometry --&gt; StatusEnum : qc_status
-
-  MassSpectrometry : resolution_categories
-
-    MassSpectrometry --&gt; ResolutionCategoryEnum : resolution_categories
 
   MassSpectrometry : start_date
 
@@ -406,45 +382,9 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../acquisition_category/">acquisition_category</a></td>
-<td>0..1 <br/> <a href="../AcquisitionCategoryEnum/">AcquisitionCategoryEnum</a></td>
-<td>whether only survey or tandem mass spectra are part of the experiment</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../acquisition_strategy/">acquisition_strategy</a></td>
-<td>0..1 <br/> <a href="../AcquisitionStrategyEnum/">AcquisitionStrategyEnum</a></td>
-<td>whether spectra are dependent on or independent of any other spectra during t...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../resolution_categories/">resolution_categories</a></td>
-<td>0..* <br/> <a href="../ResolutionCategoryEnum/">ResolutionCategoryEnum</a></td>
-<td>whether mass spectra are collected at higher than unit resolution</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../mass_analyzers/">mass_analyzers</a></td>
-<td>0..* <br/> <a href="../MassAnalyzerEnum/">MassAnalyzerEnum</a></td>
-<td>which kind of mass analyzer(s) used during the spectra collection</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../ionization_source/">ionization_source</a></td>
-<td>0..1 <br/> <a href="../IonizationSourceEnum/">IonizationSourceEnum</a></td>
-<td>which kind of ionization source is used to introduce analytes into a mass spe...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../mass_spectrum_collection_modes/">mass_spectrum_collection_modes</a></td>
-<td>0..* <br/> <a href="../MassSpectrumCollectionModeEnum/">MassSpectrumCollectionModeEnum</a></td>
-<td>Indicates whether mass spectra were collected in full profile, reduced profil...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../polarity_mode/">polarity_mode</a></td>
-<td>0..1 <br/> <a href="../PolarityModeEnum/">PolarityModeEnum</a></td>
-<td>the polarity of which ions are generated and detected</td>
+<td><a href="../has_configuration/">has_configuration</a></td>
+<td>0..1 <br/> <a href="../Configuration/">Configuration</a></td>
+<td>a set of parameters that define the actions of the process</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -622,13 +562,7 @@ exact_mappings:
 is_a: DataGeneration
 slots:
 - eluent_introduction
-- acquisition_category
-- acquisition_strategy
-- resolution_categories
-- mass_analyzers
-- ionization_source
-- mass_spectrum_collection_modes
-- polarity_mode
+- has_configuration
 - has_calibration
 slot_usage:
   id:
@@ -671,82 +605,16 @@ attributes:
     domain_of:
     - MassSpectrometry
     range: FluidHandling
-  acquisition_category:
-    name: acquisition_category
-    description: whether only survey or tandem mass spectra are part of the experiment
+  has_configuration:
+    name: has_configuration
+    description: a set of parameters that define the actions of the process
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    alias: acquisition_category
+    alias: has_configuration
     owner: MassSpectrometry
     domain_of:
     - MassSpectrometry
-    range: AcquisitionCategoryEnum
-  acquisition_strategy:
-    name: acquisition_strategy
-    description: whether spectra are dependent on or independent of any other spectra
-      during the experiment
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: acquisition_strategy
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: AcquisitionStrategyEnum
-  resolution_categories:
-    name: resolution_categories
-    description: whether mass spectra are collected at higher than unit resolution
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: resolution_categories
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: ResolutionCategoryEnum
-  mass_analyzers:
-    name: mass_analyzers
-    description: which kind of mass analyzer(s) used during the spectra collection.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: mass_analyzers
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: MassAnalyzerEnum
-  ionization_source:
-    name: ionization_source
-    description: which kind of ionization source is used to introduce analytes into
-      a mass spectrometer
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: ionization_source
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: IonizationSourceEnum
-  mass_spectrum_collection_modes:
-    name: mass_spectrum_collection_modes
-    description: Indicates whether mass spectra were collected in full profile, reduced
-      profile, or centroid mode during acquisition.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: mass_spectrum_collection_modes
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: MassSpectrumCollectionModeEnum
-  polarity_mode:
-    name: polarity_mode
-    description: the polarity of which ions are generated and detected
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: polarity_mode
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: PolarityModeEnum
+    range: Configuration
   has_calibration:
     name: has_calibration
     description: a calibration instance associated with a process

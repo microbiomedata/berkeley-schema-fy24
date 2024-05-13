@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://microbiomedata.github.io/nmdc-schema/InformationObject/" rel="canonical"/>
+<link href="https://microbiomedata.github.io/nmdc-schema/Configuration/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.20" name="generator"/>
-<title>Class: InformationObject - NMDC Schema Documentation</title>
+<title>Class: Configuration - NMDC Schema Documentation</title>
 <link href="../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-informationobject">
+<a class="md-skip" href="#class-configuration">
           Skip to content
         </a>
 </div>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: InformationObject
+              Class: Configuration
             
           </span>
 </div>
@@ -209,16 +209,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#comments">
+<a class="md-nav__link" href="#usages">
 <span class="md-ellipsis">
-      Comments
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#see-also">
-<span class="md-ellipsis">
-      See Also
+      Usages
     </span>
 </a>
 </li>
@@ -279,29 +272,31 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-informationobject">Class: InformationObject</h1>
-<p><em>Any data or knowledge that reduces uncertainty or enhances understanding about a system, process, or entity.</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/InformationObject">nmdc:InformationObject</a></p>
+<h1 id="class-configuration">Class: Configuration</h1>
+<p><em>A set of parameters that define the actions of a process and is shared among multiple instances of the process.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an abstract class and should not be instantiated directly.</p>
+</div>
+<p>URI: <a href="https://w3id.org/nmdc/Configuration">nmdc:Configuration</a></p>
 <div class="mermaid">classDiagram
-  class InformationObject
-    NamedThing &lt;|-- InformationObject
-
-
+  class Configuration
     InformationObject &lt;|-- Configuration
-    InformationObject &lt;|-- DataObject
-    InformationObject &lt;|-- CalibrationInformation
+
+
+    Configuration &lt;|-- MassSpectrometryConfiguration
 
 
 
-  InformationObject : alternative_identifiers
+  Configuration : alternative_identifiers
 
-  InformationObject : description
+  Configuration : description
 
-  InformationObject : id
+  Configuration : id
 
-  InformationObject : name
+  Configuration : name
 
-  InformationObject : type
+  Configuration : type
 
 
 
@@ -309,10 +304,11 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
-<li><strong>InformationObject</strong><ul>
-<li><a href="../Configuration/">Configuration</a></li>
-<li><a href="../DataObject/">DataObject</a></li>
-<li><a href="../CalibrationInformation/">CalibrationInformation</a></li>
+<li><a href="../InformationObject/">InformationObject</a><ul>
+<li><strong>Configuration</strong><ul>
+<li><a href="../MassSpectrometryConfiguration/">MassSpectrometryConfiguration</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -361,18 +357,31 @@
 </tr>
 </tbody>
 </table>
-<h2 id="comments">Comments</h2>
-<ul>
-<li>The direct subclasses of NamedThing should aggregate the relevant classes and make them uniform. PlannedProcess and MaterialEntity are clearly disjoint. Let's do the same thing for our modelling of things that don't consist of matter and aren't processes.</li>
-<li>InformationObjects may include embedded data or links to external resources via the url slot</li>
-<li>May appear as output from a process, inputs into a process, or both</li>
-<li>All slots relating one class to a InformationObject should be is_a sub-properties of has_input or has_output, if they are multivalued or otherwise organized</li>
-<li>Historically information about many classes has been inlined into the class. This is an alternative pattern.</li>
-</ul>
-<h2 id="see-also">See Also</h2>
-<ul>
-<li><a href="https://w3id.org/nmdc/AttributeValue">nmdc:AttributeValue</a></li>
-</ul>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
+<td><a href="../has_configuration/">has_configuration</a></td>
+<td>range</td>
+<td><a href="./">Configuration</a></td>
+</tr>
+<tr>
+<td><a href="../Database/">Database</a></td>
+<td><a href="../configuration_set/">configuration_set</a></td>
+<td>range</td>
+<td><a href="./">Configuration</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -389,11 +398,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>nmdc:InformationObject</td>
+<td>nmdc:Configuration</td>
 </tr>
 <tr>
 <td>native</td>
-<td>nmdc:InformationObject</td>
+<td>nmdc:Configuration</td>
 </tr>
 </tbody>
 </table>
@@ -401,48 +410,30 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: InformationObject
-description: Any data or knowledge that reduces uncertainty or enhances understanding
-  about a system, process, or entity.
-comments:
-- The direct subclasses of NamedThing should aggregate the relevant classes and make
-  them uniform. PlannedProcess and MaterialEntity are clearly disjoint. Let's do the
-  same thing for our modelling of things that don't consist of matter and aren't processes.
-- InformationObjects may include embedded data or links to external resources via
-  the url slot
-- May appear as output from a process, inputs into a process, or both
-- All slots relating one class to a InformationObject should be is_a sub-properties
-  of has_input or has_output, if they are multivalued or otherwise organized
-- Historically information about many classes has been inlined into the class. This
-  is an alternative pattern.
+<pre><code class="language-yaml">name: Configuration
+description: A set of parameters that define the actions of a process and is shared
+  among multiple instances of the process.
+notes:
+- This class is intended to represent the parameters within a method file (or similar)
+  that control a process.
 from_schema: https://w3id.org/nmdc/nmdc
-see_also:
-- nmdc:AttributeValue
-is_a: NamedThing
-class_uri: nmdc:InformationObject
+is_a: InformationObject
+abstract: true
+class_uri: nmdc:Configuration
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: InformationObject
-description: Any data or knowledge that reduces uncertainty or enhances understanding
-  about a system, process, or entity.
-comments:
-- The direct subclasses of NamedThing should aggregate the relevant classes and make
-  them uniform. PlannedProcess and MaterialEntity are clearly disjoint. Let's do the
-  same thing for our modelling of things that don't consist of matter and aren't processes.
-- InformationObjects may include embedded data or links to external resources via
-  the url slot
-- May appear as output from a process, inputs into a process, or both
-- All slots relating one class to a InformationObject should be is_a sub-properties
-  of has_input or has_output, if they are multivalued or otherwise organized
-- Historically information about many classes has been inlined into the class. This
-  is an alternative pattern.
+<pre><code class="language-yaml">name: Configuration
+description: A set of parameters that define the actions of a process and is shared
+  among multiple instances of the process.
+notes:
+- This class is intended to represent the parameters within a method file (or similar)
+  that control a process.
 from_schema: https://w3id.org/nmdc/nmdc
-see_also:
-- nmdc:AttributeValue
-is_a: NamedThing
+is_a: InformationObject
+abstract: true
 attributes:
   id:
     name: id
@@ -463,7 +454,7 @@ attributes:
     rank: 1000
     identifier: true
     alias: id
-    owner: InformationObject
+    owner: Configuration
     domain_of:
     - NamedThing
     range: uriorcurie
@@ -475,7 +466,7 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: name
-    owner: InformationObject
+    owner: Configuration
     domain_of:
     - PersonValue
     - NamedThing
@@ -488,7 +479,7 @@ attributes:
     rank: 1000
     slot_uri: dcterms:description
     alias: description
-    owner: InformationObject
+    owner: Configuration
     domain_of:
     - ImageValue
     - NamedThing
@@ -500,7 +491,7 @@ attributes:
     rank: 1000
     multivalued: true
     alias: alternative_identifiers
-    owner: InformationObject
+    owner: Configuration
     domain_of:
     - MetaboliteIdentification
     - NamedThing
@@ -525,7 +516,7 @@ attributes:
     slot_uri: rdf:type
     designates_type: true
     alias: type
-    owner: InformationObject
+    owner: Configuration
     domain_of:
     - FunctionalAnnotationAggMember
     - MobilePhaseSegment
@@ -544,7 +535,7 @@ attributes:
     - Doi
     range: uriorcurie
     required: true
-class_uri: nmdc:InformationObject
+class_uri: nmdc:Configuration
 
 </code></pre>
 </details>
