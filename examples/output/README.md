@@ -86,45 +86,6 @@ extraction_set:
   type: nmdc:Extraction
 
 ```
-## ChromatographicSeparationProcess-compilation_example
-### Input
-```yaml
-chromatographic_category: liquid_chromatography
-has_input:
-- nmdc:procsm-11-9gjxns61
-has_output:
-- nmdc:procsm-11-05g48p90
-- nmdc:procsm-11-05g48p91
-id: nmdc:cspro-99-oW43DzG0
-ordered_mobile_phases:
-- duration:
-    has_numeric_value: 60
-    has_unit: min
-    type: nmdc:QuantityValue
-  substances_used:
-  - final_concentration:
-      has_numeric_value: 10
-      has_unit: '%'
-      type: nmdc:QuantityValue
-    known_as: nmdc:chem-99-000003
-    type: nmdc:PortionOfSubstance
-  type: nmdc:MobilePhaseSegment
-- substances_used:
-  - final_concentration:
-      has_numeric_value: 15
-      has_unit: mM
-      type: nmdc:QuantityValue
-    known_as: nmdc:chem-99-000015
-    type: nmdc:PortionOfSubstance
-  type: nmdc:MobilePhaseSegment
-stationary_phase: CN
-temperature:
-  has_numeric_value: 25
-  has_unit: Cel
-  type: nmdc:QuantityValue
-type: nmdc:ChromatographicSeparationProcess
-
-```
 ## Database-metagenome-assembly
 ### Input
 ```yaml
@@ -954,6 +915,33 @@ processed_sample_set:
   type: nmdc:ProcessedSample
 
 ```
+## ChromatographicIntroductionProcess-LC
+### Input
+```yaml
+chromatographic_category: liquid_chromatography
+has_configuration: nmdc:cicon-99-1W4zjQ
+id: nmdc:csint-99-oW43DzG0
+type: nmdc:ChromatographicIntroductionProcess
+
+```
+## MassSpectrometryConfiguration-NOM
+### Input
+```yaml
+acquisition_category: full_scan
+description: Mass Spectrometry method used by EMSL for NOM analysis
+id: nmdc:mscon-99-oW43DzG0
+ionization_source: electrospray_ionization
+mass_analyzers:
+- ion_cyclotron_resonance
+mass_spectrum_collection_modes:
+- full_profile
+name: EMSL_NOM_method1
+polarity_mode: negative
+resolution_categories:
+- high
+type: nmdc:MassSpectrometryConfiguration
+
+```
 ## Extraction-NEON
 ### Input
 ```yaml
@@ -986,6 +974,30 @@ md5_checksum: 3EFB4966125DFA9329ADE5B18EADDA8E
 name: SpruceW_P19_15_22Jun17_Pippin_17-04-06
 type: nmdc:DataObject
 url: https://nmdcdemo.emsl.pnnl.gov/proteomics/raw/SpruceW_P19_15_22Jun17_Pippin_17-04-06.raw
+
+```
+## StorageProcess-minimal
+### Input
+```yaml
+contained_in: falcon_tube
+has_input:
+- nmdc:procsm-99-dtTMNb
+has_output:
+- nmdc:procsm-78-BZAPKH
+id: nmdc:matprc-99-zUCd5N
+start_date: '2021-01-14'
+substances_used:
+- final_concentration:
+    has_numeric_value: 1
+    has_unit: '%'
+    type: nmdc:QuantityValue
+  known_as: nmdc:chem-99-000003
+  type: nmdc:PortionOfSubstance
+temperature:
+  has_numeric_value: 80
+  has_unit: degrees Celsius
+  type: nmdc:QuantityValue
+type: nmdc:StorageProcess
 
 ```
 ## Database-nom_analysis_set
@@ -1045,6 +1057,13 @@ git_url: https://example.org/WorkflowExecutionActivity
 has_input:
 - nmdc:i1
 - nmdc:i2
+has_metabolite_identifications:
+- alternative_identifiers:
+  - kegg:C00583
+  - cas:57-55-6
+  highest_similarity_score: 0.9534156546099186
+  metabolite_identified: chebi:16997
+  type: nmdc:MetaboliteIdentification
 has_output:
 - nmdc:o1
 - nmdc:o2
@@ -1072,6 +1091,8 @@ mass:
   has_numeric_value: 30
   has_unit: g
   type: nmdc:QuantityValue
+sampled_portion:
+- supernatant
 temperature:
   has_numeric_value: 25
   has_unit: C
@@ -1202,12 +1223,61 @@ processed_sample_set:
   type: nmdc:ProcessedSample
 
 ```
+## SolidPhaseExtraction-SPE
+### Input
+```yaml
+has_input:
+- nmdc:procsm-11-9gjxns61
+has_output:
+- nmdc:procsm-11-05g48p90
+- nmdc:procsm-11-05g48p91
+id: nmdc:spepro-99-oW43DzG0
+ordered_mobile_phases:
+- substances_used:
+  - final_concentration:
+      has_numeric_value: 10
+      has_unit: '%'
+      type: nmdc:QuantityValue
+    known_as: nmdc:chem-99-000003
+    type: nmdc:PortionOfSubstance
+  type: nmdc:MobilePhaseSegment
+  volume:
+    has_numeric_value: 700
+    has_unit: mL
+    type: nmdc:QuantityValue
+- substances_used:
+  - final_concentration:
+      has_numeric_value: 15
+      has_unit: mM
+      type: nmdc:QuantityValue
+    known_as: nmdc:chem-99-000015
+    type: nmdc:PortionOfSubstance
+  type: nmdc:MobilePhaseSegment
+  volume:
+    has_numeric_value: 700
+    has_unit: mL
+    type: nmdc:QuantityValue
+stationary_phase: CN
+type: nmdc:SolidPhaseExtraction
+
+```
 ## Study-minimal
 ### Input
 ```yaml
 id: nmdc:sty-11-ab
 study_category: research_study
 type: nmdc:Study
+
+```
+## CalibrationInformation-GC
+### Input
+```yaml
+calibration_object: nmdc:dobj-12-krhrtjw9
+calibration_standard: fames
+calibration_target: retention_index
+id: nmdc:calib-99-zUCd5N
+internal_calibration: false
+type: nmdc:CalibrationInformation
 
 ```
 ## Database-biosamples-dna-in-plate-valid-well-val
@@ -1483,6 +1553,42 @@ type: nmdc:Study
 websites:
 - https://w3id.org/nmdc
 - https://w3id.org/linkml
+
+```
+## ChromatographicIntroductionConfiguration-LC
+### Input
+```yaml
+description: HILIC chromatography configuration for polar metabolites, using a BEH-HILIC
+  column (30mm x 1.5mm x 1.7um partical size) at 25 degrees Celcius
+id: nmdc:cicon-99-1W4zjQ
+name: PNNL HILIC liquid chromatography configuration for polar metabolites
+ordered_mobile_phases:
+- duration:
+    has_numeric_value: 60
+    has_unit: min
+    type: nmdc:QuantityValue
+  substances_used:
+  - final_concentration:
+      has_numeric_value: 10
+      has_unit: '%'
+      type: nmdc:QuantityValue
+    known_as: nmdc:chem-99-000003
+    type: nmdc:PortionOfSubstance
+  type: nmdc:MobilePhaseSegment
+- substances_used:
+  - final_concentration:
+      has_numeric_value: 15
+      has_unit: mM
+      type: nmdc:QuantityValue
+    known_as: nmdc:chem-99-000015
+    type: nmdc:PortionOfSubstance
+  type: nmdc:MobilePhaseSegment
+stationary_phase: BEH-HILIC
+temperature:
+  has_numeric_value: 25
+  has_unit: Cel
+  type: nmdc:QuantityValue
+type: nmdc:ChromatographicIntroductionConfiguration
 
 ```
 ## DataObject-1
@@ -3465,6 +3571,48 @@ temperature:
 type: nmdc:ChemicalConversionProcess
 
 ```
+## Database-Metabolomics-configuration
+### Input
+```yaml
+data_object_set:
+- data_category: workflow_parameter_data
+  data_object_type: Configuration toml
+  description: Confiuration toml file for CoreMS
+  file_size_bytes: 4262400
+  id: nmdc:dobj-70-izwYW6
+  name: CoreMS.toml
+  type: nmdc:DataObject
+- data_category: instrument_data
+  data_object_type: Direct Infusion FT ICR-MS Raw Data
+  description: raw direct infusion FT ICR-MS for Froze_Core_2015_S1_20_30_19
+  file_size_bytes: 3262400
+  id: nmdc:dobj-80-izwYW6
+  name: Froze_Core_2015_S1_20_30_19_Metab_raw_data.raw
+  type: nmdc:DataObject
+- data_category: processed_data
+  data_object_type: FT ICR-MS Analysis Results
+  description: Full scan GC-MS (but not GC QExactive, which is EI-HMS)
+  file_size_bytes: 5262400
+  id: nmdc:dobj-90-izwYW61
+  name: Froze_Core_2015_S1_20_30_19_Metab_raw_data.processed
+  type: nmdc:DataObject
+metabolomics_analysis_set:
+- ended_at_time: '2021-09-15T10:13:20+00:00'
+  execution_resource: NERSC-Cori
+  git_url: https://example.org/WorkflowExecutionActivity
+  has_input:
+  - nmdc:dobj-70-izwYW6
+  - nmdc:dobj-80-izwYW6
+  has_output:
+  - nmdc:dobj-90-izwYW61
+  id: nmdc:wfmb-99-ABCDEF
+  name: Metabolomics Analysis Activity for nmdc:wfmb-99-ABCDEF
+  part_of:
+  - nmdc:wfch-11-ab
+  started_at_time: '2021-08-05T14:48:51+00:00'
+  type: nmdc:MetabolomicsAnalysis
+
+```
 ## NucleotideSequencing-processing-institution
 ### Input
 ```yaml
@@ -4233,6 +4381,16 @@ study_category: research_study
 type: nmdc:Study
 
 ```
+## ChromatographicIntroductionProcess-GC-has_calibration
+### Input
+```yaml
+chromatographic_category: gas_chromatography
+has_calibration: nmdc:calib-99-zUCd5N
+has_configuration: nmdc:cicon-99-1W4zjJ
+id: nmdc:csint-99-oW43DzG0
+type: nmdc:ChromatographicIntroductionProcess
+
+```
 ## Database-ReadQcAnalysisActivity-quality_fail
 ### Input
 ```yaml
@@ -4320,27 +4478,90 @@ pooling_set:
 ## Database-mass-spectrometry
 ### Input
 ```yaml
-data_generation_set:
+configuration_set:
 - acquisition_category: tandem_mass_spectrum
-  acquisition_strategy: data_independent_acquisition
-  add_date: 30-OCT-14 12.00.00.000000000 AM
-  alternative_identifiers:
-  - emsl:123423
+  acquisition_strategy: data_dependent_acquisition
+  description: Mass spectrometry method used by EMSL for metabolomics analysis, positive
+    polarity
+  id: nmdc:mscon-99-oW43DzG1
+  ionization_source: electrospray_ionization
+  mass_analyzers:
+  - Orbitrap
+  mass_spectrum_collection_modes:
+  - full_profile
+  name: EMSL metabolomics mass spectrometry method, positive polarity
+  polarity_mode: positive
+  resolution_categories:
+  - high
+  type: nmdc:MassSpectrometryConfiguration
+- acquisition_category: tandem_mass_spectrum
+  acquisition_strategy: data_dependent_acquisition
+  description: Mass spectrometry method used by EMSL for lipidomics analysis, negative
+    polarity
+  id: nmdc:mscon-99-oW43DzG2
+  ionization_source: electrospray_ionization
+  mass_analyzers:
+  - Orbitrap
+  - ion_trap
+  mass_spectrum_collection_modes:
+  - full_profile
+  - centroid
+  name: EMSL lipidomics mass spectrometry method, negative polarity
+  polarity_mode: negative
+  resolution_categories:
+  - high
+  - low
+  type: nmdc:MassSpectrometryConfiguration
+data_generation_set:
+- add_date: 07-MAY-24 12.00.00.000000000 AM
   analyte_category: metabolome
   associated_studies:
   - nmdc:sty-00-555xxx
+  end_date: 30-OCT-14 01.30.00.000000000 AM
+  has_configuration: nmdc:mscon-99-oW43DzG1
   has_input:
-  - nmdc:bsm-00-red
+  - nmdc:procsm-11-0wxpzf08
   has_output:
-  - nmdc:dobj-00-9n9n9n
+  - nmdc:dobj-00-msdem1
   id: nmdc:dgms-99-zUCd5N
-  ionization_source: electron_ionization
-  mass_analyzer: Orbitrap
-  mass_spectrum_collection_mode: full_profile
-  mod_date: 22-MAY-20 06.13.12.927000000 PM
-  polarity_mode: negative
-  resolution_category: high
+  mod_date: 07-MAY-24 12.00.00.000000000 AM
+  start_date: 30-OCT-14 01.00.00.000000000 AM
   type: nmdc:MassSpectrometry
+- add_date: 07-MAY-24 12.00.00.000000000 AM
+  analyte_category: lipidome
+  associated_studies:
+  - nmdc:sty-00-555xxx
+  end_date: 31-OCT-14 01.30.00.000000000 AM
+  has_configuration: nmdc:mscon-99-oW43DzG2
+  has_input:
+  - nmdc:procsm-11-0wxpzf08
+  has_output:
+  - nmdc:dobj-00-msdem2
+  id: nmdc:dgms-99-zUCd5x
+  mod_date: 07-MAY-24 12.00.00.000000000 AM
+  start_date: 31-OCT-14 01.00.00.000000000 AM
+  type: nmdc:MassSpectrometry
+data_object_set:
+- alternative_identifiers:
+  - my_emsl:1826381
+  data_object_type: LC-DDA-MS/MS Raw Data
+  description: raw instrument file for nmdc:dgms-99-zUCd5N
+  file_size_bytes: 1150434379
+  id: nmdc:dobj-00-msdem1
+  md5_checksum: 3EFB4966125DFA9329ADE5B18EADDA8E
+  name: EMSL_49991_Brodie_122_Lipids_POS_09Aug19_Lola-WCSH417820
+  type: nmdc:DataObject
+  url: https://nmdcdemo.emsl.pnnl.gov/proteomics/raw/SpruceW_P19_15_22Jun17_Pippin_17-04-06.raw
+- alternative_identifiers:
+  - my_emsl:1826333
+  data_object_type: LC-DDA-MS/MS Raw Data
+  description: raw instrument file for nmdc:dgms-99-zUCd5x
+  file_size_bytes: 1150434379
+  id: nmdc:dobj-00-msdem2
+  md5_checksum: 3EFB4966125DFA9329ADE5B18EADDA8E
+  name: EMSL_49991_Brodie_123_Lipids_Neg_12Aug19_Lola-WCSH417820
+  type: nmdc:DataObject
+  url: https://nmdcdemo.emsl.pnnl.gov/proteomics/raw/SpruceW_P19_15_22Jun17_Pippin_17-04-06.raw
 
 ```
 ## Pooling-minimal
@@ -4814,6 +5035,59 @@ type: nmdc:DataObject
 url: http://example.com
 
 ```
+## MassSpectrometry-NOM
+### Input
+```yaml
+analyte_category: nom
+associated_studies:
+- nmdc:sty-00-555xxx
+eluent_introduction: nmdc:csint-99-hello00
+has_configuration: nmdc:mscon-99-oW43DzG0
+has_input:
+- nmdc:procsm-11-9gjxns61
+has_output:
+- nmdc:dobj-00-9n9n9n
+id: nmdc:dgms-99-oW43DzG1
+type: nmdc:MassSpectrometry
+
+```
+## Database-gc
+### Input
+```yaml
+calibration_set:
+- calibration_object: nmdc:dobj-12-krhrtjw9
+  calibration_standard: fames
+  calibration_target: retention_index
+  id: nmdc:calib-99-zUCd5Q
+  internal_calibration: false
+  type: nmdc:CalibrationInformation
+configuration_set:
+- description: Gas chromatography configuration for polar metabolites, using a polysiloxane
+    column (30mm x 1.5mm x 1.7um partical size) at 250 degrees Celcius
+  id: nmdc:cicon-99-1W4zjk
+  name: PNNL gas chromatography configuration for polar metabolites
+  stationary_phase: Polysiloxane
+  temperature:
+    has_numeric_value: 250
+    has_unit: Cel
+    type: nmdc:QuantityValue
+  type: nmdc:ChromatographicIntroductionConfiguration
+data_object_set:
+- data_category: instrument_data
+  description: GCMS data file
+  file_size_bytes: 9208349052
+  id: nmdc:dobj-12-krhrtjw9
+  name: emsl_calibration_run.raw
+  type: nmdc:DataObject
+  url: https://emsl_site/emsl_calibration_run.raw
+planned_process_set:
+- chromatographic_category: gas_chromatography
+  has_calibration: nmdc:calib-99-zUCd5Q
+  has_configuration: nmdc:cicon-99-1W4zjk
+  id: nmdc:csint-99-oW43DzG1
+  type: nmdc:ChromatographicIntroductionProcess
+
+```
 ## Biosample-with-fire
 ### Input
 ```yaml
@@ -4947,44 +5221,6 @@ workflow_chain_set:
   id: nmdc:wfch-12-cd
   type: nmdc:WorkflowChain
   was_informed_by: nmdc:dgns-11-s9xj2r24
-
-```
-## ChromatographicSeparationProcess-SPE
-### Input
-```yaml
-has_input:
-- nmdc:procsm-11-9gjxns61
-has_output:
-- nmdc:procsm-11-05g48p90
-- nmdc:procsm-11-05g48p91
-id: nmdc:cspro-99-oW43DzG0
-ordered_mobile_phases:
-- substances_used:
-  - final_concentration:
-      has_numeric_value: 10
-      has_unit: '%'
-      type: nmdc:QuantityValue
-    known_as: nmdc:chem-99-000003
-    type: nmdc:PortionOfSubstance
-  type: nmdc:MobilePhaseSegment
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- substances_used:
-  - final_concentration:
-      has_numeric_value: 15
-      has_unit: mM
-      type: nmdc:QuantityValue
-    known_as: nmdc:chem-99-000015
-    type: nmdc:PortionOfSubstance
-  type: nmdc:MobilePhaseSegment
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-stationary_phase: CN
-type: nmdc:ChromatographicSeparationProcess
 
 ```
 ## Database-nucleic-extraction
@@ -5260,21 +5496,6 @@ type: nmdc:FunctionalAnnotation
 was_generated_by: nmdc:activity_1
 
 ```
-## ChromatographicSeparationProcess-GC-has_calibration
-### Input
-```yaml
-chromatographic_category: gas_chromatography
-has_calibration: any text
-has_input:
-- nmdc:procsm-11-9gjxns61
-has_output:
-- nmdc:procsm-11-05g48p90
-- nmdc:procsm-11-05g48p91
-id: nmdc:cspro-99-oW43DzG0
-stationary_phase: Silica
-type: nmdc:ChromatographicSeparationProcess
-
-```
 ## NucleotideSequencing-1
 ### Input
 ```yaml
@@ -5409,6 +5630,48 @@ biosample_set:
   type: nmdc:Biosample
 
 ```
+## SolidPhaseExtraction-undefined-compound
+### Input
+```yaml
+has_input:
+- nmdc:procsm-11-9gjxns61
+has_output:
+- nmdc:procsm-11-05g48p90
+- nmdc:procsm-11-05g48p91
+id: nmdc:spepro-99-oW43DzG0
+ordered_mobile_phases:
+- has_solution_components:
+  - compound: MeOH
+    type: nmdc:SolutionComponent
+  type: nmdc:Solution
+  volume:
+    has_numeric_value: 700
+    has_unit: mL
+    type: nmdc:QuantityValue
+- has_solution_components:
+  - compound: hydrochloric_acid
+    concentration:
+      has_numeric_value: 10
+      has_unit: mM
+      type: nmdc:QuantityValue
+    type: nmdc:SolutionComponent
+  type: nmdc:Solution
+  volume:
+    has_numeric_value: 700
+    has_unit: mL
+    type: nmdc:QuantityValue
+- has_solution_components:
+  - compound: water
+    type: nmdc:SolutionComponent
+  type: nmdc:Solution
+  volume:
+    has_numeric_value: 1000
+    has_unit: mL
+    type: nmdc:QuantityValue
+stationary_phase: CN
+type: nmdc:SolidPhaseExtraction
+
+```
 ## ChemicalConversionProcess-invalid_compound_entry
 ### Input
 ```yaml
@@ -5541,6 +5804,26 @@ library_preparation_set:
   type: nmdc:LibraryPreparation
 
 ```
+## MassSpectrometry-incl-nucleotideseq-slots
+### Input
+```yaml
+add_date: 30-OCT-14 12.00.00.000000000 AM
+analyte_category: metabolome
+has_input:
+- nmdc:bsm-00-red
+has_output:
+- nmdc:dobj-00-9n9n9n
+id: nmdc:dgms-99-9n9n9n
+mod_date: 22-MAY-20 06.13.12.927000000 PM
+name: Thawing permafrost microbial communities from the Arctic, studying carbon transformations
+  - Permafrost 712P3D
+part_of:
+- nmdc:sty-00-555xxx
+processing_institution: JGI
+target_gene: cool_gene_name
+type: nmdc:MassSpectrometry
+
+```
 ## Biosample-invalid_fire
 ### Input
 ```yaml
@@ -5608,48 +5891,6 @@ biosample_set:
   id: nmdc:bsm-99-dtTMNb
   rna_cont_type: bucket
   type: nmdc:Biosample
-
-```
-## ChromatographicSeparationProcess-undefined-compund
-### Input
-```yaml
-has_input:
-- nmdc:procsm-11-9gjxns61
-has_output:
-- nmdc:procsm-11-05g48p90
-- nmdc:procsm-11-05g48p91
-id: nmdc:cspro-99-oW43DzG0
-ordered_mobile_phases:
-- has_solution_components:
-  - compound: MeOH
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- has_solution_components:
-  - compound: hydrochloric_acid
-    concentration:
-      has_numeric_value: 10
-      has_unit: mM
-      type: nmdc:QuantityValue
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- has_solution_components:
-  - compound: water
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 1000
-    has_unit: mL
-    type: nmdc:QuantityValue
-stationary_phase: CN
-type: nmdc:ChromatographicSeparationProcess
 
 ```
 ## MetabolomicsAnalysis-invalid_execution_resource_not_in_enum
@@ -5738,8 +5979,6 @@ id: nmdc:dgms-99-9n9n9n
 mod_date: 22-MAY-20 06.13.12.927000000 PM
 name: Thawing permafrost microbial communities from the Arctic, studying carbon transformations
   - Permafrost 712P3D
-ncbi_project_name: Thawing permafrost microbial communities from the Arctic, studying
-  carbon transformations - Permafrost 712P3D
 part_of:
 - nmdc:sty-00-555xxx
 processing_institution: JGI
@@ -5964,6 +6203,15 @@ type: nmdc:Study
 websites:
 - https://w3id.org/nmdc
 - https://w3id.org/linkml
+
+```
+## CalibrationInformation-GC-invalid
+### Input
+```yaml
+calibration_target: retention_index
+id: nmdc:calib-99-zUCd5N
+internal_calibration: false
+type: nmdc:CalibrationInformation
 
 ```
 ## Filtration-invalid_non-numeric-pore-size-num-val
@@ -6579,6 +6827,14 @@ planned_process_set:
   type: nmdc:UndefinedClass
 
 ```
+## ChromatographicIntroductionProcess-no_has_calibration_with_GC
+### Input
+```yaml
+chromatographic_category: gas_chromatography
+id: nmdc:csint-99-oW43DzG0
+type: nmdc:ChromatographicIntroductionProcess
+
+```
 ## Database-NomAnalysisActivity-remove_used
 ### Input
 ```yaml
@@ -7129,49 +7385,6 @@ study_set:
   type: nmdc:Study
 
 ```
-## ChromatographicSeparationProcess-no_has_calibration_with_GC
-### Input
-```yaml
-chromatographic_category: gas_chromatography
-has_input:
-- nmdc:procsm-11-9gjxns61
-has_output:
-- nmdc:procsm-11-05g48p90
-- nmdc:procsm-11-05g48p91
-id: nmdc:cspro-99-oW43DzG0
-ordered_mobile_phases:
-- has_solution_components:
-  - compound: methanol
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- has_solution_components:
-  - compound: hydrochloric_acid
-    concentration:
-      has_numeric_value: 10
-      has_unit: mM
-      type: nmdc:QuantityValue
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- has_solution_components:
-  - compound: water
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 1000
-    has_unit: mL
-    type: nmdc:QuantityValue
-stationary_phase: CN
-type: nmdc:ChromatographicSeparationProcess
-
-```
 ## Database-nom_analysis_set-incomplete-string-ended_at_time
 ### Input
 ```yaml
@@ -7521,11 +7734,14 @@ has_output:
 - nmdc:dobj-00-9n9n9n
 id: nmdc:dgms-99-zUCd5N
 ionization_source: electrospray_ionization
-mass_analyzer: Orbitrap
-mass_spectrum_collection_mode: profile
+mass_analyzers:
+- Orbitrap
+mass_spectrum_collection_modes:
+- profile
 mod_date: 22-MAY-20 06.13.12.927000000 PM
 polarity_mode: negative
-resolution_category: high
+resolution_categories:
+- high
 type: nmdc:MassSpectrometry
 
 ```
@@ -7577,6 +7793,32 @@ biosample_set:
   rna_cont_type: plate
   rna_cont_well: A1
   type: nmdc:Biosample
+
+```
+## MetabolomicsAnalysis-metab_quantified
+### Input
+```yaml
+ended_at_time: '2021-09-15T10:13:20+00:00'
+execution_resource: NERSC-Cori
+git_url: https://example.org/WorkflowExecutionActivity
+has_input:
+- nmdc:i1
+- nmdc:i2
+has_metabolite_quantifications:
+- alternative_identifiers:
+  - kegg:C00583
+  - cas:57-55-6
+  highest_similarity_score: 0.9534156546099186
+  metabolite_quantified: chebi:16997
+  type: nmdc:MetaboliteQuantification
+has_output:
+- nmdc:o1
+- nmdc:o2
+id: nmdc:wfmb-99-ABCDEF
+part_of:
+- nmdc:wfch-11-ab
+started_at_time: '2021-08-05T14:48:51+00:00'
+type: nmdc:MetabolomicsAnalysis
 
 ```
 ## Database-using-undefined-analytical_sample_set-slot
@@ -7768,54 +8010,6 @@ metagenome_assembly_set:
   was_informed_by: nmdc:omprc-12-124
 
 ```
-## ChromatographicSeparationProcess_wrong_associated_study_class_value
-### Input
-```yaml
-associated_studies:
-- nmdc:dgms-666-333xxx
-chromatographic_category: gas_chromatography
-has_calibration: nmdc:obj-asdfasd-asdfasdf
-has_input:
-- nmdc:procsm-11-9gjxns61
-has_output:
-- nmdc:procsm-11-05g48p90
-- nmdc:procsm-11-05g48p91
-id: nmdc:cspro-99-oW43DzG0
-ordered_mobile_phases:
-- has_solution_components:
-  - compound: methanol
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- has_solution_components:
-  - compound: hydrochloric_acid
-    concentration:
-      has_numeric_value: 10
-      has_unit: mM
-      type: nmdc:QuantityValue
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 700
-    has_unit: mL
-    type: nmdc:QuantityValue
-- has_solution_components:
-  - compound: water
-    type: nmdc:SolutionComponent
-  type: nmdc:Solution
-  volume:
-    has_numeric_value: 1000
-    has_unit: mL
-    type: nmdc:QuantityValue
-part_of:
-- nmdc-dgms-88-555xxx
-stationary_phase: CN
-type: nmdc:ChromatographicSeparationProcess
-
-```
 ## Biosample-minimal-invalid-type
 ### Input
 ```yaml
@@ -7917,6 +8111,54 @@ biosample_set:
   rna_cont_type: tube
   rna_cont_well: B2
   type: nmdc:Biosample
+
+```
+## ChromatographicIntroductionProcess_wrong_associated_study_class_value
+### Input
+```yaml
+associated_studies:
+- nmdc:dgms-666-333xxx
+chromatographic_category: gas_chromatography
+has_calibration: nmdc:calib-asdfasd-asdfasdf
+has_input:
+- nmdc:procsm-11-9gjxns61
+has_output:
+- nmdc:procsm-11-05g48p90
+- nmdc:procsm-11-05g48p91
+id: nmdc:csint-99-oW43DzG0
+ordered_mobile_phases:
+- has_solution_components:
+  - compound: methanol
+    type: nmdc:SolutionComponent
+  type: nmdc:Solution
+  volume:
+    has_numeric_value: 700
+    has_unit: mL
+    type: nmdc:QuantityValue
+- has_solution_components:
+  - compound: hydrochloric_acid
+    concentration:
+      has_numeric_value: 10
+      has_unit: mM
+      type: nmdc:QuantityValue
+    type: nmdc:SolutionComponent
+  type: nmdc:Solution
+  volume:
+    has_numeric_value: 700
+    has_unit: mL
+    type: nmdc:QuantityValue
+- has_solution_components:
+  - compound: water
+    type: nmdc:SolutionComponent
+  type: nmdc:Solution
+  volume:
+    has_numeric_value: 1000
+    has_unit: mL
+    type: nmdc:QuantityValue
+part_of:
+- nmdc-dgms-88-555xxx
+stationary_phase: CN
+type: nmdc:ChromatographicIntroductionProcess
 
 ```
 ## Database-functional_annotation_agg
