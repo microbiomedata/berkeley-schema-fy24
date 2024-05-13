@@ -5,7 +5,7 @@ has_input:
 has_output:
   - nmdc:dobj-00-9n9n9n
 has_configuration: nmdc:mscon-99-oW43DzG0
-eluent_introduction: nmdc:cspro-99-hello00
+eluent_introduction: nmdc:csint-99-hello00
 analyte_category: nom
 associated_studies:
   - nmdc:sty-00-555xxx

@@ -1,6 +1,6 @@
-id: nmdc:cspro-99-oW43DzG0
+id: nmdc:csint-99-oW43DzG0
 type: nmdc:ChromatographicIntroductionProcess
 chromatographic_category: gas_chromatography
 has_calibration: nmdc:calib-99-zUCd5N
-has_configuration: nmdc:cicon-99-1W4zjQ # see src/data/valid/ChromatographicIntroductionConfiguration-LC.yaml
+has_configuration: nmdc:cicon-99-1W4zjJ # see src/data/valid/ChromatographicIntroductionConfiguration-LC.yaml
 #TODO KRH: add GC-specific configuration example

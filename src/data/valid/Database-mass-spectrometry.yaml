@@ -1,3 +1,4 @@
+#TODO KRH: separate LC Lipidomics example, including eluent_introduction
 data_generation_set:
   - id: nmdc:dgms-99-zUCd5N
     type: nmdc:MassSpectrometry

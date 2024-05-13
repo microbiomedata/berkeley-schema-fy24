@@ -1,4 +1,4 @@
 # This file is an example of a ChromatographicIntroductionProcess that is missing the required has_calibration property
-id: nmdc:cspro-99-oW43DzG0
+id: nmdc:csint-99-oW43DzG0
 type: nmdc:ChromatographicIntroductionProcess
 chromatographic_category: gas_chromatography
