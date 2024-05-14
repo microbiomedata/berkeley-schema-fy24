@@ -278,6 +278,8 @@ classes:
       - extraction_target
       - input_mass
       - volume
+      - ordered_mobile_phases
+      - stationary_phase
     slot_usage:
       has_output:
         required: true
@@ -713,7 +715,7 @@ enums:
       liquid_liquid:
         aliases:
           - liquid_liquid_extraction
-            
+
   SamplePortionEnum:
     permissible_values:
       supernatant:
