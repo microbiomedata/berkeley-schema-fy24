@@ -329,10 +329,6 @@
 
   MetatranscriptomeAssembly : insdc_assembly_identifiers
 
-  MetatranscriptomeAssembly : instrument_used
-
-    MetatranscriptomeAssembly --&gt; Instrument : instrument_used
-
   MetatranscriptomeAssembly : name
 
   MetatranscriptomeAssembly : num_aligned_reads
@@ -630,12 +626,6 @@
 <td><a href="../has_output/">has_output</a></td>
 <td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
 <td>An output from a process</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../instrument_used/">instrument_used</a></td>
-<td>0..* <br/> <a href="../Instrument/">Instrument</a></td>
-<td>What instrument was used during DataGeneration or MaterialProcessing</td>
 <td><a href="../PlannedProcess/">PlannedProcess</a></td>
 </tr>
 <tr>
@@ -1254,17 +1244,6 @@ attributes:
     domain_of:
     - PlannedProcess
     range: NamedThing
-  instrument_used:
-    name: instrument_used
-    description: What instrument was used during DataGeneration or MaterialProcessing.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: instrument_used
-    owner: MetatranscriptomeAssembly
-    domain_of:
-    - PlannedProcess
-    range: Instrument
   processing_institution:
     name: processing_institution
     description: The organization that processed the sample.

@@ -365,6 +365,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../instrument_used/">instrument_used</a></td>
+<td>0..* <br/> <a href="../Instrument/">Instrument</a></td>
+<td>What instrument was used during DataGeneration or MaterialProcessing</td>
+<td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
+</tr>
+<tr>
 <td><a href="../has_input/">has_input</a></td>
 <td>0..* <br/> <a href="../NamedThing/">NamedThing</a> or <br/><a href="../Biosample/">Biosample</a> or <br/><a href="../ProcessedSample/">ProcessedSample</a></td>
 <td>An input to a process</td>
@@ -374,12 +380,6 @@
 <td><a href="../has_output/">has_output</a></td>
 <td>0..* <br/> <a href="../ProcessedSample/">ProcessedSample</a></td>
 <td>An output from a process</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../instrument_used/">instrument_used</a></td>
-<td>0..* <br/> <a href="../Instrument/">Instrument</a></td>
-<td>What instrument was used during DataGeneration or MaterialProcessing</td>
 <td><a href="../PlannedProcess/">PlannedProcess</a></td>
 </tr>
 <tr>
@@ -522,6 +522,18 @@ from_schema: https://w3id.org/nmdc/nmdc
 is_a: MaterialProcessing
 abstract: true
 attributes:
+  instrument_used:
+    name: instrument_used
+    description: What instrument was used during DataGeneration or MaterialProcessing.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    multivalued: true
+    alias: instrument_used
+    owner: FluidHandling
+    domain_of:
+    - MaterialProcessing
+    - DataGeneration
+    range: Instrument
   has_input:
     name: has_input
     description: An input to a process.
@@ -547,17 +559,6 @@ attributes:
     domain_of:
     - PlannedProcess
     range: ProcessedSample
-  instrument_used:
-    name: instrument_used
-    description: What instrument was used during DataGeneration or MaterialProcessing.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: instrument_used
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: Instrument
   processing_institution:
     name: processing_institution
     description: The organization that processed the sample.
