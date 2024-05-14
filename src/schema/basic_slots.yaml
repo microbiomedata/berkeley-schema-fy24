@@ -1022,6 +1022,9 @@ enums:
       RNA: { }
       metabolite: { }
       protein: { }
+      natural_organic_matter:
+        aliases:
+          - NOM
 
   ProcessingInstitutionEnum:
     notes:
