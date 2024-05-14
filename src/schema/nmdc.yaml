@@ -273,7 +273,7 @@ classes:
     exact_mappings:
       - OBI:0302884
     slots:
-      #      - extractant
+      - extraction_category
       - substances_used
       - extraction_target
       - input_mass
@@ -703,7 +703,17 @@ enums:
       solid_phase_extraction:
         aliases:
           - SPE
-  
+
+  ExtractionCategoryEnum:
+    permissible_values:
+      solid_phase:
+        aliases:
+          - solid_phase_extraction
+          - spe
+      liquid_liquid:
+        aliases:
+          - liquid_liquid_extraction
+            
   SamplePortionEnum:
     permissible_values:
       supernatant:
@@ -819,6 +829,11 @@ slots:
       - MIXS:0000111
     domain: PlannedProcess
     range: QuantityValue
+
+  extraction_category:
+    range: ExtractionCategoryEnum
+    description: The general type of extraction process used, i.e. solid phase, liquid-liquid, etc.
+    domain: Extraction
 
   library_type:
     title: library type
