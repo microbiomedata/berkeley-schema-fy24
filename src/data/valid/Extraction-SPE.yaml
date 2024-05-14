@@ -1,10 +1,11 @@
-id: nmdc:cspro-99-oW43DzG0
-type: nmdc:ChromatographicSeparationProcess
+id: nmdc:extrp-99-oW43DzG0
+type: nmdc:Extraction
 has_input:
   - nmdc:procsm-11-9gjxns61
 has_output:
   - nmdc:procsm-11-05g48p90
   - nmdc:procsm-11-05g48p91
+extraction_category: solid_phase
 stationary_phase: "CN"
 ordered_mobile_phases:
   - type: nmdc:MobilePhaseSegment

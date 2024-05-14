@@ -711,7 +711,7 @@ enums:
       solid_phase:
         aliases:
           - solid_phase_extraction
-          - spe
+          - SPE
       liquid_liquid:
         aliases:
           - liquid_liquid_extraction
