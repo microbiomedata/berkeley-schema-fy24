@@ -209,13 +209,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-<span class="md-ellipsis">
-      Usages
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
 <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -277,7 +270,7 @@
 <p>URI: <a href="https://w3id.org/nmdc/ChromatographicSeparationProcess">nmdc:ChromatographicSeparationProcess</a></p>
 <div class="mermaid">classDiagram
   class ChromatographicSeparationProcess
-    FluidHandling &lt;|-- ChromatographicSeparationProcess
+    MaterialProcessing &lt;|-- ChromatographicSeparationProcess
 
 
 
@@ -290,8 +283,6 @@
   ChromatographicSeparationProcess : description
 
   ChromatographicSeparationProcess : end_date
-
-  ChromatographicSeparationProcess : has_calibration
 
   ChromatographicSeparationProcess : has_failure_categorization
 
@@ -351,10 +342,7 @@
 <li><a href="../NamedThing/">NamedThing</a><ul>
 <li><a href="../PlannedProcess/">PlannedProcess</a><ul>
 <li><a href="../MaterialProcessing/">MaterialProcessing</a><ul>
-<li><a href="../FluidHandling/">FluidHandling</a><ul>
 <li><strong>ChromatographicSeparationProcess</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -373,12 +361,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../has_calibration/">has_calibration</a></td>
-<td>0..1 <br/> <a href="../String/">String</a> or <br/><a href="../CalibrationInformation/">CalibrationInformation</a> or <br/><a href="../String/">String</a></td>
-<td>a calibration instance associated with a process</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../chromatographic_category/">chromatographic_category</a></td>
 <td>0..1 <br/> <a href="../ChromatographicCategoryEnum/">ChromatographicCategoryEnum</a></td>
@@ -495,37 +477,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="./">ChromatographicSeparationProcess</a></td>
-<td><a href="../chromatographic_category/">chromatographic_category</a></td>
-<td>domain</td>
-<td><a href="./">ChromatographicSeparationProcess</a></td>
-</tr>
-<tr>
-<td><a href="./">ChromatographicSeparationProcess</a></td>
-<td><a href="../ordered_mobile_phases/">ordered_mobile_phases</a></td>
-<td>domain</td>
-<td><a href="./">ChromatographicSeparationProcess</a></td>
-</tr>
-<tr>
-<td><a href="./">ChromatographicSeparationProcess</a></td>
-<td><a href="../stationary_phase/">stationary_phase</a></td>
-<td>domain</td>
-<td><a href="./">ChromatographicSeparationProcess</a></td>
-</tr>
-</tbody>
-</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -561,9 +512,8 @@ from_schema: https://w3id.org/nmdc/nmdc
 contributors:
 - ORCID:0009-0001-1555-1601
 - ORCID:0000-0002-1368-8217
-is_a: FluidHandling
+is_a: MaterialProcessing
 slots:
-- has_calibration
 - chromatographic_category
 - ordered_mobile_phases
 - stationary_phase
@@ -578,20 +528,6 @@ slot_usage:
       syntax: '{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
 class_uri: nmdc:ChromatographicSeparationProcess
-rules:
-- preconditions:
-    slot_conditions:
-      chromatographic_category:
-        name: chromatographic_category
-        equals_string: gas_chromatography
-  postconditions:
-    slot_conditions:
-      has_calibration:
-        name: has_calibration
-        required: true
-  description: If chromatographic_category is gas_chromatography, then has_calibration
-    is required.
-  title: has_calibration_required_if_gc
 
 </code></pre>
 </details>
@@ -604,7 +540,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 contributors:
 - ORCID:0009-0001-1555-1601
 - ORCID:0000-0002-1368-8217
-is_a: FluidHandling
+is_a: MaterialProcessing
 slot_usage:
   id:
     name: id
@@ -615,37 +551,15 @@ slot_usage:
       syntax: '{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
 attributes:
-  has_calibration:
-    name: has_calibration
-    description: a calibration instance associated with a process
-    notes:
-    - 'has_calibration slot will be removed from all WorkflowExecution classes but
-      remain on the ChromatographicSeparationProcess and MassSpectrometry classes
-      after an ingest of the  chromatographic_separation_process_set has occurred.  Once
-      this has occured, this slot''s range can be updated to CalibrationInformation
-      and class/slot definitions can move to nmdc.yaml.   See PR #29 in Berkeley schema.'
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: has_calibration
-    owner: ChromatographicSeparationProcess
-    domain_of:
-    - MassSpectrometry
-    - ChromatographicSeparationProcess
-    - MetabolomicsAnalysis
-    - NomAnalysis
-    range: string
-    any_of:
-    - range: CalibrationInformation
-    - range: string
   chromatographic_category:
     name: chromatographic_category
     description: The type of chromatography used in a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: ChromatographicSeparationProcess
     alias: chromatographic_category
     owner: ChromatographicSeparationProcess
     domain_of:
+    - ChromatographyConfiguration
     - ChromatographicSeparationProcess
     range: ChromatographicCategoryEnum
   ordered_mobile_phases:
@@ -653,12 +567,12 @@ attributes:
     description: The solution(s) that moves through a chromatography column.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: ChromatographicSeparationProcess
     multivalued: true
     list_elements_ordered: true
     alias: ordered_mobile_phases
     owner: ChromatographicSeparationProcess
     domain_of:
+    - ChromatographyConfiguration
     - ChromatographicSeparationProcess
     range: MobilePhaseSegment
     inlined: true
@@ -668,10 +582,10 @@ attributes:
     description: The material the stationary phase is comprised of used in chromatography.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    domain: ChromatographicSeparationProcess
     alias: stationary_phase
     owner: ChromatographicSeparationProcess
     domain_of:
+    - ChromatographyConfiguration
     - ChromatographicSeparationProcess
     range: StationaryPhaseEnum
   temperature:
@@ -687,6 +601,7 @@ attributes:
     alias: temperature
     owner: ChromatographicSeparationProcess
     domain_of:
+    - ChromatographyConfiguration
     - SubSamplingProcess
     - StorageProcess
     - ChromatographicSeparationProcess
@@ -909,20 +824,6 @@ attributes:
     range: uriorcurie
     required: true
 class_uri: nmdc:ChromatographicSeparationProcess
-rules:
-- preconditions:
-    slot_conditions:
-      chromatographic_category:
-        name: chromatographic_category
-        equals_string: gas_chromatography
-  postconditions:
-    slot_conditions:
-      has_calibration:
-        name: has_calibration
-        required: true
-  description: If chromatographic_category is gas_chromatography, then has_calibration
-    is required.
-  title: has_calibration_required_if_gc
 
 </code></pre>
 </details>

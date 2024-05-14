@@ -497,6 +497,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../ChromatographyConfiguration/">ChromatographyConfiguration</a></td>
+<td>A set of parameters that define and control the actions of a chromatography p...</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
 <td>The process of using a selective partitioning of the analyte or interferent b...</td>
 <td>no</td>
@@ -524,11 +529,11 @@
 description: The solution(s) that moves through a chromatography column.
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
-domain: ChromatographicSeparationProcess
 multivalued: true
 list_elements_ordered: true
 alias: ordered_mobile_phases
 domain_of:
+- ChromatographyConfiguration
 - ChromatographicSeparationProcess
 range: MobilePhaseSegment
 inlined: true

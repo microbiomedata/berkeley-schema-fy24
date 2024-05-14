@@ -151,6 +151,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/nmdc-schema/ChromatographyConfiguration/</loc>
+         <lastmod>2024-05-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/CollectingBiosamplesFromSite/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
@@ -266,11 +271,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/DirectInfusionProcess/</loc>
-         <lastmod>2024-05-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/DissolvingProcess/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
@@ -347,6 +347,11 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/DrawingsEnum/</loc>
+         <lastmod>2024-05-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/nmdc-schema/EluentIntroductionCategoryEnum/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -452,11 +457,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/FloorWaterMoldEnum/</loc>
-         <lastmod>2024-05-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/FluidHandling/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2391,7 +2391,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/eluent_introduction/</loc>
+         <loc>https://microbiomedata.github.io/nmdc-schema/eluent_introduction_category/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2906,7 +2906,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/has_configuration/</loc>
+         <loc>https://microbiomedata.github.io/nmdc-schema/has_chromatography_configuration/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2927,6 +2927,11 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/has_input/</loc>
+         <lastmod>2024-05-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/nmdc-schema/has_mass_spectrometry_configuration/</loc>
          <lastmod>2024-05-14</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://microbiomedata.github.io/nmdc-schema/FluidHandling/" rel="canonical"/>
+<link href="https://microbiomedata.github.io/nmdc-schema/ChromatographyConfiguration/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.20" name="generator"/>
-<title>Class: FluidHandling - NMDC Schema Documentation</title>
+<title>Class: ChromatographyConfiguration - NMDC Schema Documentation</title>
 <link href="../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-fluidhandling">
+<a class="md-skip" href="#class-chromatographyconfiguration">
           Skip to content
         </a>
 </div>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: FluidHandling
+              Class: ChromatographyConfiguration
             
           </span>
 </div>
@@ -272,66 +272,40 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-fluidhandling">Class: FluidHandling</h1>
-<p><em>the process that defines how a processed sample is introduced into the mass spectrometer</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is an abstract class and should not be instantiated directly.</p>
-</div>
-<p>URI: <a href="https://w3id.org/nmdc/FluidHandling">nmdc:FluidHandling</a></p>
+<h1 id="class-chromatographyconfiguration">Class: ChromatographyConfiguration</h1>
+<p><em>A set of parameters that define and control the actions of a chromatography process.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/ChromatographyConfiguration">nmdc:ChromatographyConfiguration</a></p>
 <div class="mermaid">classDiagram
-  class FluidHandling
-    MaterialProcessing &lt;|-- FluidHandling
-
-
-    FluidHandling &lt;|-- DirectInfusionProcess
-    FluidHandling &lt;|-- ChromatographicSeparationProcess
+  class ChromatographyConfiguration
+    Configuration &lt;|-- ChromatographyConfiguration
 
 
 
-  FluidHandling : alternative_identifiers
+  ChromatographyConfiguration : alternative_identifiers
 
-  FluidHandling : description
+  ChromatographyConfiguration : chromatographic_category
 
-  FluidHandling : end_date
+    ChromatographyConfiguration --&gt; ChromatographicCategoryEnum : chromatographic_category
 
-  FluidHandling : has_failure_categorization
+  ChromatographyConfiguration : description
 
-    FluidHandling --&gt; FailureCategorization : has_failure_categorization
+  ChromatographyConfiguration : id
 
-  FluidHandling : has_input
+  ChromatographyConfiguration : name
 
-    FluidHandling --&gt; NamedThing : has_input
+  ChromatographyConfiguration : ordered_mobile_phases
 
-  FluidHandling : has_output
+    ChromatographyConfiguration --&gt; MobilePhaseSegment : ordered_mobile_phases
 
-    FluidHandling --&gt; ProcessedSample : has_output
+  ChromatographyConfiguration : stationary_phase
 
-  FluidHandling : id
+    ChromatographyConfiguration --&gt; StationaryPhaseEnum : stationary_phase
 
-  FluidHandling : instrument_used
+  ChromatographyConfiguration : temperature
 
-    FluidHandling --&gt; Instrument : instrument_used
+    ChromatographyConfiguration --&gt; QuantityValue : temperature
 
-  FluidHandling : name
-
-  FluidHandling : processing_institution
-
-    FluidHandling --&gt; ProcessingInstitutionEnum : processing_institution
-
-  FluidHandling : protocol_link
-
-    FluidHandling --&gt; Protocol : protocol_link
-
-  FluidHandling : qc_comment
-
-  FluidHandling : qc_status
-
-    FluidHandling --&gt; StatusEnum : qc_status
-
-  FluidHandling : start_date
-
-  FluidHandling : type
+  ChromatographyConfiguration : type
 
 
 
@@ -339,13 +313,9 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
-<li><a href="../PlannedProcess/">PlannedProcess</a><ul>
-<li><a href="../MaterialProcessing/">MaterialProcessing</a><ul>
-<li><strong>FluidHandling</strong><ul>
-<li><a href="../DirectInfusionProcess/">DirectInfusionProcess</a></li>
-<li><a href="../ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></li>
-</ul>
-</li>
+<li><a href="../InformationObject/">InformationObject</a><ul>
+<li><a href="../Configuration/">Configuration</a><ul>
+<li><strong>ChromatographyConfiguration</strong></li>
 </ul>
 </li>
 </ul>
@@ -365,64 +335,28 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../instrument_used/">instrument_used</a></td>
-<td>0..* <br/> <a href="../Instrument/">Instrument</a></td>
-<td>What instrument was used during DataGeneration or MaterialProcessing</td>
-<td><a href="../MaterialProcessing/">MaterialProcessing</a></td>
+<td><a href="../chromatographic_category/">chromatographic_category</a></td>
+<td>0..1 <br/> <a href="../ChromatographicCategoryEnum/">ChromatographicCategoryEnum</a></td>
+<td>The type of chromatography used in a process</td>
+<td>direct</td>
 </tr>
 <tr>
-<td><a href="../has_input/">has_input</a></td>
-<td>0..* <br/> <a href="../NamedThing/">NamedThing</a> or <br/><a href="../Biosample/">Biosample</a> or <br/><a href="../ProcessedSample/">ProcessedSample</a></td>
-<td>An input to a process</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+<td><a href="../ordered_mobile_phases/">ordered_mobile_phases</a></td>
+<td>0..* <br/> <a href="../MobilePhaseSegment/">MobilePhaseSegment</a></td>
+<td>The solution(s) that moves through a chromatography column</td>
+<td>direct</td>
 </tr>
 <tr>
-<td><a href="../has_output/">has_output</a></td>
-<td>0..* <br/> <a href="../ProcessedSample/">ProcessedSample</a></td>
-<td>An output from a process</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+<td><a href="../stationary_phase/">stationary_phase</a></td>
+<td>0..1 <br/> <a href="../StationaryPhaseEnum/">StationaryPhaseEnum</a></td>
+<td>The material the stationary phase is comprised of used in chromatography</td>
+<td>direct</td>
 </tr>
 <tr>
-<td><a href="../processing_institution/">processing_institution</a></td>
-<td>0..1 <br/> <a href="../ProcessingInstitutionEnum/">ProcessingInstitutionEnum</a></td>
-<td>The organization that processed the sample</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../protocol_link/">protocol_link</a></td>
-<td>0..1 <br/> <a href="../Protocol/">Protocol</a></td>
-<td></td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../start_date/">start_date</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The date on which any process or activity was started</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../end_date/">end_date</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The date on which any process or activity was ended</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../qc_status/">qc_status</a></td>
-<td>0..1 <br/> <a href="../StatusEnum/">StatusEnum</a></td>
-<td>Stores information about the result of a process (ie the process of sequencin...</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../qc_comment/">qc_comment</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Slot to store additional comments about laboratory or workflow output</td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../has_failure_categorization/">has_failure_categorization</a></td>
-<td>0..* <br/> <a href="../FailureCategorization/">FailureCategorization</a></td>
-<td></td>
-<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+<td><a href="../temperature/">temperature</a></td>
+<td>0..1 <br/> <a href="../QuantityValue/">QuantityValue</a></td>
+<td>The value of a temperature measurement or temperature used in a process</td>
+<td>direct</td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -432,13 +366,13 @@
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
 <td>A human readable label for an entity</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
 <td>a human-readable description of a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
@@ -469,9 +403,9 @@
 <tbody>
 <tr>
 <td><a href="../MassSpectrometry/">MassSpectrometry</a></td>
-<td><a href="../eluent_introduction/">eluent_introduction</a></td>
+<td><a href="../has_chromatography_configuration/">has_chromatography_configuration</a></td>
 <td>range</td>
-<td><a href="./">FluidHandling</a></td>
+<td><a href="./">ChromatographyConfiguration</a></td>
 </tr>
 </tbody>
 </table>
@@ -491,11 +425,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>nmdc:FluidHandling</td>
+<td>nmdc:ChromatographyConfiguration</td>
 </tr>
 <tr>
 <td>native</td>
-<td>nmdc:FluidHandling</td>
+<td>nmdc:ChromatographyConfiguration</td>
 </tr>
 </tbody>
 </table>
@@ -503,148 +437,133 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: FluidHandling
-description: the process that defines how a processed sample is introduced into the
-  mass spectrometer
+<pre><code class="language-yaml">name: ChromatographyConfiguration
+description: A set of parameters that define and control the actions of a chromatography
+  process.
+notes:
+- This class is intended to represent a chromatography method file associated with
+  a mass spectrometry process.
 from_schema: https://w3id.org/nmdc/nmdc
-is_a: MaterialProcessing
-abstract: true
-class_uri: nmdc:FluidHandling
+is_a: Configuration
+slots:
+- chromatographic_category
+- ordered_mobile_phases
+- stationary_phase
+- temperature
+slot_usage:
+  name:
+    name: name
+    domain_of:
+    - PersonValue
+    - NamedThing
+    - Protocol
+    required: true
+  description:
+    name: description
+    domain_of:
+    - ImageValue
+    - NamedThing
+    required: true
+  id:
+    name: id
+    domain_of:
+    - NamedThing
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(chrocon)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      interpolated: true
+class_uri: nmdc:ChromatographyConfiguration
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: FluidHandling
-description: the process that defines how a processed sample is introduced into the
-  mass spectrometer
+<pre><code class="language-yaml">name: ChromatographyConfiguration
+description: A set of parameters that define and control the actions of a chromatography
+  process.
+notes:
+- This class is intended to represent a chromatography method file associated with
+  a mass spectrometry process.
 from_schema: https://w3id.org/nmdc/nmdc
-is_a: MaterialProcessing
-abstract: true
+is_a: Configuration
+slot_usage:
+  name:
+    name: name
+    domain_of:
+    - PersonValue
+    - NamedThing
+    - Protocol
+    required: true
+  description:
+    name: description
+    domain_of:
+    - ImageValue
+    - NamedThing
+    required: true
+  id:
+    name: id
+    domain_of:
+    - NamedThing
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(chrocon)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      interpolated: true
 attributes:
-  instrument_used:
-    name: instrument_used
-    description: What instrument was used during DataGeneration or MaterialProcessing.
+  chromatographic_category:
+    name: chromatographic_category
+    description: The type of chromatography used in a process.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: chromatographic_category
+    owner: ChromatographyConfiguration
+    domain_of:
+    - ChromatographyConfiguration
+    - ChromatographicSeparationProcess
+    range: ChromatographicCategoryEnum
+  ordered_mobile_phases:
+    name: ordered_mobile_phases
+    description: The solution(s) that moves through a chromatography column.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     multivalued: true
-    alias: instrument_used
-    owner: FluidHandling
+    list_elements_ordered: true
+    alias: ordered_mobile_phases
+    owner: ChromatographyConfiguration
     domain_of:
-    - MaterialProcessing
-    - DataGeneration
-    range: Instrument
-  has_input:
-    name: has_input
-    description: An input to a process.
+    - ChromatographyConfiguration
+    - ChromatographicSeparationProcess
+    range: MobilePhaseSegment
+    inlined: true
+    inlined_as_list: true
+  stationary_phase:
+    name: stationary_phase
+    description: The material the stationary phase is comprised of used in chromatography.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
-    alias: has_input
-    owner: FluidHandling
+    alias: stationary_phase
+    owner: ChromatographyConfiguration
     domain_of:
-    - PlannedProcess
-    range: NamedThing
-    any_of:
-    - range: Biosample
-    - range: ProcessedSample
-  has_output:
-    name: has_output
-    description: An output from a process.
+    - ChromatographyConfiguration
+    - ChromatographicSeparationProcess
+    range: StationaryPhaseEnum
+  temperature:
+    name: temperature
+    description: The value of a temperature measurement or temperature used in a process.
+    notes:
+    - Not to be confused with the MIXS:0000113
     from_schema: https://w3id.org/nmdc/nmdc
+    contributors:
+    - ORCID:0009-0001-1555-1601
+    - ORCID:0000-0002-8683-0050
     rank: 1000
-    multivalued: true
-    alias: has_output
-    owner: FluidHandling
+    alias: temperature
+    owner: ChromatographyConfiguration
     domain_of:
-    - PlannedProcess
-    range: ProcessedSample
-  processing_institution:
-    name: processing_institution
-    description: The organization that processed the sample.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: processing_institution
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: ProcessingInstitutionEnum
-  protocol_link:
-    name: protocol_link
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: protocol_link
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    - Study
-    range: Protocol
-  start_date:
-    name: start_date
-    description: The date on which any process or activity was started
-    todos:
-    - add date string validation pattern
-    comments:
-    - We are using string representations of dates until all components of our ecosystem
-      can handle ISO 8610 dates
-    - The date should be formatted as YYYY-MM-DD
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: start_date
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: string
-  end_date:
-    name: end_date
-    description: The date on which any process or activity was ended
-    todos:
-    - add date string validation pattern
-    comments:
-    - We are using string representations of dates until all components of our ecosystem
-      can handle ISO 8610 dates
-    - The date should be formatted as YYYY-MM-DD
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: end_date
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: string
-  qc_status:
-    name: qc_status
-    description: Stores information about the result of a process (ie the process
-      of sequencing a library may have for qc_status of 'fail' if not enough data
-      was generated)
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: qc_status
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: StatusEnum
-  qc_comment:
-    name: qc_comment
-    description: Slot to store additional comments about laboratory or workflow output.
-      For workflow output it may describe the particular workflow stage that failed.
-      (ie Failed at call-stage due to a malformed fastq file).
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: qc_comment
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: string
-  has_failure_categorization:
-    name: has_failure_categorization
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: has_failure_categorization
-    owner: FluidHandling
-    domain_of:
-    - PlannedProcess
-    range: FailureCategorization
+    - ChromatographyConfiguration
+    - SubSamplingProcess
+    - StorageProcess
+    - ChromatographicSeparationProcess
+    - DissolvingProcess
+    - ChemicalConversionProcess
+    range: QuantityValue
   id:
     name: id
     description: A unique identifier for a thing. Must be either a CURIE shorthand
@@ -653,14 +572,14 @@ attributes:
     rank: 1000
     identifier: true
     alias: id
-    owner: FluidHandling
+    owner: ChromatographyConfiguration
     domain_of:
     - NamedThing
     range: uriorcurie
     required: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:matprc-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:(chrocon)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
   name:
     name: name
@@ -668,12 +587,13 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: name
-    owner: FluidHandling
+    owner: ChromatographyConfiguration
     domain_of:
     - PersonValue
     - NamedThing
     - Protocol
     range: string
+    required: true
   description:
     name: description
     description: a human-readable description of a thing
@@ -681,11 +601,12 @@ attributes:
     rank: 1000
     slot_uri: dcterms:description
     alias: description
-    owner: FluidHandling
+    owner: ChromatographyConfiguration
     domain_of:
     - ImageValue
     - NamedThing
     range: string
+    required: true
   alternative_identifiers:
     name: alternative_identifiers
     description: A list of alternative identifiers for the entity.
@@ -693,7 +614,7 @@ attributes:
     rank: 1000
     multivalued: true
     alias: alternative_identifiers
-    owner: FluidHandling
+    owner: ChromatographyConfiguration
     domain_of:
     - MetaboliteIdentification
     - NamedThing
@@ -718,7 +639,7 @@ attributes:
     slot_uri: rdf:type
     designates_type: true
     alias: type
-    owner: FluidHandling
+    owner: ChromatographyConfiguration
     domain_of:
     - FunctionalAnnotationAggMember
     - MobilePhaseSegment
@@ -737,7 +658,7 @@ attributes:
     - Doi
     range: uriorcurie
     required: true
-class_uri: nmdc:FluidHandling
+class_uri: nmdc:ChromatographyConfiguration
 
 </code></pre>
 </details>

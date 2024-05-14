@@ -678,6 +678,10 @@ This schema is organized into multiple modules, such as:</p>
 <td>A set of parameters that define the actions of a process and is shared among ...</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChromatographyConfiguration/">ChromatographyConfiguration</a></td>
+<td>A set of parameters that define and control the actions of a chromatography p...</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MassSpectrometryConfiguration/">MassSpectrometryConfiguration</a></td>
 <td>A set of parameters that define and control the actions of a mass spectrometr...</td>
 </tr>
@@ -762,6 +766,10 @@ This schema is organized into multiple modules, such as:</p>
 <td>A process that results in the interconversion of chemical species by a reacti...</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
+<td>The process of using a selective partitioning of the analyte or interferent b...</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DissolvingProcess/">DissolvingProcess</a></td>
 <td>A mixing step where a soluble component is mixed with a liquid component</td>
 </tr>
@@ -772,18 +780,6 @@ This schema is organized into multiple modules, such as:</p>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FiltrationProcess/">FiltrationProcess</a></td>
 <td>The process of segregation of phases; e</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FluidHandling/">FluidHandling</a></td>
-<td>the process that defines how a processed sample is introduced into the mass s...</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChromatographicSeparationProcess/">ChromatographicSeparationProcess</a></td>
-<td>The process of using a selective partitioning of the analyte or interferent b...</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DirectInfusionProcess/">DirectInfusionProcess</a></td>
-<td>the process that defines how a processed sample is introduced into the mass s...</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="LibraryPreparation/">LibraryPreparation</a></td>
@@ -1761,7 +1757,7 @@ This schema is organized into multiple modules, such as:</p>
 <td>The number of elevators within the built structure</td>
 </tr>
 <tr>
-<td><a href="eluent_introduction/">eluent_introduction</a></td>
+<td><a href="eluent_introduction_category/">eluent_introduction_category</a></td>
 <td>how a processed sample is introduced into a mass spectrometer, for example li...</td>
 </tr>
 <tr>
@@ -2173,8 +2169,8 @@ This schema is organized into multiple modules, such as:</p>
 <td>a calibration instance associated with a process</td>
 </tr>
 <tr>
-<td><a href="has_configuration/">has_configuration</a></td>
-<td>a set of parameters that define the actions of the process</td>
+<td><a href="has_chromatography_configuration/">has_chromatography_configuration</a></td>
+<td>a description of how the chromatographic introduction was configured for the ...</td>
 </tr>
 <tr>
 <td><a href="has_credit_associations/">has_credit_associations</a></td>
@@ -2191,6 +2187,10 @@ This schema is organized into multiple modules, such as:</p>
 <tr>
 <td><a href="has_input/">has_input</a></td>
 <td>An input to a process</td>
+</tr>
+<tr>
+<td><a href="has_mass_spectrometry_configuration/">has_mass_spectrometry_configuration</a></td>
+<td>a description of how the mass spectrometry was configured</td>
 </tr>
 <tr>
 <td><a href="has_maximum_numeric_value/">has_maximum_numeric_value</a></td>
@@ -4577,6 +4577,10 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="DrawingsEnum/">DrawingsEnum</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="EluentIntroductionCategoryEnum/">EluentIntroductionCategoryEnum</a></td>
 <td></td>
 </tr>
 <tr>
