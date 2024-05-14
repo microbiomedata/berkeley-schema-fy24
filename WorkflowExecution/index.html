@@ -543,6 +543,10 @@
 
 <h1 id="class-workflowexecution">Class: WorkflowExecution</h1>
 <p><em>Represents an instance of an execution of a particular workflow</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an abstract class and should not be instantiated directly.</p>
+</div>
 <p>URI: <a href="https://w3id.org/nmdc/WorkflowExecution">nmdc:WorkflowExecution</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -844,6 +848,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 aliases:
 - analysis
 is_a: PlannedProcess
+abstract: true
 slots:
 - ended_at_time
 - execution_resource
@@ -946,6 +951,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 aliases:
 - analysis
 is_a: PlannedProcess
+abstract: true
 slot_usage:
   started_at_time:
     name: started_at_time

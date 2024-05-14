@@ -267,6 +267,10 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-materialprocessing">Class: MaterialProcessing</h1>
 <p><em>A process that takes one or more samples as inputs and generates one or more samples as outputs.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an abstract class and should not be instantiated directly.</p>
+</div>
 <p>URI: <a href="https://w3id.org/nmdc/MaterialProcessing">nmdc:MaterialProcessing</a></p>
 <div class="mermaid">classDiagram
   class MaterialProcessing
@@ -497,6 +501,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 broad_mappings:
 - OBI:0000094
 is_a: PlannedProcess
+abstract: true
 slots:
 - instrument_used
 slot_usage:
@@ -535,6 +540,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 broad_mappings:
 - OBI:0000094
 is_a: PlannedProcess
+abstract: true
 slot_usage:
   id:
     name: id

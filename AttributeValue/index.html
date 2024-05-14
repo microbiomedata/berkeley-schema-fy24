@@ -267,6 +267,10 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-attributevalue">Class: AttributeValue</h1>
 <p><em>The value for any value of a attribute for a sample. This object can hold both the un-normalized atomic value and the structured value</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an abstract class and should not be instantiated directly.</p>
+</div>
 <p>URI: <a href="https://w3id.org/nmdc/AttributeValue">nmdc:AttributeValue</a></p>
 <div class="mermaid">classDiagram
   class AttributeValue
@@ -367,6 +371,7 @@
 description: The value for any value of a attribute for a sample. This object can
   hold both the un-normalized atomic value and the structured value
 from_schema: https://w3id.org/nmdc/nmdc
+abstract: true
 slots:
 - has_raw_value
 - was_generated_by
@@ -381,6 +386,7 @@ class_uri: nmdc:AttributeValue
 description: The value for any value of a attribute for a sample. This object can
   hold both the un-normalized atomic value and the structured value
 from_schema: https://w3id.org/nmdc/nmdc
+abstract: true
 attributes:
   has_raw_value:
     name: has_raw_value

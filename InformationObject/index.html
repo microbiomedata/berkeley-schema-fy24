@@ -281,6 +281,10 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-informationobject">Class: InformationObject</h1>
 <p><em>Any data or knowledge that reduces uncertainty or enhances understanding about a system, process, or entity.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an abstract class and should not be instantiated directly.</p>
+</div>
 <p>URI: <a href="https://w3id.org/nmdc/InformationObject">nmdc:InformationObject</a></p>
 <div class="mermaid">classDiagram
   class InformationObject
@@ -419,6 +423,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 see_also:
 - nmdc:AttributeValue
 is_a: NamedThing
+abstract: true
 class_uri: nmdc:InformationObject
 
 </code></pre>
@@ -443,6 +448,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 see_also:
 - nmdc:AttributeValue
 is_a: NamedThing
+abstract: true
 attributes:
   id:
     name: id
