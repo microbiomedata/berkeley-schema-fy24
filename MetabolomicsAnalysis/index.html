@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysis/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: MetabolomicsAnalysis - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -276,7 +276,9 @@
 <p>URI: <a href="https://w3id.org/nmdc/MetabolomicsAnalysis">nmdc:MetabolomicsAnalysis</a></p>
 <div class="mermaid">classDiagram
   class MetabolomicsAnalysis
+  click MetabolomicsAnalysis href "../MetabolomicsAnalysis"
     WorkflowExecution &lt;|-- MetabolomicsAnalysis
+      click WorkflowExecution href "../WorkflowExecution"
 
 
 
@@ -290,7 +292,8 @@
 
   MetabolomicsAnalysis : execution_resource
 
-    MetabolomicsAnalysis --&gt; ExecutionResourceEnum : execution_resource
+      MetabolomicsAnalysis --&gt; "1" ExecutionResourceEnum : execution_resource
+    click ExecutionResourceEnum href "../ExecutionResourceEnum"
 
   MetabolomicsAnalysis : git_url
 
@@ -298,19 +301,23 @@
 
   MetabolomicsAnalysis : has_failure_categorization
 
-    MetabolomicsAnalysis --&gt; FailureCategorization : has_failure_categorization
+      MetabolomicsAnalysis --&gt; "*" FailureCategorization : has_failure_categorization
+    click FailureCategorization href "../FailureCategorization"
 
   MetabolomicsAnalysis : has_input
 
-    MetabolomicsAnalysis --&gt; NamedThing : has_input
+      MetabolomicsAnalysis --&gt; "1..*" NamedThing : has_input
+    click NamedThing href "../NamedThing"
 
   MetabolomicsAnalysis : has_metabolite_identifications
 
-    MetabolomicsAnalysis --&gt; MetaboliteIdentification : has_metabolite_identifications
+      MetabolomicsAnalysis --&gt; "*" MetaboliteIdentification : has_metabolite_identifications
+    click MetaboliteIdentification href "../MetaboliteIdentification"
 
   MetabolomicsAnalysis : has_output
 
-    MetabolomicsAnalysis --&gt; NamedThing : has_output
+      MetabolomicsAnalysis --&gt; "*" NamedThing : has_output
+    click NamedThing href "../NamedThing"
 
   MetabolomicsAnalysis : id
 
@@ -318,21 +325,25 @@
 
   MetabolomicsAnalysis : part_of
 
-    MetabolomicsAnalysis --&gt; WorkflowChain : part_of
+      MetabolomicsAnalysis --&gt; "1..*" WorkflowChain : part_of
+    click WorkflowChain href "../WorkflowChain"
 
   MetabolomicsAnalysis : processing_institution
 
-    MetabolomicsAnalysis --&gt; ProcessingInstitutionEnum : processing_institution
+      MetabolomicsAnalysis --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
+    click ProcessingInstitutionEnum href "../ProcessingInstitutionEnum"
 
   MetabolomicsAnalysis : protocol_link
 
-    MetabolomicsAnalysis --&gt; Protocol : protocol_link
+      MetabolomicsAnalysis --&gt; "0..1" Protocol : protocol_link
+    click Protocol href "../Protocol"
 
   MetabolomicsAnalysis : qc_comment
 
   MetabolomicsAnalysis : qc_status
 
-    MetabolomicsAnalysis --&gt; StatusEnum : qc_status
+      MetabolomicsAnalysis --&gt; "0..1" StatusEnum : qc_status
+    click StatusEnum href "../StatusEnum"
 
   MetabolomicsAnalysis : start_date
 
@@ -930,7 +941,7 @@ class_uri: nmdc:MetabolomicsAnalysis
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

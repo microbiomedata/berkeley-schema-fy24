@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/MassSpectrometry/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: MassSpectrometry - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -270,7 +270,9 @@
 <p>URI: <a href="https://w3id.org/nmdc/MassSpectrometry">nmdc:MassSpectrometry</a></p>
 <div class="mermaid">classDiagram
   class MassSpectrometry
+  click MassSpectrometry href "../MassSpectrometry"
     DataGeneration &lt;|-- MassSpectrometry
+      click DataGeneration href "../DataGeneration"
 
 
 
@@ -280,17 +282,15 @@
 
   MassSpectrometry : analyte_category
 
-    MassSpectrometry --&gt; AnalyteCategoryEnum : analyte_category
+      MassSpectrometry --&gt; "1" AnalyteCategoryEnum : analyte_category
+    click AnalyteCategoryEnum href "../AnalyteCategoryEnum"
 
   MassSpectrometry : associated_studies
 
-    MassSpectrometry --&gt; Study : associated_studies
+      MassSpectrometry --&gt; "1..*" Study : associated_studies
+    click Study href "../Study"
 
   MassSpectrometry : description
-
-  MassSpectrometry : eluent_introduction_category
-
-    MassSpectrometry --&gt; EluentIntroductionCategoryEnum : eluent_introduction_category
 
   MassSpectrometry : end_date
 
@@ -298,29 +298,35 @@
 
   MassSpectrometry : has_chromatography_configuration
 
-    MassSpectrometry --&gt; ChromatographyConfiguration : has_chromatography_configuration
+      MassSpectrometry --&gt; "0..1" ChromatographyConfiguration : has_chromatography_configuration
+    click ChromatographyConfiguration href "../ChromatographyConfiguration"
 
   MassSpectrometry : has_failure_categorization
 
-    MassSpectrometry --&gt; FailureCategorization : has_failure_categorization
+      MassSpectrometry --&gt; "*" FailureCategorization : has_failure_categorization
+    click FailureCategorization href "../FailureCategorization"
 
   MassSpectrometry : has_input
 
-    MassSpectrometry --&gt; NamedThing : has_input
+      MassSpectrometry --&gt; "1..*" NamedThing : has_input
+    click NamedThing href "../NamedThing"
 
   MassSpectrometry : has_mass_spectrometry_configuration
 
-    MassSpectrometry --&gt; MassSpectrometryConfiguration : has_mass_spectrometry_configuration
+      MassSpectrometry --&gt; "0..1" MassSpectrometryConfiguration : has_mass_spectrometry_configuration
+    click MassSpectrometryConfiguration href "../MassSpectrometryConfiguration"
 
   MassSpectrometry : has_output
 
-    MassSpectrometry --&gt; DataObject : has_output
+      MassSpectrometry --&gt; "*" DataObject : has_output
+    click DataObject href "../DataObject"
 
   MassSpectrometry : id
 
   MassSpectrometry : instrument_used
 
-    MassSpectrometry --&gt; Instrument : instrument_used
+      MassSpectrometry --&gt; "*" Instrument : instrument_used
+    click Instrument href "../Instrument"
 
   MassSpectrometry : mod_date
 
@@ -328,25 +334,30 @@
 
   MassSpectrometry : part_of
 
-    MassSpectrometry --&gt; DataGeneration : part_of
+      MassSpectrometry --&gt; "*" DataGeneration : part_of
+    click DataGeneration href "../DataGeneration"
 
   MassSpectrometry : principal_investigator
 
-    MassSpectrometry --&gt; PersonValue : principal_investigator
+      MassSpectrometry --&gt; "0..1" PersonValue : principal_investigator
+    click PersonValue href "../PersonValue"
 
   MassSpectrometry : processing_institution
 
-    MassSpectrometry --&gt; ProcessingInstitutionEnum : processing_institution
+      MassSpectrometry --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
+    click ProcessingInstitutionEnum href "../ProcessingInstitutionEnum"
 
   MassSpectrometry : protocol_link
 
-    MassSpectrometry --&gt; Protocol : protocol_link
+      MassSpectrometry --&gt; "0..1" Protocol : protocol_link
+    click Protocol href "../Protocol"
 
   MassSpectrometry : qc_comment
 
   MassSpectrometry : qc_status
 
-    MassSpectrometry --&gt; StatusEnum : qc_status
+      MassSpectrometry --&gt; "0..1" StatusEnum : qc_status
+    click StatusEnum href "../StatusEnum"
 
   MassSpectrometry : start_date
 
@@ -379,12 +390,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../eluent_introduction_category/">eluent_introduction_category</a></td>
-<td>0..1 <br/> <a href="../EluentIntroductionCategoryEnum/">EluentIntroductionCategoryEnum</a></td>
-<td>how a processed sample is introduced into a mass spectrometer, for example li...</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../has_mass_spectrometry_configuration/">has_mass_spectrometry_configuration</a></td>
 <td>0..1 <br/> <a href="../MassSpectrometryConfiguration/">MassSpectrometryConfiguration</a></td>
@@ -571,7 +576,6 @@ exact_mappings:
 - CHMO:0000470
 is_a: DataGeneration
 slots:
-- eluent_introduction_category
 - has_mass_spectrometry_configuration
 - has_chromatography_configuration
 - has_calibration
@@ -584,35 +588,6 @@ slot_usage:
       syntax: '{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
 class_uri: nmdc:MassSpectrometry
-rules:
-- preconditions:
-    slot_conditions:
-      eluent_introduction_category:
-        name: eluent_introduction_category
-        equals_string: gas_chromatography
-  postconditions:
-    slot_conditions:
-      has_calibration:
-        name: has_calibration
-        required: true
-  description: If eluent_introduction_category is gas_chromatography, then has_calibration
-    is required.
-  title: has_calibration_required_if_gc
-- preconditions:
-    slot_conditions:
-      eluent_introduction_category:
-        name: eluent_introduction_category
-        any_of:
-        - equals_string: liquid_chromatography
-        - equals_string: gas_chromatography
-  postconditions:
-    slot_conditions:
-      has_chromatography_configuration:
-        name: has_chromatography_configuration
-        required: true
-  description: If eluent_introduction_category is liquid_chromatography or gas_chromatography,
-    then has_chromatography_configuration is required.
-  title: has_chromatography_configuration_required_if_lc_or_gc
 
 </code></pre>
 </details>
@@ -634,17 +609,6 @@ slot_usage:
       syntax: '{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
 attributes:
-  eluent_introduction_category:
-    name: eluent_introduction_category
-    description: how a processed sample is introduced into a mass spectrometer, for
-      example liquid chromatography or direct infusion through a syringe
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: eluent_introduction_category
-    owner: MassSpectrometry
-    domain_of:
-    - MassSpectrometry
-    range: EluentIntroductionCategoryEnum
   has_mass_spectrometry_configuration:
     name: has_mass_spectrometry_configuration
     description: a description of how the mass spectrometry was configured
@@ -985,35 +949,6 @@ attributes:
     range: uriorcurie
     required: true
 class_uri: nmdc:MassSpectrometry
-rules:
-- preconditions:
-    slot_conditions:
-      eluent_introduction_category:
-        name: eluent_introduction_category
-        equals_string: gas_chromatography
-  postconditions:
-    slot_conditions:
-      has_calibration:
-        name: has_calibration
-        required: true
-  description: If eluent_introduction_category is gas_chromatography, then has_calibration
-    is required.
-  title: has_calibration_required_if_gc
-- preconditions:
-    slot_conditions:
-      eluent_introduction_category:
-        name: eluent_introduction_category
-        any_of:
-        - equals_string: liquid_chromatography
-        - equals_string: gas_chromatography
-  postconditions:
-    slot_conditions:
-      has_chromatography_configuration:
-        name: has_chromatography_configuration
-        required: true
-  description: If eluent_introduction_category is liquid_chromatography or gas_chromatography,
-    then has_chromatography_configuration is required.
-  title: has_chromatography_configuration_required_if_lc_or_gc
 
 </code></pre>
 </details>
@@ -1042,7 +977,7 @@ rules:
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

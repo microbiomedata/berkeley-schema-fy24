@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/DataGeneration/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: DataGeneration - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -288,11 +288,15 @@
 <p>URI: <a href="https://w3id.org/nmdc/DataGeneration">nmdc:DataGeneration</a></p>
 <div class="mermaid">classDiagram
   class DataGeneration
+  click DataGeneration href "../DataGeneration"
     PlannedProcess &lt;|-- DataGeneration
+      click PlannedProcess href "../PlannedProcess"
 
 
     DataGeneration &lt;|-- NucleotideSequencing
+      click NucleotideSequencing href "../NucleotideSequencing"
     DataGeneration &lt;|-- MassSpectrometry
+      click MassSpectrometry href "../MassSpectrometry"
 
 
 
@@ -302,11 +306,13 @@
 
   DataGeneration : analyte_category
 
-    DataGeneration --&gt; AnalyteCategoryEnum : analyte_category
+      DataGeneration --&gt; "1" AnalyteCategoryEnum : analyte_category
+    click AnalyteCategoryEnum href "../AnalyteCategoryEnum"
 
   DataGeneration : associated_studies
 
-    DataGeneration --&gt; Study : associated_studies
+      DataGeneration --&gt; "1..*" Study : associated_studies
+    click Study href "../Study"
 
   DataGeneration : description
 
@@ -314,21 +320,25 @@
 
   DataGeneration : has_failure_categorization
 
-    DataGeneration --&gt; FailureCategorization : has_failure_categorization
+      DataGeneration --&gt; "*" FailureCategorization : has_failure_categorization
+    click FailureCategorization href "../FailureCategorization"
 
   DataGeneration : has_input
 
-    DataGeneration --&gt; NamedThing : has_input
+      DataGeneration --&gt; "1..*" NamedThing : has_input
+    click NamedThing href "../NamedThing"
 
   DataGeneration : has_output
 
-    DataGeneration --&gt; DataObject : has_output
+      DataGeneration --&gt; "*" DataObject : has_output
+    click DataObject href "../DataObject"
 
   DataGeneration : id
 
   DataGeneration : instrument_used
 
-    DataGeneration --&gt; Instrument : instrument_used
+      DataGeneration --&gt; "*" Instrument : instrument_used
+    click Instrument href "../Instrument"
 
   DataGeneration : mod_date
 
@@ -336,25 +346,30 @@
 
   DataGeneration : part_of
 
-    DataGeneration --&gt; DataGeneration : part_of
+      DataGeneration --&gt; "*" DataGeneration : part_of
+    click DataGeneration href "../DataGeneration"
 
   DataGeneration : principal_investigator
 
-    DataGeneration --&gt; PersonValue : principal_investigator
+      DataGeneration --&gt; "0..1" PersonValue : principal_investigator
+    click PersonValue href "../PersonValue"
 
   DataGeneration : processing_institution
 
-    DataGeneration --&gt; ProcessingInstitutionEnum : processing_institution
+      DataGeneration --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
+    click ProcessingInstitutionEnum href "../ProcessingInstitutionEnum"
 
   DataGeneration : protocol_link
 
-    DataGeneration --&gt; Protocol : protocol_link
+      DataGeneration --&gt; "0..1" Protocol : protocol_link
+    click Protocol href "../Protocol"
 
   DataGeneration : qc_comment
 
   DataGeneration : qc_status
 
-    DataGeneration --&gt; StatusEnum : qc_status
+      DataGeneration --&gt; "0..1" StatusEnum : qc_status
+    click StatusEnum href "../StatusEnum"
 
   DataGeneration : start_date
 
@@ -630,6 +645,13 @@ slots:
 - principal_investigator
 - instrument_used
 slot_usage:
+  id:
+    name: id
+    domain_of:
+    - NamedThing
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      interpolated: true
   has_input:
     name: has_input
     comments:
@@ -682,6 +704,13 @@ broad_mappings:
 is_a: PlannedProcess
 abstract: true
 slot_usage:
+  id:
+    name: id
+    domain_of:
+    - NamedThing
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      interpolated: true
   has_input:
     name: has_input
     comments:
@@ -916,17 +945,6 @@ attributes:
     name: id
     description: A unique identifier for a thing. Must be either a CURIE shorthand
       for a URI or a complete URI
-    notes:
-    - 'abstracted pattern: prefix:typecode-authshoulder-blade(.version)?(_seqsuffix)?'
-    - a minimum length of 3 characters is suggested for typecodes, but 1 or 2 characters
-      will be accepted
-    - typecodes must correspond 1:1 to a class in the NMDC schema. this will be checked
-      via per-class id slot usage assertions
-    - minting authority shoulders should probably be enumerated and checked in the
-      pattern
-    examples:
-    - value: nmdc:mgmag-00-x012.1_7_c1
-      description: https://github.com/microbiomedata/nmdc-schema/pull/499#discussion_r1018499248
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     identifier: true
@@ -937,6 +955,9 @@ attributes:
     range: uriorcurie
     required: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      interpolated: true
   name:
     name: name
     description: A human readable label for an entity
@@ -1041,7 +1062,7 @@ class_uri: nmdc:DataGeneration
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

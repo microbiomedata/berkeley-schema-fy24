@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/MassSpectrometryConfiguration/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: MassSpectrometryConfiguration - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -277,17 +277,21 @@
 <p>URI: <a href="https://w3id.org/nmdc/MassSpectrometryConfiguration">nmdc:MassSpectrometryConfiguration</a></p>
 <div class="mermaid">classDiagram
   class MassSpectrometryConfiguration
+  click MassSpectrometryConfiguration href "../MassSpectrometryConfiguration"
     Configuration &lt;|-- MassSpectrometryConfiguration
+      click Configuration href "../Configuration"
 
 
 
   MassSpectrometryConfiguration : acquisition_category
 
-    MassSpectrometryConfiguration --&gt; AcquisitionCategoryEnum : acquisition_category
+      MassSpectrometryConfiguration --&gt; "0..1" AcquisitionCategoryEnum : acquisition_category
+    click AcquisitionCategoryEnum href "../AcquisitionCategoryEnum"
 
   MassSpectrometryConfiguration : acquisition_strategy
 
-    MassSpectrometryConfiguration --&gt; AcquisitionStrategyEnum : acquisition_strategy
+      MassSpectrometryConfiguration --&gt; "0..1" AcquisitionStrategyEnum : acquisition_strategy
+    click AcquisitionStrategyEnum href "../AcquisitionStrategyEnum"
 
   MassSpectrometryConfiguration : alternative_identifiers
 
@@ -297,25 +301,30 @@
 
   MassSpectrometryConfiguration : ionization_source
 
-    MassSpectrometryConfiguration --&gt; IonizationSourceEnum : ionization_source
+      MassSpectrometryConfiguration --&gt; "0..1" IonizationSourceEnum : ionization_source
+    click IonizationSourceEnum href "../IonizationSourceEnum"
 
   MassSpectrometryConfiguration : mass_analyzers
 
-    MassSpectrometryConfiguration --&gt; MassAnalyzerEnum : mass_analyzers
+      MassSpectrometryConfiguration --&gt; "*" MassAnalyzerEnum : mass_analyzers
+    click MassAnalyzerEnum href "../MassAnalyzerEnum"
 
   MassSpectrometryConfiguration : mass_spectrum_collection_modes
 
-    MassSpectrometryConfiguration --&gt; MassSpectrumCollectionModeEnum : mass_spectrum_collection_modes
+      MassSpectrometryConfiguration --&gt; "*" MassSpectrumCollectionModeEnum : mass_spectrum_collection_modes
+    click MassSpectrumCollectionModeEnum href "../MassSpectrumCollectionModeEnum"
 
   MassSpectrometryConfiguration : name
 
   MassSpectrometryConfiguration : polarity_mode
 
-    MassSpectrometryConfiguration --&gt; PolarityModeEnum : polarity_mode
+      MassSpectrometryConfiguration --&gt; "0..1" PolarityModeEnum : polarity_mode
+    click PolarityModeEnum href "../PolarityModeEnum"
 
   MassSpectrometryConfiguration : resolution_categories
 
-    MassSpectrometryConfiguration --&gt; ResolutionCategoryEnum : resolution_categories
+      MassSpectrometryConfiguration --&gt; "*" ResolutionCategoryEnum : resolution_categories
+    click ResolutionCategoryEnum href "../ResolutionCategoryEnum"
 
   MassSpectrometryConfiguration : type
 
@@ -739,7 +748,7 @@ class_uri: nmdc:MassSpectrometryConfiguration
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

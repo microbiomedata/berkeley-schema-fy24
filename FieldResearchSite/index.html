@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/FieldResearchSite/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: Field Research Site (FieldResearchSite) - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -291,7 +291,9 @@
 <p>URI: <a href="https://w3id.org/nmdc/FieldResearchSite">nmdc:FieldResearchSite</a></p>
 <div class="mermaid">classDiagram
   class FieldResearchSite
+  click FieldResearchSite href "../FieldResearchSite"
     Site &lt;|-- FieldResearchSite
+      click Site href "../Site"
 
 
 
@@ -299,17 +301,20 @@
 
   FieldResearchSite : cur_vegetation
 
-    FieldResearchSite --&gt; TextValue : cur_vegetation
+      FieldResearchSite --&gt; "0..1" TextValue : cur_vegetation
+    click TextValue href "../TextValue"
 
   FieldResearchSite : description
 
   FieldResearchSite : elev
 
-    FieldResearchSite --&gt; QuantityValue : elev
+      FieldResearchSite --&gt; "0..1" QuantityValue : elev
+    click QuantityValue href "../QuantityValue"
 
   FieldResearchSite : geo_loc_name
 
-    FieldResearchSite --&gt; TextValue : geo_loc_name
+      FieldResearchSite --&gt; "0..1" TextValue : geo_loc_name
+    click TextValue href "../TextValue"
 
   FieldResearchSite : habitat
 
@@ -317,21 +322,25 @@
 
   FieldResearchSite : lat_lon
 
-    FieldResearchSite --&gt; GeolocationValue : lat_lon
+      FieldResearchSite --&gt; "0..1" GeolocationValue : lat_lon
+    click GeolocationValue href "../GeolocationValue"
 
   FieldResearchSite : local_class
 
-    FieldResearchSite --&gt; TextValue : local_class
+      FieldResearchSite --&gt; "0..1" TextValue : local_class
+    click TextValue href "../TextValue"
 
   FieldResearchSite : name
 
   FieldResearchSite : part_of
 
-    FieldResearchSite --&gt; NamedThing : part_of
+      FieldResearchSite --&gt; "*" NamedThing : part_of
+    click NamedThing href "../NamedThing"
 
   FieldResearchSite : soil_type
 
-    FieldResearchSite --&gt; TextValue : soil_type
+      FieldResearchSite --&gt; "0..1" TextValue : soil_type
+    click TextValue href "../TextValue"
 
   FieldResearchSite : type
 
@@ -882,7 +891,7 @@ class_uri: nmdc:FieldResearchSite
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

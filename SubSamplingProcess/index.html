@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/SubSamplingProcess/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: SubSamplingProcess - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -278,7 +278,9 @@
 <p>URI: <a href="https://w3id.org/nmdc/SubSamplingProcess">nmdc:SubSamplingProcess</a></p>
 <div class="mermaid">classDiagram
   class SubSamplingProcess
+  click SubSamplingProcess href "../SubSamplingProcess"
     MaterialProcessing &lt;|-- SubSamplingProcess
+      click MaterialProcessing href "../MaterialProcessing"
 
 
 
@@ -286,11 +288,13 @@
 
   SubSamplingProcess : contained_in
 
-    SubSamplingProcess --&gt; ContainerCategoryEnum : contained_in
+      SubSamplingProcess --&gt; "0..1" ContainerCategoryEnum : contained_in
+    click ContainerCategoryEnum href "../ContainerCategoryEnum"
 
   SubSamplingProcess : container_size
 
-    SubSamplingProcess --&gt; QuantityValue : container_size
+      SubSamplingProcess --&gt; "0..1" QuantityValue : container_size
+    click QuantityValue href "../QuantityValue"
 
   SubSamplingProcess : description
 
@@ -298,57 +302,68 @@
 
   SubSamplingProcess : has_failure_categorization
 
-    SubSamplingProcess --&gt; FailureCategorization : has_failure_categorization
+      SubSamplingProcess --&gt; "*" FailureCategorization : has_failure_categorization
+    click FailureCategorization href "../FailureCategorization"
 
   SubSamplingProcess : has_input
 
-    SubSamplingProcess --&gt; NamedThing : has_input
+      SubSamplingProcess --&gt; "*" NamedThing : has_input
+    click NamedThing href "../NamedThing"
 
   SubSamplingProcess : has_output
 
-    SubSamplingProcess --&gt; ProcessedSample : has_output
+      SubSamplingProcess --&gt; "*" ProcessedSample : has_output
+    click ProcessedSample href "../ProcessedSample"
 
   SubSamplingProcess : id
 
   SubSamplingProcess : instrument_used
 
-    SubSamplingProcess --&gt; Instrument : instrument_used
+      SubSamplingProcess --&gt; "*" Instrument : instrument_used
+    click Instrument href "../Instrument"
 
   SubSamplingProcess : mass
 
-    SubSamplingProcess --&gt; QuantityValue : mass
+      SubSamplingProcess --&gt; "0..1" QuantityValue : mass
+    click QuantityValue href "../QuantityValue"
 
   SubSamplingProcess : name
 
   SubSamplingProcess : processing_institution
 
-    SubSamplingProcess --&gt; ProcessingInstitutionEnum : processing_institution
+      SubSamplingProcess --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
+    click ProcessingInstitutionEnum href "../ProcessingInstitutionEnum"
 
   SubSamplingProcess : protocol_link
 
-    SubSamplingProcess --&gt; Protocol : protocol_link
+      SubSamplingProcess --&gt; "0..1" Protocol : protocol_link
+    click Protocol href "../Protocol"
 
   SubSamplingProcess : qc_comment
 
   SubSamplingProcess : qc_status
 
-    SubSamplingProcess --&gt; StatusEnum : qc_status
+      SubSamplingProcess --&gt; "0..1" StatusEnum : qc_status
+    click StatusEnum href "../StatusEnum"
 
   SubSamplingProcess : sampled_portion
 
-    SubSamplingProcess --&gt; SamplePortionEnum : sampled_portion
+      SubSamplingProcess --&gt; "*" SamplePortionEnum : sampled_portion
+    click SamplePortionEnum href "../SamplePortionEnum"
 
   SubSamplingProcess : start_date
 
   SubSamplingProcess : temperature
 
-    SubSamplingProcess --&gt; QuantityValue : temperature
+      SubSamplingProcess --&gt; "0..1" QuantityValue : temperature
+    click QuantityValue href "../QuantityValue"
 
   SubSamplingProcess : type
 
   SubSamplingProcess : volume
 
-    SubSamplingProcess --&gt; QuantityValue : volume
+      SubSamplingProcess --&gt; "0..1" QuantityValue : volume
+    click QuantityValue href "../QuantityValue"
 
 
 
@@ -1002,7 +1017,7 @@ class_uri: nmdc:SubSamplingProcess
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

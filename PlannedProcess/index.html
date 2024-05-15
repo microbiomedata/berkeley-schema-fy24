@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/PlannedProcess/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: Planned Process (PlannedProcess) - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -280,16 +280,25 @@
 <p>URI: <a href="http://purl.obolibrary.org/obo/OBI_0000011">OBI:0000011</a></p>
 <div class="mermaid">classDiagram
   class PlannedProcess
+  click PlannedProcess href "../PlannedProcess"
     NamedThing &lt;|-- PlannedProcess
+      click NamedThing href "../NamedThing"
 
 
     PlannedProcess &lt;|-- CollectingBiosamplesFromSite
+      click CollectingBiosamplesFromSite href "../CollectingBiosamplesFromSite"
     PlannedProcess &lt;|-- ProtocolExecution
+      click ProtocolExecution href "../ProtocolExecution"
     PlannedProcess &lt;|-- StorageProcess
+      click StorageProcess href "../StorageProcess"
     PlannedProcess &lt;|-- MaterialProcessing
+      click MaterialProcessing href "../MaterialProcessing"
     PlannedProcess &lt;|-- DataGeneration
+      click DataGeneration href "../DataGeneration"
     PlannedProcess &lt;|-- WorkflowChain
+      click WorkflowChain href "../WorkflowChain"
     PlannedProcess &lt;|-- WorkflowExecution
+      click WorkflowExecution href "../WorkflowExecution"
 
 
 
@@ -301,15 +310,18 @@
 
   PlannedProcess : has_failure_categorization
 
-    PlannedProcess --&gt; FailureCategorization : has_failure_categorization
+      PlannedProcess --&gt; "*" FailureCategorization : has_failure_categorization
+    click FailureCategorization href "../FailureCategorization"
 
   PlannedProcess : has_input
 
-    PlannedProcess --&gt; NamedThing : has_input
+      PlannedProcess --&gt; "*" NamedThing : has_input
+    click NamedThing href "../NamedThing"
 
   PlannedProcess : has_output
 
-    PlannedProcess --&gt; NamedThing : has_output
+      PlannedProcess --&gt; "*" NamedThing : has_output
+    click NamedThing href "../NamedThing"
 
   PlannedProcess : id
 
@@ -317,17 +329,20 @@
 
   PlannedProcess : processing_institution
 
-    PlannedProcess --&gt; ProcessingInstitutionEnum : processing_institution
+      PlannedProcess --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
+    click ProcessingInstitutionEnum href "../ProcessingInstitutionEnum"
 
   PlannedProcess : protocol_link
 
-    PlannedProcess --&gt; Protocol : protocol_link
+      PlannedProcess --&gt; "0..1" Protocol : protocol_link
+    click Protocol href "../Protocol"
 
   PlannedProcess : qc_comment
 
   PlannedProcess : qc_status
 
-    PlannedProcess --&gt; StatusEnum : qc_status
+      PlannedProcess --&gt; "0..1" StatusEnum : qc_status
+    click StatusEnum href "../StatusEnum"
 
   PlannedProcess : start_date
 
@@ -778,7 +793,7 @@ class_uri: OBI:0000011
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/StorageProcess/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Class: StorageProcess - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -270,7 +270,9 @@
 <p>URI: <a href="https://w3id.org/nmdc/StorageProcess">nmdc:StorageProcess</a></p>
 <div class="mermaid">classDiagram
   class StorageProcess
+  click StorageProcess href "../StorageProcess"
     PlannedProcess &lt;|-- StorageProcess
+      click PlannedProcess href "../PlannedProcess"
 
 
 
@@ -278,7 +280,8 @@
 
   StorageProcess : contained_in
 
-    StorageProcess --&gt; ContainerCategoryEnum : contained_in
+      StorageProcess --&gt; "0..1" ContainerCategoryEnum : contained_in
+    click ContainerCategoryEnum href "../ContainerCategoryEnum"
 
   StorageProcess : description
 
@@ -286,15 +289,18 @@
 
   StorageProcess : has_failure_categorization
 
-    StorageProcess --&gt; FailureCategorization : has_failure_categorization
+      StorageProcess --&gt; "*" FailureCategorization : has_failure_categorization
+    click FailureCategorization href "../FailureCategorization"
 
   StorageProcess : has_input
 
-    StorageProcess --&gt; NamedThing : has_input
+      StorageProcess --&gt; "*" NamedThing : has_input
+    click NamedThing href "../NamedThing"
 
   StorageProcess : has_output
 
-    StorageProcess --&gt; NamedThing : has_output
+      StorageProcess --&gt; "*" NamedThing : has_output
+    click NamedThing href "../NamedThing"
 
   StorageProcess : id
 
@@ -302,27 +308,32 @@
 
   StorageProcess : processing_institution
 
-    StorageProcess --&gt; ProcessingInstitutionEnum : processing_institution
+      StorageProcess --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
+    click ProcessingInstitutionEnum href "../ProcessingInstitutionEnum"
 
   StorageProcess : protocol_link
 
-    StorageProcess --&gt; Protocol : protocol_link
+      StorageProcess --&gt; "0..1" Protocol : protocol_link
+    click Protocol href "../Protocol"
 
   StorageProcess : qc_comment
 
   StorageProcess : qc_status
 
-    StorageProcess --&gt; StatusEnum : qc_status
+      StorageProcess --&gt; "0..1" StatusEnum : qc_status
+    click StatusEnum href "../StatusEnum"
 
   StorageProcess : start_date
 
   StorageProcess : substances_used
 
-    StorageProcess --&gt; PortionOfSubstance : substances_used
+      StorageProcess --&gt; "*" PortionOfSubstance : substances_used
+    click PortionOfSubstance href "../PortionOfSubstance"
 
   StorageProcess : temperature
 
-    StorageProcess --&gt; QuantityValue : temperature
+      StorageProcess --&gt; "0..1" QuantityValue : temperature
+    click QuantityValue href "../QuantityValue"
 
   StorageProcess : type
 
@@ -824,7 +835,7 @@ class_uri: nmdc:StorageProcess
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

@@ -351,11 +351,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/EluentIntroductionCategoryEnum/</loc>
-         <lastmod>2024-05-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/Environment/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
@@ -2387,11 +2382,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/elevator/</loc>
-         <lastmod>2024-05-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/eluent_introduction_category/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
