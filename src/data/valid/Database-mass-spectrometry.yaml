@@ -1,5 +1,5 @@
-data_generation_set: # had been using dgms typecode
-  - id: nmdc:omprc-99-zUCd5N
+data_generation_set:
+  - id: nmdc:dgms-99-zUCd5N
     type: nmdc:MassSpectrometry
     eluent_introduction_category: liquid_chromatography
     has_mass_spectrometry_configuration: nmdc:mscon-99-oW43DzG1

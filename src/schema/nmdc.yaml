@@ -128,11 +128,11 @@ classes:
       - ncbi_project_name
       - target_gene
       - target_subfragment
-#    slot_usage:
-#      id:
-#        structured_pattern:
-#          syntax: "{id_nmdc_prefix}:(dgns|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
-#          interpolated: true
+  #    slot_usage:
+  #      id:
+  #        structured_pattern:
+  #          syntax: "{id_nmdc_prefix}:(dgns|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+  #          interpolated: true
 
   MassSpectrometry:
     class_uri: nmdc:MassSpectrometry
@@ -145,37 +145,36 @@ classes:
       - has_mass_spectrometry_configuration
       - has_chromatography_configuration
       - has_calibration
-#    slot_usage:
-#      id:
-#        structured_pattern:
-#          syntax: "{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
-#          interpolated: true
-  #    rules:
-  #    - title: has_calibration_required_if_gc
-  #      description: >-
-  #        If eluent_introduction_category is gas_chromatography, then has_calibration is required.
-  #      preconditions:
-  #        slot_conditions:
-  #          eluent_introduction_category:
-  #            equals_string: gas_chromatography
-  #      postconditions:
-  #        slot_conditions:
-  #          has_calibration:
-  #            required: true
-  #    - title: has_chromatography_configuration_required_if_lc_or_gc
-  #      description: >-
-  #        If eluent_introduction_category is liquid_chromatography or gas_chromatography, then has_chromatography_configuration is required.
-  #      preconditions:
-  #        slot_conditions:
-  #          eluent_introduction_category:
-  #            any_of:
-  #            - equals_string: liquid_chromatography
-  #            - equals_string: gas_chromatography
-  #      postconditions:
-  #        slot_conditions:
-  #          has_chromatography_configuration:
-  #            required: true
-
+    slot_usage:
+      id:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(dgms|omprc)-{id_shoulder}-{id_blade}{id_version}{id_locus}"
+          interpolated: true
+    rules:
+      - title: has_calibration_required_if_gc
+        description: >-
+          If eluent_introduction_category is gas_chromatography, then has_calibration is required.
+        preconditions:
+          slot_conditions:
+            eluent_introduction_category:
+              equals_string: gas_chromatography
+        postconditions:
+          slot_conditions:
+            has_calibration:
+              required: true
+      - title: has_chromatography_configuration_required_if_lc_or_gc
+        description: >-
+          If eluent_introduction_category is liquid_chromatography or gas_chromatography, then has_chromatography_configuration is required.
+        preconditions:
+          slot_conditions:
+            eluent_introduction_category:
+              any_of:
+                - equals_string: liquid_chromatography
+                - equals_string: gas_chromatography
+        postconditions:
+          slot_conditions:
+            has_chromatography_configuration:
+              required: true
 
   Configuration:
     abstract: true
@@ -552,21 +551,6 @@ classes:
 
 enums:
 
-  EluentIntroductionCategoryEnum:
-    permissible_values:
-      liquid_chromatography:
-        aliases:
-          - LC
-        description: The processed sample is introduced into the mass spectrometer through a liquid chromatography process.
-      gas_chromatography:
-        aliases:
-          - GC
-        description: The processed sample is introduced into the mass spectrometer through a gas chromatography process.
-      direct_infusion_syringe:
-        description: The processed sample is introduced into the mass spectrometer through a direct infusion process using a syringe.
-      direct_infusion_autosampler:
-        description: The processed sample is introduced into the mass spectrometer through a direct infusion process using an autosampler.
-
   AcquisitionCategoryEnum:
     permissible_values:
       full_scan:
@@ -639,6 +623,21 @@ enums:
     permissible_values:
       positive: { }
       negative: { }
+
+  EluentIntroductionCategoryEnum:
+    permissible_values:
+      liquid_chromatography:
+        aliases:
+          - LC
+        description: The processed sample is introduced into the mass spectrometer through a liquid chromatography process.
+      gas_chromatography:
+        aliases:
+          - GC
+        description: The processed sample is introduced into the mass spectrometer through a gas chromatography process.
+      direct_infusion_syringe:
+        description: The processed sample is introduced into the mass spectrometer through a direct infusion process using a syringe.
+      direct_infusion_autosampler:
+        description: The processed sample is introduced into the mass spectrometer through a direct infusion process using an autosampler.
 
   LibraryTypeEnum:
     # start using the right case for enum names
