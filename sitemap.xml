@@ -1856,6 +1856,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/nmdc-schema/chimera_check/</loc>
+         <lastmod>2024-05-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/chloride/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/biomass/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/chimera_check/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: biomass (biomass) - NMDC Schema Documentation</title>
+        <title>Slot: chimera check software (chimera_check) - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-biomass-biomass" class="md-skip">
+        <a href="#slot-chimera-check-software-chimera_check" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: biomass (biomass)
+              Slot: chimera check software (chimera_check)
             
           </span>
         </div>
@@ -422,15 +422,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applicable Classes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
       Properties
@@ -517,45 +508,23 @@
   
 
 
-<h1 id="slot-biomass-biomass">Slot: biomass (biomass)</h1>
-<p><em>Amount of biomass; should include the name for the part of biomass measured, e.g. Microbial, total. Can include multiple measurements</em></p>
-<p>URI: <a href="https://w3id.org/mixs/0000174">MIXS:0000174</a></p>
+<h1 id="slot-chimera-check-software-chimera_check">Slot: chimera check software (chimera_check)</h1>
+<p><em>Tool(s) used for chimera checking, including version number and parameters, to discover and remove chimeric sequences. A chimeric sequence is comprised of two or more phylogenetically distinct parent sequences.</em></p>
+<p>URI: <a href="https://w3id.org/mixs/0000052">MIXS:0000052</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../core_field/">core_field</a><ul>
-<li><strong>biomass</strong></li>
+<li><a href="../sequencing_field/">sequencing_field</a><ul>
+<li><strong>chimera_check</strong></li>
 </ul>
 </li>
 </ul>
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../Biosample/">Biosample</a></td>
-<td>Biological source material which can be characterized by an experiment</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../TextValue/">TextValue</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../TextValue/">TextValue</a></li>
 </ul>
 <h2 id="aliases">Aliases</h2>
 <ul>
-<li>biomass</li>
+<li>chimera check software</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <table>
@@ -566,7 +535,7 @@
 </thead>
 <tbody>
 <tr>
-<td>total;20 gram</td>
+<td>uchime;v4.1;default parameters</td>
 </tr>
 </tbody>
 </table>
@@ -582,7 +551,7 @@
 <tbody>
 <tr>
 <td>expected_value</td>
-<td>biomass type;measurement value</td>
+<td>name and version of software, parameters used</td>
 </tr>
 </tbody>
 </table>
@@ -593,36 +562,27 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: biomass
+<pre><code class="language-yaml">name: chimera_check
 annotations:
   expected_value:
     tag: expected_value
-    value: biomass type;measurement value
-  preferred_unit:
-    tag: preferred_unit
-    value: ton, kilogram, gram
-  occurrence:
-    tag: occurrence
-    value: m
-description: Amount of biomass; should include the name for the part of biomass measured,
-  e.g. Microbial, total. Can include multiple measurements
-title: biomass
+    value: name and version of software, parameters used
+description: Tool(s) used for chimera checking, including version number and parameters,
+  to discover and remove chimeric sequences. A chimeric sequence is comprised of two
+  or more phylogenetically distinct parent sequences.
+title: chimera check software
 examples:
-- value: total;20 gram
+- value: uchime;v4.1;default parameters
 from_schema: https://w3id.org/nmdc/nmdc
 aliases:
-- biomass
+- chimera check software
 rank: 1000
-is_a: core field
-string_serialization: '{text};{float} {unit}'
-slot_uri: MIXS:0000174
-multivalued: true
-alias: biomass
-domain_of:
-- Biosample
+is_a: sequencing field
+string_serialization: '{software};{version};{parameters}'
+slot_uri: MIXS:0000052
+multivalued: false
+alias: chimera_check
 range: TextValue
-inlined: true
-inlined_as_list: true
 
 </code></pre>
 
