@@ -330,7 +330,7 @@
 <tr>
 <td><a href="../type/">type</a></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>the id of the class that is instantiated by some data</td>
+<td>the class_uri of the class that has been instantiated</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -531,10 +531,10 @@ attributes:
     range: MetagenomeAnnotation
   type:
     name: type
-    description: the id of the class that is instantiated by some data
+    description: the class_uri of the class that has been instantiated
     notes:
-    - replacing legacy nmdc:type slot
-    - will make examples files clearer
+    - replaces legacy nmdc:type slot
+    - makes it easier to read example data files
     - required for polymorphic MongoDB collections
     examples:
     - value: nmdc:Biosample
