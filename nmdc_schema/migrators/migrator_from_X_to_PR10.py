@@ -123,6 +123,12 @@ class Migrator(MigratorBase):
         if inlined_slots:
             for slot, uri in inlined_slots.items():
                 self.add_type_to_inlined_classes(document, slot, uri)
+
+    def remove_designated_class(self, document:dict):
+
+        if "designated_class" in document:
+            document.pop('designated_class')
+            self.logger.info(f"Removing slot designated_class from doc {document['id']}")
                 
         return document
 
