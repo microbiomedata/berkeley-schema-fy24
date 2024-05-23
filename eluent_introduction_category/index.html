@@ -431,6 +431,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -482,7 +491,7 @@
 
 
 <h1 id="slot-eluent_introduction_category">Slot: eluent_introduction_category</h1>
-<p><em>how a processed sample is introduced into a mass spectrometer, for example liquid chromatography or direct infusion through a syringe</em></p>
+<p><em>A high-level description for how the processed sample is introduced into a mass spectrometer.</em></p>
 <p>URI: <a href="https://w3id.org/nmdc/eluent_introduction_category">nmdc:eluent_introduction_category</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -507,6 +516,22 @@
 <ul>
 <li>Range: <a href="../EluentIntroductionCategoryEnum/">EluentIntroductionCategoryEnum</a></li>
 </ul>
+<h2 id="examples">Examples</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>liquid_chromatography</td>
+</tr>
+<tr>
+<td>direct_infusion_syringe</td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -516,8 +541,11 @@
 <details>
 
 <pre><code class="language-yaml">name: eluent_introduction_category
-description: how a processed sample is introduced into a mass spectrometer, for example
-  liquid chromatography or direct infusion through a syringe
+description: A high-level description for how the processed sample is introduced into
+  a mass spectrometer.
+examples:
+- value: liquid_chromatography
+- value: direct_infusion_syringe
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 alias: eluent_introduction_category

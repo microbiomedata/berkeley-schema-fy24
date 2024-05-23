@@ -398,19 +398,19 @@
 <tr>
 <td><a href="../eluent_introduction_category/">eluent_introduction_category</a></td>
 <td>0..1 <br/> <a href="../EluentIntroductionCategoryEnum/">EluentIntroductionCategoryEnum</a></td>
-<td>how a processed sample is introduced into a mass spectrometer, for example li...</td>
+<td>A high-level description for how the processed sample is introduced into a ma...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_mass_spectrometry_configuration/">has_mass_spectrometry_configuration</a></td>
 <td>0..1 <br/> <a href="../MassSpectrometryConfiguration/">MassSpectrometryConfiguration</a></td>
-<td>a description of how the mass spectrometry was configured</td>
+<td>An identifier for the associated MassSpectrometryConfiguration</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_chromatography_configuration/">has_chromatography_configuration</a></td>
 <td>0..1 <br/> <a href="../ChromatographyConfiguration/">ChromatographyConfiguration</a></td>
-<td>a description of how the chromatographic introduction was configured for the ...</td>
+<td>An identifier for the associated ChromatographyConfiguration, providing infor...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -652,8 +652,11 @@ slot_usage:
 attributes:
   eluent_introduction_category:
     name: eluent_introduction_category
-    description: how a processed sample is introduced into a mass spectrometer, for
-      example liquid chromatography or direct infusion through a syringe
+    description: A high-level description for how the processed sample is introduced
+      into a mass spectrometer.
+    examples:
+    - value: liquid_chromatography
+    - value: direct_infusion_syringe
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: eluent_introduction_category
@@ -663,7 +666,7 @@ attributes:
     range: EluentIntroductionCategoryEnum
   has_mass_spectrometry_configuration:
     name: has_mass_spectrometry_configuration
-    description: a description of how the mass spectrometry was configured
+    description: An identifier for the associated MassSpectrometryConfiguration.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: has_mass_spectrometry_configuration
@@ -673,8 +676,8 @@ attributes:
     range: MassSpectrometryConfiguration
   has_chromatography_configuration:
     name: has_chromatography_configuration
-    description: a description of how the chromatographic introduction was configured
-      for the introduction of the sample into the mass spectrometer
+    description: An identifier for the associated ChromatographyConfiguration, providing
+      information about how a sample was introduced into the mass spectrometer.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: has_chromatography_configuration
