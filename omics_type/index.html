@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: omics_type - NMDC Schema Documentation</title>
+        <title>Slot: omics_type (DEPRECATED) - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-omics_type" class="md-skip">
+        <a href="#slot-omics_type-deprecated" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: omics_type
+              Slot: omics_type (DEPRECATED)
             
           </span>
         </div>
@@ -481,14 +481,14 @@
   
 
 
-<h1 id="slot-omics_type">Slot: omics_type</h1>
+<h1 id="slot-omics_type-deprecated">Slot: omics_type  <span style="color: red;"><strong> (DEPRECATED) </strong></h1>
 <p><em>The type of omics data</em></p>
 <p>URI: <a href="https://w3id.org/nmdc/omics_type">nmdc:omics_type</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../ControlledTermValue/">ControlledTermValue</a></li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="examples">Examples</h2>
 <table>
@@ -516,6 +516,7 @@
 
 <pre><code class="language-yaml">name: omics_type
 description: The type of omics data
+deprecated: 'True'
 examples:
 - value: metatranscriptome
 - value: metagenome
@@ -523,7 +524,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 deprecated_element_has_exact_replacement: analyte_category
 rank: 1000
 alias: omics_type
-range: ControlledTermValue
+range: string
 
 </code></pre>
 
