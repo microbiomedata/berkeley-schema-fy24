@@ -496,27 +496,27 @@
 <tr>
 <td>time_of_flight</td>
 <td>None</td>
-<td></td>
+<td>Instrument that separates ions by m/z in a field-free region after accelerati...</td>
 </tr>
 <tr>
 <td>quadrupole</td>
 <td>None</td>
-<td></td>
+<td>A mass spectrometer that consists of four parallel rods whose centers form th...</td>
 </tr>
 <tr>
 <td>Orbitrap</td>
 <td>None</td>
-<td></td>
+<td>An ion trapping device that consists of an outer barrel-like electrode and a ...</td>
 </tr>
 <tr>
 <td>ion_cyclotron_resonance</td>
 <td>None</td>
-<td></td>
+<td>A mass spectrometer based on the principle of ion cyclotron resonance in whic...</td>
 </tr>
 <tr>
 <td>ion_trap</td>
 <td>None</td>
-<td></td>
+<td>A device for spatially confining ions using electric and magnetic fields alon...</td>
 </tr>
 </tbody>
 </table>
@@ -531,7 +531,7 @@
 <tbody>
 <tr>
 <td><a href="../mass_analyzers/">mass_analyzers</a></td>
-<td>which kind of mass analyzer(s) used during the spectra collection</td>
+<td>The kind of mass analyzer(s) used during the spectra collection</td>
 </tr>
 </tbody>
 </table>
@@ -549,27 +549,60 @@ rank: 1000
 permissible_values:
   time_of_flight:
     text: time_of_flight
+    description: Instrument that separates ions by m/z in a field-free region after
+      acceleration to a fixed acceleration energy.
     aliases:
     - TOF
+    exact_mappings:
+    - MS:1000084
   quadrupole:
     text: quadrupole
+    description: A mass spectrometer that consists of four parallel rods whose centers
+      form the corners of a square and whose opposing poles are connected. The voltage
+      applied to the rods is a superposition of a static potential and a sinusoidal
+      radio frequency potential. The motion of an ion in the x and y dimensions is
+      described by the Matthieu equation whose solutions show that ions in a particular
+      m/z range can be transmitted along the z axis.
     aliases:
     - Quad
     - Q
+    exact_mappings:
+    - MS:1000081
   Orbitrap:
     text: Orbitrap
+    description: An ion trapping device that consists of an outer barrel-like electrode
+      and a coaxial inner spindle-like electrode that form an electrostatic field
+      with quadro-logarithmic potential distribution. The frequency of harmonic oscillations
+      of the orbitally trapped ions along the axis of the electrostatic field is independent
+      of the ion velocity and is inversely proportional to the square root of m/z
+      so that the trap can be used as a mass analyzer.
     aliases:
     - Orbi
+    exact_mappings:
+    - MS:1000484
   ion_cyclotron_resonance:
     text: ion_cyclotron_resonance
+    description: A mass spectrometer based on the principle of ion cyclotron resonance
+      in which an ion in a magnetic field moves in a circular orbit at a frequency
+      characteristic of its m/z value. Ions are coherently excited to a larger radius
+      orbit using a pulse of radio frequency energy and their image charge is detected
+      on receiver plates as a time domain signal. Fourier transformation of the time
+      domain signal results in a frequency domain signal which is converted to a mass
+      spectrum based in the inverse relationship between frequency and m/z.
     aliases:
     - ICR
+    exact_mappings:
+    - MS:1000079
   ion_trap:
     text: ion_trap
+    description: A device for spatially confining ions using electric and magnetic
+      fields alone or in combination.
     aliases:
     - LTQ
     - Ion Trap
     - Paul Trap
+    exact_mappings:
+    - MS:1000264
 
 </code></pre>
 

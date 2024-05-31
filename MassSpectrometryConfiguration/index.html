@@ -283,16 +283,6 @@
 
 
 
-  MassSpectrometryConfiguration : acquisition_category
-
-      MassSpectrometryConfiguration --&gt; "0..1" AcquisitionCategoryEnum : acquisition_category
-    click AcquisitionCategoryEnum href "../AcquisitionCategoryEnum"
-
-  MassSpectrometryConfiguration : acquisition_strategy
-
-      MassSpectrometryConfiguration --&gt; "0..1" AcquisitionStrategyEnum : acquisition_strategy
-    click AcquisitionStrategyEnum href "../AcquisitionStrategyEnum"
-
   MassSpectrometryConfiguration : alternative_identifiers
 
   MassSpectrometryConfiguration : description
@@ -308,6 +298,11 @@
 
       MassSpectrometryConfiguration --&gt; "*" MassAnalyzerEnum : mass_analyzers
     click MassAnalyzerEnum href "../MassAnalyzerEnum"
+
+  MassSpectrometryConfiguration : mass_spectrometry_acquisition_strategy
+
+      MassSpectrometryConfiguration --&gt; "0..1" MassSpectrometryAcquisitionStrategyEnum : mass_spectrometry_acquisition_strategy
+    click MassSpectrometryAcquisitionStrategyEnum href "../MassSpectrometryAcquisitionStrategyEnum"
 
   MassSpectrometryConfiguration : mass_spectrum_collection_modes
 
@@ -356,33 +351,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../acquisition_category/">acquisition_category</a></td>
-<td>0..1 <br/> <a href="../AcquisitionCategoryEnum/">AcquisitionCategoryEnum</a></td>
-<td>whether only survey or tandem mass spectra are part of the experiment</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../acquisition_strategy/">acquisition_strategy</a></td>
-<td>0..1 <br/> <a href="../AcquisitionStrategyEnum/">AcquisitionStrategyEnum</a></td>
-<td>whether spectra are dependent on or independent of any other spectra during t...</td>
+<td><a href="../mass_spectrometry_acquisition_strategy/">mass_spectrometry_acquisition_strategy</a></td>
+<td>0..1 <br/> <a href="../MassSpectrometryAcquisitionStrategyEnum/">MassSpectrometryAcquisitionStrategyEnum</a></td>
+<td>Mode of running a mass spectrometer method by which m/z ranges are selected a...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../resolution_categories/">resolution_categories</a></td>
 <td>* <br/> <a href="../ResolutionCategoryEnum/">ResolutionCategoryEnum</a></td>
-<td>whether mass spectra are collected at higher than unit resolution</td>
+<td>The relative resolution at which spectra were collected</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mass_analyzers/">mass_analyzers</a></td>
 <td>* <br/> <a href="../MassAnalyzerEnum/">MassAnalyzerEnum</a></td>
-<td>which kind of mass analyzer(s) used during the spectra collection</td>
+<td>The kind of mass analyzer(s) used during the spectra collection</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ionization_source/">ionization_source</a></td>
 <td>0..1 <br/> <a href="../IonizationSourceEnum/">IonizationSourceEnum</a></td>
-<td>which kind of ionization source is used to introduce analytes into a mass spe...</td>
+<td>The ionization source used to introduce processed samples into a mass spectro...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -480,13 +469,12 @@
 description: A set of parameters that define and control the actions of a mass spectrometry
   process.
 notes:
-- This class is intended to represent a mass sepctrometry method file that controls
+- This class is intended to represent a mass spectrometry method file that controls
   a mass spectrometry process.
 from_schema: https://w3id.org/nmdc/nmdc
 is_a: Configuration
 slots:
-- acquisition_category
-- acquisition_strategy
+- mass_spectrometry_acquisition_strategy
 - resolution_categories
 - mass_analyzers
 - ionization_source
@@ -523,7 +511,7 @@ class_uri: nmdc:MassSpectrometryConfiguration
 description: A set of parameters that define and control the actions of a mass spectrometry
   process.
 notes:
-- This class is intended to represent a mass sepctrometry method file that controls
+- This class is intended to represent a mass spectrometry method file that controls
   a mass spectrometry process.
 from_schema: https://w3id.org/nmdc/nmdc
 is_a: Configuration
@@ -549,30 +537,24 @@ slot_usage:
       syntax: '{id_nmdc_prefix}:(mscon)-{id_shoulder}-{id_blade}{id_version}{id_locus}'
       interpolated: true
 attributes:
-  acquisition_category:
-    name: acquisition_category
-    description: whether only survey or tandem mass spectra are part of the experiment
+  mass_spectrometry_acquisition_strategy:
+    name: mass_spectrometry_acquisition_strategy
+    description: Mode of running a mass spectrometer method by which m/z ranges are
+      selected and ions possibly fragment.
     from_schema: https://w3id.org/nmdc/nmdc
+    exact_mappings:
+    - MS:1003213
     rank: 1000
-    alias: acquisition_category
+    alias: mass_spectrometry_acquisition_strategy
     owner: MassSpectrometryConfiguration
     domain_of:
     - MassSpectrometryConfiguration
-    range: AcquisitionCategoryEnum
-  acquisition_strategy:
-    name: acquisition_strategy
-    description: whether spectra are dependent on or independent of any other spectra
-      during the experiment
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    alias: acquisition_strategy
-    owner: MassSpectrometryConfiguration
-    domain_of:
-    - MassSpectrometryConfiguration
-    range: AcquisitionStrategyEnum
+    range: MassSpectrometryAcquisitionStrategyEnum
   resolution_categories:
     name: resolution_categories
-    description: whether mass spectra are collected at higher than unit resolution
+    description: The relative resolution at which spectra were collected.
+    examples:
+    - value: '[''high'', ''low'']'
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     multivalued: true
@@ -583,8 +565,10 @@ attributes:
     range: ResolutionCategoryEnum
   mass_analyzers:
     name: mass_analyzers
-    description: which kind of mass analyzer(s) used during the spectra collection.
+    description: The kind of mass analyzer(s) used during the spectra collection.
     from_schema: https://w3id.org/nmdc/nmdc
+    exact_mappings:
+    - MS:1000443
     rank: 1000
     multivalued: true
     alias: mass_analyzers
@@ -594,9 +578,11 @@ attributes:
     range: MassAnalyzerEnum
   ionization_source:
     name: ionization_source
-    description: which kind of ionization source is used to introduce analytes into
-      a mass spectrometer
+    description: The ionization source used to introduce processed samples into a
+      mass spectrometer
     from_schema: https://w3id.org/nmdc/nmdc
+    exact_mappings:
+    - MS:1000008
     rank: 1000
     alias: ionization_source
     owner: MassSpectrometryConfiguration

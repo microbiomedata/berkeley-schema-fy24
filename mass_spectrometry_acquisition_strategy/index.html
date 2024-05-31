@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/acquisition_category/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/mass_spectrometry_acquisition_strategy/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: acquisition_category - NMDC Schema Documentation</title>
+        <title>Slot: mass_spectrometry_acquisition_strategy - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-acquisition_category" class="md-skip">
+        <a href="#slot-mass_spectrometry_acquisition_strategy" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: acquisition_category
+              Slot: mass_spectrometry_acquisition_strategy
             
           </span>
         </div>
@@ -481,9 +481,9 @@
   
 
 
-<h1 id="slot-acquisition_category">Slot: acquisition_category</h1>
-<p><em>whether only survey or tandem mass spectra are part of the experiment</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/acquisition_category">nmdc:acquisition_category</a></p>
+<h1 id="slot-mass_spectrometry_acquisition_strategy">Slot: mass_spectrometry_acquisition_strategy</h1>
+<p><em>Mode of running a mass spectrometer method by which m/z ranges are selected and ions possibly fragment.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/mass_spectrometry_acquisition_strategy">nmdc:mass_spectrometry_acquisition_strategy</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -505,7 +505,7 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../AcquisitionCategoryEnum/">AcquisitionCategoryEnum</a></li>
+<li>Range: <a href="../MassSpectrometryAcquisitionStrategyEnum/">MassSpectrometryAcquisitionStrategyEnum</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -515,14 +515,17 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: acquisition_category
-description: whether only survey or tandem mass spectra are part of the experiment
+<pre><code class="language-yaml">name: mass_spectrometry_acquisition_strategy
+description: Mode of running a mass spectrometer method by which m/z ranges are selected
+  and ions possibly fragment.
 from_schema: https://w3id.org/nmdc/nmdc
+exact_mappings:
+- MS:1003213
 rank: 1000
-alias: acquisition_category
+alias: mass_spectrometry_acquisition_strategy
 domain_of:
 - MassSpectrometryConfiguration
-range: AcquisitionCategoryEnum
+range: MassSpectrometryAcquisitionStrategyEnum
 
 </code></pre>
 

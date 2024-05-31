@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/AcquisitionCategoryEnum/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/MassSpectrometryAcquisitionStrategyEnum/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Enum: AcquisitionCategoryEnum - NMDC Schema Documentation</title>
+        <title>Enum: MassSpectrometryAcquisitionStrategyEnum - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enum-acquisitioncategoryenum" class="md-skip">
+        <a href="#enum-massspectrometryacquisitionstrategyenum" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enum: AcquisitionCategoryEnum
+              Enum: MassSpectrometryAcquisitionStrategyEnum
             
           </span>
         </div>
@@ -481,8 +481,8 @@
   
 
 
-<h1 id="enum-acquisitioncategoryenum">Enum: AcquisitionCategoryEnum</h1>
-<p>URI: <a href="./">AcquisitionCategoryEnum</a></p>
+<h1 id="enum-massspectrometryacquisitionstrategyenum">Enum: MassSpectrometryAcquisitionStrategyEnum</h1>
+<p>URI: <a href="./">MassSpectrometryAcquisitionStrategyEnum</a></p>
 <h2 id="permissible-values">Permissible Values</h2>
 <table>
 <thead>
@@ -494,14 +494,19 @@
 </thead>
 <tbody>
 <tr>
-<td>full_scan</td>
+<td>data_independent_acquisition</td>
 <td>None</td>
-<td></td>
+<td>['Data independent mass spectrometer acquisition method wherein the full mass...</td>
 </tr>
 <tr>
-<td>tandem_mass_spectrum</td>
+<td>data_dependent_acquisition</td>
 <td>None</td>
-<td></td>
+<td>Mass spectrometer data acquisition method wherein MSn spectra are triggered b...</td>
+</tr>
+<tr>
+<td>full_scan_only</td>
+<td>None</td>
+<td>Mass spectrometer data acquisition method wherein only MS1 data are acquired</td>
 </tr>
 </tbody>
 </table>
@@ -515,8 +520,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../acquisition_category/">acquisition_category</a></td>
-<td>whether only survey or tandem mass spectra are part of the experiment</td>
+<td><a href="../mass_spectrometry_acquisition_strategy/">mass_spectrometry_acquisition_strategy</a></td>
+<td>Mode of running a mass spectrometer method by which m/z ranges are selected a...</td>
 </tr>
 </tbody>
 </table>
@@ -528,18 +533,34 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: AcquisitionCategoryEnum
+<pre><code class="language-yaml">name: MassSpectrometryAcquisitionStrategyEnum
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 permissible_values:
-  full_scan:
-    text: full_scan
+  data_independent_acquisition:
+    text: data_independent_acquisition
+    description: '[''Data independent mass spectrometer acquisition method wherein
+      the full mass range is fragmented. Examples of such an approach include MS^E,
+      AIF, and bbCID.'']'
+    aliases:
+    - DIA
+    - data independent acquisition from dissociation of full mass range
+    exact_mappings:
+    - MS:1003227
+  data_dependent_acquisition:
+    text: data_dependent_acquisition
+    description: Mass spectrometer data acquisition method wherein MSn spectra are
+      triggered based on the m/z of precursor ions detected in the same run.
+    aliases:
+    - -DDA
+    exact_mappings:
+    - MS:1003221
+  full_scan_only:
+    text: full_scan_only
+    description: Mass spectrometer data acquisition method wherein only MS1 data are
+      acquired.
     aliases:
     - MS
-  tandem_mass_spectrum:
-    text: tandem_mass_spectrum
-    aliases:
-    - -MSn
 
 </code></pre>
 

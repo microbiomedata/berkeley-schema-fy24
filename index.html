@@ -897,14 +897,6 @@ This schema is organized into multiple modules, such as:</p>
 <td>Actual mass of water vapor - mh20 - present in the air water vapor mixture</td>
 </tr>
 <tr>
-<td><a href="acquisition_category/">acquisition_category</a></td>
-<td>whether only survey or tandem mass spectra are part of the experiment</td>
-</tr>
-<tr>
-<td><a href="acquisition_strategy/">acquisition_strategy</a></td>
-<td>whether spectra are dependent on or independent of any other spectra during t...</td>
-</tr>
-<tr>
 <td><a href="add_date/">add_date</a></td>
 <td>The date on which the information was added to the database</td>
 </tr>
@@ -1762,7 +1754,7 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="eluent_introduction_category/">eluent_introduction_category</a></td>
-<td>A high-level description for how the processed sample is introduced into a ma...</td>
+<td>A high-level categorization for how the processed sample is introduced into a...</td>
 </tr>
 <tr>
 <td><a href="email/">email</a></td>
@@ -2174,7 +2166,7 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="has_chromatography_configuration/">has_chromatography_configuration</a></td>
-<td>An identifier for the associated ChromatographyConfiguration, providing infor...</td>
+<td>The identifier of the associated ChromatographyConfiguration, providing infor...</td>
 </tr>
 <tr>
 <td><a href="has_credit_associations/">has_credit_associations</a></td>
@@ -2194,7 +2186,7 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="has_mass_spectrometry_configuration/">has_mass_spectrometry_configuration</a></td>
-<td>An identifier for the associated MassSpectrometryConfiguration</td>
+<td>The identifier of the associated MassSpectrometryConfiguration</td>
 </tr>
 <tr>
 <td><a href="has_maximum_numeric_value/">has_maximum_numeric_value</a></td>
@@ -2546,7 +2538,7 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="ionization_source/">ionization_source</a></td>
-<td>which kind of ionization source is used to introduce analytes into a mass spe...</td>
+<td>The ionization source used to introduce processed samples into a mass spectro...</td>
 </tr>
 <tr>
 <td><a href="is_pressurized/">is_pressurized</a></td>
@@ -2686,7 +2678,11 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="mass_analyzers/">mass_analyzers</a></td>
-<td>which kind of mass analyzer(s) used during the spectra collection</td>
+<td>The kind of mass analyzer(s) used during the spectra collection</td>
+</tr>
+<tr>
+<td><a href="mass_spectrometry_acquisition_strategy/">mass_spectrometry_acquisition_strategy</a></td>
+<td>Mode of running a mass spectrometer method by which m/z ranges are selected a...</td>
 </tr>
 <tr>
 <td><a href="mass_spectrum_collection_modes/">mass_spectrum_collection_modes</a></td>
@@ -3342,7 +3338,7 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="resolution_categories/">resolution_categories</a></td>
-<td>whether mass spectra are collected at higher than unit resolution</td>
+<td>The relative resolution at which spectra were collected</td>
 </tr>
 <tr>
 <td><a href="rna_absorb1/">rna_absorb1</a></td>
@@ -4428,14 +4424,6 @@ This schema is organized into multiple modules, such as:</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="AcquisitionCategoryEnum/">AcquisitionCategoryEnum</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="AcquisitionStrategyEnum/">AcquisitionStrategyEnum</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="AnalysisTypeEnum/">AnalysisTypeEnum</a></td>
 <td></td>
 </tr>
@@ -4725,6 +4713,10 @@ This schema is organized into multiple modules, such as:</p>
 </tr>
 <tr>
 <td><a href="MassAnalyzerEnum/">MassAnalyzerEnum</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MassSpectrometryAcquisitionStrategyEnum/">MassSpectrometryAcquisitionStrategyEnum</a></td>
 <td></td>
 </tr>
 <tr>
