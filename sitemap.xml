@@ -3641,6 +3641,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/nmdc-schema/metatranscriptome_assembly_set/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/methane/</loc>
          <lastmod>2024-06-04</lastmod>
          <changefreq>daily</changefreq>

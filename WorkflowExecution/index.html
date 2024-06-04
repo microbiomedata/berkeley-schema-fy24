@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
@@ -727,12 +727,6 @@
 <td><a href="./">WorkflowExecution</a></td>
 </tr>
 <tr>
-<td><a href="../Database/">Database</a></td>
-<td><a href="../workflow_execution_set/">workflow_execution_set</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
 <td><a href="../AttributeValue/">AttributeValue</a></td>
 <td><a href="../was_generated_by/">was_generated_by</a></td>
 <td>range</td>
@@ -892,13 +886,16 @@ slot_usage:
     - WorkflowExecution
     range: WorkflowChain
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
   id:
     name: id
     domain_of:
     - NamedThing
     required: true
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
 class_uri: nmdc:WorkflowExecution
 rules:
@@ -987,13 +984,16 @@ slot_usage:
     - WorkflowExecution
     range: WorkflowChain
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
   id:
     name: id
     domain_of:
     - NamedThing
     required: true
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
 attributes:
   ended_at_time:
@@ -1045,6 +1045,9 @@ attributes:
     - WorkflowExecution
     range: WorkflowChain
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
   started_at_time:
     name: started_at_time
     from_schema: https://w3id.org/nmdc/nmdc
@@ -1193,7 +1196,7 @@ attributes:
     required: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
   name:
     name: name
@@ -1351,7 +1354,7 @@ rules:
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/MetatranscriptomeAnalysis/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.25" name="generator"/>
 <title>Class: MetatranscriptomeAnalysis - NMDC Schema Documentation</title>
 <link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -567,7 +567,7 @@ slot_usage:
     - NamedThing
     required: true
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:wfmt-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:wfmt-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
   img_identifiers:
     name: img_identifiers
@@ -598,7 +598,7 @@ slot_usage:
     - NamedThing
     required: true
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:wfmt-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:wfmt-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
   img_identifiers:
     name: img_identifiers
@@ -679,6 +679,9 @@ attributes:
     - WorkflowExecution
     range: WorkflowChain
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
   started_at_time:
     name: started_at_time
     from_schema: https://w3id.org/nmdc/nmdc
@@ -827,7 +830,7 @@ attributes:
     required: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:wfmt-{id_shoulder}-{id_blade}{id_version}{id_locus}'
+      syntax: '{id_nmdc_prefix}:wfmt-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
   name:
     name: name
@@ -933,7 +936,7 @@ class_uri: nmdc:MetatranscriptomeAnalysis
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+<script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
@@ -535,33 +535,39 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../chemical_entity_set/">chemical_entity_set</a></td>
-<td>* <br/> <a href="../ChemicalEntity/">ChemicalEntity</a></td>
-<td>This property links a database object to the set of chemical entities within ...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../planned_process_set/">planned_process_set</a></td>
-<td>* <br/> <a href="../PlannedProcess/">PlannedProcess</a></td>
-<td>This property links a database object to the set of planned processes within ...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../functional_annotation_agg/">functional_annotation_agg</a></td>
-<td>* <br/> <a href="../FunctionalAnnotationAggMember/">FunctionalAnnotationAggMember</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../biosample_set/">biosample_set</a></td>
 <td>* <br/> <a href="../Biosample/">Biosample</a></td>
 <td>This property links a database object to the set of samples within it</td>
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../calibration_set/">calibration_set</a></td>
+<td>* <br/> <a href="../CalibrationInformation/">CalibrationInformation</a></td>
+<td>This property links a database object to the set of calibrations within it</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../chemical_entity_set/">chemical_entity_set</a></td>
+<td>* <br/> <a href="../ChemicalEntity/">ChemicalEntity</a></td>
+<td>This property links a database object to the set of chemical entities within ...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../collecting_biosamples_from_site_set/">collecting_biosamples_from_site_set</a></td>
 <td>* <br/> <a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
 <td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../configuration_set/">configuration_set</a></td>
+<td>* <br/> <a href="../Configuration/">Configuration</a></td>
+<td>This property links a database object to the set of configurations within it</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../data_generation_set/">data_generation_set</a></td>
+<td>* <br/> <a href="../DataGeneration/">DataGeneration</a></td>
+<td>This property links a database object to the set of omics processings within ...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -601,6 +607,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../instrument_set/">instrument_set</a></td>
+<td>* <br/> <a href="../Instrument/">Instrument</a></td>
+<td>This property links a database object to the set of instruments within it</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../library_preparation_set/">library_preparation_set</a></td>
 <td>* <br/> <a href="../LibraryPreparation/">LibraryPreparation</a></td>
 <td>This property links a database object to the set of DNA extractions within it</td>
@@ -609,61 +621,55 @@
 <tr>
 <td><a href="../mags_set/">mags_set</a></td>
 <td>* <br/> <a href="../MagsAnalysis/">MagsAnalysis</a></td>
-<td>This property links a database object to the set of MAGs analysis activities</td>
+<td>This property links a database object to the set of MAGs analyses</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metabolomics_analysis_set/">metabolomics_analysis_set</a></td>
 <td>* <br/> <a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
-<td>This property links a database object to the set of metabolomics analysis act...</td>
+<td>This property links a database object to the set of metabolomics analyses</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metagenome_annotation_set/">metagenome_annotation_set</a></td>
 <td>* <br/> <a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
-<td>This property links a database object to the set of metagenome annotation act...</td>
+<td>This property links a database object to the set of metagenome annotations</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metagenome_assembly_set/">metagenome_assembly_set</a></td>
 <td>* <br/> <a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
-<td>This property links a database object to the set of metagenome assembly activ...</td>
+<td>This property links a database object to the set of metagenome assemblies</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metagenome_sequencing_set/">metagenome_sequencing_set</a></td>
 <td>* <br/> <a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
-<td>This property links a database object to the set of metagenome sequencing act...</td>
+<td>This property links a database object to the set of metagenome sequencings</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metaproteomics_analysis_set/">metaproteomics_analysis_set</a></td>
 <td>* <br/> <a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
-<td>This property links a database object to the set of metaproteomics analysis a...</td>
+<td>This property links a database object to the set of metaproteomics analyses</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metatranscriptome_analysis_set/">metatranscriptome_analysis_set</a></td>
 <td>* <br/> <a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
-<td>This property links a database object to the set of metatranscriptome analysi...</td>
+<td>This property links a database object to the set of metatranscriptome analyse...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../metatranscriptome_assembly_set/">metatranscriptome_assembly_set</a></td>
+<td>* <br/> <a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
+<td>This property links a database object to the set of metatranscriptome assembl...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../nom_analysis_set/">nom_analysis_set</a></td>
 <td>* <br/> <a href="../NomAnalysis/">NomAnalysis</a></td>
 <td>This property links a database object to the set of natural organic matter (N...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../data_generation_set/">data_generation_set</a></td>
-<td>* <br/> <a href="../DataGeneration/">DataGeneration</a></td>
-<td>This property links a database object to the set of omics processings within ...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../workflow_chain_set/">workflow_chain_set</a></td>
-<td>* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
-<td>This property links a database object to the set of workflow chains within it</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -687,13 +693,13 @@
 <tr>
 <td><a href="../read_based_taxonomy_analysis_set/">read_based_taxonomy_analysis_set</a></td>
 <td>* <br/> <a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
-<td>This property links a database object to the set of read based analysis activ...</td>
+<td>This property links a database object to the set of read based analyses</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../read_qc_analysis_set/">read_qc_analysis_set</a></td>
 <td>* <br/> <a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
-<td>This property links a database object to the set of read QC analysis activiti...</td>
+<td>This property links a database object to the set of read QC analyses</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -703,27 +709,9 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../workflow_execution_set/">workflow_execution_set</a></td>
-<td>* <br/> <a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td>This property links a database object to the set of workflow activities</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../instrument_set/">instrument_set</a></td>
-<td>* <br/> <a href="../Instrument/">Instrument</a></td>
-<td>This property links a database object to the set of instruments within it</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../configuration_set/">configuration_set</a></td>
-<td>* <br/> <a href="../Configuration/">Configuration</a></td>
-<td>This property links a database object to the set of configurations within it</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../calibration_set/">calibration_set</a></td>
-<td>* <br/> <a href="../CalibrationInformation/">CalibrationInformation</a></td>
-<td>This property links a database object to the set of calibrations within it</td>
+<td><a href="../workflow_chain_set/">workflow_chain_set</a></td>
+<td>* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
+<td>This property links a database object to the set of workflow chains within it</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -772,17 +760,19 @@ from_schema: https://w3id.org/nmdc/nmdc
 aliases:
 - NMDC metadata object
 slots:
-- chemical_entity_set
-- planned_process_set
-- functional_annotation_agg
 - biosample_set
+- calibration_set
+- chemical_entity_set
 - collecting_biosamples_from_site_set
+- configuration_set
+- data_generation_set
 - data_object_set
 - extraction_set
 - field_research_site_set
 - functional_annotation_agg
 - functional_annotation_set
 - genome_feature_set
+- instrument_set
 - library_preparation_set
 - mags_set
 - metabolomics_analysis_set
@@ -791,19 +781,15 @@ slots:
 - metagenome_sequencing_set
 - metaproteomics_analysis_set
 - metatranscriptome_analysis_set
+- metatranscriptome_assembly_set
 - nom_analysis_set
-- data_generation_set
-- workflow_chain_set
 - planned_process_set
 - pooling_set
 - processed_sample_set
 - read_based_taxonomy_analysis_set
 - read_qc_analysis_set
 - study_set
-- workflow_execution_set
-- instrument_set
-- configuration_set
-- calibration_set
+- workflow_chain_set
 class_uri: nmdc:Database
 tree_root: true
 
@@ -824,48 +810,6 @@ from_schema: https://w3id.org/nmdc/nmdc
 aliases:
 - NMDC metadata object
 attributes:
-  chemical_entity_set:
-    name: chemical_entity_set
-    description: This property links a database object to the set of chemical entities
-      within it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: chemical_entity_set
-    owner: Database
-    domain_of:
-    - Database
-    range: ChemicalEntity
-    inlined_as_list: true
-  planned_process_set:
-    name: planned_process_set
-    description: This property links a database object to the set of planned processes
-      within it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: planned_process_set
-    owner: Database
-    domain_of:
-    - Database
-    range: PlannedProcess
-    inlined_as_list: true
-  functional_annotation_agg:
-    name: functional_annotation_agg
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    multivalued: true
-    alias: functional_annotation_agg
-    owner: Database
-    domain_of:
-    - Database
-    range: FunctionalAnnotationAggMember
-    inlined: true
-    inlined_as_list: true
   biosample_set:
     name: biosample_set
     description: This property links a database object to the set of samples within
@@ -881,6 +825,36 @@ attributes:
     - Database
     range: Biosample
     inlined_as_list: true
+  calibration_set:
+    name: calibration_set
+    description: This property links a database object to the set of calibrations
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: calibration_set
+    owner: Database
+    domain_of:
+    - Database
+    range: CalibrationInformation
+    inlined_as_list: true
+  chemical_entity_set:
+    name: chemical_entity_set
+    description: This property links a database object to the set of chemical entities
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: chemical_entity_set
+    owner: Database
+    domain_of:
+    - Database
+    range: ChemicalEntity
+    inlined_as_list: true
   collecting_biosamples_from_site_set:
     name: collecting_biosamples_from_site_set
     from_schema: https://w3id.org/nmdc/nmdc
@@ -893,6 +867,36 @@ attributes:
     domain_of:
     - Database
     range: CollectingBiosamplesFromSite
+    inlined_as_list: true
+  configuration_set:
+    name: configuration_set
+    description: This property links a database object to the set of configurations
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: configuration_set
+    owner: Database
+    domain_of:
+    - Database
+    range: Configuration
+    inlined_as_list: true
+  data_generation_set:
+    name: data_generation_set
+    description: This property links a database object to the set of omics processings
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: data_generation_set
+    owner: Database
+    domain_of:
+    - Database
+    range: DataGeneration
     inlined_as_list: true
   data_object_set:
     name: data_object_set
@@ -937,6 +941,18 @@ attributes:
     - Database
     range: FieldResearchSite
     inlined_as_list: true
+  functional_annotation_agg:
+    name: functional_annotation_agg
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    multivalued: true
+    alias: functional_annotation_agg
+    owner: Database
+    domain_of:
+    - Database
+    range: FunctionalAnnotationAggMember
+    inlined: true
+    inlined_as_list: true
   functional_annotation_set:
     name: functional_annotation_set
     description: This property links a database object to the set of all functional
@@ -966,6 +982,21 @@ attributes:
     - Database
     range: GenomeFeature
     inlined_as_list: true
+  instrument_set:
+    name: instrument_set
+    description: This property links a database object to the set of instruments within
+      it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: instrument_set
+    owner: Database
+    domain_of:
+    - Database
+    range: Instrument
+    inlined_as_list: true
   library_preparation_set:
     name: library_preparation_set
     description: This property links a database object to the set of DNA extractions
@@ -985,8 +1016,7 @@ attributes:
     inlined_as_list: true
   mags_set:
     name: mags_set
-    description: This property links a database object to the set of MAGs analysis
-      activities.
+    description: This property links a database object to the set of MAGs analyses.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1001,7 +1031,7 @@ attributes:
   metabolomics_analysis_set:
     name: metabolomics_analysis_set
     description: This property links a database object to the set of metabolomics
-      analysis activities.
+      analyses.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1015,8 +1045,7 @@ attributes:
     inlined_as_list: true
   metagenome_annotation_set:
     name: metagenome_annotation_set
-    description: This property links a database object to the set of metagenome annotation
-      activities.
+    description: This property links a database object to the set of metagenome annotations.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1030,8 +1059,7 @@ attributes:
     inlined_as_list: true
   metagenome_assembly_set:
     name: metagenome_assembly_set
-    description: This property links a database object to the set of metagenome assembly
-      activities.
+    description: This property links a database object to the set of metagenome assemblies.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1045,8 +1073,7 @@ attributes:
     inlined_as_list: true
   metagenome_sequencing_set:
     name: metagenome_sequencing_set
-    description: This property links a database object to the set of metagenome sequencing
-      activities.
+    description: This property links a database object to the set of metagenome sequencings.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1061,7 +1088,7 @@ attributes:
   metaproteomics_analysis_set:
     name: metaproteomics_analysis_set
     description: This property links a database object to the set of metaproteomics
-      analysis activities.
+      analyses.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1076,7 +1103,7 @@ attributes:
   metatranscriptome_analysis_set:
     name: metatranscriptome_analysis_set
     description: This property links a database object to the set of metatranscriptome
-      analysis activities.
+      analyses.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1088,10 +1115,25 @@ attributes:
     - Database
     range: MetatranscriptomeAnalysis
     inlined_as_list: true
+  metatranscriptome_assembly_set:
+    name: metatranscriptome_assembly_set
+    description: This property links a database object to the set of metatranscriptome
+      assemblies.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: metatranscriptome_assembly_set
+    owner: Database
+    domain_of:
+    - Database
+    range: MetatranscriptomeAssembly
+    inlined_as_list: true
   nom_analysis_set:
     name: nom_analysis_set
     description: This property links a database object to the set of natural organic
-      matter (NOM) analysis activities.
+      matter (NOM) analyses,
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1103,35 +1145,20 @@ attributes:
     - Database
     range: NomAnalysis
     inlined_as_list: true
-  data_generation_set:
-    name: data_generation_set
-    description: This property links a database object to the set of omics processings
+  planned_process_set:
+    name: planned_process_set
+    description: This property links a database object to the set of planned processes
       within it.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
     - object_set
     multivalued: true
-    alias: data_generation_set
+    alias: planned_process_set
     owner: Database
     domain_of:
     - Database
-    range: DataGeneration
-    inlined_as_list: true
-  workflow_chain_set:
-    name: workflow_chain_set
-    description: This property links a database object to the set of workflow chains
-      within it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: workflow_chain_set
-    owner: Database
-    domain_of:
-    - Database
-    range: WorkflowChain
+    range: PlannedProcess
     inlined_as_list: true
   pooling_set:
     name: pooling_set
@@ -1163,8 +1190,7 @@ attributes:
     inlined_as_list: true
   read_based_taxonomy_analysis_set:
     name: read_based_taxonomy_analysis_set
-    description: This property links a database object to the set of read based analysis
-      activities.
+    description: This property links a database object to the set of read based analyses.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1178,8 +1204,7 @@ attributes:
     inlined_as_list: true
   read_qc_analysis_set:
     name: read_qc_analysis_set
-    description: This property links a database object to the set of read QC analysis
-      activities.
+    description: This property links a database object to the set of read QC analyses.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
@@ -1206,64 +1231,20 @@ attributes:
     - Database
     range: Study
     inlined_as_list: true
-  workflow_execution_set:
-    name: workflow_execution_set
-    description: This property links a database object to the set of workflow activities.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: workflow_execution_set
-    owner: Database
-    domain_of:
-    - Database
-    range: WorkflowExecution
-    inlined_as_list: true
-  instrument_set:
-    name: instrument_set
-    description: This property links a database object to the set of instruments within
-      it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: instrument_set
-    owner: Database
-    domain_of:
-    - Database
-    range: Instrument
-    inlined_as_list: true
-  configuration_set:
-    name: configuration_set
-    description: This property links a database object to the set of configurations
+  workflow_chain_set:
+    name: workflow_chain_set
+    description: This property links a database object to the set of workflow chains
       within it.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
     - object_set
     multivalued: true
-    alias: configuration_set
+    alias: workflow_chain_set
     owner: Database
     domain_of:
     - Database
-    range: Configuration
-    inlined_as_list: true
-  calibration_set:
-    name: calibration_set
-    description: This property links a database object to the set of calibrations
-      within it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: calibration_set
-    owner: Database
-    domain_of:
-    - Database
-    range: CalibrationInformation
+    range: WorkflowChain
     inlined_as_list: true
 class_uri: nmdc:Database
 tree_root: true
@@ -1322,7 +1303,7 @@ tree_root: true
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
