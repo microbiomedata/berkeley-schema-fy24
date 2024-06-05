@@ -383,7 +383,7 @@ slot_usage:
     domain_of:
     - FunctionalAnnotationAggMember
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:(wfmgan)-{id_shoulder}-{id_blade}{id_version}$'
+      syntax: '{id_nmdc_prefix}:wfmgan-{id_shoulder}-{id_blade}{id_version}{id_locus}$'
       interpolated: true
 class_uri: nmdc:FunctionalAnnotationAggMember
 
@@ -399,7 +399,7 @@ slot_usage:
     domain_of:
     - FunctionalAnnotationAggMember
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:(wfmgan)-{id_shoulder}-{id_blade}{id_version}$'
+      syntax: '{id_nmdc_prefix}:wfmgan-{id_shoulder}-{id_blade}{id_version}{id_locus}$'
       interpolated: true
 attributes:
   metagenome_annotation_id:
@@ -415,7 +415,7 @@ attributes:
     range: WorkflowExecution
     required: true
     structured_pattern:
-      syntax: '{id_nmdc_prefix}:(wfmgan)-{id_shoulder}-{id_blade}{id_version}$'
+      syntax: '{id_nmdc_prefix}:wfmgan-{id_shoulder}-{id_blade}{id_version}{id_locus}$'
       interpolated: true
   gene_function_id:
     name: gene_function_id

@@ -727,60 +727,6 @@
 <td><a href="./">WorkflowExecution</a></td>
 </tr>
 <tr>
-<td><a href="../AttributeValue/">AttributeValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../QuantityValue/">QuantityValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../ImageValue/">ImageValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../PersonValue/">PersonValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../TextValue/">TextValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../TimestampValue/">TimestampValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../ControlledTermValue/">ControlledTermValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../ControlledIdentifiedTermValue/">ControlledIdentifiedTermValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
-<td><a href="../GeolocationValue/">GeolocationValue</a></td>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>range</td>
-<td><a href="./">WorkflowExecution</a></td>
-</tr>
-<tr>
 <td><a href="../DataObject/">DataObject</a></td>
 <td><a href="../was_generated_by/">was_generated_by</a></td>
 <td>range</td>
@@ -889,14 +835,6 @@ slot_usage:
     structured_pattern:
       syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
       interpolated: true
-  id:
-    name: id
-    domain_of:
-    - NamedThing
-    required: true
-    structured_pattern:
-      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}$'
-      interpolated: true
 class_uri: nmdc:WorkflowExecution
 rules:
 - preconditions:
@@ -986,14 +924,6 @@ slot_usage:
     required: true
     structured_pattern:
       syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
-      interpolated: true
-  id:
-    name: id
-    domain_of:
-    - NamedThing
-    required: true
-    structured_pattern:
-      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
 attributes:
   ended_at_time:
@@ -1185,6 +1115,17 @@ attributes:
     name: id
     description: A unique identifier for a thing. Must be either a CURIE shorthand
       for a URI or a complete URI
+    notes:
+    - 'abstracted pattern: prefix:typecode-authshoulder-blade(.version)?(_seqsuffix)?'
+    - a minimum length of 3 characters is suggested for typecodes, but 1 or 2 characters
+      will be accepted
+    - typecodes must correspond 1:1 to a class in the NMDC schema. this will be checked
+      via per-class id slot usage assertions
+    - minting authority shoulders should probably be enumerated and checked in the
+      pattern
+    examples:
+    - value: nmdc:mgmag-00-x012.1_7_c1
+      description: https://github.com/microbiomedata/nmdc-schema/pull/499#discussion_r1018499248
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     identifier: true
@@ -1195,9 +1136,6 @@ attributes:
     range: uriorcurie
     required: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
-    structured_pattern:
-      syntax: '{id_nmdc_prefix}:wf-{id_shoulder}-{id_blade}{id_version}$'
-      interpolated: true
   name:
     name: name
     description: A human readable label for an entity

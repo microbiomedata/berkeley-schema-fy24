@@ -291,11 +291,6 @@
 
   GeolocationValue : type
 
-  GeolocationValue : was_generated_by
-
-      GeolocationValue --&gt; "0..1" WorkflowExecution : was_generated_by
-    click WorkflowExecution href "../WorkflowExecution"
-
 
 
 </div>
@@ -333,12 +328,6 @@
 <td><a href="../has_raw_value/">has_raw_value</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The raw value for a geolocation should follow {latitude} {longitude}</td>
-<td><a href="../AttributeValue/">AttributeValue</a></td>
-</tr>
-<tr>
-<td><a href="../was_generated_by/">was_generated_by</a></td>
-<td>0..1 <br/> <a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td></td>
 <td><a href="../AttributeValue/">AttributeValue</a></td>
 </tr>
 <tr>
@@ -498,19 +487,6 @@ attributes:
     domain_of:
     - AttributeValue
     range: string
-  was_generated_by:
-    name: was_generated_by
-    from_schema: https://w3id.org/nmdc/nmdc
-    mappings:
-    - prov:wasGeneratedBy
-    rank: 1000
-    alias: was_generated_by
-    owner: GeolocationValue
-    domain_of:
-    - FunctionalAnnotation
-    - AttributeValue
-    - DataObject
-    range: WorkflowExecution
   type:
     name: type
     description: the class_uri of the class that has been instantiated
