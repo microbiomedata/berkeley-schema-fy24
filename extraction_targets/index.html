@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/extraction_target/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/extraction_targets/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: extraction_target - NMDC Schema Documentation</title>
+        <title>Slot: extraction_targets - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-extraction_target" class="md-skip">
+        <a href="#slot-extraction_targets" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: extraction_target
+              Slot: extraction_targets
             
           </span>
         </div>
@@ -481,9 +481,9 @@
   
 
 
-<h1 id="slot-extraction_target">Slot: extraction_target</h1>
+<h1 id="slot-extraction_targets">Slot: extraction_targets</h1>
 <p><em>Provides the target biomolecule that has been separated from a sample during an extraction process.</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/extraction_target">nmdc:extraction_target</a></p>
+<p>URI: <a href="https://w3id.org/nmdc/extraction_targets">nmdc:extraction_targets</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -505,7 +505,12 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../ExtractionTargetEnum/">ExtractionTargetEnum</a></li>
+<li>
+<p>Range: <a href="../ExtractionTargetEnum/">ExtractionTargetEnum</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -515,7 +520,7 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: extraction_target
+<pre><code class="language-yaml">name: extraction_targets
 description: Provides the target biomolecule that has been separated from a sample
   during an extraction process.
 notes:
@@ -525,7 +530,8 @@ narrow_mappings:
 - NCIT:C177560
 - MIXS:0000037
 rank: 1000
-alias: extraction_target
+multivalued: true
+alias: extraction_targets
 domain_of:
 - Extraction
 range: ExtractionTargetEnum

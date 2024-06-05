@@ -289,9 +289,9 @@
 
   Extraction : end_date
 
-  Extraction : extraction_target
+  Extraction : extraction_targets
 
-      Extraction --&gt; "0..1" ExtractionTargetEnum : extraction_target
+      Extraction --&gt; "*" ExtractionTargetEnum : extraction_targets
     click ExtractionTargetEnum href "../ExtractionTargetEnum"
 
   Extraction : has_failure_categorization
@@ -388,8 +388,8 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../extraction_target/">extraction_target</a></td>
-<td>0..1 <br/> <a href="../ExtractionTargetEnum/">ExtractionTargetEnum</a></td>
+<td><a href="../extraction_targets/">extraction_targets</a></td>
+<td>* <br/> <a href="../ExtractionTargetEnum/">ExtractionTargetEnum</a></td>
 <td>Provides the target biomolecule that has been separated from a sample during ...</td>
 <td>direct</td>
 </tr>
@@ -557,7 +557,7 @@ exact_mappings:
 is_a: MaterialProcessing
 slots:
 - substances_used
-- extraction_target
+- extraction_targets
 - input_mass
 - volume
 slot_usage:
@@ -665,8 +665,8 @@ attributes:
     range: PortionOfSubstance
     inlined: true
     inlined_as_list: true
-  extraction_target:
-    name: extraction_target
+  extraction_targets:
+    name: extraction_targets
     description: Provides the target biomolecule that has been separated from a sample
       during an extraction process.
     notes:
@@ -676,7 +676,8 @@ attributes:
     - NCIT:C177560
     - MIXS:0000037
     rank: 1000
-    alias: extraction_target
+    multivalued: true
+    alias: extraction_targets
     owner: Extraction
     domain_of:
     - Extraction
