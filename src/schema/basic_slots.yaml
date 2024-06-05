@@ -466,8 +466,9 @@ slots:
     minimum_value: 0
     maximum_value: 2000
 
-  extraction_target:
-    description: Provides the target biomolecule that has been separated from a sample during an extraction process.
+  extraction_targets:
+    description: Provides the target biomolecule(s) that has been separated from a sample during an extraction process.
+    multivalued: true
     rank: 1000
     range: ExtractionTargetEnum
     notes:
