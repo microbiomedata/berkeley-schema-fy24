@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/pooling_set/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/storage_process_set/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: pooling_set - NMDC Schema Documentation</title>
+        <title>Slot: storage_process_set - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-pooling_set" class="md-skip">
+        <a href="#slot-storage_process_set" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: pooling_set
+              Slot: storage_process_set
             
           </span>
         </div>
@@ -490,11 +490,12 @@
   
 
 
-<h1 id="slot-pooling_set">Slot: pooling_set</h1>
-<p>URI: <a href="https://w3id.org/nmdc/pooling_set">nmdc:pooling_set</a></p>
+<h1 id="slot-storage_process_set">Slot: storage_process_set</h1>
+<p><em>This property links a database object to the set of storage processes within it.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/storage_process_set">nmdc:storage_process_set</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><strong>pooling_set</strong> [ <a href="../object_set/">object_set</a>]</li>
+<li><strong>storage_process_set</strong> [ <a href="../object_set/">object_set</a>]</li>
 </ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -516,7 +517,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Pooling/">Pooling</a></p>
+<p>Range: <a href="../StorageProcess/">StorageProcess</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -530,16 +531,18 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: pooling_set
+<pre><code class="language-yaml">name: storage_process_set
+description: This property links a database object to the set of storage processes
+  within it.
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 mixins:
 - object_set
 multivalued: true
-alias: pooling_set
+alias: storage_process_set
 domain_of:
 - Database
-range: Pooling
+range: StorageProcess
 inlined: true
 inlined_as_list: true
 

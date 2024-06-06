@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/nom_analysis_set/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/protocol_execution_set/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: nom_analysis_set - NMDC Schema Documentation</title>
+        <title>Slot: protocol_execution_set - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-nom_analysis_set" class="md-skip">
+        <a href="#slot-protocol_execution_set" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: nom_analysis_set
+              Slot: protocol_execution_set
             
           </span>
         </div>
@@ -490,12 +490,12 @@
   
 
 
-<h1 id="slot-nom_analysis_set">Slot: nom_analysis_set</h1>
-<p><em>This property links a database object to the set of natural organic matter (NOM) analyses,</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/nom_analysis_set">nmdc:nom_analysis_set</a></p>
+<h1 id="slot-protocol_execution_set">Slot: protocol_execution_set</h1>
+<p><em>This property links a database object to the set of protocol executions within it.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/protocol_execution_set">nmdc:protocol_execution_set</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><strong>nom_analysis_set</strong> [ <a href="../object_set/">object_set</a>]</li>
+<li><strong>protocol_execution_set</strong> [ <a href="../object_set/">object_set</a>]</li>
 </ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -517,7 +517,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../NomAnalysis/">NomAnalysis</a></p>
+<p>Range: <a href="../ProtocolExecution/">ProtocolExecution</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -531,18 +531,18 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: nom_analysis_set
-description: This property links a database object to the set of natural organic matter
-  (NOM) analyses,
+<pre><code class="language-yaml">name: protocol_execution_set
+description: This property links a database object to the set of protocol executions
+  within it.
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 mixins:
 - object_set
 multivalued: true
-alias: nom_analysis_set
+alias: protocol_execution_set
 domain_of:
 - Database
-range: NomAnalysis
+range: ProtocolExecution
 inlined: true
 inlined_as_list: true
 

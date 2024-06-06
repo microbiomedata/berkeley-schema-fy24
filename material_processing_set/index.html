@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/metaproteomics_analysis_set/">
+        <link rel="canonical" href="https://microbiomedata.github.io/nmdc-schema/material_processing_set/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: metaproteomics_analysis_set - NMDC Schema Documentation</title>
+        <title>Slot: material_processing_set - NMDC Schema Documentation</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-metaproteomics_analysis_set" class="md-skip">
+        <a href="#slot-material_processing_set" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: metaproteomics_analysis_set
+              Slot: material_processing_set
             
           </span>
         </div>
@@ -490,12 +490,12 @@
   
 
 
-<h1 id="slot-metaproteomics_analysis_set">Slot: metaproteomics_analysis_set</h1>
-<p><em>This property links a database object to the set of metaproteomics analyses.</em></p>
-<p>URI: <a href="https://w3id.org/nmdc/metaproteomics_analysis_set">nmdc:metaproteomics_analysis_set</a></p>
+<h1 id="slot-material_processing_set">Slot: material_processing_set</h1>
+<p><em>This property links a database object to the set of material processing within it.</em></p>
+<p>URI: <a href="https://w3id.org/nmdc/material_processing_set">nmdc:material_processing_set</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><strong>metaproteomics_analysis_set</strong> [ <a href="../object_set/">object_set</a>]</li>
+<li><strong>material_processing_set</strong> [ <a href="../object_set/">object_set</a>]</li>
 </ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
@@ -517,7 +517,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></p>
+<p>Range: <a href="../MaterialProcessing/">MaterialProcessing</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -531,17 +531,18 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: metaproteomics_analysis_set
-description: This property links a database object to the set of metaproteomics analyses.
+<pre><code class="language-yaml">name: material_processing_set
+description: This property links a database object to the set of material processing
+  within it.
 from_schema: https://w3id.org/nmdc/nmdc
 rank: 1000
 mixins:
 - object_set
 multivalued: true
-alias: metaproteomics_analysis_set
+alias: material_processing_set
 domain_of:
 - Database
-range: MetaproteomicsAnalysis
+range: MaterialProcessing
 inlined: true
 inlined_as_list: true
 
