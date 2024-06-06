@@ -8,7 +8,7 @@ class Migrator(MigratorBase):
     This migrator adds a field named `replaces` to each document in the `workflow_chain_set` collection
     that has a predecessor. The value of the field is the `id` of that predecessor.
 
-    This migrator also adds a field named `end_at_time` to each document in the `workflow_chain_set` collection.
+    This migrator also adds a field named `ends_at_time` to each document in the `workflow_chain_set` collection.
     The value of the field is an ISO 8601-formatted timestamp indicating when the `WorkflowChain`'s most recent
     `WorkflowExecution` ended.
 
