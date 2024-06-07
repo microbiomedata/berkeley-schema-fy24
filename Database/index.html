@@ -455,21 +455,15 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../material_processing_set/">material_processing_set</a></td>
+<td>* <br/> <a href="../MaterialProcessing/">MaterialProcessing</a></td>
+<td>This property links a database object to the set of material processing withi...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../processed_sample_set/">processed_sample_set</a></td>
 <td>* <br/> <a href="../ProcessedSample/">ProcessedSample</a></td>
 <td>This property links a database object to the set of processed samples within ...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../study_set/">study_set</a></td>
-<td>* <br/> <a href="../Study/">Study</a></td>
-<td>This property links a database object to the set of studies within it</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../workflow_chain_set/">workflow_chain_set</a></td>
-<td>* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
-<td>This property links a database object to the set of workflow chains within it</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -485,9 +479,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../material_processing_set/">material_processing_set</a></td>
-<td>* <br/> <a href="../MaterialProcessing/">MaterialProcessing</a></td>
-<td>This property links a database object to the set of material processing withi...</td>
+<td><a href="../study_set/">study_set</a></td>
+<td>* <br/> <a href="../Study/">Study</a></td>
+<td>This property links a database object to the set of studies within it</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../workflow_chain_set/">workflow_chain_set</a></td>
+<td>* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
+<td>This property links a database object to the set of workflow chains within it</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -552,12 +552,12 @@ slots:
 - functional_annotation_set
 - genome_feature_set
 - instrument_set
+- material_processing_set
 - processed_sample_set
-- study_set
-- workflow_chain_set
 - protocol_execution_set
 - storage_process_set
-- material_processing_set
+- study_set
+- workflow_chain_set
 - workflow_execution_set
 class_uri: nmdc:Database
 tree_root: true
@@ -748,6 +748,21 @@ attributes:
     - Database
     range: Instrument
     inlined_as_list: true
+  material_processing_set:
+    name: material_processing_set
+    description: This property links a database object to the set of material processing
+      within it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: material_processing_set
+    owner: Database
+    domain_of:
+    - Database
+    range: MaterialProcessing
+    inlined_as_list: true
   processed_sample_set:
     name: processed_sample_set
     description: This property links a database object to the set of processed samples
@@ -762,36 +777,6 @@ attributes:
     domain_of:
     - Database
     range: ProcessedSample
-    inlined_as_list: true
-  study_set:
-    name: study_set
-    description: This property links a database object to the set of studies within
-      it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: study_set
-    owner: Database
-    domain_of:
-    - Database
-    range: Study
-    inlined_as_list: true
-  workflow_chain_set:
-    name: workflow_chain_set
-    description: This property links a database object to the set of workflow chains
-      within it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: workflow_chain_set
-    owner: Database
-    domain_of:
-    - Database
-    range: WorkflowChain
     inlined_as_list: true
   protocol_execution_set:
     name: protocol_execution_set
@@ -823,20 +808,35 @@ attributes:
     - Database
     range: StorageProcess
     inlined_as_list: true
-  material_processing_set:
-    name: material_processing_set
-    description: This property links a database object to the set of material processing
+  study_set:
+    name: study_set
+    description: This property links a database object to the set of studies within
+      it.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    mixins:
+    - object_set
+    multivalued: true
+    alias: study_set
+    owner: Database
+    domain_of:
+    - Database
+    range: Study
+    inlined_as_list: true
+  workflow_chain_set:
+    name: workflow_chain_set
+    description: This property links a database object to the set of workflow chains
       within it.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     mixins:
     - object_set
     multivalued: true
-    alias: material_processing_set
+    alias: workflow_chain_set
     owner: Database
     domain_of:
     - Database
-    range: MaterialProcessing
+    range: WorkflowChain
     inlined_as_list: true
   workflow_execution_set:
     name: workflow_execution_set

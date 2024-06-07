@@ -642,12 +642,13 @@ attributes:
     - PlannedProcess
     range: NamedThing
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(dobj)-{id_shoulder}-{id_blade}$'
+      interpolated: true
   has_output:
     name: has_output
     description: An output from a process.
     from_schema: https://w3id.org/nmdc/nmdc
-    aliases:
-    - output
     rank: 1000
     multivalued: true
     alias: has_output
@@ -655,6 +656,9 @@ attributes:
     domain_of:
     - PlannedProcess
     range: NamedThing
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(dobj)-{id_shoulder}-{id_blade}$'
+      interpolated: true
   processing_institution:
     name: processing_institution
     description: The organization that processed the sample.

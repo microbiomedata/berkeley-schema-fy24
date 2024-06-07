@@ -646,12 +646,15 @@ slot_usage:
     description: "A Workflow Chain instance was informed by the data and metadata\
       \ of a of a\n  Data Generation instance"
     comments:
-    - The value of this slot is a reference to a Data Generation instance that informed
-      the Workflow Chain instance with its output data and the metadata of the Data
-      Generation.
+    - "- The value of this slot is a reference to a Data Generation\n  instance that\
+      \ informed the Workflow Chain instance with its\n  output data and the metadata\
+      \ of the Data Generation."
     domain_of:
     - WorkflowChain
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
 class_uri: nmdc:WorkflowChain
 
 </code></pre>
@@ -686,12 +689,15 @@ slot_usage:
     description: "A Workflow Chain instance was informed by the data and metadata\
       \ of a of a\n  Data Generation instance"
     comments:
-    - The value of this slot is a reference to a Data Generation instance that informed
-      the Workflow Chain instance with its output data and the metadata of the Data
-      Generation.
+    - "- The value of this slot is a reference to a Data Generation\n  instance that\
+      \ informed the Workflow Chain instance with its\n  output data and the metadata\
+      \ of the Data Generation."
     domain_of:
     - WorkflowChain
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
 attributes:
   analyte_category:
     name: analyte_category
@@ -711,9 +717,9 @@ attributes:
     description: "A Workflow Chain instance was informed by the data and metadata\
       \ of a of a\n  Data Generation instance"
     comments:
-    - The value of this slot is a reference to a Data Generation instance that informed
-      the Workflow Chain instance with its output data and the metadata of the Data
-      Generation.
+    - "- The value of this slot is a reference to a Data Generation\n  instance that\
+      \ informed the Workflow Chain instance with its\n  output data and the metadata\
+      \ of the Data Generation."
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: was_informed_by
@@ -722,6 +728,9 @@ attributes:
     - WorkflowChain
     range: DataGeneration
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
   gold_analysis_project_identifiers:
     name: gold_analysis_project_identifiers
     description: identifiers for corresponding analysis projects in GOLD
