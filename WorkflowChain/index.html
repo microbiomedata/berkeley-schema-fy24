@@ -301,6 +301,8 @@
 
   WorkflowChain : end_date
 
+  WorkflowChain : ended_at_time
+
   WorkflowChain : gold_analysis_project_identifiers
 
   WorkflowChain : has_failure_categorization
@@ -340,6 +342,11 @@
 
       WorkflowChain --&gt; "0..1" StatusEnum : qc_status
     click StatusEnum href "../StatusEnum"
+
+  WorkflowChain : replaces
+
+      WorkflowChain --&gt; "0..1" WorkflowChain : replaces
+    click WorkflowChain href "../WorkflowChain"
 
   WorkflowChain : start_date
 
@@ -396,6 +403,18 @@
 <td><a href="../jgi_portal_analysis_project_identifiers/">jgi_portal_analysis_project_identifiers</a></td>
 <td>* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
 <td>identifiers for corresponding analysis projects in JGI Portal</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../replaces/">replaces</a></td>
+<td>0..1 <br/> <a href="./">WorkflowChain</a></td>
+<td>The id of the WorkflowChain that is a previous iteration of the current Workf...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ended_at_time/">ended_at_time</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -504,6 +523,12 @@
 <tr>
 <td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
 <td><a href="../part_of/">part_of</a></td>
+<td>range</td>
+<td><a href="./">WorkflowChain</a></td>
+</tr>
+<tr>
+<td><a href="./">WorkflowChain</a></td>
+<td><a href="../replaces/">replaces</a></td>
 <td>range</td>
 <td><a href="./">WorkflowChain</a></td>
 </tr>
@@ -626,12 +651,21 @@ slots:
 - was_informed_by
 - gold_analysis_project_identifiers
 - jgi_portal_analysis_project_identifiers
+- replaces
+- ended_at_time
 slot_usage:
   id:
     name: id
     domain_of:
     - NamedThing
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
+  replaces:
+    name: replaces
+    domain_of:
+    - WorkflowChain
     structured_pattern:
       syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
       interpolated: true
@@ -675,6 +709,13 @@ slot_usage:
     domain_of:
     - NamedThing
     required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
+  replaces:
+    name: replaces
+    domain_of:
+    - WorkflowChain
     structured_pattern:
       syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
       interpolated: true
@@ -768,6 +809,36 @@ attributes:
     - WorkflowChain
     range: external_identifier
     pattern: ^jgi.analysis:[0-9]+$
+  replaces:
+    name: replaces
+    description: The id of the WorkflowChain that is a previous iteration of the current
+      WorkflowChain.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: replaces
+    owner: WorkflowChain
+    domain_of:
+    - WorkflowChain
+    range: WorkflowChain
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
+      interpolated: true
+  ended_at_time:
+    name: ended_at_time
+    notes:
+    - 'The regex for ISO-8601 format was taken from here: https://www.myintervals.com/blog/2009/05/20/iso-8601-date-validation-that-doesnt-suck/
+      It may not be complete, but it is good enough for now.'
+    from_schema: https://w3id.org/nmdc/nmdc
+    mappings:
+    - prov:endedAtTime
+    rank: 1000
+    alias: ended_at_time
+    owner: WorkflowChain
+    domain_of:
+    - WorkflowChain
+    - WorkflowExecution
+    range: string
+    pattern: ^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$
   has_input:
     name: has_input
     description: An input to a process.
