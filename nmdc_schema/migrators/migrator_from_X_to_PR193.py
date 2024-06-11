@@ -1,3 +1,4 @@
+from typing import Dict, Set
 from nmdc_schema.migrators.migrator_base import MigratorBase
 
 
@@ -22,11 +23,11 @@ class Migrator(MigratorBase):
 
     # Mapping from `workflow_chain_set` document `id` to its sets of `has_input` and `has_output` values.
     # Example: {'wfc-id-april': {'inputs': set('wfc-id-january', ...), 'outputs': set('wfc-id-february', ...)}}
-    id_to_inputs_and_outputs_map = dict()
+    id_to_inputs_and_outputs_map: Dict[str, Dict[str, Set[str]]] = {}
 
     # A mapping from `workflow_chain_set` document `id` to its eventual `replaces` value, if any.
     # Example: {'wfc-id-april': 'wfc-id-january', 'wfc-id-march': 'wfc-id-february', ...}
-    id_to_replaces_map = dict()
+    id_to_replaces_map: Dict[str, str] = {}
 
     def upgrade(self) -> None:
         r"""
@@ -77,6 +78,42 @@ class Migrator(MigratorBase):
             inputs=set(inputs),
             outputs=set(outputs),
         )
+
+    def has_same_inputs_and_different_outputs(
+        self, wfc_id_a: str, wfc_id_b: str
+    ) -> bool:
+        r"""
+        Checks whether the two `WorkflowChain` documents having the specified `id` values,
+        have the same `has_input` values while having different `has_output` values.
+
+        >>> m = Migrator()
+        >>> m.id_to_inputs_and_outputs_map = {'wfc1': {'inputs': {'i1'}, 'outputs': {'o1'}},  # original
+        ...                                   'wfc2': {'inputs': {'i1'}, 'outputs': {'o1'}},  # same ins/outs
+        ...                                   'wfc3': {'inputs': {'i1'}, 'outputs': {'o2'}},  # same ins only
+        ...                                   'wfc4': {'inputs': {'i2'}, 'outputs': {'o1'}},  # same outs only
+        ...                                   'wfc5': {'inputs': {'i2'}, 'outputs': {'o2'}}}  # different ins/outs
+        >>> m.has_same_inputs_and_different_outputs('wfc1', 'wfc2')
+        False
+        >>> m.has_same_inputs_and_different_outputs('wfc1', 'wfc3')
+        True
+        >>> m.has_same_inputs_and_different_outputs('wfc1', 'wfc4')
+        False
+        >>> m.has_same_inputs_and_different_outputs('wfc1', 'wfc5')
+        False
+        >>> m.id_to_inputs_and_outputs_map = {'wfc11': {'inputs': {'i1', 'i2'}, 'outputs': {'o1', 'o2'}},  # original
+        ...                                   'wfc12': {'inputs': {'i2', 'i1'}, 'outputs': {'o2', 'o1'}},  # re-ordered
+        ...                                   'wfc13': {'inputs': {'i2', 'i1'}, 'outputs': {'o2', 'o1', 'o3'}}}  # more
+        >>> m.has_same_inputs_and_different_outputs('wfc11', 'wfc12')
+        False
+        >>> m.has_same_inputs_and_different_outputs('wfc11', 'wfc13')
+        True
+        """
+
+        wfc_a_inputs: Set[str] = self.id_to_inputs_and_outputs_map[wfc_id_a]["inputs"]
+        wfc_b_inputs: Set[str] = self.id_to_inputs_and_outputs_map[wfc_id_b]["inputs"]
+        wfc_a_outputs: Set[str] = self.id_to_inputs_and_outputs_map[wfc_id_a]["outputs"]
+        wfc_b_outputs: Set[str] = self.id_to_inputs_and_outputs_map[wfc_id_b]["outputs"]
+        return wfc_a_inputs == wfc_b_inputs and wfc_a_outputs != wfc_b_outputs
 
     def determine_the_replaces_value(
         self, workflow_chain_id: str, id_to_inputs_and_outputs_map: dict
