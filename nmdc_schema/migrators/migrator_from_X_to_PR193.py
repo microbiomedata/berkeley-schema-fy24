@@ -1,4 +1,6 @@
-from typing import Dict, Set
+from typing import Dict, Set, Union
+from datetime import datetime
+
 from nmdc_schema.migrators.migrator_base import MigratorBase
 
 
@@ -25,6 +27,16 @@ class Migrator(MigratorBase):
     # Example: {'wfc-id-april': {'inputs': set('wfc-id-january', ...), 'outputs': set('wfc-id-february', ...)}}
     id_to_inputs_and_outputs_map: Dict[str, Dict[str, Set[str]]] = {}
 
+    # Mapping from `workflow_chain_set` document `id` to the latest `ended_at_time` among all of the
+    # `workflow_execution_set` documents that claim to be `part_of` that `WorkflowExecution`.
+    id_to_workflow_execution_ended_at_times_map: Dict[str, datetime] = {}
+
+    # Mapping from `workflow_execution_set` document `id` to the `id`s of the `workflow_chain_set` documents
+    # that the former is a `part_of`, and to the `ended_at_time` of the former.
+    workflow_execution_id_to_wfc_ids_and_ended_at_time_map: Dict[
+        str, Dict[str, Union[Set[str], datetime]]
+    ] = {}
+
     # A mapping from `workflow_chain_set` document `id` to its eventual `replaces` value, if any.
     # Example: {'wfc-id-april': 'wfc-id-january', 'wfc-id-march': 'wfc-id-february', ...}
     id_to_replaces_map: Dict[str, str] = {}
@@ -40,10 +52,59 @@ class Migrator(MigratorBase):
             action=self.collect_input_and_output_values,
         )
 
+        self.adapter.do_for_each_document(
+            collection_name="workflow_execution_set",
+            action=self.collect_workflow_chain_ids_and_ended_at_times,
+        )
+
         # Write the values to the documents.
         self.adapter.process_each_document(
             collection_name="workflow_chain_set",
             pipeline=[self.write_the_replaces_value],
+        )
+
+    def collect_workflow_chain_ids_and_ended_at_times(
+        self, workflow_execution: dict
+    ) -> None:
+        r"""
+        Compiles a mapping from `id` values of `workflow_execution_set` documents, to `id` values of
+        the `workflow_chain_set` documents that the former are a `part_of`; and to the `ended_at_time` value
+        of the former, represented as a Python `datetime` instance.
+
+        >>> m = Migrator()
+        >>> len(m.workflow_execution_id_to_wfc_ids_and_ended_at_time_map.items())
+        0
+        >>> m.collect_workflow_chain_ids_and_ended_at_times({'id': 'wfe1',
+        ...                                                  'part_of': ['wfc1', 'wfc2'],
+        ...                                                  'ended_at_time': '2024-01-01T09:30:00+00:00'})
+        >>> len(m.workflow_execution_id_to_wfc_ids_and_ended_at_time_map.items())
+        1
+        >>> 'wfe1' in m.workflow_execution_id_to_wfc_ids_and_ended_at_time_map.keys()
+        True
+        >>> wfc_ids = m.workflow_execution_id_to_wfc_ids_and_ended_at_time_map['wfe1']['workflow_chain_ids']
+        >>> ts = m.workflow_execution_id_to_wfc_ids_and_ended_at_time_map['wfe1']['ended_at_datetime']
+        >>> 'wfc1' in wfc_ids
+        True
+        >>> 'wfc2' in wfc_ids
+        True
+        >>> # References:
+        >>> # - https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp
+        >>> # - https://www.timestamp-converter.com/
+        >>> type(ts) is datetime
+        True
+        >>> ts.timestamp()
+        1704101400.0
+        """
+
+        workflow_execution_id = workflow_execution["id"]
+        workflow_chain_ids = workflow_execution["part_of"]
+        ended_at_time: str = workflow_execution["ended_at_time"]
+        ended_at_datetime = datetime.fromisoformat(ended_at_time)  # parses it as an ISO 8601 string
+        self.workflow_execution_id_to_wfc_ids_and_ended_at_time_map[
+            workflow_execution_id
+        ] = dict(
+            workflow_chain_ids=set(workflow_chain_ids),
+            ended_at_datetime=ended_at_datetime,
         )
 
     def collect_input_and_output_values(self, workflow_chain: dict) -> None:
