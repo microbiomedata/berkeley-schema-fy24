@@ -290,6 +290,8 @@
 
   MetatranscriptomeAnnotation : git_url
 
+  MetatranscriptomeAnnotation : gold_analysis_project_identifiers
+
   MetatranscriptomeAnnotation : has_failure_categorization
 
       MetatranscriptomeAnnotation --&gt; "*" FailureCategorization : has_failure_categorization
@@ -310,11 +312,6 @@
   MetatranscriptomeAnnotation : img_identifiers
 
   MetatranscriptomeAnnotation : name
-
-  MetatranscriptomeAnnotation : part_of
-
-      MetatranscriptomeAnnotation --&gt; "1..*" WorkflowChain : part_of
-    click WorkflowChain href "../WorkflowChain"
 
   MetatranscriptomeAnnotation : processing_institution
 
@@ -340,6 +337,11 @@
   MetatranscriptomeAnnotation : type
 
   MetatranscriptomeAnnotation : version
+
+  MetatranscriptomeAnnotation : was_informed_by
+
+      MetatranscriptomeAnnotation --&gt; "1" DataGeneration : was_informed_by
+    click DataGeneration href "../DataGeneration"
 
 
 
@@ -375,6 +377,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../gold_analysis_project_identifiers/">gold_analysis_project_identifiers</a></td>
+<td>* <br/> <a href="../ExternalIdentifier/">ExternalIdentifier</a></td>
+<td>identifiers for corresponding analysis projects in GOLD</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../ended_at_time/">ended_at_time</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td></td>
@@ -393,12 +401,6 @@
 <td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
 </tr>
 <tr>
-<td><a href="../part_of/">part_of</a></td>
-<td>1..* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
-<td>The WorkflowChain that this WorkflowExecution is part of</td>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-</tr>
-<tr>
 <td><a href="../started_at_time/">started_at_time</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
 <td></td>
@@ -407,6 +409,12 @@
 <tr>
 <td><a href="../version/">version</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
+</tr>
+<tr>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>1 <br/> <a href="../DataGeneration/">DataGeneration</a></td>
 <td></td>
 <td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
 </tr>
@@ -531,6 +539,7 @@ from_schema: https://w3id.org/nmdc/nmdc
 is_a: WorkflowExecution
 slots:
 - img_identifiers
+- gold_analysis_project_identifiers
 slot_usage:
   id:
     name: id
@@ -562,6 +571,21 @@ slot_usage:
     - PlannedProcess
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(dobj)-{id_shoulder}-{id_blade}$'
+      interpolated: true
+  was_informed_by:
+    name: was_informed_by
+    domain_of:
+    - WorkflowExecution
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
+  gold_analysis_project_identifiers:
+    name: gold_analysis_project_identifiers
+    domain_of:
+    - MetagenomeAnnotation
+    - MetatranscriptomeAnnotation
+    structured_pattern:
+      syntax: ^gold:Ga[0-9]+$
       interpolated: true
 class_uri: nmdc:MetatranscriptomeAnnotation
 
@@ -606,6 +630,21 @@ slot_usage:
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(dobj)-{id_shoulder}-{id_blade}$'
       interpolated: true
+  was_informed_by:
+    name: was_informed_by
+    domain_of:
+    - WorkflowExecution
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
+  gold_analysis_project_identifiers:
+    name: gold_analysis_project_identifiers
+    domain_of:
+    - MetagenomeAnnotation
+    - MetatranscriptomeAnnotation
+    structured_pattern:
+      syntax: ^gold:Ga[0-9]+$
+      interpolated: true
 attributes:
   img_identifiers:
     name: img_identifiers
@@ -627,6 +666,23 @@ attributes:
     range: external_identifier
     pattern: ^img\.taxon:[a-zA-Z0-9_][a-zA-Z0-9_\/\.]*$
     maximum_cardinality: 1
+  gold_analysis_project_identifiers:
+    name: gold_analysis_project_identifiers
+    description: identifiers for corresponding analysis projects in GOLD
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    is_a: analysis_identifiers
+    multivalued: true
+    alias: gold_analysis_project_identifiers
+    owner: MetatranscriptomeAnnotation
+    domain_of:
+    - MetagenomeAnnotation
+    - MetatranscriptomeAnnotation
+    range: external_identifier
+    pattern: ^gold:Ga[0-9]+$
+    structured_pattern:
+      syntax: ^gold:Ga[0-9]+$
+      interpolated: true
   ended_at_time:
     name: ended_at_time
     notes:
@@ -639,7 +695,6 @@ attributes:
     alias: ended_at_time
     owner: MetatranscriptomeAnnotation
     domain_of:
-    - WorkflowChain
     - WorkflowExecution
     range: string
     pattern: ^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$
@@ -665,25 +720,6 @@ attributes:
     - WorkflowExecution
     range: string
     required: true
-  part_of:
-    name: part_of
-    description: The WorkflowChain that this WorkflowExecution is part of
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    slot_uri: dcterms:isPartOf
-    multivalued: true
-    alias: part_of
-    owner: MetatranscriptomeAnnotation
-    domain_of:
-    - FieldResearchSite
-    - Study
-    - DataGeneration
-    - WorkflowExecution
-    range: WorkflowChain
-    required: true
-    structured_pattern:
-      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
-      interpolated: true
   started_at_time:
     name: started_at_time
     from_schema: https://w3id.org/nmdc/nmdc
@@ -704,6 +740,19 @@ attributes:
     domain_of:
     - WorkflowExecution
     range: string
+  was_informed_by:
+    name: was_informed_by
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: was_informed_by
+    owner: MetatranscriptomeAnnotation
+    domain_of:
+    - WorkflowExecution
+    range: DataGeneration
+    required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
   has_input:
     name: has_input
     description: An input to a process.

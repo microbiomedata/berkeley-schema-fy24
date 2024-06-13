@@ -561,13 +561,85 @@
 <td><a href="./">DataGeneration</a></td>
 </tr>
 <tr>
+<td><a href="../MetagenomeAnnotation/">MetagenomeAnnotation</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
 <td><a href="./">DataGeneration</a></td>
 <td><a href="../part_of/">part_of</a></td>
 <td>range</td>
 <td><a href="./">DataGeneration</a></td>
 </tr>
 <tr>
-<td><a href="../WorkflowChain/">WorkflowChain</a></td>
+<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetagenomeAssembly/">MetagenomeAssembly</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetatranscriptomeAssembly/">MetatranscriptomeAssembly</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetatranscriptomeAnnotation/">MetatranscriptomeAnnotation</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetatranscriptomeAnalysis/">MetatranscriptomeAnalysis</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MagsAnalysis/">MagsAnalysis</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetagenomeSequencing/">MetagenomeSequencing</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../ReadQcAnalysis/">ReadQcAnalysis</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../ReadBasedTaxonomyAnalysis/">ReadBasedTaxonomyAnalysis</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetabolomicsAnalysis/">MetabolomicsAnalysis</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../MetaproteomicsAnalysis/">MetaproteomicsAnalysis</a></td>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>range</td>
+<td><a href="./">DataGeneration</a></td>
+</tr>
+<tr>
+<td><a href="../NomAnalysis/">NomAnalysis</a></td>
 <td><a href="../was_informed_by/">was_informed_by</a></td>
 <td>range</td>
 <td><a href="./">DataGeneration</a></td>
@@ -679,7 +751,6 @@ slot_usage:
     - FieldResearchSite
     - Study
     - DataGeneration
-    - WorkflowExecution
     range: DataGeneration
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}$'
@@ -747,7 +818,6 @@ slot_usage:
     - FieldResearchSite
     - Study
     - DataGeneration
-    - WorkflowExecution
     range: DataGeneration
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}$'
@@ -774,7 +844,6 @@ attributes:
     owner: DataGeneration
     domain_of:
     - DataGeneration
-    - WorkflowChain
     range: AnalyteCategoryEnum
     required: true
   associated_studies:
@@ -830,7 +899,6 @@ attributes:
     - FieldResearchSite
     - Study
     - DataGeneration
-    - WorkflowExecution
     range: DataGeneration
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(omprc|dgms|dgns)-{id_shoulder}-{id_blade}$'

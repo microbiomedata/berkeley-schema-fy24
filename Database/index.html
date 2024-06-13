@@ -357,11 +357,6 @@
       Database --&gt; "*" Study : study_set
     click Study href "../Study"
 
-  Database : workflow_chain_set
-
-      Database --&gt; "*" WorkflowChain : workflow_chain_set
-    click WorkflowChain href "../WorkflowChain"
-
   Database : workflow_execution_set
 
       Database --&gt; "*" WorkflowExecution : workflow_execution_set
@@ -485,12 +480,6 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../workflow_chain_set/">workflow_chain_set</a></td>
-<td>* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
-<td>This property links a database object to the set of workflow chains within it</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../workflow_execution_set/">workflow_execution_set</a></td>
 <td>* <br/> <a href="../WorkflowExecution/">WorkflowExecution</a></td>
 <td>This property links a database object to the set of workflow executions</td>
@@ -557,7 +546,6 @@ slots:
 - protocol_execution_set
 - storage_process_set
 - study_set
-- workflow_chain_set
 - workflow_execution_set
 class_uri: nmdc:Database
 tree_root: true
@@ -822,21 +810,6 @@ attributes:
     domain_of:
     - Database
     range: Study
-    inlined_as_list: true
-  workflow_chain_set:
-    name: workflow_chain_set
-    description: This property links a database object to the set of workflow chains
-      within it.
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    mixins:
-    - object_set
-    multivalued: true
-    alias: workflow_chain_set
-    owner: Database
-    domain_of:
-    - Database
-    range: WorkflowChain
     inlined_as_list: true
   workflow_execution_set:
     name: workflow_execution_set

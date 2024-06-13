@@ -349,11 +349,6 @@
 
   MetagenomeAssembly : num_input_reads
 
-  MetagenomeAssembly : part_of
-
-      MetagenomeAssembly --&gt; "1..*" WorkflowChain : part_of
-    click WorkflowChain href "../WorkflowChain"
-
   MetagenomeAssembly : processing_institution
 
       MetagenomeAssembly --&gt; "0..1" ProcessingInstitutionEnum : processing_institution
@@ -402,6 +397,11 @@
   MetagenomeAssembly : type
 
   MetagenomeAssembly : version
+
+  MetagenomeAssembly : was_informed_by
+
+      MetagenomeAssembly --&gt; "1" DataGeneration : was_informed_by
+    click DataGeneration href "../DataGeneration"
 
 
 
@@ -617,12 +617,6 @@
 <td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
 </tr>
 <tr>
-<td><a href="../part_of/">part_of</a></td>
-<td>1..* <br/> <a href="../WorkflowChain/">WorkflowChain</a></td>
-<td>The WorkflowChain that this WorkflowExecution is part of</td>
-<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
-</tr>
-<tr>
 <td><a href="../started_at_time/">started_at_time</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
 <td></td>
@@ -631,6 +625,12 @@
 <tr>
 <td><a href="../version/">version</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
+</tr>
+<tr>
+<td><a href="../was_informed_by/">was_informed_by</a></td>
+<td>1 <br/> <a href="../DataGeneration/">DataGeneration</a></td>
 <td></td>
 <td><a href="../WorkflowExecution/">WorkflowExecution</a></td>
 </tr>
@@ -800,6 +800,13 @@ slot_usage:
     structured_pattern:
       syntax: '{id_nmdc_prefix}:wfmgas-{id_shoulder}-{id_blade}{id_version}$'
       interpolated: true
+  was_informed_by:
+    name: was_informed_by
+    domain_of:
+    - WorkflowExecution
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
 class_uri: nmdc:MetagenomeAssembly
 
 </code></pre>
@@ -824,6 +831,13 @@ slot_usage:
     required: true
     structured_pattern:
       syntax: '{id_nmdc_prefix}:wfmgas-{id_shoulder}-{id_blade}{id_version}$'
+      interpolated: true
+  was_informed_by:
+    name: was_informed_by
+    domain_of:
+    - WorkflowExecution
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgns)-{id_shoulder}-{id_blade}$'
       interpolated: true
 attributes:
   asm_score:
@@ -1194,7 +1208,6 @@ attributes:
     alias: ended_at_time
     owner: MetagenomeAssembly
     domain_of:
-    - WorkflowChain
     - WorkflowExecution
     range: string
     pattern: ^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$
@@ -1220,25 +1233,6 @@ attributes:
     - WorkflowExecution
     range: string
     required: true
-  part_of:
-    name: part_of
-    description: The WorkflowChain that this WorkflowExecution is part of
-    from_schema: https://w3id.org/nmdc/nmdc
-    rank: 1000
-    slot_uri: dcterms:isPartOf
-    multivalued: true
-    alias: part_of
-    owner: MetagenomeAssembly
-    domain_of:
-    - FieldResearchSite
-    - Study
-    - DataGeneration
-    - WorkflowExecution
-    range: WorkflowChain
-    required: true
-    structured_pattern:
-      syntax: '{id_nmdc_prefix}:wfch-{id_shoulder}-{id_blade}$'
-      interpolated: true
   started_at_time:
     name: started_at_time
     from_schema: https://w3id.org/nmdc/nmdc
@@ -1259,6 +1253,19 @@ attributes:
     domain_of:
     - WorkflowExecution
     range: string
+  was_informed_by:
+    name: was_informed_by
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: was_informed_by
+    owner: MetagenomeAssembly
+    domain_of:
+    - WorkflowExecution
+    range: DataGeneration
+    required: true
+    structured_pattern:
+      syntax: '{id_nmdc_prefix}:(omprc|dgns)-{id_shoulder}-{id_blade}$'
+      interpolated: true
   has_input:
     name: has_input
     description: An input to a process.

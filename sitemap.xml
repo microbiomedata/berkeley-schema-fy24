@@ -1281,11 +1281,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/WorkflowChain/</loc>
-         <lastmod>2024-06-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/WorkflowExecution/</loc>
          <lastmod>2024-06-13</lastmod>
          <changefreq>daily</changefreq>
@@ -4296,11 +4291,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/replaces/</loc>
-         <lastmod>2024-06-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/replicate_number/</loc>
          <lastmod>2024-06-13</lastmod>
          <changefreq>daily</changefreq>
@@ -5652,11 +5642,6 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/nmdc-schema/window_water_mold/</loc>
-         <lastmod>2024-06-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/nmdc-schema/workflow_chain_set/</loc>
          <lastmod>2024-06-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
