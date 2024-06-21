@@ -93,3 +93,9 @@ chemical_entity_set:
       - CHEBI:26078
     chemical_formula: H3O4P
     type: nmdc:ChemicalEntity
+  - id: nmdc:chem-99-000017
+    name: "chloroform"
+    alternative_identifiers:
+      - CHEBI:35255
+    chemical_formula: CHCl3
+    type: nmdc:ChemicalEntity
