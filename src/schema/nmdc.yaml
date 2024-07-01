@@ -773,6 +773,7 @@ enums:
     permissible_values:
       v-bottom_conical_tube:
       falcon_tube:
+      olympus:
 
   SeparationMethodEnum:
     description: The tool/substance used to separate or filter a solution or mixture.

@@ -1,0 +1,118 @@
+storage_process_set: #StorageProcess is not a MaterialProcessing, the set is different
+  - id: nmdc:storpro-00-123
+    type: nmdc:StorageProcess
+    has_input:
+      - nmdc:bsm-00-435737
+    has_output:
+      - nmdc:procsm-00-1 # this is used as the input for the first DissolvingProcess
+    temperature:
+      type: nmdc:QuantityValue
+      has_unit: 'Celsius'
+      has_numeric_value: -70
+    ## mass is not a slot on StorageProcess, but it could be if it is worth capturing
+    # mass:
+    #   type: nmdc:QuantityValue
+    #   has_numeric_value: 1
+    #   has_unit: g
+    contained_in: olympus
+material_processing_set:
+  - id: nmdc:dispro-99-123
+    type: nmdc:DissolvingProcess 
+    ### the MPLEx calls it a homogenization process, 
+    ### but MixingProcess at the NMDC does not have the ability to capture substance details 
+    ### MixingProcess it assumes that the substance details are captured as an attribute of the processed sample to be mixed with a solvent in this case
+    has_input:
+      - nmdc:procsm-00-1
+    has_output:
+      - nmdc:procsm-00-2
+    substances_used:
+      - type: nmdc:PortionOfSubstance
+        known_as: nmdc:chem-99-000003 # see src/data/valid/Database-chemical_entity_set-1.yaml
+        final_concentration:
+          type: nmdc:QuantityValue
+          has_unit: 'ratio'
+          has_numeric_value: 4 # there may be a better way to represent this but the idea is to indicate that there is 4 parts MeOH to 3 parts water
+      - type: nmdc:PortionOfSubstance
+        known_as: nmdc:chem-99-000004 # see src/data/valid/Database-chemical_entity_set-1.yaml
+        final_concentration:
+          type: nmdc:QuantityValue
+          has_unit: 'ratio'
+          has_numeric_value: 3
+    ## volume is not a slot on DissolvingProcess, but this indicates the total volume used to disolve the input sample
+    # volume:
+    #    type: nmdc:QuantityValue
+    #    has_unit: 'mL'
+    #    has_numeric_value: 15
+    instrument_used: # the new instrument requires is added in the instrument_set at the end of the file
+      - nmdc:inst-14-xx07be40
+  - id: nmdc:dispro-99-124
+    type: nmdc:DissolvingProcess 
+    ### the MPLEx calls it a homogenization process, 
+    ### but MixingProcess at the NMDC does not have the ability to capture substance details 
+    ### MixingProcess it assumes that the substance details are captured as an attribute of the processed sample to be mixed with a solvent in this case
+    has_input:
+      - nmdc:procsm-00-2
+    has_output:
+      - nmdc:procsm-00-3
+    substances_used:
+      - type: nmdc:PortionOfSubstance
+        known_as: nmdc:chem-99-000017 # see src/data/valid/Database-chemical_entity_set-1.yaml
+        volume:
+          type: nmdc:QuantityValue
+          has_unit: 'mL'
+          has_numeric_value: 18.5
+    temperature: #this is technically the temperature of the chloroform but the temp is not able to be captured on the substance level according to the model
+      type: nmdc:QuantityValue
+      has_unit: 'Celsius'
+      has_numeric_value: 5 # protocol indicates "ice cold"
+    instrument_used: # the new instrument requires is added in the instrument_set at the end of the file
+      - nmdc:inst-14-xx07be41
+  # there is a "sample handling" process that is not able to be captured in the NMDC model, that involves chilling the sample on ice for 5 min
+  - id: nmdc:mixpro-99-123
+    type: nmdc:MixingProcess
+    has_input:
+      - nmdc:procsm-00-3
+    has_output:
+      - nmdc:procsm-00-4
+    duration:
+      type: nmdc:QuantityValue
+      has_unit: 'minute'
+      has_numeric_value: 1
+    instrument_used:
+      - nmdc:inst-14-xx07be41
+  # the sample is then centrifuged at 5000 rpm for 10 min, this is not able to be captured in the NMDC model
+  - id: nmdc:subspr-99-123
+    has_input:
+      - nmdc:procsm-00-4
+    has_output:
+      - nmdc:procsm-00-5
+    type: nmdc:SubSamplingProcess
+    sampled_portion: 
+      - supernatant
+protocol_execution_set:
+  - id: nmdc:pex-12-123
+    type: nmdc:ProtocolExecution
+    has_input:
+      - nmdc:bsm-00-435737 # this is the same input as the input into the StorageProcess that started the protocol
+    has_output:
+      - nmdc:procsm-00-5 # this is the output of the last process in the protocol, the subsampling
+    has_process_parts:
+      - nmdc:storpro-00-123 # Storage Process
+      - nmdc:dispro-99-123 # Dissolving Process 1
+      - nmdc:dispro-99-124 # Dissolving Process 2
+      - nmdc:mixpro-99-123 # Mixing Process
+      - nmdc:subspr-99-123 # SubSampling Process
+    protocol_execution_category: mplex
+    protocol_link:
+      type: nmdc:Protocol
+      name: MPLEx extraction (Grass) 
+      url: ''
+    description: "Procedure for chloroform/methanol Folch-type extraction applicable for soil and environmental samples."
+    processing_institution: EMSL
+instrument_set: # new instruments that are used by this protocol but may not be in the nmdc schema
+  - id: nmdc:inst-14-xx07be40
+    name: "Omni Homogenizer"
+    type: nmdc:Instrument # "disposable probes"
+  - id: nmdc:inst-14-xx07be41
+    name: "vortex"
+    type: nmdc:Instrument
