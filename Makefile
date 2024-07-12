@@ -118,7 +118,7 @@ gen-project: $(PYMODEL) # depends on src/schema/mixs.yaml # can be nuked with mi
 	# note this is a separate target b/c  gen-project, used without a config file, doesn't have an easy way to specify the name
 	# of the file we want to output the prefixmap into. so instead we manage that ourselves - longer term we need to
 	# fix up gen-project but this is a larger linkml discussion to be had.
-	$(RUN) gen-prefix-map -o $(DEST)/prefixmap/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH) && cp $(DEST)/prefixmap/nmdc-prefix-map.json $(DOCDIR)
+	$(RUN) gen-prefix-map -o  $(DOCDIR)/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH)
 
 
 # TODO: Document these make targets.
@@ -142,7 +142,7 @@ test-schema:
 		--include python \
 		--include rdf \
 		-d tmp $(SOURCE_SCHEMA_PATH)
-	$(RUN) gen-prefix-map -o $(DEST)/prefixmap/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH) && cp $(DEST)/prefixmap/nmdc-prefix-map.json $(DOCDIR)
+	$(RUN) gen-prefix-map -o  $(DOCDIR)/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH)
 
 
 test-python:
@@ -172,7 +172,7 @@ gendoc: $(DOCDIR)
 	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) --include src/schema/deprecated.yaml $(SOURCE_SCHEMA_PATH)
 	mkdir -p $(DOCDIR)/javascripts
 	$(RUN) cp $(SRC)/scripts/*.js $(DOCDIR)/javascripts/
-	$(RUN) gen-prefix-map -o $(DEST)/prefixmap/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH) && cp $(DEST)/prefixmap/nmdc-prefix-map.json $(DOCDIR)
+	$(RUN) gen-prefix-map -o $(DOCDIR)/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH)
 
 testdoc: gendoc serve
 
@@ -229,6 +229,7 @@ clean:
 	rm -rf tmp
 	rm -rf docs/*.md
 	rm -rf docs/*.html
+	rm -rf docs/nmdc-prefix-map.json
 
 include project.Makefile
 
