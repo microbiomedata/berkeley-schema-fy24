@@ -1,0 +1,160 @@
+configuration_set:
+  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for 90 min proteomics LC configuration
+    name: EMSL 90 min LC method for proteomics
+    #TODO KRH: expand on description with column info if possible
+    description: EMSL LC method for proteomics, 90 minute gradient with 1% formic acid in water (A) and 0.1% formic acid in acetonitrile (B) on C18 hand pulled column.
+    type: nmdc:ChromatographyConfiguration
+    chromatographic_category: liquid_chromatography
+    stationary_phase: C18
+    ordered_mobile_phases:
+      - type: nmdc:MobilePhaseSegment
+        duration:
+          type: nmdc:QuantityValue
+          has_unit: min
+          has_numeric_value: 90
+        substances_used:
+          - known_as: nmdc:chem-99-000015 #TODO KRH: replace with formic acid minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.1
+          - known_as: nmdc:chem-99-000025 #TODO KRH: replace with water minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.99
+      - type: nmdc:MobilePhaseSegment
+        duration:
+          type: nmdc:QuantityValue
+          has_unit: min
+          has_numeric_value: 90
+        substances_used:
+          - known_as: nmdc:chem-99-000015 #TODO KRH: replace with formic acid minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.1
+          - known_as: nmdc:chem-99-000015 #TODO KRH: replace with acetonitrile minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.99
+  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for 180 min proteomics LC configuration
+    name: EMSL 180 min LC method for proteomics
+    #TODO KRH: expand on description with column info if possible
+    description: EMSL LC method for proteomics, 180 minute gradient with 1% formic acid in water (A) and 0.1% formic acid in acetonitrile (B) on C18 hand pulled column.
+    type: nmdc:ChromatographyConfiguration
+    chromatographic_category: liquid_chromatography
+    stationary_phase: C18
+    ordered_mobile_phases:
+      - type: nmdc:MobilePhaseSegment
+        duration:
+          type: nmdc:QuantityValue
+          has_unit: min
+          has_numeric_value: 180
+        substances_used:
+          - known_as: nmdc:chem-99-000015 #TODO KRH: formic acid minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.1
+          - known_as: nmdc:chem-99-000025 #TODO KRH: water minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.99
+      - type: nmdc:MobilePhaseSegment
+        duration:
+          type: nmdc:QuantityValue
+          has_unit: min
+          has_numeric_value: 180
+        substances_used:
+          - known_as: nmdc:chem-99-000015 #TODO KRH: formic acid minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.1
+          - known_as: nmdc:chem-99-000015 #TODO KRH: acetonitrile minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 0.99
+  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for lipid configuration
+    name: EMSL LC method for non-polar metabolites
+    #TODO KRH: expand on description with column info if possible
+    description: EMSL LC method for non-polar metabolites, with 60/40 water/acetonitrile with 10mM ammonium acetate (A) and 90/10 acetonitrile/isopropanol with 10 mM ammonium acetate (B) on C18 column.
+    type: nmdc:ChromatographyConfiguration
+    chromatographic_category: liquid_chromatography
+    stationary_phase: C18
+    temperature:
+      type: nmdc:QuantityValue
+      has_numeric_value: 30 #TODO KRH: replace with actual value
+      has_unit: Cel
+    ordered_mobile_phases:
+      - type: nmdc:MobilePhaseSegment
+        duration:
+          type: nmdc:QuantityValue
+          has_unit: min
+          has_numeric_value: 42
+        substances_used:
+          - known_as: nmdc:chem-99-000015 #TODO KRH: acetonitrile minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 40
+          - known_as: nmdc:chem-99-000025 #TODO KRH: water minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 60
+          - known_as: nmdc:chem-99-000002 #TODO KRH: ammonium acetate minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: mM
+              has_numeric_value: 10
+      - type: nmdc:MobilePhaseSegment
+        duration:
+          type: nmdc:QuantityValue
+          has_unit: min
+          has_numeric_value: 42
+        substances_used:
+          - known_as: nmdc:chem-99-000015 #TODO KRH: acetonitrile minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 90
+          - known_as: nmdc:chem-99-000025 #TODO KRH: isopropyl alcohol minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: '%'
+              has_numeric_value: 10
+          - known_as: nmdc:chem-99-000002 #TODO KRH: ammonium acetate minted id
+            type: nmdc:PortionOfSubstance
+            final_concentration:
+              type: nmdc:QuantityValue
+              has_unit: mM
+              has_numeric_value: 10
+  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for GC configuration
+    name: EMSL GC method for polar metabolites
+    #TODO KRH: expand on description with column info if possible
+    description: EMSL GC method for polar metabolites on a polysiloxane column
+    type: nmdc:ChromatographyConfiguration
+    chromatographic_category: gas_chromatography
+    stationary_phase: Polysiloxane
+    temperature:
+      type: nmdc:QuantityValue
+      has_numeric_value: 30 #TODO KRH: replace with actual value
+      has_unit: Cel
