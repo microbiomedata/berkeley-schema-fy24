@@ -300,7 +300,7 @@
 <tr>
 <td><a href="../metagenome_annotation_id/">metagenome_annotation_id</a></td>
 <td>1 <br/> <a href="../WorkflowExecution/">WorkflowExecution</a></td>
-<td>The identifier for the analysis activity (WorkflowExecutionActivity) that gen...</td>
+<td>The identifier for the analysis activity that generated the functional annota...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -404,8 +404,9 @@ slot_usage:
 attributes:
   metagenome_annotation_id:
     name: metagenome_annotation_id
-    description: The identifier for the analysis activity (WorkflowExecutionActivity)
-      that generated the functional annotation results.
+    description: The identifier for the analysis activity that generated the functional
+      annotation results, where the analysis activity is an instance of the/an appropriate
+      subclass of WorkflowExecution
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     alias: metagenome_annotation_id
