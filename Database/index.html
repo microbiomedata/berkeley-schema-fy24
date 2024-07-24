@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/Database/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
 <title>Class: Database - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -572,12 +572,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: biosample_set
     owner: Database
     domain_of:
     - Database
     range: Biosample
+    multivalued: true
     inlined_as_list: true
   calibration_set:
     name: calibration_set
@@ -587,12 +587,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: calibration_set
     owner: Database
     domain_of:
     - Database
     range: CalibrationInformation
+    multivalued: true
     inlined_as_list: true
   chemical_entity_set:
     name: chemical_entity_set
@@ -602,12 +602,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: chemical_entity_set
     owner: Database
     domain_of:
     - Database
     range: ChemicalEntity
+    multivalued: true
     inlined_as_list: true
   collecting_biosamples_from_site_set:
     name: collecting_biosamples_from_site_set
@@ -615,12 +615,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: collecting_biosamples_from_site_set
     owner: Database
     domain_of:
     - Database
     range: CollectingBiosamplesFromSite
+    multivalued: true
     inlined_as_list: true
   configuration_set:
     name: configuration_set
@@ -630,12 +630,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: configuration_set
     owner: Database
     domain_of:
     - Database
     range: Configuration
+    multivalued: true
     inlined_as_list: true
   data_generation_set:
     name: data_generation_set
@@ -645,12 +645,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: data_generation_set
     owner: Database
     domain_of:
     - Database
     range: DataGeneration
+    multivalued: true
     inlined_as_list: true
   data_object_set:
     name: data_object_set
@@ -660,12 +660,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: data_object_set
     owner: Database
     domain_of:
     - Database
     range: DataObject
+    multivalued: true
     inlined_as_list: true
   field_research_site_set:
     name: field_research_site_set
@@ -673,23 +673,23 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: field_research_site_set
     owner: Database
     domain_of:
     - Database
     range: FieldResearchSite
+    multivalued: true
     inlined_as_list: true
   functional_annotation_agg:
     name: functional_annotation_agg
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: functional_annotation_agg
     owner: Database
     domain_of:
     - Database
     range: FunctionalAnnotationAggMember
+    multivalued: true
     inlined: true
     inlined_as_list: true
   functional_annotation_set:
@@ -700,12 +700,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: functional_annotation_set
     owner: Database
     domain_of:
     - Database
     range: FunctionalAnnotation
+    multivalued: true
     inlined_as_list: true
   genome_feature_set:
     name: genome_feature_set
@@ -714,12 +714,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: genome_feature_set
     owner: Database
     domain_of:
     - Database
     range: GenomeFeature
+    multivalued: true
     inlined_as_list: true
   instrument_set:
     name: instrument_set
@@ -729,12 +729,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: instrument_set
     owner: Database
     domain_of:
     - Database
     range: Instrument
+    multivalued: true
     inlined_as_list: true
   material_processing_set:
     name: material_processing_set
@@ -744,12 +744,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: material_processing_set
     owner: Database
     domain_of:
     - Database
     range: MaterialProcessing
+    multivalued: true
     inlined_as_list: true
   processed_sample_set:
     name: processed_sample_set
@@ -759,12 +759,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: processed_sample_set
     owner: Database
     domain_of:
     - Database
     range: ProcessedSample
+    multivalued: true
     inlined_as_list: true
   protocol_execution_set:
     name: protocol_execution_set
@@ -774,12 +774,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: protocol_execution_set
     owner: Database
     domain_of:
     - Database
     range: ProtocolExecution
+    multivalued: true
     inlined_as_list: true
   storage_process_set:
     name: storage_process_set
@@ -789,12 +789,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: storage_process_set
     owner: Database
     domain_of:
     - Database
     range: StorageProcess
+    multivalued: true
     inlined_as_list: true
   study_set:
     name: study_set
@@ -804,12 +804,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: study_set
     owner: Database
     domain_of:
     - Database
     range: Study
+    multivalued: true
     inlined_as_list: true
   workflow_execution_set:
     name: workflow_execution_set
@@ -818,12 +818,12 @@ attributes:
     rank: 1000
     mixins:
     - object_set
-    multivalued: true
     alias: workflow_execution_set
     owner: Database
     domain_of:
     - Database
     range: WorkflowExecution
+    multivalued: true
     inlined_as_list: true
 class_uri: nmdc:Database
 tree_root: true
@@ -855,7 +855,7 @@ tree_root: true
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

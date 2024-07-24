@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/FieldResearchSite/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
 <title>Class: Field Research Site (FieldResearchSite) - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -623,13 +623,13 @@ attributes:
     is_a: core field
     string_serialization: '{text}'
     slot_uri: MIXS:0000312
-    multivalued: false
     alias: cur_vegetation
     owner: FieldResearchSite
     domain_of:
     - FieldResearchSite
     - Biosample
     range: TextValue
+    multivalued: false
   elev:
     name: elev
     annotations:
@@ -649,13 +649,13 @@ attributes:
     rank: 1000
     is_a: environment field
     slot_uri: MIXS:0000093
-    multivalued: false
     alias: elev
     owner: FieldResearchSite
     domain_of:
     - FieldResearchSite
     - Biosample
     range: float
+    multivalued: false
   geo_loc_name:
     name: geo_loc_name
     annotations:
@@ -677,13 +677,13 @@ attributes:
     is_a: environment field
     string_serialization: '{term}: {term}, {text}'
     slot_uri: MIXS:0000010
-    multivalued: false
     alias: geo_loc_name
     owner: FieldResearchSite
     domain_of:
     - FieldResearchSite
     - Biosample
     range: TextValue
+    multivalued: false
   habitat:
     name: habitat
     from_schema: https://w3id.org/nmdc/nmdc
@@ -712,13 +712,13 @@ attributes:
     is_a: environment field
     string_serialization: '{float} {float}'
     slot_uri: MIXS:0000009
-    multivalued: false
     alias: lat_lon
     owner: FieldResearchSite
     domain_of:
     - FieldResearchSite
     - Biosample
     range: GeolocationValue
+    multivalued: false
   local_class:
     name: local_class
     annotations:
@@ -739,13 +739,13 @@ attributes:
     is_a: core field
     string_serialization: '{text}'
     slot_uri: MIXS:0000330
-    multivalued: false
     alias: local_class
     owner: FieldResearchSite
     domain_of:
     - FieldResearchSite
     - Biosample
     range: TextValue
+    multivalued: false
   part_of:
     name: part_of
     description: Links a resource to another resource that either logically or physically
@@ -753,7 +753,6 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     slot_uri: dcterms:isPartOf
-    multivalued: true
     alias: part_of
     owner: FieldResearchSite
     domain_of:
@@ -761,6 +760,7 @@ attributes:
     - Study
     - DataGeneration
     range: FieldResearchSite
+    multivalued: true
     structured_pattern:
       syntax: '{id_nmdc_prefix}:frsite-{id_shoulder}-{id_blade}$'
       interpolated: true
@@ -786,13 +786,13 @@ attributes:
     is_a: core field
     string_serialization: '{termLabel} {[termID]}'
     slot_uri: MIXS:0000332
-    multivalued: false
     alias: soil_type
     owner: FieldResearchSite
     domain_of:
     - FieldResearchSite
     - Biosample
     range: TextValue
+    multivalued: false
   id:
     name: id
     description: A unique identifier for a thing. Must be either a CURIE shorthand
@@ -839,13 +839,13 @@ attributes:
     description: A list of alternative identifiers for the entity.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: alternative_identifiers
     owner: FieldResearchSite
     domain_of:
     - MetaboliteIdentification
     - NamedThing
     range: uriorcurie
+    multivalued: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
     name: type
@@ -914,7 +914,7 @@ class_uri: nmdc:FieldResearchSite
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

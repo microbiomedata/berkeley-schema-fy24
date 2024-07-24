@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/Study/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
 <title>Class: Study - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -901,10 +901,10 @@ slot_usage:
       interpolated: true
   protocol_link:
     name: protocol_link
-    multivalued: true
     domain_of:
     - PlannedProcess
     - Study
+    multivalued: true
     inlined_as_list: true
 class_uri: nmdc:Study
 
@@ -1059,10 +1059,10 @@ slot_usage:
       interpolated: true
   protocol_link:
     name: protocol_link
-    multivalued: true
     domain_of:
     - PlannedProcess
     - Study
+    multivalued: true
     inlined_as_list: true
 attributes:
   emsl_project_identifiers:
@@ -1084,12 +1084,12 @@ attributes:
     is_a: study_identifiers
     mixins:
     - emsl_identifiers
-    multivalued: true
     alias: emsl_project_identifiers
     owner: Study
     domain_of:
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^emsl\.project:[0-9]{5}$
   gnps_task_identifiers:
     name: gnps_task_identifiers
@@ -1109,12 +1109,12 @@ attributes:
     is_a: study_identifiers
     mixins:
     - gnps_identifiers
-    multivalued: true
     alias: gnps_task_identifiers
     owner: Study
     domain_of:
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^gnps\.task:[a-f0-9]+$
   gold_study_identifiers:
     name: gold_study_identifiers
@@ -1131,12 +1131,12 @@ attributes:
     is_a: study_identifiers
     mixins:
     - gold_identifiers
-    multivalued: true
     alias: gold_study_identifiers
     owner: Study
     domain_of:
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^gold:Gs[0-9]+$
   insdc_bioproject_identifiers:
     name: insdc_bioproject_identifiers
@@ -1150,13 +1150,13 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     is_a: study_identifiers
-    multivalued: true
     alias: insdc_bioproject_identifiers
     owner: Study
     domain_of:
     - NucleotideSequencing
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^bioproject:PRJ[DEN][A-Z][0-9]+$
   jgi_portal_study_identifiers:
     name: jgi_portal_study_identifiers
@@ -1179,12 +1179,12 @@ attributes:
     is_a: study_identifiers
     mixins:
     - jgi_portal_identifiers
-    multivalued: true
     alias: jgi_portal_study_identifiers
     owner: Study
     domain_of:
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^jgi.proposal:\d+$
   mgnify_project_identifiers:
     name: mgnify_project_identifiers
@@ -1196,12 +1196,12 @@ attributes:
     is_a: study_identifiers
     mixins:
     - mgnify_identifiers
-    multivalued: true
     alias: mgnify_project_identifiers
     owner: Study
     domain_of:
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^mgnify.proj:[A-Z]+[0-9]+$
   neon_study_identifiers:
     name: neon_study_identifiers
@@ -1210,12 +1210,12 @@ attributes:
     is_a: study_identifiers
     mixins:
     - neon_identifiers
-    multivalued: true
     alias: neon_study_identifiers
     owner: Study
     domain_of:
     - Study
     range: external_identifier
+    multivalued: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   related_identifiers:
     name: related_identifiers
@@ -1235,12 +1235,12 @@ attributes:
       between description and alternative descriptions is application-specific.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: alternative_descriptions
     owner: Study
     domain_of:
     - Study
     range: string
+    multivalued: true
   alternative_names:
     name: alternative_names
     annotations:
@@ -1252,13 +1252,13 @@ attributes:
       between name and alternative names is application-specific.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: alternative_names
     owner: Study
     domain_of:
     - ChemicalEntity
     - Study
     range: string
+    multivalued: true
   alternative_titles:
     name: alternative_titles
     description: A list of alternative titles for the entity. The distinction between
@@ -1267,12 +1267,12 @@ attributes:
     exact_mappings:
     - dcterms:alternative
     rank: 1000
-    multivalued: true
     alias: alternative_titles
     owner: Study
     domain_of:
     - Study
     range: string
+    multivalued: true
   ecosystem:
     name: ecosystem
     description: An ecosystem is a combination of a physical environment (abiotic
@@ -1397,12 +1397,12 @@ attributes:
     - Associated DOIs
     - Associated digital object identifiers
     rank: 1000
-    multivalued: true
     alias: associated_dois
     owner: Study
     domain_of:
     - Study
     range: Doi
+    multivalued: true
     inlined: true
     inlined_as_list: true
   funding_sources:
@@ -1421,12 +1421,12 @@ attributes:
     close_mappings:
     - NCIT:C39409
     rank: 1000
-    multivalued: true
     alias: funding_sources
     owner: Study
     domain_of:
     - Study
     range: string
+    multivalued: true
   has_credit_associations:
     name: has_credit_associations
     annotations:
@@ -1439,12 +1439,12 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     slot_uri: prov:qualifiedAssociation
-    multivalued: true
     alias: has_credit_associations
     owner: Study
     domain_of:
     - Study
     range: CreditAssociation
+    multivalued: true
     inlined: true
     inlined_as_list: true
   homepage_website:
@@ -1457,12 +1457,12 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     is_a: websites
-    multivalued: true
     alias: homepage_website
     owner: Study
     domain_of:
     - Study
     range: string
+    multivalued: true
     pattern: ^[Hh][Tt][Tt][Pp][Ss]?:\/\/(?!.*[Dd][Oo][Ii]\.[Oo][Rr][Gg]).*$
     maximum_cardinality: 1
   notes:
@@ -1499,7 +1499,6 @@ attributes:
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
     slot_uri: dcterms:isPartOf
-    multivalued: true
     alias: part_of
     owner: Study
     domain_of:
@@ -1507,6 +1506,7 @@ attributes:
     - Study
     - DataGeneration
     range: Study
+    multivalued: true
     structured_pattern:
       syntax: '{id_nmdc_prefix}:sty-{id_shoulder}-{id_blade}$'
       interpolated: true
@@ -1527,13 +1527,13 @@ attributes:
     name: protocol_link
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: protocol_link
     owner: Study
     domain_of:
     - PlannedProcess
     - Study
     range: Protocol
+    multivalued: true
     inlined_as_list: true
   study_category:
     name: study_category
@@ -1551,12 +1551,12 @@ attributes:
     description: Links a study to one or more images.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: study_image
     owner: Study
     domain_of:
     - Study
     range: ImageValue
+    multivalued: true
     inlined: true
     inlined_as_list: true
   title:
@@ -1585,13 +1585,13 @@ attributes:
     description: A list of websites that are associated with the entity.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: websites
     owner: Study
     domain_of:
     - PersonValue
     - Study
     range: string
+    multivalued: true
     pattern: ^[Hh][Tt][Tt][Pp][Ss]?:\/\/(?!.*[Dd][Oo][Ii]\.[Oo][Rr][Gg]).*$
   id:
     name: id
@@ -1650,13 +1650,13 @@ attributes:
       Matches that which has been submitted to NMDC
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: alternative_identifiers
     owner: Study
     domain_of:
     - MetaboliteIdentification
     - NamedThing
     range: uriorcurie
+    multivalued: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
     name: type
@@ -1725,7 +1725,7 @@ class_uri: nmdc:Study
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>

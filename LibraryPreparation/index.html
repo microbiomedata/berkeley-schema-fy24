@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://microbiomedata.github.io/nmdc-schema/LibraryPreparation/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
 <title>Class: LibraryPreparation - NMDC Schema Documentation</title>
-<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -317,6 +317,8 @@
       LibraryPreparation --&gt; "*" Instrument : instrument_used
     click Instrument href "../Instrument"
 
+  LibraryPreparation : is_stranded
+
   LibraryPreparation : library_preparation_kit
 
   LibraryPreparation : library_type
@@ -362,6 +364,11 @@
 
   LibraryPreparation : start_date
 
+  LibraryPreparation : stranded_orientation
+
+      LibraryPreparation --&gt; "0..1" StrandedOrientationEnum : stranded_orientation
+    click StrandedOrientationEnum href "../StrandedOrientationEnum"
+
   LibraryPreparation : type
 
 
@@ -392,6 +399,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../is_stranded/">is_stranded</a></td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Is the (RNA) library stranded or non-stranded (unstranded)</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../library_preparation_kit/">library_preparation_kit</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td></td>
@@ -400,12 +413,6 @@
 <tr>
 <td><a href="../library_type/">library_type</a></td>
 <td>0..1 <br/> <a href="../LibraryTypeEnum/">LibraryTypeEnum</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../pcr_cycles/">pcr_cycles</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -422,9 +429,21 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../pcr_cycles/">pcr_cycles</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../pcr_primers/">pcr_primers</a></td>
 <td>0..1 <br/> <a href="../TextValue/">TextValue</a></td>
 <td>PCR primers that were used to amplify the sequence of the targeted gene, locu...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../stranded_orientation/">stranded_orientation</a></td>
+<td>0..1 <br/> <a href="../StrandedOrientationEnum/">StrandedOrientationEnum</a></td>
+<td>Lists the strand orientiation for a stranded RNA library preparation</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -569,12 +588,14 @@ close_mappings:
 - OBI:0000711
 is_a: MaterialProcessing
 slots:
+- is_stranded
 - library_preparation_kit
 - library_type
-- pcr_cycles
 - nucl_acid_amp
 - pcr_cond
+- pcr_cycles
 - pcr_primers
+- stranded_orientation
 slot_usage:
   has_input:
     name: has_input
@@ -653,6 +674,18 @@ slot_usage:
     domain_of:
     - LibraryPreparation
 attributes:
+  is_stranded:
+    name: is_stranded
+    description: Is the (RNA) library stranded or non-stranded (unstranded).
+    comments:
+    - A value of true means the library is stranded, flase means non-stranded.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: is_stranded
+    owner: LibraryPreparation
+    domain_of:
+    - LibraryPreparation
+    range: boolean
   library_preparation_kit:
     name: library_preparation_kit
     from_schema: https://w3id.org/nmdc/nmdc
@@ -674,17 +707,6 @@ attributes:
     domain_of:
     - LibraryPreparation
     range: LibraryTypeEnum
-  pcr_cycles:
-    name: pcr_cycles
-    from_schema: https://w3id.org/nmdc/nmdc
-    exact_mappings:
-    - OBI:0002475
-    rank: 1000
-    alias: pcr_cycles
-    owner: LibraryPreparation
-    domain_of:
-    - LibraryPreparation
-    range: integer
   nucl_acid_amp:
     name: nucl_acid_amp
     annotations:
@@ -704,12 +726,12 @@ attributes:
     is_a: sequencing field
     string_serialization: '{PMID}|{DOI}|{URL}'
     slot_uri: MIXS:0000038
-    multivalued: false
     alias: nucl_acid_amp
     owner: LibraryPreparation
     domain_of:
     - LibraryPreparation
     range: TextValue
+    multivalued: false
   pcr_cond:
     name: pcr_cond
     description: Description of reaction conditions and components of polymerase chain
@@ -721,12 +743,23 @@ attributes:
     string_serialization: initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final
       elongation:degrees_minutes;total cycles
     slot_uri: MIXS:0000049
-    multivalued: false
     alias: pcr_cond
     owner: LibraryPreparation
     domain_of:
     - LibraryPreparation
     range: TextValue
+    multivalued: false
+  pcr_cycles:
+    name: pcr_cycles
+    from_schema: https://w3id.org/nmdc/nmdc
+    exact_mappings:
+    - OBI:0002475
+    rank: 1000
+    alias: pcr_cycles
+    owner: LibraryPreparation
+    domain_of:
+    - LibraryPreparation
+    range: integer
   pcr_primers:
     name: pcr_primers
     annotations:
@@ -747,36 +780,46 @@ attributes:
     is_a: sequencing field
     string_serialization: FWD:{dna};REV:{dna}
     slot_uri: MIXS:0000046
-    multivalued: false
     alias: pcr_primers
     owner: LibraryPreparation
     domain_of:
     - LibraryPreparation
     range: TextValue
+    multivalued: false
+  stranded_orientation:
+    name: stranded_orientation
+    description: Lists the strand orientiation for a stranded RNA library preparation.
+    from_schema: https://w3id.org/nmdc/nmdc
+    rank: 1000
+    alias: stranded_orientation
+    owner: LibraryPreparation
+    domain_of:
+    - LibraryPreparation
+    range: StrandedOrientationEnum
   instrument_used:
     name: instrument_used
     description: What instrument was used during DataGeneration or MaterialProcessing.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: instrument_used
     owner: LibraryPreparation
     domain_of:
     - MaterialProcessing
     - DataGeneration
     range: Instrument
+    multivalued: true
   has_input:
     name: has_input
     description: An input to a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: has_input
     owner: LibraryPreparation
     domain_of:
     - PlannedProcess
     range: NamedThing
     required: true
+    multivalued: true
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$'
       interpolated: true
@@ -785,13 +828,13 @@ attributes:
     description: An output from a process.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: has_output
     owner: LibraryPreparation
     domain_of:
     - PlannedProcess
     range: ProcessedSample
     required: true
+    multivalued: true
     structured_pattern:
       syntax: '{id_nmdc_prefix}:(procsm)-{id_shoulder}-{id_blade}$'
       interpolated: true
@@ -875,12 +918,12 @@ attributes:
     name: has_failure_categorization
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: has_failure_categorization
     owner: LibraryPreparation
     domain_of:
     - PlannedProcess
     range: FailureCategorization
+    multivalued: true
     inlined: true
     inlined_as_list: true
   id:
@@ -929,13 +972,13 @@ attributes:
     description: A list of alternative identifiers for the entity.
     from_schema: https://w3id.org/nmdc/nmdc
     rank: 1000
-    multivalued: true
     alias: alternative_identifiers
     owner: LibraryPreparation
     domain_of:
     - MetaboliteIdentification
     - NamedThing
     range: uriorcurie
+    multivalued: true
     pattern: ^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$
   type:
     name: type
@@ -1004,7 +1047,7 @@ class_uri: nmdc:LibraryPreparation
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../javascripts/tablesort.js"></script>
 <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
