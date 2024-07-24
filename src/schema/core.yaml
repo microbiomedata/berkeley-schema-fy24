@@ -213,11 +213,11 @@ classes:
     description: >-
     slot_usage:
       id:
-          required: true
-          description: An NMDC assigned unique identifier for a biosample or processed sample.
-          structured_pattern:
-            syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
-            interpolated: true
+        required: true
+        description: An NMDC assigned unique identifier for a biosample or processed sample.
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
+          interpolated: true
     in_subset:
       - sample subset
 
