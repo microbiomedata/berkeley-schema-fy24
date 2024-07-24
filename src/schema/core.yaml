@@ -210,7 +210,7 @@ classes:
   Sample:
     class_uri: nmdc:Sample
     is_a: MaterialEntity
-    description: >-
+    description: >- 
     slot_usage:
       id:
         required: true
@@ -220,6 +220,9 @@ classes:
           interpolated: true
     in_subset:
       - sample subset
+    broad_mappings:
+      - OBI:0000747  # material sample
+
 
   Biosample:
     class_uri: 'nmdc:Biosample'
