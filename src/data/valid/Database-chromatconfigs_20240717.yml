@@ -1,5 +1,5 @@
 configuration_set:
-  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for 90 min proteomics LC configuration
+  - id: nmdc:chrocon-14-4qp71g06
     name: EMSL 90 min LC method for proteomics
     #TODO KRH: expand on description with column info if possible
     description: EMSL LC method for proteomics, 90 minute gradient with 1% formic acid in water (A) and 0.1% formic acid in acetonitrile (B) on C18 hand pulled column.
@@ -43,7 +43,7 @@ configuration_set:
               type: nmdc:QuantityValue
               has_unit: '%'
               has_numeric_value: 0.99
-  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for 180 min proteomics LC configuration
+  - id: nmdc:chrocon-14-1k5bdz13
     name: EMSL 180 min LC method for proteomics
     #TODO KRH: expand on description with column info if possible
     description: EMSL LC method for proteomics, 180 minute gradient with 1% formic acid in water (A) and 0.1% formic acid in acetonitrile (B) on C18 hand pulled column.
@@ -87,7 +87,7 @@ configuration_set:
               type: nmdc:QuantityValue
               has_unit: '%'
               has_numeric_value: 0.99
-  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for lipid configuration
+  - id: nmdc:chrocon-14-bw9n0g91
     name: EMSL LC method for non-polar metabolites
     #TODO KRH: expand on description with column info if possible
     description: EMSL LC method for non-polar metabolites, with 60/40 water/acetonitrile with 10mM ammonium acetate (A) and 90/10 acetonitrile/isopropanol with 10 mM ammonium acetate (B) on C18 column.
@@ -147,7 +147,7 @@ configuration_set:
               type: nmdc:QuantityValue
               has_unit: mM
               has_numeric_value: 10
-  - id: nmdc:chrocon-11-oW43DzG0 #TODO KRH:  replace with minted id for GC configuration
+  - id: nmdc:chrocon-14-wsc74595 
     name: EMSL GC method for polar metabolites
     #TODO KRH: expand on description with column info if possible
     description: EMSL GC method for polar metabolites on a polysiloxane column
