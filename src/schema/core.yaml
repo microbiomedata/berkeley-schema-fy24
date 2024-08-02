@@ -1673,7 +1673,6 @@ slots:
 
   metabolite_identified:
     description: the specific metabolite identifier
-    range: ChemicalEntity
 
   all_proteins:
     description: the list of protein identifiers that are associated with the peptide sequence
