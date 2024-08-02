@@ -1346,8 +1346,6 @@ classes:
     description: >-
       An atom or molecule that can be represented with a chemical formula. Include lipids, glycans, natural products, drugs.
       There may be different terms for distinct acid-base forms, protonation states
-    comments:
-      - As with the parent OntologyClass, we will not assign an nmdc id pattern or typecode to this class.
     slots:
       - alternative_names
       - chemical_formula
