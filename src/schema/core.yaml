@@ -1238,6 +1238,12 @@ classes:
       - substance_role
       - type
       - volume
+    slot_usage:
+      known_as:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:chem-{id_shoulder}-{id_blade}$"
+          interpolated: true
+
 
   ProcessedSample:
     class_uri: nmdc:ProcessedSample
@@ -1592,6 +1598,7 @@ slots:
     inlined_as_list: true
 
   known_as:
+    description: An identifier of a ChemicalEntity.
     range: ChemicalEntity
 
   substance_role:
