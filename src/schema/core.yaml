@@ -1361,15 +1361,6 @@ classes:
 
     see_also:
       - https://bioconductor.org/packages/devel/data/annotation/vignettes/metaboliteIDmapping/inst/doc/metaboliteIDmapping.html
-    id_prefixes:
-      - cas
-      - CHEBI
-      - CHEMBL.COMPOUND
-      - DRUGBANK
-      - HMDB
-      - KEGG.COMPOUND
-      - MESH
-      - PUBCHEM.COMPOUND
     exact_mappings:
       - biolink:ChemicalSubstance
 
