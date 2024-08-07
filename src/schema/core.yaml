@@ -1238,6 +1238,12 @@ classes:
       - substance_role
       - type
       - volume
+    slot_usage:
+      known_as:
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:chem-{id_shoulder}-{id_blade}$"
+          interpolated: true
+
 
   ProcessedSample:
     class_uri: nmdc:ProcessedSample
@@ -1341,26 +1347,21 @@ classes:
     description: >-
       An atom or molecule that can be represented with a chemical formula. Include lipids, glycans, natural products, drugs.
       There may be different terms for distinct acid-base forms, protonation states
-    comments:
-      - As with the parent OntologyClass, we will not assign an nmdc id pattern or typecode to this class.
     slots:
       - alternative_names
       - chemical_formula
       - inchi
       - inchi_key
       - smiles
+    slot_usage:
+      id:
+        required: true
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:chem-{id_shoulder}-{id_blade}$"
+          interpolated: true
 
     see_also:
       - https://bioconductor.org/packages/devel/data/annotation/vignettes/metaboliteIDmapping/inst/doc/metaboliteIDmapping.html
-    id_prefixes:
-      - cas
-      - CHEBI
-      - CHEMBL.COMPOUND
-      - DRUGBANK
-      - HMDB
-      - KEGG.COMPOUND
-      - MESH
-      - PUBCHEM.COMPOUND
     exact_mappings:
       - biolink:ChemicalSubstance
 
@@ -1593,6 +1594,7 @@ slots:
     inlined_as_list: true
 
   known_as:
+    description: An identifier of a ChemicalEntity.
     range: ChemicalEntity
 
   substance_role:
@@ -1674,7 +1676,6 @@ slots:
 
   metabolite_identified:
     description: the specific metabolite identifier
-    range: ChemicalEntity
 
   all_proteins:
     description: the list of protein identifiers that are associated with the peptide sequence
