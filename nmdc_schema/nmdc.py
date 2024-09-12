@@ -1,5 +1,5 @@
 # Auto generated from nmdc.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-28T17:18:12
+# Generation date: 2024-09-12T01:10:04
 # Schema: NMDC
 #
 # id: https://w3id.org/nmdc/nmdc
@@ -5548,7 +5548,6 @@ class DataGeneration(PlannedProcess):
     add_date: Optional[str] = None
     instrument_used: Optional[Union[Union[str, InstrumentId], List[Union[str, InstrumentId]]]] = empty_list()
     mod_date: Optional[str] = None
-    part_of: Optional[Union[Union[str, DataGenerationId], List[Union[str, DataGenerationId]]]] = empty_list()
     principal_investigator: Optional[Union[dict, PersonValue]] = None
     has_output: Optional[Union[Union[str, DataObjectId], List[Union[str, DataObjectId]]]] = empty_list()
 
@@ -5579,10 +5578,6 @@ class DataGeneration(PlannedProcess):
 
         if self.mod_date is not None and not isinstance(self.mod_date, str):
             self.mod_date = str(self.mod_date)
-
-        if not isinstance(self.part_of, list):
-            self.part_of = [self.part_of] if self.part_of is not None else []
-        self.part_of = [v if isinstance(v, DataGenerationId) else DataGenerationId(v) for v in self.part_of]
 
         if self.principal_investigator is not None and not isinstance(self.principal_investigator, PersonValue):
             self.principal_investigator = PersonValue(**as_dict(self.principal_investigator))
@@ -12876,9 +12871,6 @@ slots.DataGeneration_associated_studies = Slot(uri=NMDC['basic_classes/associate
 
 slots.DataGeneration_has_output = Slot(uri=NMDC['basic_classes/has_output'], name="DataGeneration_has_output", curie=NMDC.curie('basic_classes/has_output'),
                    model_uri=NMDC.DataGeneration_has_output, domain=DataGeneration, range=Optional[Union[Union[str, DataObjectId], List[Union[str, DataObjectId]]]])
-
-slots.DataGeneration_part_of = Slot(uri=DCTERMS.isPartOf, name="DataGeneration_part_of", curie=DCTERMS.curie('isPartOf'),
-                   model_uri=NMDC.DataGeneration_part_of, domain=DataGeneration, range=Optional[Union[Union[str, DataGenerationId], List[Union[str, DataGenerationId]]]])
 
 slots.WorkflowExecution_started_at_time = Slot(uri=NMDC.started_at_time, name="WorkflowExecution_started_at_time", curie=NMDC.curie('started_at_time'),
                    model_uri=NMDC.WorkflowExecution_started_at_time, domain=WorkflowExecution, range=str, mappings = [PROV["startedAtTime"]],
