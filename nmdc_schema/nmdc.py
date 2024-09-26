@@ -1,5 +1,5 @@
 # Auto generated from nmdc.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-16T22:54:24
+# Generation date: 2024-09-26T13:34:05
 # Schema: NMDC
 #
 # id: https://w3id.org/nmdc/nmdc
@@ -63,6 +63,7 @@ MISO = CurieNamespace('MISO', 'http://purl.obolibrary.org/obo/MISO_')
 MIXS = CurieNamespace('MIXS', 'https://w3id.org/mixs/')
 MS = CurieNamespace('MS', 'http://purl.obolibrary.org/obo/MS_')
 METANETX = CurieNamespace('MetaNetX', 'http://example.org/metanetx/')
+NCBI = CurieNamespace('NCBI', 'http://example.com/ncbitaxon/')
 NCBITAXON = CurieNamespace('NCBITaxon', 'http://purl.obolibrary.org/obo/NCBITaxon_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
