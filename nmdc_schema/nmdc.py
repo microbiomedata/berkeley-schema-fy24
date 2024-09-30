@@ -1,5 +1,5 @@
 # Auto generated from nmdc.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-17T20:17:56
+# Generation date: 2024-09-16T22:54:24
 # Schema: NMDC
 #
 # id: https://w3id.org/nmdc/nmdc
@@ -70,6 +70,7 @@ ORCID = CurieNamespace('ORCID', 'https://orcid.org/')
 PANTHER_FAMILY = CurieNamespace('PANTHER_FAMILY', 'https://bioregistry.io/panther.family:')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 PFAM = CurieNamespace('PFAM', 'https://bioregistry.io/pfam:')
+PFAM_CLAN = CurieNamespace('PFAM_CLAN', 'https://bioregistry.io/pfam.clan:')
 PO = CurieNamespace('PO', 'http://purl.obolibrary.org/obo/PO_')
 PR = CurieNamespace('PR', 'http://purl.obolibrary.org/obo/PR_')
 PUBCHEM_COMPOUND = CurieNamespace('PUBCHEM_COMPOUND', 'https://bioregistry.io/pubchem.compound:')
@@ -329,7 +330,7 @@ class MetatranscriptomeAnnotationId(WorkflowExecutionId):
     pass
 
 
-class MetatranscriptomeAnalysisId(WorkflowExecutionId):
+class MetatranscriptomeExpressionAnalysisId(WorkflowExecutionId):
     pass
 
 
@@ -363,6 +364,44 @@ class NomAnalysisId(WorkflowExecutionId):
 
 class MetagenomeAnnotationId(WorkflowExecutionId):
     pass
+
+
+@dataclass
+class EukEval(YAMLRoot):
+    """
+    This class contains information pertaining to evaluating if a Metagenome-Assembled Genome (MAG) is eukaryotic.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NMDC["EukEval"]
+    class_class_curie: ClassVar[str] = "nmdc:EukEval"
+    class_name: ClassVar[str] = "EukEval"
+    class_model_uri: ClassVar[URIRef] = NMDC.EukEval
+
+    type: Union[str, URIorCURIE] = None
+    completeness: Optional[float] = None
+    contamination: Optional[float] = None
+    ncbi_lineage_tax_ids: Optional[str] = None
+    ncbi_lineage: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        self.type = str(self.class_class_curie)
+
+        if self.completeness is not None and not isinstance(self.completeness, float):
+            self.completeness = float(self.completeness)
+
+        if self.contamination is not None and not isinstance(self.contamination, float):
+            self.contamination = float(self.contamination)
+
+        if self.ncbi_lineage_tax_ids is not None and not isinstance(self.ncbi_lineage_tax_ids, str):
+            self.ncbi_lineage_tax_ids = str(self.ncbi_lineage_tax_ids)
+
+        if self.ncbi_lineage is not None and not isinstance(self.ncbi_lineage, str):
+            self.ncbi_lineage = str(self.ncbi_lineage)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -698,6 +737,7 @@ class MagBin(YAMLRoot):
     num_t_rna: Optional[int] = None
     number_of_contig: Optional[int] = None
     total_bases: Optional[int] = None
+    eukaryotic_evaluation: Optional[Union[dict, EukEval]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.type):
@@ -760,6 +800,9 @@ class MagBin(YAMLRoot):
 
         if self.total_bases is not None and not isinstance(self.total_bases, int):
             self.total_bases = int(self.total_bases)
+
+        if self.eukaryotic_evaluation is not None and not isinstance(self.eukaryotic_evaluation, EukEval):
+            self.eukaryotic_evaluation = EukEval(**as_dict(self.eukaryotic_evaluation))
 
         super().__post_init__(**kwargs)
 
@@ -4542,12 +4585,14 @@ class LibraryPreparation(MaterialProcessing):
     type: Union[str, URIorCURIE] = None
     has_input: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
     has_output: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
+    is_stranded: Optional[Union[bool, Bool]] = None
     library_preparation_kit: Optional[str] = None
     library_type: Optional[Union[str, "LibraryTypeEnum"]] = None
-    pcr_cycles: Optional[int] = None
     nucl_acid_amp: Optional[Union[dict, TextValue]] = None
     pcr_cond: Optional[Union[dict, TextValue]] = None
+    pcr_cycles: Optional[int] = None
     pcr_primers: Optional[Union[dict, TextValue]] = None
+    stranded_orientation: Optional[Union[str, "StrandedOrientationEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -4567,14 +4612,14 @@ class LibraryPreparation(MaterialProcessing):
             self.has_output = [self.has_output] if self.has_output is not None else []
         self.has_output = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.has_output]
 
+        if self.is_stranded is not None and not isinstance(self.is_stranded, Bool):
+            self.is_stranded = Bool(self.is_stranded)
+
         if self.library_preparation_kit is not None and not isinstance(self.library_preparation_kit, str):
             self.library_preparation_kit = str(self.library_preparation_kit)
 
         if self.library_type is not None and not isinstance(self.library_type, LibraryTypeEnum):
             self.library_type = LibraryTypeEnum(self.library_type)
-
-        if self.pcr_cycles is not None and not isinstance(self.pcr_cycles, int):
-            self.pcr_cycles = int(self.pcr_cycles)
 
         if self.nucl_acid_amp is not None and not isinstance(self.nucl_acid_amp, TextValue):
             self.nucl_acid_amp = TextValue(**as_dict(self.nucl_acid_amp))
@@ -4582,8 +4627,14 @@ class LibraryPreparation(MaterialProcessing):
         if self.pcr_cond is not None and not isinstance(self.pcr_cond, TextValue):
             self.pcr_cond = TextValue(**as_dict(self.pcr_cond))
 
+        if self.pcr_cycles is not None and not isinstance(self.pcr_cycles, int):
+            self.pcr_cycles = int(self.pcr_cycles)
+
         if self.pcr_primers is not None and not isinstance(self.pcr_primers, TextValue):
             self.pcr_primers = TextValue(**as_dict(self.pcr_primers))
+
+        if self.stranded_orientation is not None and not isinstance(self.stranded_orientation, StrandedOrientationEnum):
+            self.stranded_orientation = StrandedOrientationEnum(self.stranded_orientation)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.type):
@@ -5497,7 +5548,6 @@ class DataGeneration(PlannedProcess):
     add_date: Optional[str] = None
     instrument_used: Optional[Union[Union[str, InstrumentId], List[Union[str, InstrumentId]]]] = empty_list()
     mod_date: Optional[str] = None
-    part_of: Optional[Union[Union[str, DataGenerationId], List[Union[str, DataGenerationId]]]] = empty_list()
     principal_investigator: Optional[Union[dict, PersonValue]] = None
     has_output: Optional[Union[Union[str, DataObjectId], List[Union[str, DataObjectId]]]] = empty_list()
 
@@ -5528,10 +5578,6 @@ class DataGeneration(PlannedProcess):
 
         if self.mod_date is not None and not isinstance(self.mod_date, str):
             self.mod_date = str(self.mod_date)
-
-        if not isinstance(self.part_of, list):
-            self.part_of = [self.part_of] if self.part_of is not None else []
-        self.part_of = [v if isinstance(v, DataGenerationId) else DataGenerationId(v) for v in self.part_of]
 
         if self.principal_investigator is not None and not isinstance(self.principal_investigator, PersonValue):
             self.principal_investigator = PersonValue(**as_dict(self.principal_investigator))
@@ -6059,18 +6105,18 @@ class MetatranscriptomeAnnotation(WorkflowExecution):
 
 
 @dataclass
-class MetatranscriptomeAnalysis(WorkflowExecution):
+class MetatranscriptomeExpressionAnalysis(WorkflowExecution):
     """
-    A metatranscriptome activity that e.g. pools assembly and annotation activity.
+    A workflow process that provides expression values and read counts for gene features predicted on the contigs.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NMDC["MetatranscriptomeAnalysis"]
-    class_class_curie: ClassVar[str] = "nmdc:MetatranscriptomeAnalysis"
-    class_name: ClassVar[str] = "MetatranscriptomeAnalysis"
-    class_model_uri: ClassVar[URIRef] = NMDC.MetatranscriptomeAnalysis
+    class_class_uri: ClassVar[URIRef] = NMDC["MetatranscriptomeExpressionAnalysis"]
+    class_class_curie: ClassVar[str] = "nmdc:MetatranscriptomeExpressionAnalysis"
+    class_name: ClassVar[str] = "MetatranscriptomeExpressionAnalysis"
+    class_model_uri: ClassVar[URIRef] = NMDC.MetatranscriptomeExpressionAnalysis
 
-    id: Union[str, MetatranscriptomeAnalysisId] = None
+    id: Union[str, MetatranscriptomeExpressionAnalysisId] = None
     type: Union[str, URIorCURIE] = None
     execution_resource: Union[str, "ExecutionResourceEnum"] = None
     git_url: str = None
@@ -6082,8 +6128,8 @@ class MetatranscriptomeAnalysis(WorkflowExecution):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, MetatranscriptomeAnalysisId):
-            self.id = MetatranscriptomeAnalysisId(self.id)
+        if not isinstance(self.id, MetatranscriptomeExpressionAnalysisId):
+            self.id = MetatranscriptomeExpressionAnalysisId(self.id)
 
         if not isinstance(self.img_identifiers, list):
             self.img_identifiers = [self.img_identifiers] if self.img_identifiers is not None else []
@@ -6457,6 +6503,26 @@ class MetagenomeAnnotation(WorkflowExecution):
 
 
 # Enumerations
+class StrandedOrientationEnum(EnumDefinitionImpl):
+    """
+    This enumeration specifies information about stranded RNA library preparations.
+    """
+    _defn = EnumDefinition(
+        name="StrandedOrientationEnum",
+        description="This enumeration specifies information about stranded RNA library preparations.",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "antisense orientation",
+            PermissibleValue(
+                text="antisense orientation",
+                description="Orientation that is complementary (non-coding) to a sequence of messenger RNA."))
+        setattr(cls, "sense orientation",
+            PermissibleValue(
+                text="sense orientation",
+                description="Orientation that corresponds to the coding sequence of messenger RNA."))
+
 class MassSpectrometryAcquisitionStrategyEnum(EnumDefinitionImpl):
 
     data_independent_acquisition = PermissibleValue(
@@ -6884,6 +6950,7 @@ class InstrumentModelEnum(EnumDefinitionImpl):
     novaseq_6000 = PermissibleValue(
         text="novaseq_6000",
         meaning=OBI["0002630"])
+    novaseq_x = PermissibleValue(text="novaseq_x")
     hiseq = PermissibleValue(text="hiseq")
     hiseq_1000 = PermissibleValue(
         text="hiseq_1000",
@@ -6909,12 +6976,13 @@ class InstrumentModelEnum(EnumDefinitionImpl):
     miniseq = PermissibleValue(
         text="miniseq",
         meaning=OBI["0003114"])
-    nextseq_1000 = PermissibleValue(
-        text="nextseq_1000",
-        meaning=OBI["0003606"])
     miseq = PermissibleValue(
         text="miseq",
         meaning=OBI["0002003"])
+    nextseq_1000 = PermissibleValue(
+        text="nextseq_1000",
+        meaning=OBI["0003606"])
+    nextseq = PermissibleValue(text="nextseq")
     nextseq_500 = PermissibleValue(
         text="nextseq_500",
         meaning=OBI["0002021"])
@@ -7004,6 +7072,9 @@ class FailureWhereEnum(EnumDefinitionImpl):
     NucleotideSequencing = PermissibleValue(
         text="NucleotideSequencing",
         description="A failure has occurred during nucleotide sequencing, a data generation process.")
+    MassSpectrometry = PermissibleValue(
+        text="MassSpectrometry",
+        description="A failure has occurred during mass spectrometry, a data generation process.")
     Pooling = PermissibleValue(
         text="Pooling",
         description="A failure has occurred in pooling, a lab process.")
@@ -7016,9 +7087,9 @@ class FailureWhereEnum(EnumDefinitionImpl):
     MetagenomeAssembly = PermissibleValue(
         text="MetagenomeAssembly",
         description="A failure has occurred in metagenome assembly, a workflow process.")
-    MetatranscriptomeAnalysis = PermissibleValue(
-        text="MetatranscriptomeAnalysis",
-        description="A failure has occurred in metatranscriptome analysis, a workflow process.")
+    MetatranscriptomeExpressionAnalysis = PermissibleValue(
+        text="MetatranscriptomeExpressionAnalysis",
+        description="A failure has occurred in metatranscriptome expression analysis, a workflow process.")
     MagsAnalysis = PermissibleValue(
         text="MagsAnalysis",
         description="""A failure has occurred in binning, a workflow process to generate metagenome-assembled genomes (MAGS).""")
@@ -7031,6 +7102,21 @@ class FailureWhereEnum(EnumDefinitionImpl):
     MetagenomeAnnotation = PermissibleValue(
         text="MetagenomeAnnotation",
         description="A failure has occurred in annotation, a workflow process.")
+    MetatranscriptomeAssembly = PermissibleValue(
+        text="MetatranscriptomeAssembly",
+        description="A failure has occurred in assembly, a workflow process.")
+    MetatranscriptomeAnnotation = PermissibleValue(
+        text="MetatranscriptomeAnnotation",
+        description="A failure has occurred in annotation, a workflow process.")
+    MetabolomicsAnalysis = PermissibleValue(
+        text="MetabolomicsAnalysis",
+        description="A failure has occurred in analyzing metabolomics data.")
+    MetaproteomicsAnalysis = PermissibleValue(
+        text="MetaproteomicsAnalysis",
+        description="A failure has occurred in analyzing metaproteomics data.")
+    NomAnalysis = PermissibleValue(
+        text="NomAnalysis",
+        description="A failure has occurred in analyzing NOM data.")
 
     _defn = EnumDefinition(
         name="FailureWhereEnum",
@@ -7389,6 +7475,26 @@ class FileTypeEnum(EnumDefinitionImpl):
             PermissibleValue(
                 text="Workflow Operation Summary",
                 description="""A human readable record of analysis steps applied during an instance of a workflow operation."""))
+        setattr(cls, "Metatranscriptome Expression",
+            PermissibleValue(
+                text="Metatranscriptome Expression",
+                description="""Metatranscriptome expression values and read counts for gene features predicted on contigs"""))
+        setattr(cls, "Metatranscriptome Expression Intergenic",
+            PermissibleValue(
+                text="Metatranscriptome Expression Intergenic",
+                description="Metatranscriptome expression values and read counts for intergenic regions."))
+        setattr(cls, "Metatranscriptome Expression Info File",
+            PermissibleValue(
+                text="Metatranscriptome Expression Info File",
+                description="File containing version information on the expression workflow"))
+        setattr(cls, "rRNA Filtered Sequencing Reads",
+            PermissibleValue(
+                text="rRNA Filtered Sequencing Reads",
+                description="File containing ribosomal reads from the read qc filtering step."))
+        setattr(cls, "BAI File",
+            PermissibleValue(
+                text="BAI File",
+                description="""An index file found in the same directory as the binary alignment map (BAM) file, a compressed binary version of a sequence alignment/map (SAM) file."""))
 
 class DoiProviderEnum(EnumDefinitionImpl):
 
@@ -9582,6 +9688,19 @@ slots.polarity_mode = Slot(uri=NMDC.polarity_mode, name="polarity_mode", curie=N
 slots.mass_spectrum_collection_modes = Slot(uri=NMDC.mass_spectrum_collection_modes, name="mass_spectrum_collection_modes", curie=NMDC.curie('mass_spectrum_collection_modes'),
                    model_uri=NMDC.mass_spectrum_collection_modes, domain=None, range=Optional[Union[Union[str, "MassSpectrumCollectionModeEnum"], List[Union[str, "MassSpectrumCollectionModeEnum"]]]])
 
+slots.eukaryotic_evaluation = Slot(uri=NMDC.eukaryotic_evaluation, name="eukaryotic_evaluation", curie=NMDC.curie('eukaryotic_evaluation'),
+                   model_uri=NMDC.eukaryotic_evaluation, domain=None, range=Optional[Union[dict, EukEval]])
+
+slots.ncbi_lineage_tax_ids = Slot(uri=NMDC.ncbi_lineage_tax_ids, name="ncbi_lineage_tax_ids", curie=NMDC.curie('ncbi_lineage_tax_ids'),
+                   model_uri=NMDC.ncbi_lineage_tax_ids, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^\d+(-\d+)*$'))
+
+slots.ncbi_lineage = Slot(uri=NMDC.ncbi_lineage, name="ncbi_lineage", curie=NMDC.curie('ncbi_lineage'),
+                   model_uri=NMDC.ncbi_lineage, domain=None, range=Optional[str])
+
+slots.has_failure_categorization = Slot(uri=NMDC.has_failure_categorization, name="has_failure_categorization", curie=NMDC.curie('has_failure_categorization'),
+                   model_uri=NMDC.has_failure_categorization, domain=None, range=Optional[Union[Union[dict, FailureCategorization], List[Union[dict, FailureCategorization]]]])
+
 slots.ionization_source = Slot(uri=NMDC.ionization_source, name="ionization_source", curie=NMDC.curie('ionization_source'),
                    model_uri=NMDC.ionization_source, domain=None, range=Optional[Union[str, "IonizationSourceEnum"]])
 
@@ -9629,6 +9748,12 @@ slots.library_preparation_kit = Slot(uri=NMDC.library_preparation_kit, name="lib
 
 slots.pcr_cycles = Slot(uri=NMDC.pcr_cycles, name="pcr_cycles", curie=NMDC.curie('pcr_cycles'),
                    model_uri=NMDC.pcr_cycles, domain=None, range=Optional[int])
+
+slots.is_stranded = Slot(uri=NMDC.is_stranded, name="is_stranded", curie=NMDC.curie('is_stranded'),
+                   model_uri=NMDC.is_stranded, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.stranded_orientation = Slot(uri=NMDC.stranded_orientation, name="stranded_orientation", curie=NMDC.curie('stranded_orientation'),
+                   model_uri=NMDC.stranded_orientation, domain=None, range=Optional[Union[str, "StrandedOrientationEnum"]])
 
 slots.input_mass = Slot(uri=NMDC.input_mass, name="input_mass", curie=NMDC.curie('input_mass'),
                    model_uri=NMDC.input_mass, domain=None, range=Optional[Union[dict, QuantityValue]])
@@ -10367,9 +10492,6 @@ slots.model = Slot(uri=NMDC['basic_classes/model'], name="model", curie=NMDC.cur
 
 slots.vendor = Slot(uri=NMDC['basic_classes/vendor'], name="vendor", curie=NMDC.curie('basic_classes/vendor'),
                    model_uri=NMDC.vendor, domain=None, range=Optional[Union[str, "InstrumentVendorEnum"]])
-
-slots.has_failure_categorization = Slot(uri=NMDC['basic_classes/has_failure_categorization'], name="has_failure_categorization", curie=NMDC.curie('basic_classes/has_failure_categorization'),
-                   model_uri=NMDC.has_failure_categorization, domain=None, range=Optional[Union[Union[dict, FailureCategorization], List[Union[dict, FailureCategorization]]]])
 
 slots.qc_failure_where = Slot(uri=NMDC['basic_classes/qc_failure_where'], name="qc_failure_where", curie=NMDC.curie('basic_classes/qc_failure_where'),
                    model_uri=NMDC.qc_failure_where, domain=None, range=Optional[Union[str, "FailureWhereEnum"]])
@@ -12432,16 +12554,16 @@ slots.MetatranscriptomeAnnotation_gold_analysis_project_identifiers = Slot(uri=N
                    model_uri=NMDC.MetatranscriptomeAnnotation_gold_analysis_project_identifiers, domain=MetatranscriptomeAnnotation, range=Optional[Union[Union[str, ExternalIdentifier], List[Union[str, ExternalIdentifier]]]],
                    pattern=re.compile(r'^gold:Ga[0-9]+$'))
 
-slots.MetatranscriptomeAnalysis_id = Slot(uri=NMDC.id, name="MetatranscriptomeAnalysis_id", curie=NMDC.curie('id'),
-                   model_uri=NMDC.MetatranscriptomeAnalysis_id, domain=MetatranscriptomeAnalysis, range=Union[str, MetatranscriptomeAnalysisId],
+slots.MetatranscriptomeExpressionAnalysis_id = Slot(uri=NMDC.id, name="MetatranscriptomeExpressionAnalysis_id", curie=NMDC.curie('id'),
+                   model_uri=NMDC.MetatranscriptomeExpressionAnalysis_id, domain=MetatranscriptomeExpressionAnalysis, range=Union[str, MetatranscriptomeExpressionAnalysisId],
                    pattern=re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9_\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\-\/\.,]*$'))
 
-slots.MetatranscriptomeAnalysis_img_identifiers = Slot(uri=NMDC.img_identifiers, name="MetatranscriptomeAnalysis_img_identifiers", curie=NMDC.curie('img_identifiers'),
-                   model_uri=NMDC.MetatranscriptomeAnalysis_img_identifiers, domain=MetatranscriptomeAnalysis, range=Optional[Union[Union[str, ExternalIdentifier], List[Union[str, ExternalIdentifier]]]],
+slots.MetatranscriptomeExpressionAnalysis_img_identifiers = Slot(uri=NMDC.img_identifiers, name="MetatranscriptomeExpressionAnalysis_img_identifiers", curie=NMDC.curie('img_identifiers'),
+                   model_uri=NMDC.MetatranscriptomeExpressionAnalysis_img_identifiers, domain=MetatranscriptomeExpressionAnalysis, range=Optional[Union[Union[str, ExternalIdentifier], List[Union[str, ExternalIdentifier]]]],
                    pattern=re.compile(r'^img\.taxon:[a-zA-Z0-9_][a-zA-Z0-9_\/\.]*$'))
 
-slots.MetatranscriptomeAnalysis_was_informed_by = Slot(uri=NMDC['basic_classes/was_informed_by'], name="MetatranscriptomeAnalysis_was_informed_by", curie=NMDC.curie('basic_classes/was_informed_by'),
-                   model_uri=NMDC.MetatranscriptomeAnalysis_was_informed_by, domain=MetatranscriptomeAnalysis, range=Optional[Union[str, DataGenerationId]], mappings = [PROV["wasInformedBy"]])
+slots.MetatranscriptomeExpressionAnalysis_was_informed_by = Slot(uri=NMDC['basic_classes/was_informed_by'], name="MetatranscriptomeExpressionAnalysis_was_informed_by", curie=NMDC.curie('basic_classes/was_informed_by'),
+                   model_uri=NMDC.MetatranscriptomeExpressionAnalysis_was_informed_by, domain=MetatranscriptomeExpressionAnalysis, range=Optional[Union[str, DataGenerationId]], mappings = [PROV["wasInformedBy"]])
 
 slots.MagsAnalysis_id = Slot(uri=NMDC.id, name="MagsAnalysis_id", curie=NMDC.curie('id'),
                    model_uri=NMDC.MagsAnalysis_id, domain=MagsAnalysis, range=Union[str, MagsAnalysisId],
@@ -12769,9 +12891,6 @@ slots.DataGeneration_associated_studies = Slot(uri=NMDC['basic_classes/associate
 
 slots.DataGeneration_has_output = Slot(uri=NMDC['basic_classes/has_output'], name="DataGeneration_has_output", curie=NMDC.curie('basic_classes/has_output'),
                    model_uri=NMDC.DataGeneration_has_output, domain=DataGeneration, range=Optional[Union[Union[str, DataObjectId], List[Union[str, DataObjectId]]]])
-
-slots.DataGeneration_part_of = Slot(uri=DCTERMS.isPartOf, name="DataGeneration_part_of", curie=DCTERMS.curie('isPartOf'),
-                   model_uri=NMDC.DataGeneration_part_of, domain=DataGeneration, range=Optional[Union[Union[str, DataGenerationId], List[Union[str, DataGenerationId]]]])
 
 slots.WorkflowExecution_started_at_time = Slot(uri=NMDC.started_at_time, name="WorkflowExecution_started_at_time", curie=NMDC.curie('started_at_time'),
                    model_uri=NMDC.WorkflowExecution_started_at_time, domain=WorkflowExecution, range=str, mappings = [PROV["startedAtTime"]],

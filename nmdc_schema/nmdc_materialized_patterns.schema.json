@@ -3382,7 +3382,7 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):(chrocon)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                    "pattern": "^(nmdc):chrcon-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
                     "type": "string"
                 },
                 "name": {
@@ -3847,7 +3847,7 @@
                     "type": "array"
                 },
                 "data_generation_set": {
-                    "description": "This property links a database object to the set of omics processings within it.",
+                    "description": "This property links a database object to the set of data generations within it.",
                     "items": {
                         "anyOf": [
                             {
@@ -3980,7 +3980,7 @@
                                 "$ref": "#/$defs/MetatranscriptomeAnnotation"
                             },
                             {
-                                "$ref": "#/$defs/MetatranscriptomeAnalysis"
+                                "$ref": "#/$defs/MetatranscriptomeExpressionAnalysis"
                             },
                             {
                                 "$ref": "#/$defs/MagsAnalysis"
@@ -4435,6 +4435,39 @@
             "title": "EnvironmentalMaterialTerm",
             "type": "object"
         },
+        "EukEval": {
+            "additionalProperties": false,
+            "description": "This class contains information pertaining to evaluating if a Metagenome-Assembled Genome (MAG) is eukaryotic.",
+            "properties": {
+                "completeness": {
+                    "type": "number"
+                },
+                "contamination": {
+                    "type": "number"
+                },
+                "ncbi_lineage": {
+                    "description": "Comma delimited ordered list of NCBI taxonomy names.",
+                    "type": "string"
+                },
+                "ncbi_lineage_tax_ids": {
+                    "description": "Dash-delimited ordered list of NCBI taxonomy identifiers (TaxId)",
+                    "pattern": "^\\d+(-\\d+)*$",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "the class_uri of the class that has been instantiated",
+                    "enum": [
+                        "nmdc:EukEval"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "EukEval",
+            "type": "object"
+        },
         "ExecutionResourceEnum": {
             "description": "",
             "enum": [
@@ -4656,15 +4689,21 @@
             "description": "The permitted values for describing where in the process, either a lab or analysis workflow step, the failure occurred.",
             "enum": [
                 "NucleotideSequencing",
+                "MassSpectrometry",
                 "Pooling",
                 "Extraction",
                 "LibraryPreparation",
                 "MetagenomeAssembly",
-                "MetatranscriptomeAnalysis",
+                "MetatranscriptomeExpressionAnalysis",
                 "MagsAnalysis",
                 "ReadQcAnalysis",
                 "ReadBasedTaxonomyAnalysis",
-                "MetagenomeAnnotation"
+                "MetagenomeAnnotation",
+                "MetatranscriptomeAssembly",
+                "MetatranscriptomeAnnotation",
+                "MetabolomicsAnalysis",
+                "MetaproteomicsAnalysis",
+                "NomAnalysis"
             ],
             "title": "FailureWhereEnum",
             "type": "string"
@@ -4857,7 +4896,12 @@
                 "LC-MS Lipidomics Results",
                 "Contaminants Amino Acid FASTA",
                 "Analysis Tool Parameter File",
-                "Workflow Operation Summary"
+                "Workflow Operation Summary",
+                "Metatranscriptome Expression",
+                "Metatranscriptome Expression Intergenic",
+                "Metatranscriptome Expression Info File",
+                "rRNA Filtered Sequencing Reads",
+                "BAI File"
             ],
             "title": "FileTypeEnum",
             "type": "string"
@@ -5136,8 +5180,8 @@
                     "type": "string"
                 },
                 "metagenome_annotation_id": {
-                    "description": "The identifier for the analysis activity (WorkflowExecutionActivity) that generated the functional annotation results.",
-                    "pattern": "^(nmdc):wfmgan-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[0-9]{1,})(_[A-Za-z0-9_\\.-]+)?$$",
+                    "description": "The identifier for the analysis activity that generated the functional annotation results, where the analysis activity is an instance of the/an appropriate subclass of WorkflowExecution",
+                    "pattern": "^(nmdc):(wfmgan|wfmtan)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[0-9]{1,})$",
                     "type": "string"
                 },
                 "type": {
@@ -5545,6 +5589,7 @@
                 "vortex_genie_2",
                 "novaseq",
                 "novaseq_6000",
+                "novaseq_x",
                 "hiseq",
                 "hiseq_1000",
                 "hiseq_1500",
@@ -5554,8 +5599,9 @@
                 "hiseq_4000",
                 "hiseq_x_ten",
                 "miniseq",
-                "nextseq_1000",
                 "miseq",
+                "nextseq_1000",
+                "nextseq",
                 "nextseq_500",
                 "nextseq_550",
                 "gridion",
@@ -5675,6 +5721,10 @@
                     },
                     "type": "array"
                 },
+                "is_stranded": {
+                    "description": "Is the (RNA) library stranded or non-stranded (unstranded).",
+                    "type": "boolean"
+                },
                 "library_preparation_kit": {
                     "type": "string"
                 },
@@ -5718,6 +5768,10 @@
                 "start_date": {
                     "description": "The date on which any process or activity was started",
                     "type": "string"
+                },
+                "stranded_orientation": {
+                    "$ref": "#/$defs/StrandedOrientationEnum",
+                    "description": "Lists the strand orientiation for a stranded RNA library preparation."
                 },
                 "type": {
                     "description": "the class_uri of the class that has been instantiated",
@@ -5792,6 +5846,10 @@
                 },
                 "contamination": {
                     "type": "number"
+                },
+                "eukaryotic_evaluation": {
+                    "$ref": "#/$defs/EukEval",
+                    "description": "Contains results from evaluating if a Metagenome-Assembled Genome is of eukaryotic lineage."
                 },
                 "gene_count": {
                     "type": "integer"
@@ -6145,7 +6203,7 @@
                 },
                 "has_chromatography_configuration": {
                     "description": "The identifier of the associated ChromatographyConfiguration, providing information about how a sample was introduced into the mass spectrometer.",
-                    "pattern": "^(nmdc):chrocon-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                    "pattern": "^(nmdc):chrcon-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
                     "type": "string"
                 },
                 "has_failure_categorization": {
@@ -6202,14 +6260,6 @@
                 "name": {
                     "description": "A human readable label for an entity",
                     "type": "string"
-                },
-                "part_of": {
-                    "description": "Links a resource to another resource that either logically or physically includes it.",
-                    "items": {
-                        "pattern": "^(nmdc):(omprc|dgms|dgns)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
-                        "type": "string"
-                    },
-                    "type": "array"
                 },
                 "principal_investigator": {
                     "$ref": "#/$defs/PersonValue",
@@ -6280,7 +6330,7 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):(mscon)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                    "pattern": "^(nmdc):mscon-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
                     "type": "string"
                 },
                 "ionization_source": {
@@ -7324,170 +7374,6 @@
             "title": "MetaproteomicsAnalysis",
             "type": "object"
         },
-        "MetatranscriptomeAnalysis": {
-            "additionalProperties": false,
-            "allOf": [
-                {
-                    "if": {
-                        "properties": {
-                            "qc_status": {
-                                "const": "pass"
-                            }
-                        },
-                        "required": [
-                            "qc_status"
-                        ]
-                    },
-                    "then": {
-                        "properties": {
-                            "has_output": {}
-                        },
-                        "required": [
-                            "has_output"
-                        ]
-                    }
-                },
-                {
-                    "if": {
-                        "not": {
-                            "required": [
-                                "qc_status"
-                            ]
-                        },
-                        "properties": {
-                            "qc_status": {}
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "has_output": {}
-                        },
-                        "required": [
-                            "has_output"
-                        ]
-                    }
-                }
-            ],
-            "description": "A metatranscriptome activity that e.g. pools assembly and annotation activity.",
-            "properties": {
-                "alternative_identifiers": {
-                    "description": "A list of alternative identifiers for the entity.",
-                    "items": {
-                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "description": {
-                    "description": "a human-readable description of a thing",
-                    "type": "string"
-                },
-                "end_date": {
-                    "description": "The date on which any process or activity was ended",
-                    "type": "string"
-                },
-                "ended_at_time": {
-                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                    "type": "string"
-                },
-                "execution_resource": {
-                    "$ref": "#/$defs/ExecutionResourceEnum",
-                    "description": "The computing resource or facility where the workflow was executed."
-                },
-                "git_url": {
-                    "description": "The url that points to the exact github location of a workflow.",
-                    "type": "string"
-                },
-                "has_failure_categorization": {
-                    "items": {
-                        "$ref": "#/$defs/FailureCategorization"
-                    },
-                    "type": "array"
-                },
-                "has_input": {
-                    "description": "An input to a process.",
-                    "items": {
-                        "pattern": "^(nmdc):(dobj)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "has_output": {
-                    "description": "An output from a process.",
-                    "items": {
-                        "pattern": "^(nmdc):(dobj)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):wfmt-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[0-9]{1,})$",
-                    "type": "string"
-                },
-                "img_identifiers": {
-                    "description": "A list of identifiers that relate the biosample to records in the IMG database.",
-                    "items": {
-                        "pattern": "^img\\.taxon:[a-zA-Z0-9_][a-zA-Z0-9_\\/\\.]*$",
-                        "type": "string"
-                    },
-                    "maxItems": 1,
-                    "type": "array"
-                },
-                "name": {
-                    "description": "A human readable label for an entity",
-                    "type": "string"
-                },
-                "processing_institution": {
-                    "$ref": "#/$defs/ProcessingInstitutionEnum",
-                    "description": "The organization that processed the sample."
-                },
-                "protocol_link": {
-                    "$ref": "#/$defs/Protocol"
-                },
-                "qc_comment": {
-                    "description": "Slot to store additional comments about laboratory or workflow output. For workflow output it may describe the particular workflow stage that failed. (ie Failed at call-stage due to a malformed fastq file).",
-                    "type": "string"
-                },
-                "qc_status": {
-                    "$ref": "#/$defs/StatusEnum",
-                    "description": "Stores information about the result of a process (ie the process of sequencing a library may have for qc_status of 'fail' if not enough data was generated)"
-                },
-                "start_date": {
-                    "description": "The date on which any process or activity was started",
-                    "type": "string"
-                },
-                "started_at_time": {
-                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-                    "type": "string"
-                },
-                "type": {
-                    "description": "the class_uri of the class that has been instantiated",
-                    "enum": [
-                        "nmdc:MetatranscriptomeAnalysis"
-                    ],
-                    "type": "string"
-                },
-                "version": {
-                    "type": "string"
-                },
-                "was_informed_by": {
-                    "pattern": "^(nmdc):(omprc|dgns)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "execution_resource",
-                "git_url",
-                "started_at_time",
-                "was_informed_by",
-                "has_input",
-                "id",
-                "type"
-            ],
-            "title": "MetatranscriptomeAnalysis",
-            "type": "object"
-        },
         "MetatranscriptomeAnnotation": {
             "additionalProperties": false,
             "allOf": [
@@ -7927,6 +7813,170 @@
             "title": "MetatranscriptomeAssembly",
             "type": "object"
         },
+        "MetatranscriptomeExpressionAnalysis": {
+            "additionalProperties": false,
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "qc_status": {
+                                "const": "pass"
+                            }
+                        },
+                        "required": [
+                            "qc_status"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "has_output": {}
+                        },
+                        "required": [
+                            "has_output"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "not": {
+                            "required": [
+                                "qc_status"
+                            ]
+                        },
+                        "properties": {
+                            "qc_status": {}
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "has_output": {}
+                        },
+                        "required": [
+                            "has_output"
+                        ]
+                    }
+                }
+            ],
+            "description": "A workflow process that provides expression values and read counts for gene features predicted on the contigs.",
+            "properties": {
+                "alternative_identifiers": {
+                    "description": "A list of alternative identifiers for the entity.",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\.]+:[a-zA-Z0-9_][a-zA-Z0-9_\\-\\/\\.,]*$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "a human-readable description of a thing",
+                    "type": "string"
+                },
+                "end_date": {
+                    "description": "The date on which any process or activity was ended",
+                    "type": "string"
+                },
+                "ended_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "execution_resource": {
+                    "$ref": "#/$defs/ExecutionResourceEnum",
+                    "description": "The computing resource or facility where the workflow was executed."
+                },
+                "git_url": {
+                    "description": "The url that points to the exact github location of a workflow.",
+                    "type": "string"
+                },
+                "has_failure_categorization": {
+                    "items": {
+                        "$ref": "#/$defs/FailureCategorization"
+                    },
+                    "type": "array"
+                },
+                "has_input": {
+                    "description": "An input to a process.",
+                    "items": {
+                        "pattern": "^(nmdc):(dobj)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_output": {
+                    "description": "An output from a process.",
+                    "items": {
+                        "pattern": "^(nmdc):(dobj)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "pattern": "^(nmdc):wfmtex-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})(\\.[0-9]{1,})$",
+                    "type": "string"
+                },
+                "img_identifiers": {
+                    "description": "A list of identifiers that relate the biosample to records in the IMG database.",
+                    "items": {
+                        "pattern": "^img\\.taxon:[a-zA-Z0-9_][a-zA-Z0-9_\\/\\.]*$",
+                        "type": "string"
+                    },
+                    "maxItems": 1,
+                    "type": "array"
+                },
+                "name": {
+                    "description": "A human readable label for an entity",
+                    "type": "string"
+                },
+                "processing_institution": {
+                    "$ref": "#/$defs/ProcessingInstitutionEnum",
+                    "description": "The organization that processed the sample."
+                },
+                "protocol_link": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "qc_comment": {
+                    "description": "Slot to store additional comments about laboratory or workflow output. For workflow output it may describe the particular workflow stage that failed. (ie Failed at call-stage due to a malformed fastq file).",
+                    "type": "string"
+                },
+                "qc_status": {
+                    "$ref": "#/$defs/StatusEnum",
+                    "description": "Stores information about the result of a process (ie the process of sequencing a library may have for qc_status of 'fail' if not enough data was generated)"
+                },
+                "start_date": {
+                    "description": "The date on which any process or activity was started",
+                    "type": "string"
+                },
+                "started_at_time": {
+                    "pattern": "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "the class_uri of the class that has been instantiated",
+                    "enum": [
+                        "nmdc:MetatranscriptomeExpressionAnalysis"
+                    ],
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "was_informed_by": {
+                    "pattern": "^(nmdc):(omprc|dgns)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "execution_resource",
+                "git_url",
+                "started_at_time",
+                "was_informed_by",
+                "has_input",
+                "id",
+                "type"
+            ],
+            "title": "MetatranscriptomeExpressionAnalysis",
+            "type": "object"
+        },
         "MixingProcess": {
             "additionalProperties": false,
             "description": "The combining of components, particles or layers into a more homogeneous state.",
@@ -8342,14 +8392,6 @@
                 },
                 "ncbi_project_name": {
                     "type": "string"
-                },
-                "part_of": {
-                    "description": "Links a resource to another resource that either logically or physically includes it.",
-                    "items": {
-                        "pattern": "^(nmdc):(omprc|dgms|dgns)-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
-                        "type": "string"
-                    },
-                    "type": "array"
                 },
                 "principal_investigator": {
                     "$ref": "#/$defs/PersonValue",
@@ -9984,7 +10026,7 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
-                    "pattern": "^(nmdc):storpro-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
+                    "pattern": "^(nmdc):storpr-([0-9][a-z]{0,6}[0-9])-([A-Za-z0-9]{1,})$",
                     "type": "string"
                 },
                 "name": {
@@ -10035,6 +10077,15 @@
             ],
             "title": "StorageProcess",
             "type": "object"
+        },
+        "StrandedOrientationEnum": {
+            "description": "This enumeration specifies information about stranded RNA library preparations.",
+            "enum": [
+                "antisense orientation",
+                "sense orientation"
+            ],
+            "title": "StrandedOrientationEnum",
+            "type": "string"
         },
         "Study": {
             "additionalProperties": false,
@@ -10811,7 +10862,7 @@
             "type": "array"
         },
         "data_generation_set": {
-            "description": "This property links a database object to the set of omics processings within it.",
+            "description": "This property links a database object to the set of data generations within it.",
             "items": {
                 "anyOf": [
                     {
@@ -10944,7 +10995,7 @@
                         "$ref": "#/$defs/MetatranscriptomeAnnotation"
                     },
                     {
-                        "$ref": "#/$defs/MetatranscriptomeAnalysis"
+                        "$ref": "#/$defs/MetatranscriptomeExpressionAnalysis"
                     },
                     {
                         "$ref": "#/$defs/MagsAnalysis"

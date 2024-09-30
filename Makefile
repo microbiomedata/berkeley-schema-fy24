@@ -28,7 +28,7 @@ TEMPLATEDIR = doc-templates
 help: status
 	@echo ""
 	@echo "This project requires that dependencies are loaded into a poetry environment with 'poetry install'"
-	@echo "Most typical usage: 'make squeaky-clean all test'" # I removed the `enchilada` convenience target
+	@echo "Most typical usage: 'make squeaky-clean all test'"
 	@echo "Documentation publication is handled by a GitHub merge action"
 	@echo "  but users can generate a local documentation site with 'make testdoc'"
 	@echo "Please excuse the currently verbose logging mode"
@@ -86,11 +86,10 @@ create-data-harmonizer:
 
 # Note: `all` is an alias for `site`.
 all: site
-
-# TODO: Document this make target.
-site: clean site-clean gen-project gendoc nmdc_schema/gold-to-mixs.sssom.tsv accepting-legacy-ids-all
-
-# may change files in nmdc_schema/ or project/. uncommitted changes are not tolerated by mkd-gh-deploy
+site: clean site-clean gen-project gendoc \
+nmdc_schema/gold-to-mixs.sssom.tsv \
+nmdc_schema/nmdc_materialized_patterns.schema.json nmdc_schema/nmdc_materialized_patterns.yaml \
+migration-doctests
 
 %.yaml: gen-project
 
@@ -98,7 +97,6 @@ site: clean site-clean gen-project gendoc nmdc_schema/gold-to-mixs.sssom.tsv acc
 deploy: gendoc mkd-gh-deploy
 
 gen-project: $(PYMODEL) # depends on src/schema/mixs.yaml # can be nuked with mixs-yaml-clean
-	# keep these in sync between PROJECT_FOLDERS and the includes/excludes for gen-project and test-schema
 	$(RUN) gen-project \
 		--exclude excel \
 		--exclude graphql \
@@ -113,6 +111,7 @@ gen-project: $(PYMODEL) # depends on src/schema/mixs.yaml # can be nuked with mi
 		--include owl \
 		--include python \
 		--include rdf \
+		--config-file gen-project-config.yaml \
 		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 		cp project/jsonschema/nmdc.schema.json  $(PYMODEL)
 	# note this is a separate target b/c  gen-project, used without a config file, doesn't have an easy way to specify the name
@@ -121,12 +120,10 @@ gen-project: $(PYMODEL) # depends on src/schema/mixs.yaml # can be nuked with mi
 	$(RUN) gen-prefix-map -o  $(DOCDIR)/nmdc-prefix-map.json $(SOURCE_SCHEMA_PATH)
 
 
-# TODO: Document these make targets.
-test: examples-clean site accepting-legacy-ids-all test-python migration-doctests examples/output
-only-test: examples-clean accepting-legacy-ids-all test-python migration-doctests examples/output
+test: examples-clean site test-python migration-doctests examples/output
+only-test: examples-clean test-python migration-doctests examples/output
 
 test-schema:
-	# keep these in sync between PROJECT_FOLDERS and the includes/excludes for gen-project and test-schema
 	$(RUN) gen-project \
 		--exclude excel \
 		--exclude graphql \
@@ -180,7 +177,6 @@ MKDOCS = $(RUN) mkdocs
 mkd-%:
 	$(MKDOCS) $*
 
-# keep these in sync between PROJECT_FOLDERS and the includes/excludes for gen-project and test-schema
 PROJECT_FOLDERS = jsonldcontext jsonschema owl python rdf
 git-init-add: git-init git-add git-commit git-status
 git-init:
@@ -239,39 +235,47 @@ site-clean: clean
 	rm -rf nmdc_schema/*.tsv
 	rm -rf nmdc_schema/*.yaml
 
-squeaky-clean: clean accepting-legacy-ids-clean examples-clean rdf-clean shuttle-clean site-clean # does not include mixs-yaml-clean
+
+squeaky-clean: clean examples-clean rdf-clean shuttle-clean site-clean # does not include mixs-yaml-clean
 	mkdir project
+	rm -rf local/biosample_slots_ranges_report.tsv
 
-project/nmdc_schema_merged.yaml:
-	$(RUN) gen-linkml \
-		--format yaml \
-		--no-materialize-attributes \
-		--no-materialize-patterns \
-		--output $@ $(SOURCE_SCHEMA_PATH)
 
-project/nmdc_materialized_patterns.yaml:
+nmdc_schema/nmdc_materialized_patterns.yaml:
 	$(RUN) gen-linkml \
 		--format yaml \
 		--materialize-patterns \
 		--no-materialize-attributes \
 		--output $@ $(SOURCE_SCHEMA_PATH)
 
-project/nmdc_materialized_patterns.schema.json: project/nmdc_materialized_patterns.yaml
+nmdc_schema/nmdc_materialized_patterns.schema.json: nmdc_schema/nmdc_materialized_patterns.yaml
 	$(RUN) gen-json-schema \
 		--closed \
+		--include-range-class-descendants \
 		--top-class Database $< > $@
 
-nmdc_schema/gold-to-mixs.sssom.tsv: sssom/gold-to-mixs.sssom.tsv nmdc_schema/nmdc_materialized_patterns.schema.json \
-nmdc_schema/nmdc_materialized_patterns.yaml nmdc_schema/nmdc_schema_merged.yaml
+# the sssom/ files should be double checked too... they're probably not all SSSSOM files
+nmdc_schema/gold-to-mixs.sssom.tsv: sssom/gold-to-mixs.sssom.tsv
 	# just can't seem to tell pyproject.toml to bundle artifacts like these
 	#   so reverting to copying into the module
 	cp $< $@
 
-nmdc_schema/nmdc_materialized_patterns.schema.json: project/nmdc_materialized_patterns.schema.json
-	cp $< $@
-
-nmdc_schema/nmdc_materialized_patterns.yaml: project/nmdc_materialized_patterns.yaml
-	cp $< $@
 
 nmdc_schema/nmdc_schema_merged.yaml: project/nmdc_schema_merged.yaml
 	cp $< $@
+
+####
+
+.PHONY: check-invalids-for-single-failure
+
+# 		echo "Running command: $$cmd"; \
+
+check-invalids-for-single-failure:
+	for file in src/data/invalid/*.yaml; do \
+		echo "$$file:"; \
+		target_class=$$(basename $$file | cut -d'-' -f1); \
+		cmd="poetry run linkml-validate --schema nmdc_schema/nmdc_materialized_patterns.yaml --target-class $$target_class $$file"; \
+		output=$$($$cmd 2>&1 || true); \
+		echo "$$output" | sort | uniq; \
+	done
+
