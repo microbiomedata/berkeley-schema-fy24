@@ -206,7 +206,7 @@ local/mongo_as_nmdc_database_validation.log: nmdc_schema/nmdc_materialized_patte
 
 local/mongo_as_nmdc_database.ttl: nmdc_schema/nmdc_materialized_patterns.yaml local/mongo_as_nmdc_database_rdf_safe.yaml
 	date # 681.99 seconds on 2023-08-30 without functional_annotation_agg or metaproteomics_analysis_activity_set
-	time $(RUN) linkml-convert --output $@ --schema $^
+	time $(RUN) linkml-convert --output $@ --schema --no-validate $^
 	mv $@ $@.tmp
 	cat  assets/my_emsl_prefix.ttl $@.tmp  > $@
 	rm -rf $@.tmp
