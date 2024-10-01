@@ -130,6 +130,10 @@ make-rdf: rdf-clean \
 #   and can't be validated, migrated or converted to RDF
 
 # --selected-collections workflow_execution_set
+# 		--selected-collections calibration_set \
+#[ERROR] [local/mongo_as_nmdc_database_rdf_safe.yaml/0] 'mass' is not one of ['mass_charge_ratio', 'retention_time', 'retention_index'] in /calibration_set/2/calibration_target
+#[ERROR] [local/mongo_as_nmdc_database_rdf_safe.yaml/0] 'mass' is not one of ['mass_charge_ratio', 'retention_time', 'retention_index'] in /calibration_set/3/calibration_target
+
 
 local/mongo_as_unvalidated_nmdc_database.yaml:
 	date
@@ -138,7 +142,6 @@ local/mongo_as_unvalidated_nmdc_database.yaml:
 		--output-yaml $@ \
 		--schema-source src/schema/nmdc.yaml \
 		--selected-collections biosample_set \
-		--selected-collections calibration_set \
 		--selected-collections chemical_entity_set \
 		--selected-collections collecting_biosamples_from_site_set \
 		--selected-collections configuration_set \
@@ -153,6 +156,7 @@ local/mongo_as_unvalidated_nmdc_database.yaml:
 		--selected-collections protocol_execution_set \
 		--selected-collections storage_process_set \
 		--selected-collections study_set \
+		--selected-collections workflow_execution_set \
 		dump-from-api \
 		--client-base-url "https://api-berkeley.microbiomedata.org" \
 		--endpoint-prefix nmdcschema \
@@ -191,7 +195,7 @@ local/mongo_as_nmdc_database_validation.log: nmdc_schema/nmdc_materialized_patte
 
 local/mongo_as_nmdc_database.ttl: nmdc_schema/nmdc_materialized_patterns.yaml local/mongo_as_nmdc_database_rdf_safe.yaml
 	date # 681.99 seconds on 2023-08-30 without functional_annotation_agg or metaproteomics_analysis_activity_set
-	time $(RUN) linkml-convert --output $@ --schema --no-validate $^
+	time $(RUN) linkml-convert --output $@ --no-validate --schema  $^
 	mv $@ $@.tmp
 	cat  assets/my_emsl_prefix.ttl $@.tmp  > $@
 	rm -rf $@.tmp
