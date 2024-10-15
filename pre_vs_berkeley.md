@@ -263,6 +263,23 @@ replaced with `has_metabolite_identifications` and `metabolite_quantified` has b
 The `part_of` slots has been replaced in many cases with more specific slots. For example, Biosample now has an
 `associated_studies` relationship with `Study`.
 
+The NMDC schema has always imported many slots from the MIxS standard, and has generally associated them with the
+`Biosmaple` class. In schema v11, several of those have been de-associated with Biosample as they are't really attributes of Biosamples
+
+* chimera_check
+* nucl_acid_amp
+* nucl_acid_ext
+* pcr_cond
+* pcr_primers
+* pool_dna_extracts
+* samp_vol_we_dna_ext
+* seq_meth
+* seq_quality_check
+* target_gene
+* target_subfragment
+
+Some, but not all of those slots were re-associated with `Extraction`, `LibraryPreparation` or `NucleotideSequencing`
+
 `has_process_parts` has been added to capture the relationship between a `ProtocolExecution` and the Process instances
 that were carried out with the intention of completing a specified protocol under specified circumstances.
 
@@ -328,4 +345,96 @@ annotation for `AttributeValue`,  `MaterialProcessing` (which essentially replac
 
 ----
 
-id patterns
+Running the whole schema though a tool like deepdiff can be overwhelming, but extracting a single class (or induced
+class?) from two version of the schema and then deep diffing them like this can be enlightening
+
+```make
+pre_schema.yaml:
+	poetry run python -c 'from linkml_runtime.utils.schemaview import SchemaView; \
+	from linkml_runtime.dumpers import yaml_dumper; \
+	schema_url = "https://raw.githubusercontent.com/microbiomedata/nmdc-schema/refs/tags/v10.9.1/src/schema/nmdc.yaml"; \
+	sv = SchemaView(schema_url, merge_imports=True); \
+	yaml_dumper.dump(sv.schema, "pre_schema.yaml")'
+
+berkeley_schema.yaml:
+	poetry run python -c 'from linkml_runtime.utils.schemaview import SchemaView; \
+	from linkml_runtime.dumpers import yaml_dumper; \
+	schema_url = "https://raw.githubusercontent.com/microbiomedata/nmdc-schema/refs/tags/v11.0.1/src/schema/nmdc.yaml"; \
+	sv = SchemaView(schema_url, merge_imports=True); \
+	yaml_dumper.dump(sv.schema, "berkeley_schema.yaml")'
+
+pre_study.yaml: pre_schema.yaml
+	yq '.classes.Study' $< | cat > $@
+
+berkeley_study.yaml: berkeley_schema.yaml
+	yq '.classes.Study' $< | cat > $@
+
+pre_vs_berkeley_study.yaml: pre_study.yaml berkeley_study.yaml
+	poetry run deep diff --ignore-order $^ | yq -P | cat > $@
+```
+
+```yaml
+dictionary_item_added:
+  - root['class_uri']
+  - root['slot_usage']['protocol_link']
+values_changed:
+  root['from_schema']:
+    new_value: https://w3id.org/nmdc/basic_classes
+    old_value: https://w3id.org/nmdc/nmdc
+iterable_item_added:
+  root['slots'][24]: protocol_link
+iterable_item_removed:
+  root['slots'][3]: id
+  root['slots'][4]: alternative_identifiers
+  root['slots'][9]: description
+  root['slots'][26]: relevant_protocols
+  root['slots'][30]: type
+```
+
+This reveals that the `class_uri` and `protocol_link` slots were added as described above. The `from_schema` values
+reveals the fact that v11 splits the elements of the schema into different YAML source files. The large number of files
+was intended to make it easier to debug build errors, but it has been difficult to split the contents into files that
+have a consistent domain or topic.
+
+The diff also shows the removal of the `id`, `alternative_identifiers`, `description`, `relevant_protocols` and `type`
+slots, which might be counter-intuitive, until one considers that all of those slots are inherited from `Study`'s
+parent, `NamedThing` and that schema v11 forbids re-asserting slots that are inherited from a superclass.
+
+Expansions for the following prefixes were added:
+- NCBI _needs better modeling for NCBI taxonomy identifiers_
+- SO
+- jgi.analysis
+- MISO
+
+The following enumerations were removed:
+- CompoundEnum
+- DeviceEnum
+
+`processing_institution_enum` was renamed to `ProcessingInstitutionEnum`
+
+And the following enumerations were added:
+- AnalyteCategoryEnum
+- CalibrationStandardEnum
+- CalibrationTargetEnum
+- ChemicalConversionCategoryEnum
+- ChromatographicCategoryEnum
+- DataCategoryEnum
+- DirectInfusionEnum
+- EluentIntroductionCategoryEnum
+- ExecutionResourceEnum
+- IonizationSourceEnum
+- MassAnalyzerEnum
+- MassSpectrometryAcquisitionStrategyEnum
+- MassSpectrumCollectionModeEnum
+- PolarityModeEnum
+- ProcessingInstitutionEnum
+- ProtocolCategoryEnum
+- ResolutionCategoryEnum
+- SamplePortionEnum
+- SampleStateEnum
+- SubstanceRoleEnum
+
+----
+
+id patterns... to what degree did these change between versions?
+

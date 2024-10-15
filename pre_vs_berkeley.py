@@ -1,6 +1,7 @@
 import pprint
 
 from linkml_runtime import SchemaView
+from linkml_runtime.dumpers import yaml_dumper
 
 from linkml_runtime.linkml_model.meta import ClassDefinition, SlotDefinition
 
@@ -109,3 +110,12 @@ print(f"berkeley_abstract_slots: {len(berkeley_abstract_slots)}")
 
 print(berkeley_abstract_classes)
 print(pre_abstract_classes)
+
+####
+
+
+pre_study = pre_view.get_class("Study")
+yaml_dumper.dump(pre_study, "pre_study.yaml")
+
+berkeley_study = berkeley_view.get_class("Study")
+yaml_dumper.dump(berkeley_study, "berkeley_study.yaml")
