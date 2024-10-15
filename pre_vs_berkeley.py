@@ -2,6 +2,8 @@ import pprint
 
 from linkml_runtime import SchemaView
 
+from linkml_runtime.linkml_model.meta import ClassDefinition, SlotDefinition
+
 # from terminado.management import preexec_fn
 
 pre_path = "https://raw.githubusercontent.com/microbiomedata/nmdc-schema/refs/tags/v10.9.1/src/schema/nmdc.yaml"
@@ -67,3 +69,43 @@ print(f"{len(pre_only)}")
 
 pprint.pprint(berkeley_only)
 print(f"{len(berkeley_only)}")
+
+####
+
+# ChromatographicSeparationProcess, type: <class 'linkml_runtime.linkml_model.meta.ClassDefinition'>
+# OmicsProcessing, type: <class 'linkml_runtime.linkml_model.meta.ClassDefinition'>
+# CreditAssociation, type: <class 'linkml_runtime.linkml_model.meta.ClassDefinition'>
+# total_bases, type: <class 'linkml_runtime.linkml_model.meta.SlotDefinition'>
+# members_id, type: <class 'linkml_runtime.linkml_model.meta.SlotDefinition'>
+# bin_name, type: <class 'linkml_runtime.linkml_model.meta.SlotDefinition'>
+
+pre_abstract = []
+pre_abstract_classes = []
+pre_abstract_slots = []
+pre_elements = pre_view.all_elements()
+for ek, ev in pre_elements.items():
+    if isinstance(ev, ClassDefinition) and ev.abstract:
+        pre_abstract_classes.append(ek)
+    if isinstance(ev, SlotDefinition) and ev.abstract:
+        pre_abstract_slots.append(ek)
+
+print(f"pre_abstract_classes: {len(pre_abstract_classes)}")
+print(f"pre_abstract_slots: {len(pre_abstract_slots)}")
+
+berkeley_abstract = []
+berkeley_abstract_classes = []
+berkeley_abstract_slots = []
+
+berkeley_elements = berkeley_view.all_elements()
+
+for ek, ev in berkeley_elements.items():
+    if isinstance(ev, ClassDefinition) and ev.abstract:
+        berkeley_abstract_classes.append(ek)
+    if isinstance(ev, SlotDefinition) and ev.abstract:
+        berkeley_abstract_slots.append(ek)
+
+print(f"berkeley_abstract_classes: {len(berkeley_abstract_classes)}")
+print(f"berkeley_abstract_slots: {len(berkeley_abstract_slots)}")
+
+print(berkeley_abstract_classes)
+print(pre_abstract_classes)

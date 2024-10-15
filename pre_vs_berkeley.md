@@ -319,9 +319,13 @@ precision in `ChemicalEntity`
 
 ----
 
-168 example data files in pre
-224 in berkeley
+v10 of the schema provided 168 example data files. v11 has increased that to 224, providing better testing coverage of
+the schema via the `run-linkml-example` phase of `make test`
 
-# abstract classes
+v11 is also more thorough in annotating abstract classes, with 11, compared to 7 in v10. That includes a new `abstract`
+annotation for `AttributeValue`,  `MaterialProcessing` (which essentially replaces `BiosampleProcessing`) and
+`DataGeneration` (which essentially replaces `OmicsProcessing`)
+
+----
 
 id patterns
