@@ -10,6 +10,9 @@ but they can be inferred by the absence of any `is_a` assertions on the class. R
 from any superclass. A routine part of schema maintenance is looking for opportunities to group and generalize similar
 root classes.)_
 
+## Table of classes removed, added or refactored in v10 to v11 migration
+
+
 | Removed legacy class                | New/Replacement class from Berkeley schema | Selected legacy parents   |
 |-------------------------------------|--------------------------------------------|---------------------------|
 | Activity                            |                                            |                           |
