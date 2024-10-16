@@ -46,7 +46,7 @@ classes from 19 to 17 due to better organization.
 |                                     | StorageProcess                             |                           |
 |                                     | WorkflowExecution                          |                           |
 
-For example, `MetagenomeAnnotationActivity` used to be located in the hierarchy
+For example, the `MetagenomeAnnotationActivity` class used to be located in the hierarchy
 `Activity.WorkFlowExecutionActivity`, but now it and 11 similar classes are located in
 `NamedThing.PlannedProcess.WorkflowExecution`. The word `Activity`, inherited from the Provenance Ontology, has largely
 been removed from the schema, as `PlannedProcess` from the Ontology of Biomedical Investigations now plays a more
