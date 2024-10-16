@@ -68,7 +68,7 @@ renaming or other refactoring. For example, the fairly vague root class `OmicsPr
 - `MassSpectrometry`
 - `NucleotideSequencing`
 
-The leagcy `BiosampleProcessing` class (including `Pooling`, `LibraryPreparation`) and some classes that were previously
+The legacy `BiosampleProcessing` class (including `Pooling`, `LibraryPreparation`) and some classes that were previously
 direct subclasses of `PlannedProcess` (`Extraction`, `SubSamplingProcess`, `MixingProcess`, `FiltrationProcess`,
 `ChromatographicSeparationProcess`) have been re-rooted into a new `MaterialProcessing` class.
 
