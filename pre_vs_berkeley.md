@@ -95,8 +95,8 @@ direct subclasses of `PlannedProcess` (`Extraction`, `SubSamplingProcess`, `Mixi
 
 ![MaterialProcessing.png](MaterialProcessing.png)
 
-`StorageProcess` has been added as a new  `PlannedProcess` but is not considered `MaterialProcessing` because it does
-not intrinsically create new/modified samples.
+`StorageProcess` has been added as a new  `PlannedProcess` but the schema does not classify it as a
+`MaterialProcessing` because it does not intrinsically create new/modified samples.
 
 Terms that implied quantification like `MetaboliteQuantification` have been renamed to reemphasize the more fundamental
 activity of identifying, thus `MetaboliteIdentification`
