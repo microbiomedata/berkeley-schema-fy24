@@ -2,6 +2,16 @@
 
 _Corresponding to a jump from major version 10 to 11_
 
+### Conventions:
+
+- `this back-ticked font` is used to indicate the verbatim names of elements from the schema and variables, functions,
+  etc. in code
+- A dotted notation in the back-ticked font like `Vehichle.MotorVehicle.PassengerCar` indicates a class hierarchy.
+  `PassengerCar is_a MotorVehicle` and `MotorVehicle is_a Vehicle`. Note that there are numerous enforced or strongly
+  suggested conventions for LinkML schema naming, like UpperCamelCase for class names,
+  but [those conventions](https://linkml.io/linkml/schemas/linter.html#standard-naming) are not
+  discussed here.
+
 This major refactoring increases the number of **classes** in the schema from 70 to 75, but decreases the number of root
 classes from 19 to 17 due to better organization.
 
@@ -11,7 +21,6 @@ from any superclass. A routine part of schema maintenance is looking for opportu
 root classes.)_
 
 ## Table of classes removed, added or refactored in v10 to v11 migration
-
 
 | Removed legacy class                | New/Replacement class from Berkeley schema | Selected legacy parents   |
 |-------------------------------------|--------------------------------------------|---------------------------|
