@@ -5,6 +5,11 @@ _Corresponding to a jump from major version 10 to 11_
 This major refactoring increases the number of **classes** in the schema from 70 to 75, but decreases the number of root
 classes from 19 to 17 due to better organization.
 
+_You won't find any classes designated as root classes in the schema,
+but they can be inferred by the absence of any `is_a` assertions on the class. Root classes do not inherit anything
+from any superclass. A routine part of schema maintenance is looking for opportunities to group and generalize similar
+root classes.)_
+
 | Removed legacy class                | New/Replacement class from Berkeley schema | Selected legacy parents   |
 |-------------------------------------|--------------------------------------------|---------------------------|
 | Activity                            |                                            |                           |
@@ -264,7 +269,8 @@ The `part_of` slots has been replaced in many cases with more specific slots. Fo
 `associated_studies` relationship with `Study`.
 
 The NMDC schema has always imported many slots from the MIxS standard, and has generally associated them with the
-`Biosmaple` class. In schema v11, several of those have been de-associated with Biosample as they are't really attributes of Biosamples
+`Biosmaple` class. In schema v11, several of those have been de-associated with Biosample as they are't really
+attributes of Biosamples
 
 * chimera_check
 * nucl_acid_amp
@@ -401,18 +407,21 @@ slots, which might be counter-intuitive, until one considers that all of those s
 parent, `NamedThing` and that schema v11 forbids re-asserting slots that are inherited from a superclass.
 
 Expansions for the following prefixes were added:
+
 - NCBI _needs better modeling for NCBI taxonomy identifiers_
 - SO
 - jgi.analysis
 - MISO
 
 The following enumerations were removed:
+
 - CompoundEnum
 - DeviceEnum
 
 `processing_institution_enum` was renamed to `ProcessingInstitutionEnum`
 
 And the following enumerations were added:
+
 - AnalyteCategoryEnum
 - CalibrationStandardEnum
 - CalibrationTargetEnum
