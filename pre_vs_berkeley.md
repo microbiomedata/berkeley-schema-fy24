@@ -119,9 +119,10 @@ direct subclasses of `PlannedProcess` (`Extraction`, `SubSamplingProcess`, `Mixi
 Terms that implied quantification like `MetaboliteQuantification` have been renamed to reemphasize the more fundamental
 activity of identifying, thus `MetaboliteIdentification`
 
-A `CalibrationInformation` class and two `Configuration` classes have been added in support of chromatographic
-separations and mass spectrometry analyses. These are subclasses of the new `InformationObject`, which has also become
-the parent of `DataObject`, which used to be a direct subclass of `NamedThing`.
+A `CalibrationInformation` class, a `Configuration` class and two `Configuration` subclasses (illustrated below) have
+been added in support of chromatographic separations and mass spectrometry analyses. These are subclasses of the
+new `InformationObject`, which has also become the parent of `DataObject`, which used to be a direct subclass
+of `NamedThing`.
 
 ### v11.0.1
 
