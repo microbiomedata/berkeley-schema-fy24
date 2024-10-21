@@ -107,7 +107,7 @@ The legacy `BiosampleProcessing` class (including `Pooling`, `LibraryPreparation
 direct subclasses of `PlannedProcess` (`Extraction`, `SubSamplingProcess`, `MixingProcess`, `FiltrationProcess`,
 `ChromatographicSeparationProcess`) have been re-rooted into a new `MaterialProcessing` class.
 
-`DissolvingProcess` and `ChemicalConversionProcess` are new subclasses of `MaterialProcessing` as of v11.
+`DissolvingProcess` and `ChemicalConversionProcess` are new subclasses of `MaterialProcessing`.
 
 ### v11.0.1
 
