@@ -17,6 +17,8 @@ schema development included:
   data
 - Establishing schema development and modeling best practices and sharing domain understanding between subteams
 
+See also: https://github.com/microbiomedata/nmdc-schema/releases/tag/v11.0.0
+
 ## Conventions:
 
 - `this back-ticked font` is used to indicate the verbatim names of elements from the schema and variables, functions,
