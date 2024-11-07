@@ -339,12 +339,7 @@ classes:
     slot_usage:
       has_input:
         required: true
-        any_of:
-          - range: Biosample
-          - range: ProcessedSample
-        structured_pattern:
-          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
-          interpolated: true
+        range: Sample
       has_output:
         required: true
         structured_pattern:
@@ -486,12 +481,7 @@ classes:
       mass:
         description: The output mass of the SubSampling Process.
       has_input:
-        any_of:
-          - range: Biosample
-          - range: ProcessedSample
-        structured_pattern: # MAM 2024-05-22 isn't that inherited from a parent class?
-          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
-          interpolated: true
+        range: Sample
       has_output:
         range: ProcessedSample
         description: The subsample.
@@ -521,12 +511,7 @@ classes:
         structured_pattern:
           syntax: "{id_nmdc_prefix}:mixpro-{id_shoulder}-{id_blade}$"
       has_input:
-        any_of:
-          - range: Biosample
-          - range: ProcessedSample
-        structured_pattern: # MAM 2024-05-22 isn't that inherited from a parent class?
-          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
-          interpolated: true
+        range: Sample
       has_output:
         range: ProcessedSample
         description: The mixed sample.
@@ -564,9 +549,7 @@ classes:
       volume:
         description: The volume of sample filtered.
       has_input:
-        any_of:
-          - range: Biosample
-          - range: ProcessedSample
+        range: Sample
         structured_pattern:
           syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
           interpolated: true
@@ -624,12 +607,7 @@ classes:
         structured_pattern:
           syntax: "{id_nmdc_prefix}:cspro-{id_shoulder}-{id_blade}$"
       has_input:
-        any_of:
-          - range: Biosample
-          - range: ProcessedSample
-        structured_pattern:
-          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
-          interpolated: true
+        range: Sample
       has_output:
         range: ProcessedSample
         structured_pattern:

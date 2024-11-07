@@ -207,6 +207,22 @@ classes:
           syntax: "{id_nmdc_prefix}:frsite-{id_shoulder}-{id_blade}$"
           interpolated: true
 
+  Sample:
+    class_uri: nmdc:Sample
+    is_a: MaterialEntity
+    description: >- 
+    slot_usage:
+      id:
+        required: true
+        description: An NMDC assigned unique identifier for a biosample or processed sample.
+        structured_pattern:
+          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
+          interpolated: true
+    in_subset:
+      - sample subset
+    broad_mappings:
+      - OBI:0000747  # material sample
+
 
   Biosample:
     class_uri: 'nmdc:Biosample'
@@ -261,7 +277,7 @@ classes:
       samp_name_unique_key:
         unique_key_slots:
           - samp_name # id is already required to be unique because it is the identifier in Biosample's parent class, NamedThing
-    is_a: MaterialEntity
+    is_a: Sample
     in_subset:
       - sample subset
     aliases:
@@ -1209,12 +1225,7 @@ classes:
       - This class is a replacement for BiosampleProcessing.
     slot_usage:
       has_input:
-        any_of:
-          - range: Biosample
-          - range: ProcessedSample
-        structured_pattern:
-          syntax: "{id_nmdc_prefix}:(bsm|procsm)-{id_shoulder}-{id_blade}$"
-          interpolated: true
+        range: Sample
       has_output:
         range: ProcessedSample
         structured_pattern:
@@ -1241,14 +1252,13 @@ classes:
 
   ProcessedSample:
     class_uri: nmdc:ProcessedSample
-    is_a: MaterialEntity
+    is_a: Sample
     title: Processed Sample
     slots:
       - biomaterial_purity
       - dna_absorb1
       - dna_concentration
       - external_database_identifiers
-
     slot_usage:
       id:
         required: true
